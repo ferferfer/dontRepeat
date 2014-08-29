@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
+		3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6319A64C7600C10435 /* FERUserManager.m */; };
+		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
+		3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA996B119A655B5003B00AE /* FERLoginViewController.m */; };
+		3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */; };
+		3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */; };
+		3FAA20A419A517C8003E22AC /* dress.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAA20A319A517C8003E22AC /* dress.png */; };
+		3FAA20A619A5235A003E22AC /* newDress.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAA20A519A5235A003E22AC /* newDress.png */; };
+		3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */; };
+		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
+		3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */; };
 		3FEC01D919A4AFDA00C85141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01D819A4AFDA00C85141 /* Foundation.framework */; };
 		3FEC01DB19A4AFDA00C85141 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01DA19A4AFDA00C85141 /* CoreGraphics.framework */; };
 		3FEC01DD19A4AFDA00C85141 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01DC19A4AFDA00C85141 /* UIKit.framework */; };
 		3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC01E119A4AFDA00C85141 /* InfoPlist.strings */; };
 		3FEC01E519A4AFDA00C85141 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC01E419A4AFDA00C85141 /* main.m */; };
 		3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC01E819A4AFDA00C85141 /* FERAppDelegate.m */; };
-		3FEC01EC19A4AFDA00C85141 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC01EA19A4AFDA00C85141 /* Main_iPhone.storyboard */; };
 		3FEC01EF19A4AFDA00C85141 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC01ED19A4AFDA00C85141 /* Main_iPad.storyboard */; };
-		3FEC01F219A4AFDA00C85141 /* FERViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC01F119A4AFDA00C85141 /* FERViewController.m */; };
 		3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC01F319A4AFDA00C85141 /* Images.xcassets */; };
 		3FEC01FB19A4AFDA00C85141 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01FA19A4AFDA00C85141 /* XCTest.framework */; };
 		3FEC01FC19A4AFDA00C85141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01D819A4AFDA00C85141 /* Foundation.framework */; };
 		3FEC01FD19A4AFDA00C85141 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01DC19A4AFDA00C85141 /* UIKit.framework */; };
 		3FEC020519A4AFDA00C85141 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC020319A4AFDA00C85141 /* InfoPlist.strings */; };
 		3FEC020719A4AFDA00C85141 /* DontRepeatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC020619A4AFDA00C85141 /* DontRepeatTests.m */; };
+		3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */; };
+		3FEC021D19A4B0C700C85141 /* Suitcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC021819A4B0C700C85141 /* Suitcase.m */; };
+		D388CAF56A874C259DC89E43 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA850BEC4643DEA1901786 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DA850BEC4643DEA1901786 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginManager.h; sourceTree = "<group>"; };
+		3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginManager.m; sourceTree = "<group>"; };
+		3F9F4D6219A64C7600C10435 /* FERUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUserManager.h; sourceTree = "<group>"; };
+		3F9F4D6319A64C7600C10435 /* FERUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUserManager.m; sourceTree = "<group>"; };
+		3F9F4D6719A64D5900C10435 /* FERUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUser.h; sourceTree = "<group>"; };
+		3F9F4D6819A64D5900C10435 /* FERUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUser.m; sourceTree = "<group>"; };
+		3FA996B019A655B5003B00AE /* FERLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginViewController.h; sourceTree = "<group>"; };
+		3FA996B119A655B5003B00AE /* FERLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginViewController.m; sourceTree = "<group>"; };
+		3FAA209D19A5018F003E22AC /* FERDontRepeatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatCell.h; sourceTree = "<group>"; };
+		3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDontRepeatCell.m; sourceTree = "<group>"; };
+		3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERMainCollectionView.h; sourceTree = "<group>"; };
+		3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERMainCollectionView.m; sourceTree = "<group>"; };
+		3FAA20A319A517C8003E22AC /* dress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress.png; sourceTree = "<group>"; };
+		3FAA20A519A5235A003E22AC /* newDress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newDress.png; sourceTree = "<group>"; };
+		3FB15DCC19AB59A200F6BD26 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSimpleLogin.framework; path = ../../Downloads/FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		3FB15DD019AB59B500F6BD26 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSimpleLogin.framework; path = Frameworks/FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		3FEC01D519A4AFDA00C85141 /* DontRepeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DontRepeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEC01D819A4AFDA00C85141 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FEC01DA19A4AFDA00C85141 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,16 +76,17 @@
 		3FEC01E619A4AFDA00C85141 /* DontRepeat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DontRepeat-Prefix.pch"; sourceTree = "<group>"; };
 		3FEC01E719A4AFDA00C85141 /* FERAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FERAppDelegate.h; sourceTree = "<group>"; };
 		3FEC01E819A4AFDA00C85141 /* FERAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FERAppDelegate.m; sourceTree = "<group>"; };
-		3FEC01EB19A4AFDA00C85141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		3FEC01EE19A4AFDA00C85141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		3FEC01F019A4AFDA00C85141 /* FERViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FERViewController.h; sourceTree = "<group>"; };
-		3FEC01F119A4AFDA00C85141 /* FERViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FERViewController.m; sourceTree = "<group>"; };
 		3FEC01F319A4AFDA00C85141 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3FEC01F919A4AFDA00C85141 /* DontRepeatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DontRepeatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEC01FA19A4AFDA00C85141 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3FEC020219A4AFDA00C85141 /* DontRepeatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DontRepeatTests-Info.plist"; sourceTree = "<group>"; };
 		3FEC020419A4AFDA00C85141 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FEC020619A4AFDA00C85141 /* DontRepeatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DontRepeatTests.m; sourceTree = "<group>"; };
+		3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		3FEC021719A4B0C700C85141 /* Suitcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suitcase.h; sourceTree = "<group>"; };
+		3FEC021819A4B0C700C85141 /* Suitcase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Suitcase.m; sourceTree = "<group>"; };
+		9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +94,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */,
+				3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */,
+				3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */,
 				3FEC01DB19A4AFDA00C85141 /* CoreGraphics.framework in Frameworks */,
 				3FEC01DD19A4AFDA00C85141 /* UIKit.framework in Frameworks */,
 				3FEC01D919A4AFDA00C85141 /* Foundation.framework in Frameworks */,
+				D388CAF56A874C259DC89E43 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +124,7 @@
 				3FEC020019A4AFDA00C85141 /* DontRepeatTests */,
 				3FEC01D719A4AFDA00C85141 /* Frameworks */,
 				3FEC01D619A4AFDA00C85141 /* Products */,
+				9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +140,15 @@
 		3FEC01D719A4AFDA00C85141 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */,
+				3FB15DD019AB59B500F6BD26 /* Social.framework */,
+				3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */,
+				3FB15DCC19AB59A200F6BD26 /* FirebaseSimpleLogin.framework */,
 				3FEC01D819A4AFDA00C85141 /* Foundation.framework */,
 				3FEC01DA19A4AFDA00C85141 /* CoreGraphics.framework */,
 				3FEC01DC19A4AFDA00C85141 /* UIKit.framework */,
 				3FEC01FA19A4AFDA00C85141 /* XCTest.framework */,
+				00DA850BEC4643DEA1901786 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,12 +156,26 @@
 		3FEC01DE19A4AFDA00C85141 /* DontRepeat */ = {
 			isa = PBXGroup;
 			children = (
+				3F9F4D6719A64D5900C10435 /* FERUser.h */,
+				3F9F4D6819A64D5900C10435 /* FERUser.m */,
+				3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */,
+				3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */,
+				3F9F4D6219A64C7600C10435 /* FERUserManager.h */,
+				3F9F4D6319A64C7600C10435 /* FERUserManager.m */,
+				3FAA20A519A5235A003E22AC /* newDress.png */,
+				3FAA20A319A517C8003E22AC /* dress.png */,
+				3FA996B019A655B5003B00AE /* FERLoginViewController.h */,
+				3FA996B119A655B5003B00AE /* FERLoginViewController.m */,
+				3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */,
+				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
+				3FAA209D19A5018F003E22AC /* FERDontRepeatCell.h */,
+				3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */,
+				3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */,
+				3FEC021719A4B0C700C85141 /* Suitcase.h */,
+				3FEC021819A4B0C700C85141 /* Suitcase.m */,
 				3FEC01E719A4AFDA00C85141 /* FERAppDelegate.h */,
 				3FEC01E819A4AFDA00C85141 /* FERAppDelegate.m */,
-				3FEC01EA19A4AFDA00C85141 /* Main_iPhone.storyboard */,
 				3FEC01ED19A4AFDA00C85141 /* Main_iPad.storyboard */,
-				3FEC01F019A4AFDA00C85141 /* FERViewController.h */,
-				3FEC01F119A4AFDA00C85141 /* FERViewController.m */,
 				3FEC01F319A4AFDA00C85141 /* Images.xcassets */,
 				3FEC01DF19A4AFDA00C85141 /* Supporting Files */,
 			);
@@ -162,9 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FEC020A19A4AFDA00C85141 /* Build configuration list for PBXNativeTarget "DontRepeat" */;
 			buildPhases = (
+				EC4F2F4FB2C44E5799D67FA6 /* Check Pods Manifest.lock */,
 				3FEC01D119A4AFDA00C85141 /* Sources */,
 				3FEC01D219A4AFDA00C85141 /* Frameworks */,
 				3FEC01D319A4AFDA00C85141 /* Resources */,
+				C006BFE9A8A0491692749B24 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,8 +292,10 @@
 			files = (
 				3FEC01EF19A4AFDA00C85141 /* Main_iPad.storyboard in Resources */,
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
-				3FEC01EC19A4AFDA00C85141 /* Main_iPhone.storyboard in Resources */,
+				3FAA20A619A5235A003E22AC /* newDress.png in Resources */,
+				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
+				3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,14 +309,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C006BFE9A8A0491692749B24 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC4F2F4FB2C44E5799D67FA6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3FEC01D119A4AFDA00C85141 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
+				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
+				3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
-				3FEC01F219A4AFDA00C85141 /* FERViewController.m in Sources */,
+				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,
+				3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */,
+				3FEC021D19A4B0C700C85141 /* Suitcase.m in Sources */,
 				3FEC01E519A4AFDA00C85141 /* main.m in Sources */,
+				3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,14 +384,6 @@
 				3FEC01E219A4AFDA00C85141 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3FEC01EA19A4AFDA00C85141 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3FEC01EB19A4AFDA00C85141 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		3FEC01ED19A4AFDA00C85141 /* Main_iPad.storyboard */ = {
@@ -388,12 +479,24 @@
 		};
 		3FEC020B19A4AFDA00C85141 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					/Users/ferBook/Downloads,
+					/Users/ferBook/Documents/iPhone,
+					"Stuff/rmaqueda-nodj-896932f7fb87/noDJ/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DontRepeat/DontRepeat-Prefix.pch";
 				INFOPLIST_FILE = "DontRepeat/DontRepeat-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -401,12 +504,24 @@
 		};
 		3FEC020C19A4AFDA00C85141 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					/Users/ferBook/Downloads,
+					/Users/ferBook/Documents/iPhone,
+					"Stuff/rmaqueda-nodj-896932f7fb87/noDJ/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DontRepeat/DontRepeat-Prefix.pch";
 				INFOPLIST_FILE = "DontRepeat/DontRepeat-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -471,6 +586,7 @@
 				3FEC020C19A4AFDA00C85141 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FEC020D19A4AFDA00C85141 /* Build configuration list for PBXNativeTarget "DontRepeatTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +595,7 @@
 				3FEC020F19A4AFDA00C85141 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
