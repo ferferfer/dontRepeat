@@ -130,16 +130,8 @@
                                 <segment title="Moments"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="yjt-Rt-1Hx">
-                            <connections>
-                                <action selector="delete:" destination="0r6-bs-tRG" id="PjH-FF-lKK"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="trash" destination="yjt-Rt-1Hx" id="kdF-L9-JZj"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inc-Ux-9y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

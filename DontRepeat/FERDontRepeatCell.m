@@ -31,14 +31,14 @@
 }
 */
 
--(void)setSelected:(BOOL)selected{
-	[super setSelected:selected];
-	if (selected) {
-    self.thumbnail.alpha=0.5;
-	}else{
-		self.thumbnail.alpha=1;
-	}
-}
+//-(void)setSelected:(BOOL)selected{
+//	[super setSelected:selected];
+//	if (selected) {
+//    self.thumbnail.alpha=0.5;
+//	}else{
+//		self.thumbnail.alpha=1;
+//	}
+//}
 
 -(void)configura{
 	self.thumbnail=[[UIImageView alloc]initWithFrame:CGRectMake(10, 0, self.bounds.size.width, self.bounds.size.height-20)];

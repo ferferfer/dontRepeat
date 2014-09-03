@@ -14,9 +14,6 @@
 @property (nonatomic,strong)UICollectionView *collectionViewProperty;
 @property	(nonatomic,strong)UICollectionViewFlowLayout *horizontalFlowLayout;
 @property (nonatomic,strong)NSMutableSet *selectedCells;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *trash;
-
-
 
 @end
 
@@ -25,9 +22,6 @@
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	[self cargaHorizontalLayout];
-	self.trash.enabled=NO;
-	
-	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
 	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.horizontalFlowLayout];
 	//ADDED THE SUBVIEW AND DATA SOURCE
@@ -42,14 +36,6 @@
 	self.collectionViewProperty.allowsMultipleSelection=YES;
 	self.collectionViewProperty.delegate=self;
 	
-}
-
-
--(NSMutableSet*)selectedCells{
-	if(!_selectedCells){
-		_selectedCells=[[NSMutableSet alloc]init];
-	}
-	return _selectedCells;
 }
 
 -(void)cargaHorizontalLayout{
@@ -87,45 +73,15 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
-	if([self.editButtonItem.title isEqualToString:@"Done"]){
-		[self.selectedCells addObject:indexPath];
-		self.trash.enabled=YES;
-	}else{
-		[self performSegueWithIdentifier:@"detailSegue" sender:self];
-	}
-
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-	if([self.editButtonItem.title isEqualToString:@"Done"]){
-		[self.selectedCells removeObject:indexPath];
-		if(self.selectedCells.count==0){
-			self.trash.enabled=NO;
-		}
-	}
-}
-
-- (IBAction)delete:(id)sender {
-	[self.collectionViewProperty performBatchUpdates:^{
-		[self.collectionViewProperty deleteItemsAtIndexPaths:self.selectedCells.allObjects];
-		for (int c=0;c<7;c++){
-			NSMutableIndexSet *indexSet=[[NSMutableIndexSet alloc]init];
-			for(NSIndexPath *indexPath in self.selectedCells){
-				if (indexPath.section==c) {
-					[indexSet addIndex:indexPath.row];
-				}
-			}
-		}
-		self.selectedCells=[[NSMutableSet alloc]init];
-		self.trash.enabled=NO;
-	}completion:nil];
-	
 }
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	
-	if ([segue.identifier isEqualToString:@"pasarPajaro"]){
+	if ([segue.identifier isEqualToString:@"detailSegue"]){
 	
 	}
 	
