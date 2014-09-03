@@ -10,6 +10,7 @@
 		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
 		3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6319A64C7600C10435 /* FERUserManager.m */; };
 		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
+		3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */; };
 		3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA996B119A655B5003B00AE /* FERLoginViewController.m */; };
 		3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */; };
 		3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */; };
@@ -54,6 +55,8 @@
 		3F9F4D6319A64C7600C10435 /* FERUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUserManager.m; sourceTree = "<group>"; };
 		3F9F4D6719A64D5900C10435 /* FERUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUser.h; sourceTree = "<group>"; };
 		3F9F4D6819A64D5900C10435 /* FERUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUser.m; sourceTree = "<group>"; };
+		3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERPlistManager.h; sourceTree = "<group>"; };
+		3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManager.m; sourceTree = "<group>"; };
 		3FA996B019A655B5003B00AE /* FERLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginViewController.h; sourceTree = "<group>"; };
 		3FA996B119A655B5003B00AE /* FERLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginViewController.m; sourceTree = "<group>"; };
 		3FAA209D19A5018F003E22AC /* FERDontRepeatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatCell.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 		3FEC01DE19A4AFDA00C85141 /* DontRepeat */ = {
 			isa = PBXGroup;
 			children = (
+				3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */,
+				3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */,
 				3F9F4D6719A64D5900C10435 /* FERUser.h */,
 				3F9F4D6819A64D5900C10435 /* FERUser.m */,
 				3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */,
@@ -349,6 +354,7 @@
 			files = (
 				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
+				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
 				3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
 				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,

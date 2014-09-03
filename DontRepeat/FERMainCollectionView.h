@@ -10,6 +10,4 @@
 
 @interface FERMainCollectionView : UIViewController
 
-@property	(nonatomic,strong)UIImageView *imageView;
-
 @end

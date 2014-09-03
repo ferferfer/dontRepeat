@@ -30,7 +30,7 @@
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
 	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.horizontalFlowLayout];
-	//AÑADO LA SUBVISTA Y EL DATA SOURCE
+	//ADDED THE SUBVIEW AND DATA SOURCE
 	[self.view addSubview:self.collectionViewProperty];
 	self.collectionViewProperty.dataSource=self;
 	
@@ -38,7 +38,7 @@
 	self.collectionViewProperty.contentInset=UIEdgeInsetsMake(64, 0, 0, 0);
 	[self.collectionViewProperty registerClass:[FERDontRepeatCell class] forCellWithReuseIdentifier:@"dontRepeatCell"];
 	
-	//Xa la seleccion
+	//For the selection
 	self.collectionViewProperty.allowsMultipleSelection=YES;
 	self.collectionViewProperty.delegate=self;
 	
@@ -82,21 +82,26 @@
 	cell.title.text=@"reuninon con telefonica";
 	cell.dateLabel.text=@"02/02/20";
 	
-	//[self performSegueWithIdentifier:@"detailSegue" sender:self];
-	
 	return cell;
 }
 
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+	if([self.editButtonItem.title isEqualToString:@"Done"]){
 		[self.selectedCells addObject:indexPath];
 		self.trash.enabled=YES;
+	}else{
+		[self performSegueWithIdentifier:@"detailSegue" sender:self];
+	}
+
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-	[self.selectedCells removeObject:indexPath];
-	if(self.selectedCells.count==0){
-		self.trash.enabled=NO;
+	if([self.editButtonItem.title isEqualToString:@"Done"]){
+		[self.selectedCells removeObject:indexPath];
+		if(self.selectedCells.count==0){
+			self.trash.enabled=NO;
+		}
 	}
 }
 
@@ -117,17 +122,11 @@
 	
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-	switch (editingStyle) {
-		case UITableViewCellEditingStyleDelete: {
-					}
-			break;
-			
-		case UITableViewCellEditingStyleInsert: {
-					}
-			break;
-		default:
-			break;
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	
+	if ([segue.identifier isEqualToString:@"pasarPajaro"]){
+	
 	}
 	
 }

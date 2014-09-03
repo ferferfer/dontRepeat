@@ -9,6 +9,7 @@
 #import "FERLoginViewController.h"
 #import "FERUser.h"
 #import "FERMainCollectionView.h"
+#import "FERPlistManager.h"
 #import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
@@ -17,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
-@property (nonatomic,strong)FERUser *user;
-
+@property (nonatomic,strong)FERUser *theUser;
+@property (nonatomic,strong)FERPlistManager *plist;
 @property	(nonatomic,strong)FirebaseSimpleLogin* authClient;
 @property	(nonatomic,strong)Firebase* ref;
 
@@ -31,6 +32,10 @@
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	self.isSingUp=NO;
+	self.theUser=[self checkIfSingnedUp];
+	if (self.theUser.userMail!=nil) {
+		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+	}
 	// Do any additional setup after loading the view.
 }
 
@@ -48,13 +53,21 @@
 	return _authClient;
 }
 
--(FERUser *)user{
-	if (_user==nil) {
-		_user=[[FERUser alloc]init];
+-(FERUser *)theUser{
+	if (_theUser==nil) {
+		_theUser=[[FERUser alloc]init];
 		
 	}
-	return _user;
+	return _theUser;
 }
+
+-(FERPlistManager	*)plist{
+	if (_plist==nil) {
+		_plist=[[FERPlistManager alloc]init];
+	}
+	return _plist;
+}
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -63,17 +76,17 @@
 }
 
 - (void)textFieldFinished:(UITextField *)sender{
-	self.user.userMail = self.email.text;
-	self.user.userPassword = self.password.text;
+	self.theUser.userMail = self.email.text;
+	self.theUser.userPassword = self.password.text;
 }
 
 
 - (IBAction)loginPressed:(id)sender {
-	[self loginUser:self.user];
+	[self loginUser:self.theUser];
 }
 
 - (IBAction)singUpPressed:(id)sender {
-	[self singUpUser:self.user];
+	[self singUpUser:self.theUser];
 }
 
 #pragma mark - User SingUp
@@ -100,6 +113,11 @@
 									NSLog(@"There was an error logging in to this account");
 								} else {
 									self.isSingUp=YES;
+									
+									self.theUser.userMail=self.email.text;
+									self.theUser.userPassword=self.password.text;
+									[self.plist addUser:self.theUser];
+									
 									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 									NSLog(@"We are now logged in");// We are now logged in
 								}
@@ -134,6 +152,13 @@
 	
 }
 
+-(FERUser *)checkIfSingnedUp{
+	FERUser *user=[[FERUser alloc]init];
+	if([self.plist numberOfUsersInPlist]>0){
+		user= [self.plist loadUser];
+	}
+	return user;
+}
 
 #pragma mark - Navigation
 
