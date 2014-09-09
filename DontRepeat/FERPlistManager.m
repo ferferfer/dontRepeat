@@ -20,11 +20,12 @@
 	[newUser setValue:user.userMail forKey:@"userMail"];
 	[newUser setValue:user.userID forKey:@"userID"];
 	
-	NSMutableArray *array=[[NSMutableArray alloc]init];
-	if ([self numberOfUsersInPlist]>0){
+	NSMutableArray *array=[NSMutableArray arrayWithContentsOfFile:filePath];
+	if (array) {
 		[array removeObjectAtIndex:0];
 		[array insertObject:newUser atIndex:0];
 	}else{
+		array=[[NSMutableArray alloc]init];
 		[array addObject:newUser];
 	}
 	

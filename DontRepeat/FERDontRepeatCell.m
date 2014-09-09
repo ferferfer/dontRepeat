@@ -22,43 +22,31 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
-//-(void)setSelected:(BOOL)selected{
-//	[super setSelected:selected];
-//	if (selected) {
-//    self.thumbnail.alpha=0.5;
-//	}else{
-//		self.thumbnail.alpha=1;
-//	}
-//}
-
 -(void)configura{
-	self.thumbnail=[[UIImageView alloc]initWithFrame:CGRectMake(10, 0, self.bounds.size.width, self.bounds.size.height-20)];
+	
+	self.contentView.backgroundColor=[UIColor clearColor];
+	
+	self.thumbnail=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
 	self.thumbnail.contentMode=UIViewContentModeScaleAspectFill;
-	self.thumbnail.layer.borderColor=[UIColor whiteColor].CGColor;
-	self.thumbnail.layer.borderWidth=5.0;
+//	self.thumbnail.layer.borderColor=[UIColor whiteColor].CGColor;
+//	self.thumbnail.layer.borderWidth=5.0;
+	self.thumbnail.layer.cornerRadius=25.0;
+	[self.thumbnail setClipsToBounds:YES];
 	[self.contentView addSubview:self.thumbnail];
 
-	self.title.backgroundColor = [UIColor clearColor];
-	self.title.font = [UIFont systemFontOfSize:12];
+	self.title=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 25)];
+	[self.title setFont:[UIFont fontWithName:@"Arial-BoldMT" size:24]];
 	self.title.adjustsFontSizeToFitWidth = YES;
-	self.title.textColor = [UIColor colorWithRed:188 green:149 blue:88 alpha:1.0];
+	[self.title setTextAlignment:NSTextAlignmentCenter];
+	self.title.textColor = [UIColor blackColor];
 	[self.thumbnail addSubview:self.title];
-
-	self.dateLabel.backgroundColor = [UIColor clearColor];
-	self.dateLabel.font = [UIFont systemFontOfSize:12];
-	self.dateLabel.adjustsFontSizeToFitWidth = YES;
-	self.dateLabel.textColor = [UIColor colorWithRed:188 green:149 blue:88 alpha:1.0];
-	[self.thumbnail addSubview:self.dateLabel];
 	
+	self.dateLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-20, self.bounds.size.width, 20)];
+	[self.dateLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:24]];
+	self.dateLabel.adjustsFontSizeToFitWidth = YES;
+	[self.dateLabel setTextAlignment:NSTextAlignmentCenter];
+	self.dateLabel.textColor = [UIColor blackColor];
+	[self.thumbnail addSubview:self.dateLabel];
 	
 	self.contentView.clipsToBounds=YES;
 	

@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */; };
+		3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D319B7260800797C84 /* FERFirebaseManager.m */; };
+		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
 		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
 		3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6319A64C7600C10435 /* FERUserManager.m */; };
 		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
+		3FA7B53919BDACA8004365C1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA7B53819BDACA7004365C1 /* background.png */; };
 		3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */; };
 		3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA996B119A655B5003B00AE /* FERLoginViewController.m */; };
 		3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */; };
@@ -33,7 +37,7 @@
 		3FEC020519A4AFDA00C85141 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC020319A4AFDA00C85141 /* InfoPlist.strings */; };
 		3FEC020719A4AFDA00C85141 /* DontRepeatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC020619A4AFDA00C85141 /* DontRepeatTests.m */; };
 		3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */; };
-		3FEC021D19A4B0C700C85141 /* Suitcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC021819A4B0C700C85141 /* Suitcase.m */; };
+		3FEC021D19A4B0C700C85141 /* DontRepeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC021819A4B0C700C85141 /* DontRepeat.m */; };
 		D388CAF56A874C259DC89E43 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA850BEC4643DEA1901786 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,12 +53,19 @@
 
 /* Begin PBXFileReference section */
 		00DA850BEC4643DEA1901786 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatViewController.h; sourceTree = "<group>"; };
+		3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDontRepeatViewController.m; sourceTree = "<group>"; };
+		3F5A84D219B7260800797C84 /* FERFirebaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFirebaseManager.h; sourceTree = "<group>"; };
+		3F5A84D319B7260800797C84 /* FERFirebaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFirebaseManager.m; sourceTree = "<group>"; };
+		3F5A84DB19B765D100797C84 /* FERFormatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFormatHelper.h; sourceTree = "<group>"; };
+		3F5A84DC19B765D100797C84 /* FERFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelper.m; sourceTree = "<group>"; };
 		3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginManager.h; sourceTree = "<group>"; };
 		3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginManager.m; sourceTree = "<group>"; };
 		3F9F4D6219A64C7600C10435 /* FERUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUserManager.h; sourceTree = "<group>"; };
 		3F9F4D6319A64C7600C10435 /* FERUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUserManager.m; sourceTree = "<group>"; };
 		3F9F4D6719A64D5900C10435 /* FERUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUser.h; sourceTree = "<group>"; };
 		3F9F4D6819A64D5900C10435 /* FERUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUser.m; sourceTree = "<group>"; };
+		3FA7B53819BDACA7004365C1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERPlistManager.h; sourceTree = "<group>"; };
 		3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManager.m; sourceTree = "<group>"; };
 		3FA996B019A655B5003B00AE /* FERLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginViewController.h; sourceTree = "<group>"; };
@@ -87,8 +98,8 @@
 		3FEC020419A4AFDA00C85141 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FEC020619A4AFDA00C85141 /* DontRepeatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DontRepeatTests.m; sourceTree = "<group>"; };
 		3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
-		3FEC021719A4B0C700C85141 /* Suitcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suitcase.h; sourceTree = "<group>"; };
-		3FEC021819A4B0C700C85141 /* Suitcase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Suitcase.m; sourceTree = "<group>"; };
+		3FEC021719A4B0C700C85141 /* DontRepeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DontRepeat.h; sourceTree = "<group>"; };
+		3FEC021819A4B0C700C85141 /* DontRepeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DontRepeat.m; sourceTree = "<group>"; };
 		9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +131,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F5A84D519B7261900797C84 /* PlistManagers */ = {
+			isa = PBXGroup;
+			children = (
+				3F9F4D6219A64C7600C10435 /* FERUserManager.h */,
+				3F9F4D6319A64C7600C10435 /* FERUserManager.m */,
+				3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */,
+				3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */,
+			);
+			name = PlistManagers;
+			sourceTree = "<group>";
+		};
+		3F5A84D619B7263700797C84 /* FireBaseManagers */ = {
+			isa = PBXGroup;
+			children = (
+				3F5A84D219B7260800797C84 /* FERFirebaseManager.h */,
+				3F5A84D319B7260800797C84 /* FERFirebaseManager.m */,
+				3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */,
+				3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */,
+			);
+			name = FireBaseManagers;
+			sourceTree = "<group>";
+		};
+		3F5A84D719B7266300797C84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FEC021719A4B0C700C85141 /* DontRepeat.h */,
+				3FEC021819A4B0C700C85141 /* DontRepeat.m */,
+				3F9F4D6719A64D5900C10435 /* FERUser.h */,
+				3F9F4D6819A64D5900C10435 /* FERUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3F5A84D819B7267700797C84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */,
+				3FEC01ED19A4AFDA00C85141 /* Main_iPad.storyboard */,
+				3FAA209D19A5018F003E22AC /* FERDontRepeatCell.h */,
+				3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3F5A84D919B7268100797C84 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FA996B019A655B5003B00AE /* FERLoginViewController.h */,
+				3FA996B119A655B5003B00AE /* FERLoginViewController.m */,
+				3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */,
+				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
+				3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */,
+				3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3F5A84DA19B765B500797C84 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F5A84DB19B765D100797C84 /* FERFormatHelper.h */,
+				3F5A84DC19B765D100797C84 /* FERFormatHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		3FEC01CC19A4AFDA00C85141 = {
 			isa = PBXGroup;
 			children = (
@@ -159,28 +236,17 @@
 		3FEC01DE19A4AFDA00C85141 /* DontRepeat */ = {
 			isa = PBXGroup;
 			children = (
-				3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */,
-				3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */,
-				3F9F4D6719A64D5900C10435 /* FERUser.h */,
-				3F9F4D6819A64D5900C10435 /* FERUser.m */,
-				3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */,
-				3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */,
-				3F9F4D6219A64C7600C10435 /* FERUserManager.h */,
-				3F9F4D6319A64C7600C10435 /* FERUserManager.m */,
-				3FAA20A519A5235A003E22AC /* newDress.png */,
-				3FAA20A319A517C8003E22AC /* dress.png */,
-				3FA996B019A655B5003B00AE /* FERLoginViewController.h */,
-				3FA996B119A655B5003B00AE /* FERLoginViewController.m */,
-				3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */,
-				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
-				3FAA209D19A5018F003E22AC /* FERDontRepeatCell.h */,
-				3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */,
-				3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */,
-				3FEC021719A4B0C700C85141 /* Suitcase.h */,
-				3FEC021819A4B0C700C85141 /* Suitcase.m */,
 				3FEC01E719A4AFDA00C85141 /* FERAppDelegate.h */,
 				3FEC01E819A4AFDA00C85141 /* FERAppDelegate.m */,
-				3FEC01ED19A4AFDA00C85141 /* Main_iPad.storyboard */,
+				3F5A84DA19B765B500797C84 /* Helpers */,
+				3F5A84D919B7268100797C84 /* Controllers */,
+				3F5A84D819B7267700797C84 /* View */,
+				3F5A84D719B7266300797C84 /* Model */,
+				3F5A84D619B7263700797C84 /* FireBaseManagers */,
+				3F5A84D519B7261900797C84 /* PlistManagers */,
+				3FAA20A519A5235A003E22AC /* newDress.png */,
+				3FA7B53819BDACA7004365C1 /* background.png */,
+				3FAA20A319A517C8003E22AC /* dress.png */,
 				3FEC01F319A4AFDA00C85141 /* Images.xcassets */,
 				3FEC01DF19A4AFDA00C85141 /* Supporting Files */,
 			);
@@ -297,6 +363,7 @@
 			files = (
 				3FEC01EF19A4AFDA00C85141 /* Main_iPad.storyboard in Resources */,
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
+				3FA7B53919BDACA8004365C1 /* background.png in Resources */,
 				3FAA20A619A5235A003E22AC /* newDress.png in Resources */,
 				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
@@ -354,12 +421,15 @@
 			files = (
 				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
+				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
+				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
 				3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
 				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,
 				3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */,
-				3FEC021D19A4B0C700C85141 /* Suitcase.m in Sources */,
+				3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */,
+				3FEC021D19A4B0C700C85141 /* DontRepeat.m in Sources */,
 				3FEC01E519A4AFDA00C85141 /* main.m in Sources */,
 				3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */,
 			);
@@ -489,13 +559,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-					/Users/ferBook/Downloads,
-					/Users/ferBook/Documents/iPhone,
-					"Stuff/rmaqueda-nodj-896932f7fb87/noDJ/Frameworks",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DontRepeat/DontRepeat-Prefix.pch";
 				INFOPLIST_FILE = "DontRepeat/DontRepeat-Info.plist";
@@ -514,13 +577,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-					/Users/ferBook/Downloads,
-					/Users/ferBook/Documents/iPhone,
-					"Stuff/rmaqueda-nodj-896932f7fb87/noDJ/Frameworks",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DontRepeat/DontRepeat-Prefix.pch";
 				INFOPLIST_FILE = "DontRepeat/DontRepeat-Info.plist";
@@ -528,6 +584,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

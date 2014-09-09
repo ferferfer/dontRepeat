@@ -7,12 +7,13 @@
 //
 
 #import "FERLoginViewController.h"
-#import "FERUser.h"
+#import "FERFirebaseManager.h"
 #import "FERMainCollectionView.h"
 #import "FERPlistManager.h"
+#import "FERUser.h"
+
 #import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
-
 
 @interface FERLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *email;
@@ -22,20 +23,21 @@
 @property (nonatomic,strong)FERPlistManager *plist;
 @property	(nonatomic,strong)FirebaseSimpleLogin* authClient;
 @property	(nonatomic,strong)Firebase* ref;
+@property	(nonatomic,strong)FERFirebaseManager* fireManager;
 
-
-@property (nonatomic, assign) BOOL isSingUp;
 @end
 
 @implementation FERLoginViewController
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
-	self.isSingUp=NO;
-	self.theUser=[self checkIfSingnedUp];
-	if (self.theUser.userMail!=nil) {
-		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
-	}
+	
+	[self loginProcess];
+	//
+	//	self.theUser=[self checkIfSingnedUp];
+	//	if (self.theUser.userMail!=nil) {
+	//		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+	//	}
 	// Do any additional setup after loading the view.
 }
 
@@ -68,35 +70,38 @@
 	return _plist;
 }
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	[self.view endEditing:YES];
-	[self textFieldFinished:self.email];
+-(FERFirebaseManager *)fireManager{
+	if (_fireManager==nil) {
+		_fireManager=[[FERFirebaseManager alloc]init];
+	}
+	return _fireManager;
 }
 
-- (void)textFieldFinished:(UITextField *)sender{
+- (void)saveUser{
 	self.theUser.userMail = self.email.text;
 	self.theUser.userPassword = self.password.text;
 }
 
 
 - (IBAction)loginPressed:(id)sender {
+	[self saveUser];
 	[self loginUser:self.theUser];
 }
 
 - (IBAction)singUpPressed:(id)sender {
+	[self saveUser];
 	[self singUpUser:self.theUser];
 }
 
 #pragma mark - User SingUp
--(void)singUpUser:(FERUser *)user{
-	[self.authClient createUserWithEmail:self.email.text password:self.password.text
+-(void)singUpUser:(FERUser *)theUser{
+	[self.authClient createUserWithEmail:theUser.userMail password:theUser.userPassword
 										andCompletionBlock:^(NSError* error, FAUser* user) {
 											if (error != nil) {
 												[self alertRegisterErrorMailInUse];
-												NSLog(@"There was an error creating the account");
+												NSLog(@"There was an error creating the account, %@",error);
 											} else {
+												[self.fireManager saveUserInFirebase:theUser];
 												[self alertNewUserCreated];
 												NSLog(@"We created a new user account");
 											}
@@ -104,19 +109,17 @@
 }
 
 #pragma mark - User LogIn
--(void)loginUser:(FERUser *)user{
+-(void)loginUser:(FERUser *)theUser{
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[self.authClient loginWithEmail:self.email.text andPassword:self.password.text
 							withCompletionBlock:^(NSError* error, FAUser* user) {
 								if (error != nil) {
 									[self alertRegisterError];
 									NSLog(@"There was an error logging in to this account");
-								} else {
-									self.isSingUp=YES;
-									
-									self.theUser.userMail=self.email.text;
-									self.theUser.userPassword=self.password.text;
-									[self.plist addUser:self.theUser];
+								} else {									
+									theUser.userMail=self.email.text;
+									theUser.userPassword=self.password.text;
+									[self.plist addUser:theUser];
 									
 									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 									NSLog(@"We are now logged in");// We are now logged in
@@ -152,12 +155,29 @@
 	
 }
 
--(FERUser *)checkIfSingnedUp{
-	FERUser *user=[[FERUser alloc]init];
-	if([self.plist numberOfUsersInPlist]>0){
-		user= [self.plist loadUser];
-	}
-	return user;
+#pragma mark - Login Process
+-(void)loginProcess{
+	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
+		
+		if (isLogin) {
+			NSLog(@"User is Login");
+			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+		};
+	}];
+}
+
+-(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
+	[self.authClient checkAuthStatusWithBlock:^(NSError* error, FAUser* fbuser) {
+		
+		if (error != nil) {
+			completion(FALSE, nil);
+		} else if (fbuser == nil) {
+			completion(FALSE, nil);
+		} else {
+			self.theUser.userID = fbuser.userId;
+			completion(TRUE, self.theUser);
+		}
+	}];
 }
 
 #pragma mark - Navigation
@@ -165,10 +185,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	if ([segue.identifier isEqualToString:@"logInSegue"]) {
-		
-		if(self.isSingUp){
-			self.isSingUp=NO;
-		}
+			FERMainCollectionView *mcv=[segue destinationViewController];
+			FERUser *loggedUser=[self.plist loadUser];
+			mcv.user=loggedUser;
+			mcv.authClient=self.authClient;
 	}
 	// Get the new view controller using [segue destinationViewController].
 	// Pass the selected object to the new view controller.
