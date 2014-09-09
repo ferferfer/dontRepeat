@@ -18,6 +18,13 @@
 
 @interface FERDontRepeatViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UIButton *dateButton;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIButton *descriptionButton;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *pictureButton;
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property	(nonatomic,strong)FERUser *user;
 @property	(nonatomic, weak)	id<FERDontRepeatViewControllerDelegate> delegate;
 

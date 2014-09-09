@@ -23,6 +23,8 @@
 		3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */; };
 		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
 		3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */; };
+		3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */; };
+		3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */; };
 		3FEC01D919A4AFDA00C85141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01D819A4AFDA00C85141 /* Foundation.framework */; };
 		3FEC01DB19A4AFDA00C85141 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01DA19A4AFDA00C85141 /* CoreGraphics.framework */; };
 		3FEC01DD19A4AFDA00C85141 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01DC19A4AFDA00C85141 /* UIKit.framework */; };
@@ -80,6 +82,10 @@
 		3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3FB15DD019AB59B500F6BD26 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSimpleLogin.framework; path = Frameworks/FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		3FDAA1BB19BF10F9000CA725 /* FERDontRepeatObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatObjects.h; sourceTree = "<group>"; };
+		3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDontRepeatObjects.m; sourceTree = "<group>"; };
+		3FDAA1BE19BF1502000CA725 /* FERObjectsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERObjectsHelper.h; sourceTree = "<group>"; };
+		3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERObjectsHelper.m; sourceTree = "<group>"; };
 		3FEC01D519A4AFDA00C85141 /* DontRepeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DontRepeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEC01D819A4AFDA00C85141 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FEC01DA19A4AFDA00C85141 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,6 +166,8 @@
 				3FEC021819A4B0C700C85141 /* DontRepeat.m */,
 				3F9F4D6719A64D5900C10435 /* FERUser.h */,
 				3F9F4D6819A64D5900C10435 /* FERUser.m */,
+				3FDAA1BB19BF10F9000CA725 /* FERDontRepeatObjects.h */,
+				3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -193,6 +201,8 @@
 			children = (
 				3F5A84DB19B765D100797C84 /* FERFormatHelper.h */,
 				3F5A84DC19B765D100797C84 /* FERFormatHelper.m */,
+				3FDAA1BE19BF1502000CA725 /* FERObjectsHelper.h */,
+				3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -423,7 +433,9 @@
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
+				3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */,
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
+				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,
 				3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
 				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,

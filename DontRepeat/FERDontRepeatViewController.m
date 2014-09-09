@@ -9,14 +9,16 @@
 #import "FERDontRepeatViewController.h"
 #import "FERFirebaseManager.h"
 #import "FERFormatHelper.h"
+#import "FERObjectsHelper.h"
+#import "FERDontRepeatObjects.h"
 
 @interface FERDontRepeatViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property	(nonatomic,strong) FERFirebaseManager *firebaseManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
+@property	(nonatomic,strong)FERObjectsHelper *objectsHelper;
+@property	(nonatomic,strong)FERDontRepeatObjects *dontRepeatObjects;
 
 @end
 
@@ -32,7 +34,9 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
+  [super viewDidLoad];
+	[self configure];
+	
     // Do any additional setup after loading the view.
 }
 
@@ -50,6 +54,40 @@
 	return _formatHelper;
 }
 
+-(FERObjectsHelper	*)objectsHelper{
+	if (_objectsHelper==nil) {
+		_objectsHelper=[[FERObjectsHelper alloc]init];
+	}
+	return _objectsHelper;
+}
+
+-(FERDontRepeatObjects *)dontRepeatObjects{
+	if(_dontRepeatObjects==nil){
+		_dontRepeatObjects=[[FERDontRepeatObjects alloc]init];
+	}
+	return _dontRepeatObjects;
+}
+
+-(void)configure{
+	self.scrollView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+	self.scrollView.contentSize = self.scrollView.frame.size;
+	self.scrollView.frame = self.view.frame;
+	[self.view addSubview:self.scrollView];
+
+	
+//	self.dontRepeatObjects.titleButton= self.titleButton;
+	self.dontRepeatObjects.titleTextField= self.titleTextField;
+	self.dontRepeatObjects.dateButton= self.dateButton;
+	self.dontRepeatObjects.datePicker= self.datePicker;
+	self.dontRepeatObjects.descriptionButton=	self.descriptionButton;
+	self.dontRepeatObjects.descriptionTextView=	self.descriptionTextView;
+	self.dontRepeatObjects.pictureButton=	self.pictureButton;
+	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
+	
+	[self.objectsHelper hideFields:self.dontRepeatObjects];
+}
+
+
 
 - (IBAction)savePressed:(id)sender {
 
@@ -61,6 +99,37 @@
 	[self.delegate addDontRepeat:dontRepeat forUser:self.user];
 	[self.navigationController popViewControllerAnimated:YES];
 	
+}
+- (IBAction)titlePressed:(id)sender {
+	if (self.titleTextField.hidden) {
+		[self.objectsHelper titlePressed:self.dontRepeatObjects];
+	}else{
+		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+	}
+}
+
+- (IBAction)datePressed:(id)sender {
+	if (self.datePicker.hidden) {
+		[self.objectsHelper datePressed:self.dontRepeatObjects];
+	}else{
+		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+	}
+}
+
+- (IBAction)descriptionPressed:(id)sender {
+	if (self.descriptionTextView.hidden) {
+		[self.objectsHelper descriptionPressed:self.dontRepeatObjects];
+	}else{
+		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+	}
+}
+
+- (IBAction)picturePressed:(id)sender {
+	if (self.pictureImageView.hidden) {
+		[self.objectsHelper picturePressed:self.dontRepeatObjects];
+	}else{
+		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+	}
 }
 
 /*
