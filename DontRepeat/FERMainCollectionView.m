@@ -19,15 +19,23 @@
 @property (nonatomic,strong)NSMutableSet *selectedCells;
 @property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
 @property (nonatomic,strong)	NSMutableArray *dontRepeats;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end
 
-@implementation FERMainCollectionView
+@implementation FERMainCollectionView {
+	DontRepeat* dontRepeatSeleccionado;
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+	[self loadDontRepeatsFromUser:self.user];
+}
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	
-	[self loadDontRepeatsFromUser:self.user];
+//	[self loadDontRepeatsFromUser:self.user];
 	NSLog(@"%@",self.dontRepeats);
 	[self cargaHorizontalLayout];
 	
@@ -43,6 +51,7 @@
 	//For the selection
 	self.collectionViewProperty.allowsMultipleSelection=YES;
 	self.collectionViewProperty.delegate=self;
+
 	
 }
 
@@ -70,52 +79,45 @@
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
 	
-	return [self.dontRepeats count]+1;
+	return [self.dontRepeats count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	FERDontRepeatCell	*cell  = [[FERDontRepeatCell alloc ]init];
 	cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dontRepeatCell" forIndexPath:indexPath];
-	if (indexPath.item!=[self.dontRepeats count]) {
 		DontRepeat *dont=[[DontRepeat alloc]init];
-		dont = [self.dontRepeats objectAtIndex:indexPath.item];
+		dont = [self.dontRepeats objectAtIndex:indexPath.row];
 		if (dont.dontRepeatPicture.length==0) {
 			UIImage	*image=[UIImage imageNamed:@"dress"];
 			cell.thumbnail.image=image;
 		}else{
-			cell.thumbnail.image=[UIImage imageWithData:dont.dontRepeatPicture];
+			NSString *dataString =dont.dontRepeatPicture;
+			NSData *stringData = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+			cell.thumbnail.image=[UIImage imageWithData:stringData];
 		}
+		
 		cell.title.text=dont.dontRepeatTitle;
 		cell.dateLabel.text=dont.dontRepeatDate;
-	}else{
-		UIImage	*image=[UIImage imageNamed:@"newDress"];
-		cell.thumbnail.image=image;
-		cell.title.text=@"";
-		cell.dateLabel.text=@"";
-	}
 	return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+	
+	DontRepeat *dont=[[DontRepeat alloc]init];
+	dont = [self.dontRepeats objectAtIndex:indexPath.item];
+	dontRepeatSeleccionado=dont;
+	
 	[self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
 }
 
-- (IBAction)reloadPressed:(id)sender {
-	[self loadDontRepeatsFromUser:self.user];
+- (IBAction)addPressed:(id)sender {
+	[self performSegueWithIdentifier:@"detailSegue" sender:self];
+	
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	
-	if ([segue.identifier isEqualToString:@"detailSegue"]){
-		FERDontRepeatViewController *dontRepeatViewController=[segue destinationViewController];
-		dontRepeatViewController.user=self.user;
-		dontRepeatViewController.delegate=self;
-	}
-	
-}
 
 - (IBAction)logoutPressed:(id)sender {
 	[self.authClient logout];
@@ -137,7 +139,7 @@
 					dont.dontRepeatTitle= [dic objectForKey:@"Title"];
 					dont.dontRepeatDate = [dic objectForKey:@"Date"];
 					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
-					
+					dont.dontRepeatID	= key;
 					[self.dontRepeats addObject:dont];
 				}
 			}
@@ -156,13 +158,21 @@
 	
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	
+	if ([segue.identifier isEqualToString:@"detailSegue"]){
+		FERDontRepeatViewController *dontRepeatViewController=[segue destinationViewController];
+		dontRepeatViewController.user=self.user;
+		dontRepeatViewController.delegate=self;
+		dontRepeatViewController.dontRepeat=dontRepeatSeleccionado;
+	}
+	if ([segue.identifier isEqualToString:@"newSegue"]){
+		FERDontRepeatViewController *dontRepeatViewController=[segue destinationViewController];
+		dontRepeatViewController.user=self.user;
+		dontRepeatViewController.delegate=self;
+	}
+	
+}
 
 @end

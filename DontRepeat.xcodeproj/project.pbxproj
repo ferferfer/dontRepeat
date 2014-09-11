@@ -23,6 +23,7 @@
 		3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */; };
 		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
 		3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */; };
+		3FC5703B19C0A202009868FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */; };
 		3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */; };
 		3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */; };
 		3FEC01D919A4AFDA00C85141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FEC01D819A4AFDA00C85141 /* Foundation.framework */; };
@@ -82,6 +83,8 @@
 		3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3FB15DD019AB59B500F6BD26 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSimpleLogin.framework; path = Frameworks/FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		3FC5703719C0A15A009868FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3FDAA1BB19BF10F9000CA725 /* FERDontRepeatObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatObjects.h; sourceTree = "<group>"; };
 		3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDontRepeatObjects.m; sourceTree = "<group>"; };
 		3FDAA1BE19BF1502000CA725 /* FERObjectsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERObjectsHelper.h; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC5703B19C0A202009868FC /* MobileCoreServices.framework in Frameworks */,
 				3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */,
 				3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */,
 				3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */,
@@ -230,6 +234,8 @@
 		3FEC01D719A4AFDA00C85141 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */,
+				3FC5703719C0A15A009868FC /* AVFoundation.framework */,
 				3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */,
 				3FB15DD019AB59B500F6BD26 /* Social.framework */,
 				3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */,

@@ -12,4 +12,5 @@
 
 -(NSString *)cleanMail:(NSString *)mail;
 -(NSString *)returnStringFromDate:(NSDate *)date;
+-(NSDate *)returnDateFromString:(NSString *)string;
 @end

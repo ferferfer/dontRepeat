@@ -29,7 +29,7 @@
 	obj.titleTextField.hidden=NO;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=YES;
+	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
 	
 }
 - (void)datePressed:(FERDontRepeatObjects *)obj {
@@ -53,7 +53,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=NO;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=YES;
+	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
 }
 - (void)descriptionPressed:(FERDontRepeatObjects *)obj {
 	
@@ -75,7 +75,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=NO;
-	obj.pictureImageView.hidden=YES;
+	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
 	
 }
 - (void)picturePressed:(FERDontRepeatObjects *)obj {
@@ -98,7 +98,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=NO;
+	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
 	
 }
 
@@ -119,7 +119,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=YES;
+	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
 	
 }
 
@@ -127,9 +127,17 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=YES;
+	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	
 }
 
+-(BOOL)hidePictureIfIsNull:(FERDontRepeatObjects *)obj{
+	CIImage *cim = [obj.pictureImageView.image CIImage];
+	if (cim == nil ) {
+		return YES;
+	}
+	return NO;
+}
 
 
 @end

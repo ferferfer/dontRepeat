@@ -14,10 +14,11 @@
 - (instancetype)init{
 	self = [super init];
 	if (self) {
+		self.dontRepeatID=[[NSString alloc]init];
 		self.dontRepeatDate=[[NSString alloc]init];
 		self.dontRepeatDesc=[[NSString alloc]init];
 		self.dontRepeatLocalization=[[NSString alloc]init];
-		self.dontRepeatPicture=[[NSData alloc]init];
+		self.dontRepeatPicture=[[NSString alloc]init];
 		self.dontRepeatTitle=[[NSString alloc]init];
 	}
 	return self;

@@ -15,7 +15,8 @@
 @property (nonatomic, strong) NSString * dontRepeatDate;
 @property (nonatomic, copy) NSString * dontRepeatTitle;
 @property (nonatomic, copy) NSString * dontRepeatDesc;
-@property (nonatomic, strong) NSData * dontRepeatPicture;
+@property (nonatomic, strong) NSString * dontRepeatPicture;
+@property (nonatomic, copy) NSString * dontRepeatID;
 @property (nonatomic, copy) NSString * dontRepeatLocalization;
 
 @end

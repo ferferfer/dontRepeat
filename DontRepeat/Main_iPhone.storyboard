@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="U5h-69-Uak">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -142,13 +141,17 @@
                                 <segment title="Moments"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="3gG-1I-Slj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3gG-1I-Slj">
                             <connections>
-                                <action selector="reloadPressed:" destination="0r6-bs-tRG" id="J2f-Vf-cQO"/>
+                                <action selector="addPressed:" destination="0r6-bs-tRG" id="AlJ-9I-0SI"/>
+                                <segue destination="UWy-oZ-lI9" kind="push" identifier="newSegue" id="gIW-Gr-aQi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addButton" destination="3gG-1I-Slj" id="8Uu-CZ-Afk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inc-Ux-9y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,8 +183,8 @@
                                             <!--2014-09-03 07:42:35 +0000-->
                                         </date>
                                     </datePicker>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pFC-kZ-CaI">
-                                        <rect key="frame" x="20" y="740" width="280" height="124"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dress.png" translatesAutoresizingMaskIntoConstraints="NO" id="pFC-kZ-CaI">
+                                        <rect key="frame" x="8" y="740" width="304" height="124"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-OU-mCw">
                                         <rect key="frame" x="8" y="65" width="304" height="50"/>
@@ -251,6 +254,7 @@
                         <outlet property="descriptionTextView" destination="JbF-Ri-wKh" id="aRP-eU-xTv"/>
                         <outlet property="pictureButton" destination="1dU-ni-znc" id="xll-wD-Pku"/>
                         <outlet property="pictureImageView" destination="pFC-kZ-CaI" id="Fag-Ub-y3M"/>
+                        <outlet property="saveButton" destination="4C2-Xj-NdI" id="XOy-rk-BBX"/>
                         <outlet property="scrollView" destination="PAG-BA-YHx" id="zSm-18-I3O"/>
                         <outlet property="titleTextField" destination="YhK-zp-e9h" id="xHo-UQ-d4s"/>
                     </connections>
@@ -280,6 +284,7 @@
     </scenes>
     <resources>
         <image name="background.png" width="320" height="618"/>
+        <image name="dress.png" width="350" height="350"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -289,4 +294,7 @@
             <size key="landscapeSize" width="480" height="320"/>
         </simulatedScreenMetrics>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="gIW-Gr-aQi"/>
+    </inferredMetricsTieBreakers>
 </document>

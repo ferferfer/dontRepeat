@@ -12,4 +12,5 @@
 @property (strong, nonatomic) UIImageView *thumbnail;
 @property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UILabel *dateLabel;
+@property (strong, nonatomic) NSString *ID;
 @end

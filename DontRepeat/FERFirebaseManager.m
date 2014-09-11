@@ -57,9 +57,9 @@ NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 	Firebase *nameRef = [self arriveToUserFolder:user];
 	nameRef=[nameRef childByAutoId];
   [[nameRef childByAppendingPath:@"Title"] setValue:dontRepeat.dontRepeatTitle];
-	
 	[[nameRef childByAppendingPath:@"Date"] setValue:dontRepeat.dontRepeatDate];
 	[[nameRef childByAppendingPath:@"Desc"] setValue:dontRepeat.dontRepeatDesc];
+	[[nameRef childByAppendingPath:@"Pic"] setValue:dontRepeat.dontRepeatPicture];
 
 }
 
