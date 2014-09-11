@@ -7,6 +7,7 @@
 //
 
 #import "FERFormatHelper.h"
+#import "DontRepeat.h"
 
 @implementation FERFormatHelper
 
@@ -23,11 +24,22 @@
 	return [dateFormatter stringFromDate:date];
 	
 }
+
 -(NSDate *)returnDateFromString:(NSString *)string{
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"dd/MM/yyyy"];
 	
 	return [dateFormatter dateFromString:string];
+}
+
+-(NSMutableArray *)orderDontRepeatsByDate:(NSMutableArray *)array{
+
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+																			initWithKey: @"dontRepeatTitle" ascending: YES];
+	
+	NSArray *sortedArray = [array sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+	return [sortedArray mutableCopy];
+	
 }
 
 

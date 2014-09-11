@@ -11,6 +11,7 @@
 #import "DontRepeat.h"
 #import "FERDontRepeatViewController.h"
 #import "FERFirebaseManager.h"
+#import "FERFormatHelper.h"
 
 @interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate>
 
@@ -18,6 +19,7 @@
 @property	(nonatomic,strong)UICollectionViewFlowLayout *horizontalFlowLayout;
 @property (nonatomic,strong)NSMutableSet *selectedCells;
 @property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
+@property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
 @property (nonatomic,strong)	NSMutableArray *dontRepeats;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
@@ -62,6 +64,13 @@
 	return _firebaseManager;
 }
 
+-(FERFormatHelper *)formatHelper{
+	if (_formatHelper==nil) {
+		_formatHelper=[[FERFormatHelper alloc]init];
+	}
+	return _formatHelper;
+}
+
 -(void)cargaHorizontalLayout{
 	self.horizontalFlowLayout=[[UICollectionViewFlowLayout alloc]init];
 	self.horizontalFlowLayout.itemSize=CGSizeMake(200, 200);
@@ -85,6 +94,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	FERDontRepeatCell	*cell  = [[FERDontRepeatCell alloc ]init];
 	cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dontRepeatCell" forIndexPath:indexPath];
+
+		NSLog(@"index: %i",indexPath.item);
 		DontRepeat *dont=[[DontRepeat alloc]init];
 		dont = [self.dontRepeats objectAtIndex:indexPath.row];
 		if (dont.dontRepeatPicture.length==0) {
@@ -98,6 +109,7 @@
 		
 		cell.title.text=dont.dontRepeatTitle;
 		cell.dateLabel.text=dont.dontRepeatDate;
+		NSLog(@"index: %i - %@",indexPath.item,dont.dontRepeatTitle);
 	return cell;
 }
 
@@ -143,6 +155,7 @@
 					[self.dontRepeats addObject:dont];
 				}
 			}
+			self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
 		}
 		[self.collectionViewProperty reloadData];
 	}];

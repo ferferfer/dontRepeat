@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface FERFormatHelper : NSObject
 
 -(NSString *)cleanMail:(NSString *)mail;
 -(NSString *)returnStringFromDate:(NSDate *)date;
 -(NSDate *)returnDateFromString:(NSString *)string;
+-(NSMutableArray *)orderDontRepeatsByDate:(NSMutableArray *)array;
 @end
