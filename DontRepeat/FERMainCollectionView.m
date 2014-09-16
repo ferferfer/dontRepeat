@@ -34,15 +34,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 	[self loadDontRepeatsFromUser:self.user];
-//	if (!hasLoadedCamera)
-//		[self performSelector:@selector(showcamera) withObject:nil afterDelay:0.3];
-
 }
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	
-//	[self loadDontRepeatsFromUser:self.user];
 	NSLog(@"%@",self.dontRepeats);
 	[self cargaHorizontalLayout];
 	

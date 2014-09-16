@@ -26,32 +26,39 @@
 	
 	self.contentView.backgroundColor=[UIColor clearColor];
 	
-	self.thumbnail=[[UIImageView alloc]initWithFrame:self.bounds];
-	self.thumbnail.contentMode=UIViewContentModeScaleAspectFill;
-	self.thumbnail.layer.cornerRadius=25.0;
-	[self.thumbnail setClipsToBounds:YES];
-	[self.contentView addSubview:self.thumbnail];
+	self.cell=[[UIView alloc]initWithFrame:self.bounds];
+	self.cell.contentMode=UIViewContentModeScaleAspectFill;
+	self.cell.backgroundColor=[[UIColor whiteColor] colorWithAlphaComponent:0.65f];
+	self.cell.layer.cornerRadius=15.0;
+	[self.cell setClipsToBounds:YES];
+	[self.contentView addSubview:self.cell];
 
+	self.thumbnail=[[UIImageView alloc]initWithFrame:CGRectMake(10, 25, self.bounds.size.width-20,self.bounds.size.height-50)];
+	self.thumbnail.contentMode=UIViewContentModeScaleAspectFill;
+//	self.thumbnail.layer.cornerRadius=25.0;
+	[self.thumbnail setClipsToBounds:YES];
+	[self.cell addSubview:self.thumbnail];
+	
 	self.title=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 25)];
 	[self.title setFont:[UIFont fontWithName:@"Arial-BoldMT" size:24]];
 	self.title.adjustsFontSizeToFitWidth = YES;
 	[self.title setTextAlignment:NSTextAlignmentCenter];
 	self.title.textColor = [UIColor blackColor];
-	[self.thumbnail addSubview:self.title];
+	[self.cell addSubview:self.title];
 	
 	self.dateLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-20, self.bounds.size.width, 20)];
 	[self.dateLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:24]];
 	self.dateLabel.adjustsFontSizeToFitWidth = YES;
 	[self.dateLabel setTextAlignment:NSTextAlignmentCenter];
 	self.dateLabel.textColor = [UIColor blackColor];
-	[self.thumbnail addSubview:self.dateLabel];
+	[self.cell addSubview:self.dateLabel];
 	
 	self.contentView.clipsToBounds=YES;
 	
 }
 
 -(void)layoutSubviews{
-	self.thumbnail.frame=self.bounds;
+	self.cell.frame=self.bounds;
 }
 
 
