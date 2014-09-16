@@ -14,7 +14,6 @@
 #import "FERDontRepeatObjects.h"
 
 @interface FERDontRepeatViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property	(nonatomic,strong)FERFirebaseManager *firebaseManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 @property	(nonatomic,strong)FERObjectsHelper *objectsHelper;
@@ -36,8 +35,9 @@
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
-	[self loadData];
 	[self configure];
+	[self loadData];
+
 	
 	// Do any additional setup after loading the view.
 }
@@ -96,11 +96,7 @@
 }
 
 -(void)configure{
-	self.scrollView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
-	self.scrollView.contentSize = self.scrollView.frame.size;
-	self.scrollView.frame = self.view.frame;
-	[self.view addSubview:self.scrollView];
-	
+	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
 	
 	//	self.dontRepeatObjects.titleButton= self.titleButton;
 	self.dontRepeatObjects.titleTextField= self.titleTextField;
@@ -110,9 +106,9 @@
 	self.dontRepeatObjects.descriptionTextView=	self.descriptionTextView;
 	self.dontRepeatObjects.pictureButton=	self.pictureButton;
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
-	
-	[self.objectsHelper hideFields:self.dontRepeatObjects];
 
+	[self.objectsHelper originalPosition:self.dontRepeatObjects];
+	[self.objectsHelper hideFields:self.dontRepeatObjects];
 }
 
 

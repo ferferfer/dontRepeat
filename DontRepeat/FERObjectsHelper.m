@@ -29,7 +29,7 @@
 	obj.titleTextField.hidden=NO;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	obj.pictureImageView.hidden=NO;
 	
 }
 - (void)datePressed:(FERDontRepeatObjects *)obj {
@@ -53,7 +53,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=NO;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	obj.pictureImageView.hidden=NO;
 }
 - (void)descriptionPressed:(FERDontRepeatObjects *)obj {
 	
@@ -75,7 +75,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=NO;
-	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	obj.pictureImageView.hidden=NO;
 	
 }
 - (void)picturePressed:(FERDontRepeatObjects *)obj {
@@ -98,7 +98,7 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	obj.pictureImageView.hidden=NO;
 	
 }
 
@@ -107,19 +107,22 @@
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
 	CGRect rectPic = obj.pictureButton.frame;
+	CGRect rectImage =obj.pictureImageView.frame;
 	
 	rectDate.origin = CGPointMake(8,123);
 	rectDesc.origin = CGPointMake(8,181);
 	rectPic.origin = CGPointMake(8,239);
+	rectImage.origin = CGPointMake(8,297);
 	
 	obj.dateButton.frame = rectDate;
 	obj.descriptionButton.frame = rectDesc;
 	obj.pictureButton.frame = rectPic;
+	obj.pictureImageView.frame=rectImage;
 	
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	obj.pictureImageView.hidden=NO;
 	
 }
 
@@ -127,16 +130,8 @@
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
 	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=[self hidePictureIfIsNull:obj];
+	obj.pictureImageView.hidden=NO;
 	
-}
-
--(BOOL)hidePictureIfIsNull:(FERDontRepeatObjects *)obj{
-	CIImage *cim = [obj.pictureImageView.image CIImage];
-	if (cim == nil ) {
-		return YES;
-	}
-	return NO;
 }
 
 
