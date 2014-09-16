@@ -26,10 +26,8 @@
 	
 	self.contentView.backgroundColor=[UIColor clearColor];
 	
-	self.thumbnail=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+	self.thumbnail=[[UIImageView alloc]initWithFrame:self.bounds];
 	self.thumbnail.contentMode=UIViewContentModeScaleAspectFill;
-//	self.thumbnail.layer.borderColor=[UIColor whiteColor].CGColor;
-//	self.thumbnail.layer.borderWidth=5.0;
 	self.thumbnail.layer.cornerRadius=25.0;
 	[self.thumbnail setClipsToBounds:YES];
 	[self.contentView addSubview:self.thumbnail];

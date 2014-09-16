@@ -14,12 +14,12 @@
 #import "FERDontRepeatObjects.h"
 
 @interface FERDontRepeatViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property	(nonatomic,strong)FERFirebaseManager *firebaseManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 @property	(nonatomic,strong)FERObjectsHelper *objectsHelper;
 @property	(nonatomic,strong)FERDontRepeatObjects *dontRepeatObjects;
+@property (nonatomic,strong)UIImagePickerController *imagePicker;
 
 @end
 
@@ -70,6 +70,13 @@
 	return _dontRepeatObjects;
 }
 
+-(UIImagePickerController *)imagePicker{
+	if (_imagePicker==nil) {
+		_imagePicker=[[UIImagePickerController alloc]init];
+	}
+	return _imagePicker;
+}
+
 -(void)loadData{
 	if (_dontRepeat==nil) {
 		_dontRepeat=[[DontRepeat alloc]init];
@@ -80,7 +87,8 @@
 		self.descriptionTextView.text=self.dontRepeat.dontRepeatDesc;
 		
 		NSString *dataString =self.dontRepeat.dontRepeatPicture;
-		NSData *stringData = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+		NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
+																														options:NSDataBase64DecodingIgnoreUnknownCharacters];
 		self.pictureImageView.image=[UIImage imageWithData:stringData];
 		
 		self.saveButton.enabled=NO;
@@ -104,6 +112,7 @@
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
 	
 	[self.objectsHelper hideFields:self.dontRepeatObjects];
+
 }
 
 
@@ -115,8 +124,8 @@
 	dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
 	dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
 	
-	NSData *imageData = UIImageJPEGRepresentation(self.pictureImageView.image,0);
-	NSString *dataString = [imageData base64EncodedStringWithOptions:0];
+	NSData *imageData = UIImageJPEGRepresentation(self.pictureImageView.image,0.3);
+	NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 	dontRepeat.dontRepeatPicture = dataString;
 	
 	[self.delegate addDontRepeat:dontRepeat forUser:self.user];
@@ -148,7 +157,7 @@
 }
 
 - (IBAction)picturePressed:(id)sender {
-	
+
 	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
 		UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
 		imagePicker.delegate = self;
@@ -159,28 +168,15 @@
 	}
 }
 
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 	
 	NSString *mediaType = info[UIImagePickerControllerMediaType];
 	[self dismissViewControllerAnimated:YES completion:nil];
-	
 	if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
 		UIImage *image = info[UIImagePickerControllerOriginalImage];
-		
-		self.pictureImageView.image= image;
+		self.pictureImageView.image=image;		
 	}
 }
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

@@ -11,6 +11,8 @@
 		3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */; };
 		3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D319B7260800797C84 /* FERFirebaseManager.m */; };
 		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
+		3F8D67D119C843FF008F70C4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D67D019C843FF008F70C4 /* logo.png */; };
+		3F8D67D419C89253008F70C4 /* FERImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D319C89253008F70C4 /* FERImageDownloader.m */; };
 		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
 		3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6319A64C7600C10435 /* FERUserManager.m */; };
 		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
@@ -64,6 +66,9 @@
 		3F5A84D319B7260800797C84 /* FERFirebaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFirebaseManager.m; sourceTree = "<group>"; };
 		3F5A84DB19B765D100797C84 /* FERFormatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFormatHelper.h; sourceTree = "<group>"; };
 		3F5A84DC19B765D100797C84 /* FERFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelper.m; sourceTree = "<group>"; };
+		3F8D67D019C843FF008F70C4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		3F8D67D219C89253008F70C4 /* FERImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERImageDownloader.h; sourceTree = "<group>"; };
+		3F8D67D319C89253008F70C4 /* FERImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERImageDownloader.m; sourceTree = "<group>"; };
 		3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginManager.h; sourceTree = "<group>"; };
 		3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginManager.m; sourceTree = "<group>"; };
 		3F9F4D6219A64C7600C10435 /* FERUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUserManager.h; sourceTree = "<group>"; };
@@ -157,6 +162,8 @@
 		3F5A84D619B7263700797C84 /* FireBaseManagers */ = {
 			isa = PBXGroup;
 			children = (
+				3F8D67D219C89253008F70C4 /* FERImageDownloader.h */,
+				3F8D67D319C89253008F70C4 /* FERImageDownloader.m */,
 				3F5A84D219B7260800797C84 /* FERFirebaseManager.h */,
 				3F5A84D319B7260800797C84 /* FERFirebaseManager.m */,
 				3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */,
@@ -265,6 +272,7 @@
 				3FAA20A519A5235A003E22AC /* newDress.png */,
 				3FA7B53819BDACA7004365C1 /* background.png */,
 				3FAA20A319A517C8003E22AC /* dress.png */,
+				3F8D67D019C843FF008F70C4 /* logo.png */,
 				3FEC01F319A4AFDA00C85141 /* Images.xcassets */,
 				3FEC01DF19A4AFDA00C85141 /* Supporting Files */,
 			);
@@ -384,6 +392,7 @@
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
 				3FA7B53919BDACA8004365C1 /* background.png in Resources */,
 				3FAA20A619A5235A003E22AC /* newDress.png in Resources */,
+				3F8D67D119C843FF008F70C4 /* logo.png in Resources */,
 				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
 				3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */,
@@ -452,6 +461,7 @@
 				3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */,
 				3FEC021D19A4B0C700C85141 /* DontRepeat.m in Sources */,
 				3FEC01E519A4AFDA00C85141 /* main.m in Sources */,
+				3F8D67D419C89253008F70C4 /* FERImageDownloader.m in Sources */,
 				3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@
 #import "FERDontRepeatViewController.h"
 #import "FERFirebaseManager.h"
 #import "FERFormatHelper.h"
+#import "FERImageDownloader.h"
 
 @interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate>
 
@@ -22,6 +23,7 @@
 @property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
 @property (nonatomic,strong)	NSMutableArray *dontRepeats;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property	(nonatomic,strong)FERImageDownloader *imageDownloader;
 
 @end
 
@@ -32,6 +34,9 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 	[self loadDontRepeatsFromUser:self.user];
+//	if (!hasLoadedCamera)
+//		[self performSelector:@selector(showcamera) withObject:nil afterDelay:0.3];
+
 }
 
 - (void)viewDidLoad{
@@ -71,6 +76,13 @@
 	return _formatHelper;
 }
 
+-(FERImageDownloader *)imageDownloader{
+	if(_imageDownloader==nil){
+		_imageDownloader=[[FERImageDownloader alloc]init];
+	}
+	return _imageDownloader;
+}
+
 -(void)cargaHorizontalLayout{
 	self.horizontalFlowLayout=[[UICollectionViewFlowLayout alloc]init];
 	self.horizontalFlowLayout.itemSize=CGSizeMake(200, 200);
@@ -95,7 +107,7 @@
 	FERDontRepeatCell	*cell  = [[FERDontRepeatCell alloc ]init];
 	cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dontRepeatCell" forIndexPath:indexPath];
 
-		NSLog(@"index: %i",indexPath.item);
+		NSLog(@"index: %li",(long)indexPath.item);
 		DontRepeat *dont=[[DontRepeat alloc]init];
 		dont = [self.dontRepeats objectAtIndex:indexPath.row];
 		if (dont.dontRepeatPicture.length==0) {
@@ -103,13 +115,14 @@
 			cell.thumbnail.image=image;
 		}else{
 			NSString *dataString =dont.dontRepeatPicture;
-			NSData *stringData = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+			NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
+																															options:NSDataBase64DecodingIgnoreUnknownCharacters];
 			cell.thumbnail.image=[UIImage imageWithData:stringData];
 		}
 		
 		cell.title.text=dont.dontRepeatTitle;
 		cell.dateLabel.text=dont.dontRepeatDate;
-		NSLog(@"index: %i - %@",indexPath.item,dont.dontRepeatTitle);
+		NSLog(@"index: %li - %@",(long)indexPath.item,dont.dontRepeatTitle);
 	return cell;
 }
 
@@ -151,6 +164,10 @@
 					dont.dontRepeatTitle= [dic objectForKey:@"Title"];
 					dont.dontRepeatDate = [dic objectForKey:@"Date"];
 					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
+					dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
+//					dont.dontRepeatPicture=[FERImageDownloader downloadImageUsingDictionary:dic completion:^(UIImage *image) {
+//						dont.dontRepeatImage=image;
+//					}]
 					dont.dontRepeatID	= key;
 					[self.dontRepeats addObject:dont];
 				}

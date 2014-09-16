@@ -7,9 +7,7 @@
 //
 
 #import "FERFirebaseManager.h"
-
 #import "FERFormatHelper.h"
-
 
 NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
