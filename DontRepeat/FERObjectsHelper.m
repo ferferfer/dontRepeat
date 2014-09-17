@@ -11,20 +11,27 @@
 @implementation FERObjectsHelper
 
 - (void)titlePressed:(FERDontRepeatObjects *)obj{
+	
+	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectTit = obj.titleTextField.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
 	CGRect rectPic = obj.pictureButton.frame;
+	CGRect rectImg = obj.pictureImageView.frame;
 	
-	rectTit.origin = CGPointMake(8, 123);
-	rectDate.origin = CGPointMake(8, 161);
-	rectDesc.origin = CGPointMake(8, 219);
-	rectPic.origin = CGPointMake(8, 277);
+	rectTitButton.origin = CGPointMake(8, 0);
+	rectTit.origin = CGPointMake(8, 58);
+	rectDate.origin = CGPointMake(8, 96);
+	rectDesc.origin = CGPointMake(8, 154);
+	rectPic.origin = CGPointMake(8, 212);
+	rectImg.origin = CGPointMake(8, 270);
 	
+	obj.titleButton.frame=rectTitButton;
 	obj.titleTextField.frame=rectTit;
 	obj.dateButton.frame = rectDate;
 	obj.descriptionButton.frame = rectDesc;
 	obj.pictureButton.frame = rectPic;
+	obj.pictureImageView.frame = rectImg;
 	
 	obj.titleTextField.hidden=NO;
 	obj.datePicker.hidden=YES;
@@ -33,22 +40,27 @@
 	
 }
 - (void)datePressed:(FERDontRepeatObjects *)obj {
-	
+
+	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDatePicker = obj.datePicker.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
 	CGRect rectPic = obj.pictureButton.frame;
+	CGRect rectImg = obj.pictureImageView.frame;
 	
-	rectDate.origin = CGPointMake(8,123);
-	rectDatePicker.origin = CGPointMake(8,181);
-	rectDesc.origin = CGPointMake(8,351);
-	rectPic.origin = CGPointMake(8,409);
-	
-	
+	rectTitButton.origin = CGPointMake(8, 0);
+	rectDate.origin = CGPointMake(8,58);
+	rectDatePicker.origin = CGPointMake(8,116);
+	rectDesc.origin = CGPointMake(8,286);
+	rectPic.origin = CGPointMake(8,344);
+	rectImg.origin = CGPointMake(8,402);
+
+	obj.titleButton.frame=rectTitButton;
 	obj.dateButton.frame = rectDate;
 	obj.datePicker.frame = rectDatePicker;
 	obj.descriptionButton.frame = rectDesc;
 	obj.pictureButton.frame = rectPic;
+	obj.pictureImageView.frame = rectImg;
 	
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=NO;
@@ -57,20 +69,26 @@
 }
 - (void)descriptionPressed:(FERDontRepeatObjects *)obj {
 	
+	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDescText = obj.descriptionTextView.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
 	CGRect rectPic = obj.pictureButton.frame;
+	CGRect rectImg = obj.pictureImageView.frame;
 	
-	rectDate.origin = CGPointMake(8,123);
-	rectDesc.origin = CGPointMake(8,181);
-	rectDescText.origin = CGPointMake(8, 239);
-	rectPic.origin = CGPointMake(8,360);
-	
+	rectTitButton.origin = CGPointMake(8, 0);
+	rectDate.origin = CGPointMake(8,58);
+	rectDesc.origin = CGPointMake(8,116);
+	rectDescText.origin = CGPointMake(8, 174);
+	rectPic.origin = CGPointMake(8,295);
+	rectImg.origin = CGPointMake(8,353);
+
+	obj.titleButton.frame=rectTitButton;
 	obj.dateButton.frame = rectDate;
 	obj.descriptionTextView.frame = rectDescText;
 	obj.descriptionButton.frame = rectDesc;
 	obj.pictureButton.frame = rectPic;
+	obj.pictureImageView.frame = rectImg;
 	
 	obj.titleTextField.hidden=YES;
 	obj.datePicker.hidden=YES;
@@ -80,16 +98,19 @@
 }
 - (void)picturePressed:(FERDontRepeatObjects *)obj {
 	
+	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
 	CGRect rectPic = obj.pictureButton.frame;
 	CGRect rectPicView = obj.pictureImageView.frame;
 	
-	rectDate.origin = CGPointMake(8,123);
-	rectDesc.origin = CGPointMake(8,181);
-	rectPic.origin = CGPointMake(8,239);
-	rectPicView.origin = CGPointMake(8, 297);
+	rectTitButton.origin = CGPointMake(8, 0);
+	rectDate.origin = CGPointMake(8,58);
+	rectDesc.origin = CGPointMake(8,116);
+	rectPic.origin = CGPointMake(8,174);
+	rectPicView.origin = CGPointMake(8, 232);
 	
+	obj.titleButton.frame=rectTitButton;
 	obj.dateButton.frame = rectDate;
 	obj.descriptionButton.frame = rectDesc;
 	obj.pictureButton.frame = rectPic;
@@ -103,17 +124,20 @@
 }
 
 -(void)originalPosition:(FERDontRepeatObjects *)obj{
-	
+
+	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
 	CGRect rectPic = obj.pictureButton.frame;
 	CGRect rectImage =obj.pictureImageView.frame;
 	
-	rectDate.origin = CGPointMake(8,123);
-	rectDesc.origin = CGPointMake(8,181);
-	rectPic.origin = CGPointMake(8,239);
-	rectImage.origin = CGPointMake(8,297);
+	rectTitButton.origin = CGPointMake(8, 0);
+	rectDate.origin = CGPointMake(8,58);
+	rectDesc.origin = CGPointMake(8,116);
+	rectPic.origin = CGPointMake(8,174);
+	rectImage.origin = CGPointMake(8, 232);
 	
+	obj.titleButton.frame=rectTitButton;
 	obj.dateButton.frame = rectDate;
 	obj.descriptionButton.frame = rectDesc;
 	obj.pictureButton.frame = rectPic;

@@ -12,8 +12,10 @@
 #import "FERFormatHelper.h"
 #import "FERObjectsHelper.h"
 #import "FERDontRepeatObjects.h"
+#import "UIImage+Scale.h"
 
 @interface FERDontRepeatViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property	(nonatomic,strong)FERFirebaseManager *firebaseManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 @property	(nonatomic,strong)FERObjectsHelper *objectsHelper;
@@ -96,7 +98,11 @@
 }
 
 -(void)configure{
-	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+	self.scrollView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+	self.scrollView.contentSize = self.scrollView.frame.size;
+	self.scrollView.frame = self.view.frame;
+	[self.view addSubview:self.scrollView];
+
 	
 	//	self.dontRepeatObjects.titleButton= self.titleButton;
 	self.dontRepeatObjects.titleTextField= self.titleTextField;
@@ -119,8 +125,10 @@
 	dontRepeat.dontRepeatTitle= self.titleTextField.text;
 	dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
 	dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
+
+	UIImage *compressedImage=[self.pictureImageView.image imageScaledToQuarter];
 	
-	NSData *imageData = UIImageJPEGRepresentation(self.pictureImageView.image,0.3);
+	NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.1);
 	NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 	dontRepeat.dontRepeatPicture = dataString;
 	
@@ -170,6 +178,7 @@
 	NSString *mediaType = info[UIImagePickerControllerMediaType];
 	[self dismissViewControllerAnimated:YES completion:nil];
 	if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+		self.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
 		UIImage *image = info[UIImagePickerControllerOriginalImage];
 		self.pictureImageView.image=image;		
 	}

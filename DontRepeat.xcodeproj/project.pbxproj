@@ -13,6 +13,7 @@
 		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
 		3F8D67D119C843FF008F70C4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D67D019C843FF008F70C4 /* logo.png */; };
 		3F8D67D419C89253008F70C4 /* FERImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D319C89253008F70C4 /* FERImageDownloader.m */; };
+		3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D919C98BFB008F70C4 /* UIImage+Scale.m */; };
 		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
 		3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6319A64C7600C10435 /* FERUserManager.m */; };
 		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
@@ -69,6 +70,8 @@
 		3F8D67D019C843FF008F70C4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F8D67D219C89253008F70C4 /* FERImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERImageDownloader.h; sourceTree = "<group>"; };
 		3F8D67D319C89253008F70C4 /* FERImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERImageDownloader.m; sourceTree = "<group>"; };
+		3F8D67D819C98BFB008F70C4 /* UIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scale.h"; sourceTree = "<group>"; };
+		3F8D67D919C98BFB008F70C4 /* UIImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scale.m"; sourceTree = "<group>"; };
 		3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginManager.h; sourceTree = "<group>"; };
 		3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginManager.m; sourceTree = "<group>"; };
 		3F9F4D6219A64C7600C10435 /* FERUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUserManager.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 		3F5A84DA19B765B500797C84 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3F8D67D819C98BFB008F70C4 /* UIImage+Scale.h */,
+				3F8D67D919C98BFB008F70C4 /* UIImage+Scale.m */,
 				3F5A84DB19B765D100797C84 /* FERFormatHelper.h */,
 				3F5A84DC19B765D100797C84 /* FERFormatHelper.m */,
 				3FDAA1BE19BF1502000CA725 /* FERObjectsHelper.h */,
@@ -451,6 +456,7 @@
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
+				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
 				3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */,
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
 				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,
