@@ -8,29 +8,42 @@
 
 #import "FERMainCollectionView.h"
 #import "FERDontRepeatCell.h"
+#import "DontRepeat.h"
+#import "FERDontRepeatViewController.h"
+#import "FERFirebaseManager.h"
+#import "FERFormatHelper.h"
+#import "FERImageDownloader.h"
 
-@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate>
 
 @property (nonatomic,strong)UICollectionView *collectionViewProperty;
 @property	(nonatomic,strong)UICollectionViewFlowLayout *horizontalFlowLayout;
 @property (nonatomic,strong)NSMutableSet *selectedCells;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *trash;
-
-
+@property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
+@property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
+@property (nonatomic,strong)	NSMutableArray *dontRepeats;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property	(nonatomic,strong)FERImageDownloader *imageDownloader;
 
 @end
 
-@implementation FERMainCollectionView
+@implementation FERMainCollectionView {
+	DontRepeat* dontRepeatSeleccionado;
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+	[self loadDontRepeatsFromUser:self.user];
+}
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
-	[self cargaHorizontalLayout];
-	self.trash.enabled=NO;
 	
-	self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+	NSLog(@"%@",self.dontRepeats);
+	[self cargaHorizontalLayout];
+	
 	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.horizontalFlowLayout];
-	//AÑADO LA SUBVISTA Y EL DATA SOURCE
+	//ADDED THE SUBVIEW AND DATA SOURCE
 	[self.view addSubview:self.collectionViewProperty];
 	self.collectionViewProperty.dataSource=self;
 	
@@ -38,27 +51,41 @@
 	self.collectionViewProperty.contentInset=UIEdgeInsetsMake(64, 0, 0, 0);
 	[self.collectionViewProperty registerClass:[FERDontRepeatCell class] forCellWithReuseIdentifier:@"dontRepeatCell"];
 	
-	//Xa la seleccion
+	//For the selection
 	self.collectionViewProperty.allowsMultipleSelection=YES;
 	self.collectionViewProperty.delegate=self;
+
 	
 }
 
-
--(NSMutableSet*)selectedCells{
-	if(!_selectedCells){
-		_selectedCells=[[NSMutableSet alloc]init];
+-(FERFirebaseManager *)firebaseManager{
+	if (_firebaseManager==nil) {
+    _firebaseManager=[[FERFirebaseManager alloc]init];
 	}
-	return _selectedCells;
+	return _firebaseManager;
+}
+
+-(FERFormatHelper *)formatHelper{
+	if (_formatHelper==nil) {
+		_formatHelper=[[FERFormatHelper alloc]init];
+	}
+	return _formatHelper;
+}
+
+-(FERImageDownloader *)imageDownloader{
+	if(_imageDownloader==nil){
+		_imageDownloader=[[FERImageDownloader alloc]init];
+	}
+	return _imageDownloader;
 }
 
 -(void)cargaHorizontalLayout{
 	self.horizontalFlowLayout=[[UICollectionViewFlowLayout alloc]init];
-	self.horizontalFlowLayout.itemSize=CGSizeMake(100, 100);
-	self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(30, 30, 30, 30);
-	self.horizontalFlowLayout.minimumLineSpacing=30;
+	self.horizontalFlowLayout.itemSize=CGSizeMake(200, 200);
+	self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
+	self.horizontalFlowLayout.minimumLineSpacing=20;
 	self.horizontalFlowLayout.minimumInteritemSpacing=10;
-
+	
 	self.horizontalFlowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
 }
 
@@ -68,78 +95,110 @@
 	return 1;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-
-	return 20;
+	
+	return [self.dontRepeats count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-	
 	FERDontRepeatCell	*cell  = [[FERDontRepeatCell alloc ]init];
 	cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dontRepeatCell" forIndexPath:indexPath];
-	
-	UIImage	*imagen=[UIImage imageNamed:@"newDress"];
-	cell.thumbnail.image=imagen;
-	cell.title.text=@"reuninon con telefonica";
-	cell.dateLabel.text=@"02/02/20";
-	
-	//[self performSegueWithIdentifier:@"detailSegue" sender:self];
-	
+
+		NSLog(@"index: %li",(long)indexPath.item);
+		DontRepeat *dont=[[DontRepeat alloc]init];
+		dont = [self.dontRepeats objectAtIndex:indexPath.row];
+		if (dont.dontRepeatPicture.length==0) {
+			UIImage	*image=[UIImage imageNamed:@"dress"];
+			cell.thumbnail.image=image;
+		}else{
+			NSString *dataString =dont.dontRepeatPicture;
+			NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
+																															options:NSDataBase64DecodingIgnoreUnknownCharacters];
+			cell.thumbnail.image=[UIImage imageWithData:stringData];
+		}
+		
+		cell.title.text=dont.dontRepeatTitle;
+		cell.dateLabel.text=dont.dontRepeatDate;
+		NSLog(@"index: %li - %@",(long)indexPath.item,dont.dontRepeatTitle);
 	return cell;
 }
 
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-		[self.selectedCells addObject:indexPath];
-		self.trash.enabled=YES;
+	
+	DontRepeat *dont=[[DontRepeat alloc]init];
+	dont = [self.dontRepeats objectAtIndex:indexPath.item];
+	dontRepeatSeleccionado=dont;
+	
+	[self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-	[self.selectedCells removeObject:indexPath];
-	if(self.selectedCells.count==0){
-		self.trash.enabled=NO;
-	}
 }
 
-- (IBAction)delete:(id)sender {
-	[self.collectionViewProperty performBatchUpdates:^{
-		[self.collectionViewProperty deleteItemsAtIndexPaths:self.selectedCells.allObjects];
-		for (int c=0;c<7;c++){
-			NSMutableIndexSet *indexSet=[[NSMutableIndexSet alloc]init];
-			for(NSIndexPath *indexPath in self.selectedCells){
-				if (indexPath.section==c) {
-					[indexSet addIndex:indexPath.row];
+- (IBAction)addPressed:(id)sender {
+	[self performSegueWithIdentifier:@"detailSegue" sender:self];
+	
+}
+
+
+- (IBAction)logoutPressed:(id)sender {
+	[self.authClient logout];
+	[self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)loadDontRepeatsFromUser:(FERUser *)user{
+	Firebase *ref = [self.firebaseManager arriveToUserFolder:user];
+	self.dontRepeats=[[NSMutableArray alloc]init];
+	[ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+		NSDictionary *snap = snapshot.value;
+		if (snap) {
+			NSArray *allKeys = [snap allKeys];
+			
+			for (NSString *key in allKeys) {
+				NSDictionary *dic = [snap objectForKey:key];
+				if(![key isEqualToString:@"mail"]){
+					DontRepeat *dont = [[DontRepeat alloc] init];
+					dont.dontRepeatTitle= [dic objectForKey:@"Title"];
+					dont.dontRepeatDate = [dic objectForKey:@"Date"];
+					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
+					dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
+//					dont.dontRepeatPicture=[FERImageDownloader downloadImageUsingDictionary:dic completion:^(UIImage *image) {
+//						dont.dontRepeatImage=image;
+//					}]
+					dont.dontRepeatID	= key;
+					[self.dontRepeats addObject:dont];
 				}
 			}
+			self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
 		}
-		self.selectedCells=[[NSMutableSet alloc]init];
-		self.trash.enabled=NO;
-	}completion:nil];
+		[self.collectionViewProperty reloadData];
+	}];
+}
+
+-(void)addDontRepeat:(DontRepeat *)dontRepeat forUser:(FERUser *)user {
+
+	[self.firebaseManager saveDontRepeat:dontRepeat forUser:user];
+
+}
+
+-(void)removeDontRepeat{
 	
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-	switch (editingStyle) {
-		case UITableViewCellEditingStyleDelete: {
-					}
-			break;
-			
-		case UITableViewCellEditingStyleInsert: {
-					}
-			break;
-		default:
-			break;
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	
+	if ([segue.identifier isEqualToString:@"detailSegue"]){
+		FERDontRepeatViewController *dontRepeatViewController=[segue destinationViewController];
+		dontRepeatViewController.user=self.user;
+		dontRepeatViewController.delegate=self;
+		dontRepeatViewController.dontRepeat=dontRepeatSeleccionado;
+	}
+	if ([segue.identifier isEqualToString:@"newSegue"]){
+		FERDontRepeatViewController *dontRepeatViewController=[segue destinationViewController];
+		dontRepeatViewController.user=self.user;
+		dontRepeatViewController.delegate=self;
 	}
 	
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

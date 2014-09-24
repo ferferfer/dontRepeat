@@ -22,35 +22,43 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
--(void)setSelected:(BOOL)selected{
-	[super setSelected:selected];
-	if (selected) {
-    self.thumbnail.alpha=0.5;
-	}else{
-		self.thumbnail.alpha=1;
-	}
-}
-
 -(void)configura{
+	
+	self.contentView.backgroundColor=[UIColor clearColor];
+	
+	self.cell=[[UIView alloc]initWithFrame:self.bounds];
+	self.cell.contentMode=UIViewContentModeScaleAspectFill;
+	self.cell.backgroundColor=[[UIColor whiteColor] colorWithAlphaComponent:0.65f];
+	self.cell.layer.cornerRadius=15.0;
+	[self.cell setClipsToBounds:YES];
+	[self.contentView addSubview:self.cell];
 
+	self.thumbnail=[[UIImageView alloc]initWithFrame:CGRectMake(10, 25, self.bounds.size.width-20,self.bounds.size.height-50)];
 	self.thumbnail.contentMode=UIViewContentModeScaleAspectFill;
-	self.thumbnail.layer.borderColor=[UIColor whiteColor].CGColor;
-	self.thumbnail.layer.borderWidth=5.0;
-	[self.contentView addSubview:self.thumbnail];
+//	self.thumbnail.layer.cornerRadius=25.0;
+	[self.thumbnail setClipsToBounds:YES];
+	[self.cell addSubview:self.thumbnail];
+	
+	self.title=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 25)];
+	[self.title setFont:[UIFont fontWithName:@"Arial-BoldMT" size:24]];
+	self.title.adjustsFontSizeToFitWidth = YES;
+	[self.title setTextAlignment:NSTextAlignmentCenter];
+	self.title.textColor = [UIColor blackColor];
+	[self.cell addSubview:self.title];
+	
+	self.dateLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-20, self.bounds.size.width, 20)];
+	[self.dateLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:24]];
+	self.dateLabel.adjustsFontSizeToFitWidth = YES;
+	[self.dateLabel setTextAlignment:NSTextAlignmentCenter];
+	self.dateLabel.textColor = [UIColor blackColor];
+	[self.cell addSubview:self.dateLabel];
+	
 	self.contentView.clipsToBounds=YES;
+	
 }
 
 -(void)layoutSubviews{
-	self.thumbnail.frame=self.bounds;
+	self.cell.frame=self.bounds;
 }
 
 

@@ -32,8 +32,7 @@
     return self;
 }
 
--(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion
-{
+-(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
     [self.authClient checkAuthStatusWithBlock:^(NSError* error, FAUser* fbuser) {
         
         if (error != nil) {

@@ -1,1 +1,2 @@
 pod 'Firebase'
+pod 'FireData'

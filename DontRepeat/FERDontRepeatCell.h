@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface FERDontRepeatCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
-@property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) UIImageView *thumbnail;
+@property (strong, nonatomic) UIView *cell;
+@property (strong, nonatomic) UILabel *title;
+@property (strong, nonatomic) UILabel *dateLabel;
+@property (strong, nonatomic) NSString *ID;
 @end
