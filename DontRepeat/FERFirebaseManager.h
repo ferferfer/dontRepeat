@@ -14,6 +14,6 @@
 @interface FERFirebaseManager : NSObject
 
 -(void)saveUserInFirebase:(FERUser *)user;
--(void)saveDontRepeat:(DontRepeat	*)dontRepeat forUser:(FERUser *)user;
+-(void)saveDontRepeatToFirebase:(DontRepeat	*)dontRepeat forUser:(FERUser *)user;
 -(Firebase *)arriveToUserFolder:(FERUser *)user;
 @end

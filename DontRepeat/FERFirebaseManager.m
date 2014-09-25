@@ -50,10 +50,10 @@ NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 	[[nameRef childByAppendingPath:@"mail"] setValue:user.userMail];
 }
 
--(void)saveDontRepeat:(DontRepeat	*)dontRepeat forUser:(FERUser *)user{
+-(void)saveDontRepeatToFirebase:(DontRepeat	*)dontRepeat forUser:(FERUser *)user{
 	
 	Firebase *nameRef = [self arriveToUserFolder:user];
-	nameRef=[nameRef childByAutoId];
+	nameRef=[nameRef childByAppendingPath:dontRepeat.dontRepeatID];
   [[nameRef childByAppendingPath:@"Title"] setValue:dontRepeat.dontRepeatTitle];
 	[[nameRef childByAppendingPath:@"Date"] setValue:dontRepeat.dontRepeatDate];
 	[[nameRef childByAppendingPath:@"Desc"] setValue:dontRepeat.dontRepeatDesc];

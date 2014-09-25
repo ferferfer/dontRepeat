@@ -13,5 +13,5 @@
 @property (strong, nonatomic) UIView *cell;
 @property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UILabel *dateLabel;
-@property (strong, nonatomic) NSString *ID;
+@property (copy, nonatomic) NSString *ID;
 @end

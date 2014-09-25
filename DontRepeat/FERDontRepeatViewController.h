@@ -11,7 +11,8 @@
 #import "DontRepeat.h"
 
 @protocol FERDontRepeatViewControllerDelegate <NSObject>
--(void)addDontRepeat:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(void)addDontRepeatToFirebase:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(void)addDontRepeatToPlist:(DontRepeat *)dontRepeat;
 -(void)removeDontRepeat;
 @end
 

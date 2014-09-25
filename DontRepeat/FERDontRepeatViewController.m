@@ -125,6 +125,8 @@
 	dontRepeat.dontRepeatTitle= self.titleTextField.text;
 	dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
 	dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
+	NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
+	dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
 
 	UIImage *compressedImage=[self.pictureImageView.image imageScaledToQuarter];
 	
@@ -132,7 +134,8 @@
 	NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 	dontRepeat.dontRepeatPicture = dataString;
 	
-	[self.delegate addDontRepeat:dontRepeat forUser:self.user];
+	[self.delegate addDontRepeatToFirebase:dontRepeat forUser:self.user];
+	[self.delegate addDontRepeatToPlist:dontRepeat];
 	[self.navigationController popViewControllerAnimated:YES];
 	
 }

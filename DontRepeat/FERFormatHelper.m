@@ -42,5 +42,9 @@
 	
 }
 
+-(NSString *)removeSpacesAndSlashes:(NSString *)text{
+	NSString *textWithoutSlash=[text stringByReplacingOccurrencesOfString:@"/" withString:@""];
+	return [textWithoutSlash stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
 
 @end

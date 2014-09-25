@@ -11,6 +11,7 @@
 #import "DontRepeat.h"
 #import "FERDontRepeatViewController.h"
 #import "FERFirebaseManager.h"
+#import "FERPlistManager.h"
 #import "FERFormatHelper.h"
 #import "FERImageDownloader.h"
 
@@ -20,6 +21,7 @@
 @property	(nonatomic,strong)UICollectionViewFlowLayout *horizontalFlowLayout;
 @property (nonatomic,strong)NSMutableSet *selectedCells;
 @property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
+@property	 (nonatomic, strong)FERPlistManager *plistManager;
 @property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
 @property (nonatomic,strong)	NSMutableArray *dontRepeats;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
@@ -33,13 +35,15 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
-	[self loadDontRepeatsFromUser:self.user];
+	
+	//[self loadFirebasesDontRepeatsFromUser:self.user];
+	[self loadPlistDontRepeats];
 }
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	
-	NSLog(@"%@",self.dontRepeats);
+	NSLog(@"viewDidLoad%@",self.dontRepeats);
 	[self cargaHorizontalLayout];
 	
 	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.horizontalFlowLayout];
@@ -63,6 +67,13 @@
     _firebaseManager=[[FERFirebaseManager alloc]init];
 	}
 	return _firebaseManager;
+}
+
+-(FERPlistManager *)plistManager{
+	if (_plistManager==nil) {
+		_plistManager=[[FERPlistManager alloc]init];
+	}
+	return _plistManager;
 }
 
 -(FERFormatHelper *)formatHelper{
@@ -145,7 +156,7 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)loadDontRepeatsFromUser:(FERUser *)user{
+-(void)loadFirebasesDontRepeatsFromUser:(FERUser *)user{
 	Firebase *ref = [self.firebaseManager arriveToUserFolder:user];
 	self.dontRepeats=[[NSMutableArray alloc]init];
 	[ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -161,9 +172,6 @@
 					dont.dontRepeatDate = [dic objectForKey:@"Date"];
 					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
 					dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
-//					dont.dontRepeatPicture=[FERImageDownloader downloadImageUsingDictionary:dic completion:^(UIImage *image) {
-//						dont.dontRepeatImage=image;
-//					}]
 					dont.dontRepeatID	= key;
 					[self.dontRepeats addObject:dont];
 				}
@@ -174,12 +182,28 @@
 	}];
 }
 
--(void)addDontRepeat:(DontRepeat *)dontRepeat forUser:(FERUser *)user {
+-(void)loadPlistDontRepeats{
+	
+	self.dontRepeats=[self.plistManager loadDontRepeats];
+	DontRepeat *fer=[self.dontRepeats objectAtIndex:0];
+	NSLog(@"viewDidAppear%@",fer.dontRepeatID);
+	//self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
+	[self.collectionViewProperty reloadData];
+	
+}
 
-	[self.firebaseManager saveDontRepeat:dontRepeat forUser:user];
+
+-(void)addDontRepeatToFirebase:(DontRepeat *)dontRepeat forUser:(FERUser *)user {
+
+	[self.firebaseManager saveDontRepeatToFirebase:dontRepeat forUser:user];
 
 }
 
+-(void)addDontRepeatToPlist:(DontRepeat *)dontRepeat {
+	
+	[self.plistManager saveDontRepeatToPlist:dontRepeat];
+	
+}
 -(void)removeDontRepeat{
 	
 }

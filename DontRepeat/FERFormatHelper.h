@@ -15,4 +15,5 @@
 -(NSString *)returnStringFromDate:(NSDate *)date;
 -(NSDate *)returnDateFromString:(NSString *)string;
 -(NSMutableArray *)orderDontRepeatsByDate:(NSMutableArray *)array;
+-(NSString *)removeSpacesAndSlashes:(NSString *)text;
 @end

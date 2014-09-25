@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "FERUser.h"
-
+#import "DontRepeat.h"
 
 @interface FERPlistManager : NSObject
 
 -(void)addUser:(FERUser *)user;
--(BOOL)plistExistInDocumentsFolder;
+-(BOOL)plistExistInDocumentsFolder:(NSString *)name;
 -(FERUser	*)loadUser;
 -(NSInteger)numberOfUsersInPlist;
+-(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat;
+-(NSMutableArray	*)loadDontRepeats;
 @end
