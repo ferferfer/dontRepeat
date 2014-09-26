@@ -185,7 +185,7 @@
 -(void)loadPlistDontRepeats{
 	
 	self.dontRepeats=[self.plistManager loadDontRepeats];
-	DontRepeat *fer=[self.dontRepeats objectAtIndex:0];
+	DontRepeat *fer=[self.dontRepeats firstObject];
 	NSLog(@"viewDidAppear%@",fer.dontRepeatID);
 	//self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
 	[self.collectionViewProperty reloadData];
