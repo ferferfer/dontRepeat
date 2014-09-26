@@ -12,7 +12,6 @@
 		3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D319B7260800797C84 /* FERFirebaseManager.m */; };
 		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
 		3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E3F19D40865008EF71C /* FERJsonManager.m */; };
-		3F8C8E4219D435EC008EF71C /* FERJsonManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E4119D435EC008EF71C /* FERJsonManagerTests.m */; };
 		3F8C8E4619D46912008EF71C /* FERPlistManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */; };
 		3F8D67D119C843FF008F70C4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D67D019C843FF008F70C4 /* logo.png */; };
 		3F8D67D419C89253008F70C4 /* FERImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D319C89253008F70C4 /* FERImageDownloader.m */; };
@@ -72,7 +71,6 @@
 		3F5A84DC19B765D100797C84 /* FERFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelper.m; sourceTree = "<group>"; };
 		3F8C8E3E19D40865008EF71C /* FERJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERJsonManager.h; sourceTree = "<group>"; };
 		3F8C8E3F19D40865008EF71C /* FERJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERJsonManager.m; sourceTree = "<group>"; };
-		3F8C8E4119D435EC008EF71C /* FERJsonManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERJsonManagerTests.m; sourceTree = "<group>"; };
 		3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManagerTests.m; sourceTree = "<group>"; };
 		3F8D67D019C843FF008F70C4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F8D67D219C89253008F70C4 /* FERImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERImageDownloader.h; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 			children = (
 				3FEC020619A4AFDA00C85141 /* DontRepeatTests.m */,
 				3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */,
-				3F8C8E4119D435EC008EF71C /* FERJsonManagerTests.m */,
 				3FEC020119A4AFDA00C85141 /* Supporting Files */,
 				3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */,
 			);
@@ -498,7 +495,6 @@
 			files = (
 				3F8C8E4619D46912008EF71C /* FERPlistManagerTests.m in Sources */,
 				3F238D1319C1A9FB00F0A186 /* FERFormatHelperTests.m in Sources */,
-				3F8C8E4219D435EC008EF71C /* FERJsonManagerTests.m in Sources */,
 				3FEC020719A4AFDA00C85141 /* DontRepeatTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

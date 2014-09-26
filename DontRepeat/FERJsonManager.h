@@ -12,6 +12,4 @@
 
 @interface FERJsonManager : NSObject
 
--(void)saveDontRepeatToJson:(DontRepeat *)dontRepeat;
-
 @end

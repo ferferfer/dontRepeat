@@ -35,8 +35,7 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
-	
-	//[self loadFirebasesDontRepeatsFromUser:self.user];
+	[self comparePlistVsFireBase];
 	[self loadPlistDontRepeats];
 }
 
@@ -208,6 +207,38 @@
 	
 }
 
+-(void)comparePlistVsFireBase{
+	Firebase *ref = [self.firebaseManager arriveToUserFolder:self.user];
+
+	[ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+
+		NSDictionary *snap = snapshot.value;
+		
+		NSUInteger numberFirebase=snap.count-1;
+		NSUInteger numberPlist=[self.plistManager numberOfDontRepeatsInPlist];
+		
+		if (numberFirebase>numberPlist) {
+			self.dontRepeats=[[NSMutableArray alloc]init];
+			NSArray *allKeys = [snap allKeys];
+			for (NSString *key in allKeys) {
+				NSDictionary *dic = [snap objectForKey:key];
+				if(![key isEqualToString:@"mail"]){
+					DontRepeat *dont = [[DontRepeat alloc] init];
+					dont.dontRepeatTitle= [dic objectForKey:@"Title"];
+					dont.dontRepeatDate = [dic objectForKey:@"Date"];
+					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
+					dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
+					dont.dontRepeatID	= key;
+					[self.dontRepeats addObject:dont];
+				}
+			}
+			[self.plistManager saveAllDontRepeatToPlistFromArray:self.dontRepeats];
+		}
+		[self.collectionViewProperty reloadData];
+	}];
+
+	
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	

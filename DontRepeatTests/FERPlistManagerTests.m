@@ -37,4 +37,8 @@
 	XCTAssert(YES, @"Pass");
 }
 
+-(void)testNumberOfDontRepeatsInPlist{
+	XCTAssertEqual(8.0, [self.plistManager numberOfDontRepeatsInPlist]);
+}
+
 @end

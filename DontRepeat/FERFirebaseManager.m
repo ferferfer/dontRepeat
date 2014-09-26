@@ -8,6 +8,7 @@
 
 #import "FERFirebaseManager.h"
 #import "FERFormatHelper.h"
+#import	"FERPlistManager.h"
 
 NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
@@ -15,6 +16,8 @@ NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
 @property (strong, nonatomic) Firebase *ref;
 @property (strong, nonatomic) FERFormatHelper	*formatHelper;
+@property	(strong, nonatomic) FERPlistManager *plistManager;
+@property (nonatomic,strong)	NSMutableArray *dontRepeats;
 
 @end
 
@@ -34,6 +37,13 @@ NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
     _formatHelper=[[FERFormatHelper alloc]init];
 	}
 	return _formatHelper;
+}
+
+-(FERPlistManager *)plistManager{
+	if(_plistManager==nil){
+		_plistManager=[[FERPlistManager	alloc]init];
+	}
+	return _plistManager;
 }
 
 -(Firebase *)arriveToUserFolder:(FERUser *)user{
@@ -60,9 +70,5 @@ NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 	[[nameRef childByAppendingPath:@"Pic"] setValue:dontRepeat.dontRepeatPicture];
 
 }
-
-
-
-
 
 @end

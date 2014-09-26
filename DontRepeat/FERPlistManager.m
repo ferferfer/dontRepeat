@@ -7,8 +7,22 @@
 //
 
 #import "FERPlistManager.h"
+#import "FERFormatHelper.h"
+
+@interface FERPlistManager ()
+
+@property (nonatomic,strong)FERFormatHelper	*formatHelper;
+
+@end
 
 @implementation FERPlistManager
+
+-(FERFormatHelper *)formatHelper{
+	if (_formatHelper==nil) {
+		_formatHelper=[[FERFormatHelper alloc]init];
+	}
+	return _formatHelper;
+}
 
 -(void)addUser:(FERUser *)user{
 	
@@ -115,5 +129,45 @@
 	return dontRepeats;
 }
 
+-(NSInteger)numberOfDontRepeatsInPlist{
+	NSString *path=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
+	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+	return [dict count];
+}
+
+-(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray{
+	
+	NSString *filePath=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
+	NSMutableDictionary *dict=[NSMutableDictionary	dictionary];
+	
+	for (int i=0; i<dontRepeatArray.count; i++) {
+		DontRepeat *dontRepeat=[dontRepeatArray objectAtIndex:i];
+		NSMutableDictionary *storeDict=[NSMutableDictionary dictionary];
+		
+		[storeDict setValue:dontRepeat.dontRepeatTitle forKey:@"Title"];
+		[storeDict setValue:dontRepeat.dontRepeatDate forKey:@"Date"];
+		if (dontRepeat.dontRepeatDesc==nil){
+			[storeDict setValue:@"" forKey:@"Desc"];
+		}	else{
+			[storeDict setValue:dontRepeat.dontRepeatDesc forKey:@"Desc"];
+		}
+		if (dontRepeat.dontRepeatPicture==nil) {
+			[storeDict setValue:@"" forKey:@"Pic"];
+		}else{
+			[storeDict setValue:dontRepeat.dontRepeatPicture forKey:@"Pic"];
+		}
+		
+		if (dontRepeat.dontRepeatID==nil) {
+			NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
+			dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
+		}
+		
+		[dict setObject:storeDict forKey:dontRepeat.dontRepeatID];
+
+	}
+	
+	[dict writeToFile:filePath atomically: YES];
+	
+}
 
 @end

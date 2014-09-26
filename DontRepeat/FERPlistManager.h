@@ -18,4 +18,6 @@
 -(NSInteger)numberOfUsersInPlist;
 -(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat;
 -(NSMutableArray	*)loadDontRepeats;
+-(NSInteger)numberOfDontRepeatsInPlist;
+-(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray;
 @end
