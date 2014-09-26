@@ -73,7 +73,7 @@
 	
 	NSString *filePath=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
 	
-	NSMutableDictionary *dict=[NSMutableDictionary	dictionary];
+	NSMutableDictionary *dict=[NSMutableDictionary	dictionaryWithContentsOfFile:filePath];
 	
 	NSMutableDictionary *storeDict=[NSMutableDictionary dictionary];
 	[storeDict setValue:dontRepeat.dontRepeatTitle forKey:@"Title"];
