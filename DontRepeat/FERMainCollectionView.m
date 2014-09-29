@@ -176,7 +176,7 @@
 					[self.dontRepeats addObject:dont];
 				}
 			}
-			self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
+			self.dontRepeats=[self.formatHelper sortDontRepeatsByTitle:self.dontRepeats];
 		}
 		[self.collectionViewProperty reloadData];
 	}];
@@ -187,7 +187,7 @@
 	self.dontRepeats=[self.plistManager loadDontRepeatsFromUser:self.user];
 	DontRepeat *fer=[self.dontRepeats firstObject];
 	NSLog(@"viewDidAppear%@",fer.dontRepeatID);
-	self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
+	self.dontRepeats=[self.formatHelper sortDontRepeatsByTitle:self.dontRepeats];
 	[self.collectionViewProperty reloadData];
 	
 }

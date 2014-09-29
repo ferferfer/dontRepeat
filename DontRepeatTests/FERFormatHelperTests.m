@@ -49,7 +49,7 @@
 	dont.dontRepeatDate=@"01/01/2014";
 	[array addObject:dont];
 	FERFormatHelper *formatHelper= [[FERFormatHelper alloc]init];
-	array=[formatHelper orderDontRepeatsByDate:array];
+	array=[formatHelper sortDontRepeatsByTitle:array];
 	
 	XCTAssert(array,@"");
 }

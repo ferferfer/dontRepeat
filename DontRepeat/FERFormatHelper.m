@@ -32,12 +32,16 @@
 	return [dateFormatter dateFromString:string];
 }
 
--(NSMutableArray *)orderDontRepeatsByDate:(NSMutableArray *)array{
+-(NSMutableArray *)sortDontRepeatsByTitle:(NSMutableArray *)array{
 
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-																			initWithKey: @"dontRepeatTitle" ascending: YES];
+	NSSortDescriptor *appearanceDescriptor =
+	[[NSSortDescriptor alloc] initWithKey:@"dontRepeatTitle"
+															ascending:YES
+															 selector:@selector(localizedCaseInsensitiveCompare:)];
+ 
 	
-	NSArray *sortedArray = [array sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+	NSArray *sortedArray = [array sortedArrayUsingDescriptors: [NSArray arrayWithObject:appearanceDescriptor]];
+	NSLog(@"%@",sortedArray);
 	return [sortedArray mutableCopy];
 	
 }

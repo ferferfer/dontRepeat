@@ -14,6 +14,6 @@
 -(NSString *)cleanMail:(NSString *)mail;
 -(NSString *)returnStringFromDate:(NSDate *)date;
 -(NSDate *)returnDateFromString:(NSString *)string;
--(NSMutableArray *)orderDontRepeatsByDate:(NSMutableArray *)array;
+-(NSMutableArray *)sortDontRepeatsByTitle:(NSMutableArray *)array;
 -(NSString *)removeSpacesAndSlashes:(NSString *)text;
 @end
