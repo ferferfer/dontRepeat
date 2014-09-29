@@ -11,6 +11,7 @@
 #import "FERMainCollectionView.h"
 #import "FERPlistManager.h"
 #import "FERUser.h"
+#import "FERFormatHelper.h"
 
 #import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
@@ -21,9 +22,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
 @property (nonatomic,strong)FERUser *theUser;
 @property (nonatomic,strong)FERPlistManager *plist;
-@property	(nonatomic,strong)FirebaseSimpleLogin* authClient;
+@property	(nonatomic,strong)FirebaseSimpleLogin *authClient;
 @property	(nonatomic,strong)Firebase* ref;
-@property	(nonatomic,strong)FERFirebaseManager* fireManager;
+@property	(nonatomic,strong)FERFirebaseManager *fireManager;
+@property	(nonatomic,strong)FERFormatHelper *formatHelper;
 
 @end
 
@@ -71,9 +73,17 @@
 	return _fireManager;
 }
 
+-(FERFormatHelper *)formatHelper{
+	if (_formatHelper==nil) {
+		_formatHelper=[[FERFormatHelper alloc]init];
+	}
+	return _formatHelper;
+}
+
 - (void)saveUser{
 	self.theUser.userMail = self.email.text;
 	self.theUser.userPassword = self.password.text;
+	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
 }
 
 -(void)loadUserTextFields{
@@ -121,6 +131,7 @@
 								} else {									
 									theUser.userMail=self.email.text;
 									theUser.userPassword=self.password.text;
+									theUser.userNick = [self.formatHelper cleanMail:self.email.text];
 									[self.plist addUser:theUser];
 									
 									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];

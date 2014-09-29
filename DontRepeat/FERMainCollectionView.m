@@ -35,6 +35,7 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
+	self.navigationController.navigationBarHidden=NO;
 	[self comparePlistVsFireBase];
 	[self loadPlistDontRepeats];
 }
@@ -183,7 +184,7 @@
 
 -(void)loadPlistDontRepeats{
 	
-	self.dontRepeats=[self.plistManager loadDontRepeats];
+	self.dontRepeats=[self.plistManager loadDontRepeatsFromUser:self.user];
 	DontRepeat *fer=[self.dontRepeats firstObject];
 	NSLog(@"viewDidAppear%@",fer.dontRepeatID);
 	self.dontRepeats=[self.formatHelper orderDontRepeatsByDate:self.dontRepeats];
@@ -200,7 +201,7 @@
 
 -(void)addDontRepeatToPlist:(DontRepeat *)dontRepeat {
 	
-	[self.plistManager saveDontRepeatToPlist:dontRepeat];
+	[self.plistManager saveDontRepeatToPlist:dontRepeat forUser:self.user];
 	
 }
 -(void)removeDontRepeat{
@@ -215,7 +216,7 @@
 		NSDictionary *snap = snapshot.value;
 		
 		NSUInteger numberFirebase=snap.count-1;
-		NSUInteger numberPlist=[self.plistManager numberOfDontRepeatsInPlist];
+		NSUInteger numberPlist=[self.plistManager numberOfDontRepeatsInPlistForUser:self.user];
 		
 		if (numberFirebase>numberPlist) {
 			self.dontRepeats=[[NSMutableArray alloc]init];
@@ -232,7 +233,7 @@
 					[self.dontRepeats addObject:dont];
 				}
 			}
-			[self.plistManager saveAllDontRepeatToPlistFromArray:self.dontRepeats];
+			[self.plistManager saveAllDontRepeatToPlistFromArray:self.dontRepeats forUser:self.user];
 		}
 		[self.collectionViewProperty reloadData];
 	}];

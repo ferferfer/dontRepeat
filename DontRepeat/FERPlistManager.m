@@ -83,9 +83,9 @@
 	return [array count];
 }
 
--(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat{
+-(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
 	
-	NSString *filePath=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
+	NSString *filePath=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	
 	NSMutableDictionary *dict=[NSMutableDictionary	dictionaryWithContentsOfFile:filePath];
 	
@@ -109,8 +109,8 @@
 	
 }
 
--(NSMutableArray	*)loadDontRepeats{
-	NSString *path=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
+-(NSMutableArray	*)loadDontRepeatsFromUser:(FERUser *)user{
+	NSString *path=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	NSMutableDictionary *contentDictionary= [NSMutableDictionary dictionaryWithContentsOfFile:path];
 //	NSMutableArray *contentArray = [NSMutableArray arrayWithContentsOfFile:path];
 	NSMutableArray *dontRepeats=[[NSMutableArray alloc]init];
@@ -129,15 +129,15 @@
 	return dontRepeats;
 }
 
--(NSInteger)numberOfDontRepeatsInPlist{
-	NSString *path=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
+-(NSInteger)numberOfDontRepeatsInPlistForUser:(FERUser *)user{
+	NSString *path=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:path];
 	return [dict count];
 }
 
--(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray{
+-(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray forUser:(FERUser *)user{
 	
-	NSString *filePath=[self pathOfPlistInDocumentsFolder:@"DontRepeats"];
+	NSString *filePath=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	NSMutableDictionary *dict=[NSMutableDictionary	dictionary];
 	
 	for (int i=0; i<dontRepeatArray.count; i++) {
