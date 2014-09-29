@@ -31,14 +31,8 @@
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
-	
+	[self loadUserTextFields];
 	[self loginProcess];
-	//
-	//	self.theUser=[self checkIfSingnedUp];
-	//	if (self.theUser.userMail!=nil) {
-	//		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
-	//	}
-	// Do any additional setup after loading the view.
 }
 
 -(Firebase *)ref{
@@ -80,6 +74,14 @@
 - (void)saveUser{
 	self.theUser.userMail = self.email.text;
 	self.theUser.userPassword = self.password.text;
+}
+
+-(void)loadUserTextFields{
+	FERUser *userText=[self.plist loadUser];
+	self.email.text=userText.userMail;
+	self.password.text=userText.userPassword;
+	self.navigationController.navigationBarHidden=YES;
+	self.password.secureTextEntry = YES;
 }
 
 
