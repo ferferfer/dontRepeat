@@ -14,11 +14,14 @@
 #import "FERPlistManager.h"
 #import "FERFormatHelper.h"
 #import "FERImageDownloader.h"
+#import "FERMomentLayout.h"
+#import "FERDaysLayout.h"
 
 @interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate>
 
 @property (nonatomic,strong)UICollectionView *collectionViewProperty;
-@property	(nonatomic,strong)UICollectionViewFlowLayout *horizontalFlowLayout;
+@property	(nonatomic,strong)FERMomentLayout *momentLayout;
+@property	(nonatomic,strong)FERDaysLayout *daysLayout;
 @property (nonatomic,strong)NSMutableSet *selectedCells;
 @property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
 @property	 (nonatomic, strong)FERPlistManager *plistManager;
@@ -44,9 +47,11 @@
 	[super viewDidLoad];
 	
 	NSLog(@"viewDidLoad%@",self.dontRepeats);
-	[self cargaHorizontalLayout];
+	[self cargaMomentLayout];
+	[self cargaDaysLayout];
+
 	
-	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.horizontalFlowLayout];
+	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.momentLayout];
 	//ADDED THE SUBVIEW AND DATA SOURCE
 	[self.view addSubview:self.collectionViewProperty];
 	self.collectionViewProperty.dataSource=self;
@@ -90,23 +95,13 @@
 	return _imageDownloader;
 }
 
--(void)cargaHorizontalLayout{
-	CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-	self.horizontalFlowLayout=[[UICollectionViewFlowLayout alloc]init];
-	if (iOSDeviceScreenSize.height != 480){
-		self.horizontalFlowLayout.itemSize=CGSizeMake(200	, 200);
-		self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
-	}else{
-		self.horizontalFlowLayout.itemSize=CGSizeMake(100	, 100);
-		self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
-	}
-	self.horizontalFlowLayout.minimumLineSpacing=20;
-	self.horizontalFlowLayout.minimumInteritemSpacing=10;
-	
-	self.horizontalFlowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
+-(void)cargaMomentLayout{
+	self.momentLayout=[[FERMomentLayout alloc]init];
 }
 
-
+-(void)cargaDaysLayout{
+	self.daysLayout=[[FERDaysLayout alloc]init];
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
 	return 1;
@@ -187,6 +182,25 @@
 		[self.collectionViewProperty reloadData];
 	}];
 }
+
+- (IBAction)changeLayout:(id)sender {
+	UISegmentedControl *segControl=sender;
+	switch (segControl.selectedSegmentIndex) {
+		case 0:
+			self.dontRepeats=[self.formatHelper sortDontRepeatsByTitle:self.dontRepeats];
+			[self.collectionViewProperty reloadData];
+			[self.collectionViewProperty setCollectionViewLayout:self.momentLayout animated:YES];
+			break;
+		case 1:
+			self.dontRepeats=[self.formatHelper sortDontRepeatsByDate:self.dontRepeats];
+			[self.collectionViewProperty reloadData];
+			[self.collectionViewProperty setCollectionViewLayout:self.daysLayout animated:YES];
+			break;
+		default:
+			break;
+	}
+}
+
 
 -(void)loadPlistDontRepeats{
 	

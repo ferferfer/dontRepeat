@@ -13,6 +13,8 @@
 		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
 		3F661F6819DAA5050034B550 /* NoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F6719DAA5050034B550 /* NoPic.png */; };
 		3F661F6A19DAAA880034B550 /* backgroundOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F6919DAAA880034B550 /* backgroundOrange.png */; };
+		3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F661F6C19DAEA2F0034B550 /* FERMomentLayout.m */; };
+		3F661F7019DAEA3E0034B550 /* FERDaysLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F661F6F19DAEA3E0034B550 /* FERDaysLayout.m */; };
 		3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E3F19D40865008EF71C /* FERJsonManager.m */; };
 		3F8C8E4619D46912008EF71C /* FERPlistManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */; };
 		3F8D67D119C843FF008F70C4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D67D019C843FF008F70C4 /* logo.png */; };
@@ -73,6 +75,10 @@
 		3F5A84DC19B765D100797C84 /* FERFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelper.m; sourceTree = "<group>"; };
 		3F661F6719DAA5050034B550 /* NoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoPic.png; sourceTree = "<group>"; };
 		3F661F6919DAAA880034B550 /* backgroundOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundOrange.png; sourceTree = "<group>"; };
+		3F661F6B19DAEA2F0034B550 /* FERMomentLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERMomentLayout.h; sourceTree = "<group>"; };
+		3F661F6C19DAEA2F0034B550 /* FERMomentLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERMomentLayout.m; sourceTree = "<group>"; };
+		3F661F6E19DAEA3E0034B550 /* FERDaysLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDaysLayout.h; sourceTree = "<group>"; };
+		3F661F6F19DAEA3E0034B550 /* FERDaysLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDaysLayout.m; sourceTree = "<group>"; };
 		3F8C8E3E19D40865008EF71C /* FERJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERJsonManager.h; sourceTree = "<group>"; };
 		3F8C8E3F19D40865008EF71C /* FERJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERJsonManager.m; sourceTree = "<group>"; };
 		3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManagerTests.m; sourceTree = "<group>"; };
@@ -204,6 +210,10 @@
 				3FEC01ED19A4AFDA00C85141 /* Main_iPad.storyboard */,
 				3FAA209D19A5018F003E22AC /* FERDontRepeatCell.h */,
 				3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */,
+				3F661F6B19DAEA2F0034B550 /* FERMomentLayout.h */,
+				3F661F6C19DAEA2F0034B550 /* FERMomentLayout.m */,
+				3F661F6E19DAEA3E0034B550 /* FERDaysLayout.h */,
+				3F661F6F19DAEA3E0034B550 /* FERDaysLayout.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -478,9 +488,11 @@
 			files = (
 				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
+				3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */,
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
 				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
+				3F661F7019DAEA3E0034B550 /* FERDaysLayout.m in Sources */,
 				3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */,
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
 				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,
