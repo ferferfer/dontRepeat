@@ -254,6 +254,14 @@
 				}
 			}
 			[self.plistManager saveAllDontRepeatToPlistFromArray:self.dontRepeats forUser:self.user];
+		}else if (numberPlist>numberFirebase){
+			NSArray	*arrayPlist=[self.plistManager loadDontRepeatsFromUser:self.user];
+			NSArray *allKeys = [snap allKeys];
+			for (DontRepeat *dont in arrayPlist) {
+				if (![allKeys containsObject:dont.dontRepeatID]) {
+					[self.firebaseManager saveDontRepeatToFirebase:dont forUser:self.user];
+				}
+			}
 		}
 		[self.collectionViewProperty reloadData];
 	}];

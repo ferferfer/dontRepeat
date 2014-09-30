@@ -52,7 +52,7 @@
 	
 	NSSortDescriptor *appearanceDescriptor =
 	[[NSSortDescriptor alloc] initWithKey:@"dontRepeatDate"
-															ascending:YES
+															ascending:NO
 															 selector:@selector(localizedCaseInsensitiveCompare:)];
  
 	
