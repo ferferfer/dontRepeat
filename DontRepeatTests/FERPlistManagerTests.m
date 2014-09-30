@@ -31,14 +31,19 @@
 	dont.dontRepeatDate=@"01/01/01";
 	dont.dontRepeatDesc=@"holaaaaa";
 	dont.dontRepeatTitle=@"titulo";
+	FERUser *user=[[FERUser alloc]init];
+	user.userID=@"holahola";
 	
-	[self.plistManager saveDontRepeatToPlist:dont];
+	[self.plistManager saveDontRepeatToPlist:dont forUser:user];
 	
 	XCTAssert(YES, @"Pass");
 }
 
 -(void)testNumberOfDontRepeatsInPlist{
-	XCTAssertEqual(8.0, [self.plistManager numberOfDontRepeatsInPlist]);
+	FERUser *user=[[FERUser alloc]init];
+	user.userID=@"holahola";
+	
+	XCTAssertEqual(0, [self.plistManager numberOfDontRepeatsInPlistForUser:user]);
 }
 
 @end

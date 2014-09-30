@@ -44,12 +44,14 @@
 	DontRepeat *dont=[[DontRepeat alloc]init];
 	dont.dontRepeatDate=@"01/01/2013";
 	[array addObject:dont];
-	dont.dontRepeatDate=@"01/01/2015";
-	[array addObject:dont];
-	dont.dontRepeatDate=@"01/01/2014";
-	[array addObject:dont];
+	DontRepeat *dont2=[[DontRepeat alloc]init];
+	dont2.dontRepeatDate=@"01/01/2015";
+	[array addObject:dont2];
+		DontRepeat *dont3=[[DontRepeat alloc]init];
+	dont3.dontRepeatDate=@"01/01/2014";
+	[array addObject:dont3];
 	FERFormatHelper *formatHelper= [[FERFormatHelper alloc]init];
-	array=[formatHelper sortDontRepeatsByTitle:array];
+	array=[formatHelper sortDontRepeatsByDate:array];
 	
 	XCTAssert(array,@"");
 }

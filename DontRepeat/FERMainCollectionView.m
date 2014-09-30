@@ -92,7 +92,7 @@
 
 -(void)cargaHorizontalLayout{
 	self.horizontalFlowLayout=[[UICollectionViewFlowLayout alloc]init];
-	self.horizontalFlowLayout.itemSize=CGSizeMake(200, 200);
+	self.horizontalFlowLayout.itemSize=CGSizeMake(200	, 200);
 	self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
 	self.horizontalFlowLayout.minimumLineSpacing=20;
 	self.horizontalFlowLayout.minimumInteritemSpacing=10;
