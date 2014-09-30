@@ -98,7 +98,7 @@
 }
 
 -(void)configure{
-	self.scrollView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+	self.scrollView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	self.scrollView.contentSize = self.scrollView.frame.size;
 	self.scrollView.frame = self.view.frame;
 	[self.view addSubview:self.scrollView];

@@ -11,6 +11,8 @@
 		3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */; };
 		3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D319B7260800797C84 /* FERFirebaseManager.m */; };
 		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
+		3F661F6819DAA5050034B550 /* NoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F6719DAA5050034B550 /* NoPic.png */; };
+		3F661F6A19DAAA880034B550 /* backgroundOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F6919DAAA880034B550 /* backgroundOrange.png */; };
 		3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E3F19D40865008EF71C /* FERJsonManager.m */; };
 		3F8C8E4619D46912008EF71C /* FERPlistManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */; };
 		3F8D67D119C843FF008F70C4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D67D019C843FF008F70C4 /* logo.png */; };
@@ -69,6 +71,8 @@
 		3F5A84D319B7260800797C84 /* FERFirebaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFirebaseManager.m; sourceTree = "<group>"; };
 		3F5A84DB19B765D100797C84 /* FERFormatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFormatHelper.h; sourceTree = "<group>"; };
 		3F5A84DC19B765D100797C84 /* FERFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelper.m; sourceTree = "<group>"; };
+		3F661F6719DAA5050034B550 /* NoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoPic.png; sourceTree = "<group>"; };
+		3F661F6919DAAA880034B550 /* backgroundOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundOrange.png; sourceTree = "<group>"; };
 		3F8C8E3E19D40865008EF71C /* FERJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERJsonManager.h; sourceTree = "<group>"; };
 		3F8C8E3F19D40865008EF71C /* FERJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERJsonManager.m; sourceTree = "<group>"; };
 		3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManagerTests.m; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 				3F8C8E3D19D40835008EF71C /* JsonManager */,
 				3FA7B53819BDACA7004365C1 /* background.png */,
 				3FAA20A519A5235A003E22AC /* newDress.png */,
+				3F661F6919DAAA880034B550 /* backgroundOrange.png */,
+				3F661F6719DAA5050034B550 /* NoPic.png */,
 				3FAA20A319A517C8003E22AC /* dress.png */,
 				3F8D67D019C843FF008F70C4 /* logo.png */,
 				3FEC01F319A4AFDA00C85141 /* Images.xcassets */,
@@ -416,6 +422,8 @@
 				3F8D67D119C843FF008F70C4 /* logo.png in Resources */,
 				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
+				3F661F6A19DAAA880034B550 /* backgroundOrange.png in Resources */,
+				3F661F6819DAA5050034B550 /* NoPic.png in Resources */,
 				3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

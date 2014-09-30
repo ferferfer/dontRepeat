@@ -91,9 +91,15 @@
 }
 
 -(void)cargaHorizontalLayout{
+	CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
 	self.horizontalFlowLayout=[[UICollectionViewFlowLayout alloc]init];
-	self.horizontalFlowLayout.itemSize=CGSizeMake(200	, 200);
-	self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
+	if (iOSDeviceScreenSize.height != 480){
+		self.horizontalFlowLayout.itemSize=CGSizeMake(200	, 200);
+		self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
+	}else{
+		self.horizontalFlowLayout.itemSize=CGSizeMake(100	, 100);
+		self.horizontalFlowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
+	}
 	self.horizontalFlowLayout.minimumLineSpacing=20;
 	self.horizontalFlowLayout.minimumInteritemSpacing=10;
 	
@@ -118,7 +124,7 @@
 		DontRepeat *dont=[[DontRepeat alloc]init];
 		dont = [self.dontRepeats objectAtIndex:indexPath.row];
 		if (dont.dontRepeatPicture.length==0) {
-			UIImage	*image=[UIImage imageNamed:@"dress"];
+			UIImage	*image=[UIImage imageNamed:@"NoPic"];
 			cell.thumbnail.image=image;
 		}else{
 			NSString *dataString =dont.dontRepeatPicture;
