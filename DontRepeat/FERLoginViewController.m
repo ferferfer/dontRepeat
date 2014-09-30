@@ -26,13 +26,20 @@
 @property	(nonatomic,strong)Firebase* ref;
 @property	(nonatomic,strong)FERFirebaseManager *fireManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
-
+@property (weak, nonatomic) IBOutlet UILabel *labelLoginin;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @end
 
 @implementation FERLoginViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+	self.navigationController.navigationBarHidden=YES;
+}
+
 - (void)viewDidLoad{
 	[super viewDidLoad];
+	self.labelLoginin.hidden=YES;
+	self.loadingIndicator.hidden=YES;
 	[self loadUserTextFields];
 	[self loginProcess];
 }
@@ -90,7 +97,6 @@
 	FERUser *userText=[self.plist loadUser];
 	self.email.text=userText.userMail;
 	self.password.text=userText.userPassword;
-	self.navigationController.navigationBarHidden=YES;
 	self.password.secureTextEntry = YES;
 }
 
@@ -173,6 +179,9 @@
 	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
 		
 		if (isLogin) {
+			self.labelLoginin.hidden=NO;
+			self.loadingIndicator.hidden=NO;
+			[self.loadingIndicator startAnimating];
 			NSLog(@"User is Login");
 			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 		};
@@ -202,6 +211,8 @@
 			FERUser *loggedUser=[self.plist loadUser];
 			mcv.user=loggedUser;
 			mcv.authClient=self.authClient;
+			self.labelLoginin.hidden=YES;
+			self.loadingIndicator.hidden=YES;
 	}
 	// Get the new view controller using [segue destinationViewController].
 	// Pass the selected object to the new view controller.

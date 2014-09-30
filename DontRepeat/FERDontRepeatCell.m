@@ -7,6 +7,8 @@
 //
 
 #import "FERDontRepeatCell.h"
+#import "UIColor+FERcolors.h"
+
 @interface FERDontRepeatCell ()
 
 @end
@@ -62,7 +64,7 @@
 	
 	self.cell=[[UIView alloc]initWithFrame:self.bounds];
 	self.cell.contentMode=UIViewContentModeScaleAspectFill;
-	self.cell.backgroundColor=[UIColor whiteColor];
+	self.cell.backgroundColor=[UIColor appPolaroidTheme];
 //	self.cell.layer.cornerRadius=15.0;
 	[self.cell setClipsToBounds:YES];
 	[self.contentView addSubview:self.cell];

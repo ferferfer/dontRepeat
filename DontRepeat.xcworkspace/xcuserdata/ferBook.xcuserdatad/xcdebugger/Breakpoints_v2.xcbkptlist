@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DontRepeat/FERFormatHelper.m"
-            timestampString = "433710473.103835"
+            filePath = "DontRepeat/FERMainCollectionView.m"
+            timestampString = "433784887.247019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-sortDontRepeatsByDate:"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-loadFirebasesDontRepeatsFromUser:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
