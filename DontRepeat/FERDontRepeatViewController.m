@@ -161,7 +161,8 @@
 }
 
 - (IBAction)savePressed:(id)sender {
-	
+	[self.titleTextField resignFirstResponder];
+	[self.descriptionTextView resignFirstResponder];
 	if([self checkFields]){
 		
 		DontRepeat *dontRepeat=[[DontRepeat alloc]init];
