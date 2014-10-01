@@ -11,93 +11,122 @@
 @implementation FERObjectsHelper
 
 - (void)titlePressed:(FERDontRepeatObjects *)obj{
-	
-	CGRect rectTitButton = obj.titleButton.frame;
-	CGRect rectTit = obj.titleTextField.frame;
-	CGRect rectDate = obj.dateButton.frame;
-	CGRect rectDesc = obj.descriptionButton.frame;
-	CGRect rectPic = obj.pictureButton.frame;
-	CGRect rectImg = obj.pictureImageView.frame;
-	
-	rectTitButton.origin = CGPointMake(8, 0);
-	rectTit.origin = CGPointMake(8, 58);
-	rectDate.origin = CGPointMake(8, 96);
-	rectDesc.origin = CGPointMake(8, 154);
-	rectPic.origin = CGPointMake(8, 212);
-	rectImg.origin = CGPointMake(8, 270);
-	
-	obj.titleButton.frame=rectTitButton;
-	obj.titleTextField.frame=rectTit;
-	obj.dateButton.frame = rectDate;
-	obj.descriptionButton.frame = rectDesc;
-	obj.pictureButton.frame = rectPic;
-	obj.pictureImageView.frame = rectImg;
-	
-	obj.titleTextField.hidden=NO;
-	obj.datePicker.hidden=YES;
-	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=NO;
+	[obj.titleTextField becomeFirstResponder];
+	[obj.descriptionTextView resignFirstResponder];
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+										 CGRect rectTitButton = obj.titleButton.frame;
+										 CGRect rectTit = obj.titleTextField.frame;
+										 CGRect rectDate = obj.dateButton.frame;
+										 CGRect rectDesc = obj.descriptionButton.frame;
+										 CGRect rectPic = obj.pictureButton.frame;
+										 CGRect rectImg = obj.pictureImageView.frame;
+										 
+										 rectTitButton.origin = CGPointMake(8, 0);
+										 rectTit.origin = CGPointMake(8, 58);
+										 rectDate.origin = CGPointMake(8, 96);
+										 rectDesc.origin = CGPointMake(8, 154);
+										 rectPic.origin = CGPointMake(8, 212);
+										 rectImg.origin = CGPointMake(8, 270);
+										 
+										 obj.titleButton.frame=rectTitButton;
+										 obj.titleTextField.frame=rectTit;
+										 obj.titleTextField.layer.borderWidth = 1.0f;
+										 obj.titleTextField.layer.borderColor = [[UIColor grayColor] CGColor];
+										 obj.dateButton.frame = rectDate;
+										 obj.descriptionButton.frame = rectDesc;
+										 obj.pictureButton.frame = rectPic;
+										 obj.pictureImageView.frame = rectImg;
+										 
+										 obj.titleTextField.hidden=NO;
+										 obj.titleTextField.alpha=1;
+										 obj.datePicker.hidden=YES;
+										 obj.datePicker.alpha=0;
+										 obj.descriptionTextView.hidden=YES;
+										 obj.descriptionTextView.alpha=0;
+										 obj.pictureImageView.hidden=NO;
+									 } completion:^(BOOL finished) {
+									 }];
 	
 }
 - (void)datePressed:(FERDontRepeatObjects *)obj {
-
-	CGRect rectTitButton = obj.titleButton.frame;
-	CGRect rectDate = obj.dateButton.frame;
-	CGRect rectDatePicker = obj.datePicker.frame;
-	CGRect rectDesc = obj.descriptionButton.frame;
-	CGRect rectPic = obj.pictureButton.frame;
-	CGRect rectImg = obj.pictureImageView.frame;
-	
-	rectTitButton.origin = CGPointMake(8, 0);
-	rectDate.origin = CGPointMake(8,58);
-	rectDatePicker.origin = CGPointMake(8,116);
-	rectDesc.origin = CGPointMake(8,286);
-	rectPic.origin = CGPointMake(8,344);
-	rectImg.origin = CGPointMake(8,402);
-
-	obj.titleButton.frame=rectTitButton;
-	obj.dateButton.frame = rectDate;
-	obj.datePicker.frame = rectDatePicker;
-	obj.descriptionButton.frame = rectDesc;
-	obj.pictureButton.frame = rectPic;
-	obj.pictureImageView.frame = rectImg;
-	
-	obj.titleTextField.hidden=YES;
-	obj.datePicker.hidden=NO;
-	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=NO;
+	[obj.datePicker becomeFirstResponder];
+	[obj.titleTextField resignFirstResponder];
+	[obj.descriptionTextView resignFirstResponder];
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+										 CGRect rectTitButton = obj.titleButton.frame;
+										 CGRect rectDate = obj.dateButton.frame;
+										 CGRect rectDatePicker = obj.datePicker.frame;
+										 CGRect rectDesc = obj.descriptionButton.frame;
+										 CGRect rectPic = obj.pictureButton.frame;
+										 CGRect rectImg = obj.pictureImageView.frame;
+										 
+										 rectTitButton.origin = CGPointMake(8, 0);
+										 rectDate.origin = CGPointMake(8,58);
+										 rectDatePicker.origin = CGPointMake(8,116);
+										 rectDesc.origin = CGPointMake(8,286);
+										 rectPic.origin = CGPointMake(8,344);
+										 rectImg.origin = CGPointMake(8,402);
+										 
+										 obj.titleButton.frame=rectTitButton;
+										 obj.dateButton.frame = rectDate;
+										 obj.datePicker.frame = rectDatePicker;
+										 obj.descriptionButton.frame = rectDesc;
+										 obj.pictureButton.frame = rectPic;
+										 obj.pictureImageView.frame = rectImg;
+										 
+										 obj.titleTextField.hidden=YES;
+										 obj.titleTextField.alpha=0;
+										 obj.datePicker.hidden=NO;
+										 obj.datePicker.alpha=1;
+										 obj.descriptionTextView.hidden=YES;
+										 obj.descriptionTextView.alpha=0;
+										 obj.pictureImageView.hidden=NO;
+									 } completion:^(BOOL finished) {
+									 }];
 }
 - (void)descriptionPressed:(FERDontRepeatObjects *)obj {
+	[obj.descriptionTextView becomeFirstResponder];
+	[obj.titleTextField resignFirstResponder];
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+										 CGRect rectTitButton = obj.titleButton.frame;
+										 CGRect rectDate = obj.dateButton.frame;
+										 CGRect rectDescText = obj.descriptionTextView.frame;
+										 CGRect rectDesc = obj.descriptionButton.frame;
+										 CGRect rectPic = obj.pictureButton.frame;
+										 CGRect rectImg = obj.pictureImageView.frame;
+										 
+										 rectTitButton.origin = CGPointMake(8, 0);
+										 rectDate.origin = CGPointMake(8,58);
+										 rectDesc.origin = CGPointMake(8,116);
+										 rectDescText.origin = CGPointMake(8, 174);
+										 rectPic.origin = CGPointMake(8,295);
+										 rectImg.origin = CGPointMake(8,353);
+										 
+										 obj.titleButton.frame=rectTitButton;
+										 obj.dateButton.frame = rectDate;
+										 obj.descriptionTextView.frame = rectDescText;
+										 obj.descriptionTextView.layer.borderWidth = 1.0f;
+										 obj.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+										 obj.descriptionButton.frame = rectDesc;
+										 obj.pictureButton.frame = rectPic;
+										 obj.pictureImageView.frame = rectImg;
+										 
+										 obj.titleTextField.hidden=YES;
+										 obj.titleTextField.alpha=0;
+										 obj.datePicker.hidden=YES;
+										 obj.datePicker.alpha=0;
+										 obj.descriptionTextView.hidden=NO;
+										 obj.descriptionTextView.alpha=1;
+										 obj.pictureImageView.hidden=NO;
+									 } completion:^(BOOL finished) {
+									 }];
 	
-	CGRect rectTitButton = obj.titleButton.frame;
-	CGRect rectDate = obj.dateButton.frame;
-	CGRect rectDescText = obj.descriptionTextView.frame;
-	CGRect rectDesc = obj.descriptionButton.frame;
-	CGRect rectPic = obj.pictureButton.frame;
-	CGRect rectImg = obj.pictureImageView.frame;
-	
-	rectTitButton.origin = CGPointMake(8, 0);
-	rectDate.origin = CGPointMake(8,58);
-	rectDesc.origin = CGPointMake(8,116);
-	rectDescText.origin = CGPointMake(8, 174);
-	rectPic.origin = CGPointMake(8,295);
-	rectImg.origin = CGPointMake(8,353);
-
-	obj.titleButton.frame=rectTitButton;
-	obj.dateButton.frame = rectDate;
-	obj.descriptionTextView.frame = rectDescText;
-	obj.descriptionButton.frame = rectDesc;
-	obj.pictureButton.frame = rectPic;
-	obj.pictureImageView.frame = rectImg;
-	
-	obj.titleTextField.hidden=YES;
-	obj.datePicker.hidden=YES;
-	obj.descriptionTextView.hidden=NO;
-	obj.pictureImageView.hidden=NO;
 	
 }
 - (void)picturePressed:(FERDontRepeatObjects *)obj {
-	
 	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
@@ -117,14 +146,17 @@
 	obj.pictureImageView.frame = rectPicView;
 	
 	obj.titleTextField.hidden=YES;
+	obj.titleTextField.alpha=0;
 	obj.datePicker.hidden=YES;
+	obj.datePicker.alpha=0;
 	obj.descriptionTextView.hidden=YES;
+	obj.descriptionTextView.alpha=0;
 	obj.pictureImageView.hidden=NO;
 	
 }
 
 -(void)originalPosition:(FERDontRepeatObjects *)obj{
-
+	
 	CGRect rectTitButton = obj.titleButton.frame;
 	CGRect rectDate = obj.dateButton.frame;
 	CGRect rectDesc = obj.descriptionButton.frame;
@@ -144,18 +176,29 @@
 	obj.pictureImageView.frame=rectImage;
 	
 	obj.titleTextField.hidden=YES;
+	obj.titleTextField.alpha=0;
 	obj.datePicker.hidden=YES;
+	obj.datePicker.alpha=0;
 	obj.descriptionTextView.hidden=YES;
+	obj.descriptionTextView.alpha=0;
 	obj.pictureImageView.hidden=NO;
 	
 }
 
 -(void)hideFields:(FERDontRepeatObjects *)obj{
-	obj.titleTextField.hidden=YES;
-	obj.datePicker.hidden=YES;
-	obj.descriptionTextView.hidden=YES;
-	obj.pictureImageView.hidden=NO;
-	
+	[obj.titleTextField resignFirstResponder];
+	[obj.descriptionTextView resignFirstResponder];
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+										 obj.titleTextField.hidden=YES;
+										 obj.titleTextField.alpha=0;
+										 obj.datePicker.hidden=YES;
+										 obj.datePicker.alpha=0;
+										 obj.descriptionTextView.hidden=YES;
+										 obj.descriptionTextView.alpha=0;
+										 obj.pictureImageView.hidden=NO;
+									 } completion:^(BOOL finished) {
+									 }];
 }
 
 

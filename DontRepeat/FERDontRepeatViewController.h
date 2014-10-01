@@ -19,6 +19,7 @@
 
 @interface FERDontRepeatViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *titleButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;

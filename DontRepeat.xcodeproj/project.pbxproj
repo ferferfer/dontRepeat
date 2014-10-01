@@ -55,6 +55,7 @@
 		3FEC020719A4AFDA00C85141 /* DontRepeatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC020619A4AFDA00C85141 /* DontRepeatTests.m */; };
 		3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */; };
 		3FEC021D19A4B0C700C85141 /* DontRepeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC021819A4B0C700C85141 /* DontRepeat.m */; };
+		3FEEF9AF19DC52C600E6DB82 /* UIButton+FERAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */; };
 		D388CAF56A874C259DC89E43 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA850BEC4643DEA1901786 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +144,8 @@
 		3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		3FEC021719A4B0C700C85141 /* DontRepeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DontRepeat.h; sourceTree = "<group>"; };
 		3FEC021819A4B0C700C85141 /* DontRepeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DontRepeat.m; sourceTree = "<group>"; };
+		3FEEF9AD19DC52C600E6DB82 /* UIButton+FERAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FERAnimations.h"; sourceTree = "<group>"; };
+		3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FERAnimations.m"; sourceTree = "<group>"; };
 		9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +254,8 @@
 				3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */,
 				3F8DAD2019DB0D96007407CC /* UIColor+FERcolors.h */,
 				3F8DAD2119DB0D96007407CC /* UIColor+FERcolors.m */,
+				3FEEF9AD19DC52C600E6DB82 /* UIButton+FERAnimations.h */,
+				3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
 				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
+				3FEEF9AF19DC52C600E6DB82 /* UIButton+FERAnimations.m in Sources */,
 				3F661F7019DAEA3E0034B550 /* FERDaysLayout.m in Sources */,
 				3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */,
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
