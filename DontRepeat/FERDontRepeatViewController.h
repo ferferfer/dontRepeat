@@ -13,8 +13,8 @@
 @protocol FERDontRepeatViewControllerDelegate <NSObject>
 
 -(void)addDontRepeat:(DontRepeat *)dontRepeat;
--(void)updateDontRepeat:(DontRepeat *)dontRepeat;
 -(void)removeDontRepeat:(DontRepeat *)dontRepeat;
+-(void)updateDontRepeat:(DontRepeat *)dontRepeat with:(DontRepeat *)oldDontRepeat;
 
 @end
 

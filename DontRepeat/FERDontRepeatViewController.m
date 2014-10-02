@@ -115,13 +115,7 @@
 }
 
 -(void)disableControls{
-	NSDate *date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
 	self.saveButton.title=@"update";
-	self.titleTextField.enabled=NO;
-	[self.datePicker setMinimumDate:date];
-	[self.datePicker setMaximumDate:date];
-	self.descriptionTextView.editable=NO;
-	self.pictureButton.enabled=NO;
 	self.deleteButton.hidden=NO;
 }
 
@@ -180,36 +174,35 @@
 - (IBAction)savePressed:(id)sender {
 	[self.titleTextField resignFirstResponder];
 	[self.descriptionTextView resignFirstResponder];
-	
-	if ([self.saveButton.title isEqualToString:@"save"]) {
-		if([self checkFields]){
-			
-			DontRepeat *dontRepeat=[[DontRepeat alloc]init];
-			dontRepeat.dontRepeatTitle= self.titleTextField.text;
-			dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
-			dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
-			NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
-			dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
-			
+	if([self checkFields]){
+		DontRepeat *dontRepeat=[[DontRepeat alloc]init];
+		dontRepeat.dontRepeatTitle= self.titleTextField.text;
+		dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
+		dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
+		NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
+		dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
+		
+		if (newPicture) {
 			UIImage *compressedImage=[self.pictureImageView.image imageScaledToQuarter];
 			
 			NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.1);
 			NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 			dontRepeat.dontRepeatPicture = dataString;
-			
+		}else{
+			dontRepeat.dontRepeatPicture=self.dontRepeat.dontRepeatPicture;
+		}
+		
+		if ([self.saveButton.title isEqualToString:@"save"]) {
 			[self.delegate addDontRepeat:dontRepeat];
 			[self.navigationController popViewControllerAnimated:YES];
-		}
-	}else if ([self.saveButton.title isEqualToString:@"update"]){
-		if([self checkFields]){
-//			[self.delegate updateDontRepeat:dontRepeat];
-		
+		}else if ([self.saveButton.title isEqualToString:@"update"]){
+			[self.delegate updateDontRepeat:dontRepeat with:self.dontRepeat];
+			[self.navigationController popViewControllerAnimated:YES];
 		}
 	}
-	
-	
-	
 }
+
+
 
 - (IBAction)titlePressed:(id)sender {
 	if (self.titleTextField.hidden) {

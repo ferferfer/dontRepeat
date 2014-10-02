@@ -66,8 +66,8 @@
 										 rectDesc.origin = CGPointMake(8,58);
 										 rectDate.origin = CGPointMake(8,116);
 										 rectDatePicker.origin = CGPointMake(8,144);
-										 rectPic.origin = CGPointMake(8,294);
-										 rectImg.origin = CGPointMake(8,352);
+										 rectPic.origin = CGPointMake(8,344);
+										 rectImg.origin = CGPointMake(8,392);
 										 
 										 obj.titleButton.frame=rectTitButton;
 										 obj.dateButton.frame = rectDate;

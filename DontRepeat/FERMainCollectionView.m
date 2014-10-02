@@ -218,9 +218,9 @@
 	[self.plistManager saveDontRepeatToPlist:dontRepeat forUser:self.user];
 }
 
--(void)updateDontRepeat:(DontRepeat *)dontRepeat {
-	[self.firebaseManager updateDontRepeatToFirebase:dontRepeat forUser:self.user];
-	[self.plistManager updateDontRepeatToPlist:dontRepeat forUser:self.user];
+-(void)updateDontRepeat:(DontRepeat *)dontRepeat with:(DontRepeat *)oldDontRepeat{
+	[self.firebaseManager updateDontRepeatToFirebase:dontRepeat with:(DontRepeat *)oldDontRepeat forUser:self.user];
+	[self.plistManager updateDontRepeatToPlist:dontRepeat with:(DontRepeat *)oldDontRepeat forUser:self.user];
 }
 
 -(void)removeDontRepeat:(DontRepeat *)dontRepeat {

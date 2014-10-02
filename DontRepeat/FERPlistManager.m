@@ -170,7 +170,13 @@
 	
 }
 
--(void)updateDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
+-(void)updateDontRepeatToPlist:(DontRepeat *)dontRepeat
+													with:(DontRepeat *)oldDontRepeat
+											 forUser:(FERUser *)user{
+	
+	[self removeDontRepeatToPlist:oldDontRepeat forUser:user];
+	[self saveDontRepeatToPlist:dontRepeat forUser:user];
+
 }
 -(void)removeDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
 
