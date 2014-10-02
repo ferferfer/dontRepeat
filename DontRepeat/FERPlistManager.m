@@ -83,32 +83,6 @@
 	return [array count];
 }
 
--(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
-	
-	NSString *filePath=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
-	
-	NSMutableDictionary *dict=[NSMutableDictionary	dictionaryWithContentsOfFile:filePath];
-	
-	NSMutableDictionary *storeDict=[NSMutableDictionary dictionary];
-	[storeDict setValue:dontRepeat.dontRepeatTitle forKey:@"Title"];
-	[storeDict setValue:dontRepeat.dontRepeatDate forKey:@"Date"];
-	if (dontRepeat.dontRepeatDesc==nil){
-		[storeDict setValue:@"" forKey:@"Desc"];
-	}	else{
-		[storeDict setValue:dontRepeat.dontRepeatDesc forKey:@"Desc"];
-	}
-	if (dontRepeat.dontRepeatPicture==nil) {
-		[storeDict setValue:@"" forKey:@"Pic"];
-	}else{
-		[storeDict setValue:dontRepeat.dontRepeatPicture forKey:@"Pic"];
-	}
-
-	[dict setObject:storeDict forKey:dontRepeat.dontRepeatID];
-
-	[dict writeToFile:filePath atomically: YES];
-	
-}
-
 -(NSMutableArray	*)loadDontRepeatsFromUser:(FERUser *)user{
 	NSString *path=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	NSMutableDictionary *contentDictionary= [NSMutableDictionary dictionaryWithContentsOfFile:path];
@@ -123,7 +97,7 @@
 		dont.dontRepeatDate = [dic objectForKey:@"Date"];
 		dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
 		dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
-		dont.dontRepeatID	= [dic objectForKey:@"Id"];
+		dont.dontRepeatID	= key;
 		[dontRepeats addObject:dont];
 	}
 	return dontRepeats;
@@ -169,5 +143,46 @@
 	[dict writeToFile:filePath atomically: YES];
 	
 }
+
+-(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
+	
+	NSString *filePath=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
+	
+	NSMutableDictionary *dict=[NSMutableDictionary	dictionaryWithContentsOfFile:filePath];
+	
+	NSMutableDictionary *storeDict=[NSMutableDictionary dictionary];
+	[storeDict setValue:dontRepeat.dontRepeatTitle forKey:@"Title"];
+	[storeDict setValue:dontRepeat.dontRepeatDate forKey:@"Date"];
+	if (dontRepeat.dontRepeatDesc==nil){
+		[storeDict setValue:@"" forKey:@"Desc"];
+	}	else{
+		[storeDict setValue:dontRepeat.dontRepeatDesc forKey:@"Desc"];
+	}
+	if (dontRepeat.dontRepeatPicture==nil) {
+		[storeDict setValue:@"" forKey:@"Pic"];
+	}else{
+		[storeDict setValue:dontRepeat.dontRepeatPicture forKey:@"Pic"];
+	}
+	
+	[dict setObject:storeDict forKey:dontRepeat.dontRepeatID];
+	
+	[dict writeToFile:filePath atomically: YES];
+	
+}
+
+-(void)updateDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
+}
+-(void)removeDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
+
+	NSString *filePath=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
+	
+	NSMutableDictionary *dict=[NSMutableDictionary	dictionaryWithContentsOfFile:filePath];
+	
+	[dict setValue:nil forKey:dontRepeat.dontRepeatID];
+	
+	[dict writeToFile:filePath atomically: YES];
+	
+}
+
 
 @end

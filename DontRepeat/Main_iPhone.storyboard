@@ -273,6 +273,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="deletePressed:" destination="UWy-oZ-lI9" eventType="touchUpInside" id="j02-LJ-H5G"/>
                                             <action selector="titlePressed:" destination="UWy-oZ-lI9" eventType="touchUpInside" id="JrZ-9L-Drg"/>
                                         </connections>
                                     </button>

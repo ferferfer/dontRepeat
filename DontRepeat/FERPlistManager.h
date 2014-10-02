@@ -16,8 +16,10 @@
 -(BOOL)plistExistInDocumentsFolder:(NSString *)name;
 -(FERUser	*)loadUser;
 -(NSInteger)numberOfUsersInPlist;
--(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
 -(NSMutableArray	*)loadDontRepeatsFromUser:(FERUser *)user;
 -(NSInteger)numberOfDontRepeatsInPlistForUser:(FERUser *)user;
 -(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray forUser:(FERUser *)user;
+-(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(void)updateDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(void)removeDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
 @end

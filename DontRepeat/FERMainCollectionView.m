@@ -213,20 +213,19 @@
 	
 }
 
-
--(void)addDontRepeatToFirebase:(DontRepeat *)dontRepeat forUser:(FERUser *)user {
-	
-	[self.firebaseManager saveDontRepeatToFirebase:dontRepeat forUser:user];
-	
-}
-
--(void)addDontRepeatToPlist:(DontRepeat *)dontRepeat {
-	
+-(void)addDontRepeat:(DontRepeat *)dontRepeat {
+	[self.firebaseManager saveDontRepeatToFirebase:dontRepeat forUser:self.user];
 	[self.plistManager saveDontRepeatToPlist:dontRepeat forUser:self.user];
-	
 }
--(void)removeDontRepeat{
-	
+
+-(void)updateDontRepeat:(DontRepeat *)dontRepeat {
+	[self.firebaseManager updateDontRepeatToFirebase:dontRepeat forUser:self.user];
+	[self.plistManager updateDontRepeatToPlist:dontRepeat forUser:self.user];
+}
+
+-(void)removeDontRepeat:(DontRepeat *)dontRepeat {
+	[self.firebaseManager removeDontRepeatToFirebase:dontRepeat forUser:self.user];
+	[self.plistManager removeDontRepeatToPlist:dontRepeat forUser:self.user];
 }
 
 -(void)comparePlistVsFireBase{

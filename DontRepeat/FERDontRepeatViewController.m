@@ -28,7 +28,7 @@
 @end
 
 @implementation FERDontRepeatViewController{
-	NSString *picture;
+	BOOL newPicture;
 }
 
 
@@ -45,6 +45,7 @@
 	[super viewDidLoad];
 	self.scrollView.delegate=self;
 	self.takeController.delegate=self;
+	newPicture=NO;
 	[self configure];
 	[self loadData];
 	
@@ -105,11 +106,10 @@
 		
 		NSString *dataString =self.dontRepeat.dontRepeatPicture;
 		//This is to compare in case of update for not to compress twice
-		picture=self.dontRepeat.dontRepeatPicture;
 		NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
 																														options:NSDataBase64DecodingIgnoreUnknownCharacters];
 		self.pictureImageView.image=[UIImage imageWithData:stringData];
-
+		
 		[self disableControls];
 	}
 }
@@ -180,26 +180,35 @@
 - (IBAction)savePressed:(id)sender {
 	[self.titleTextField resignFirstResponder];
 	[self.descriptionTextView resignFirstResponder];
-	if([self checkFields]){
+	
+	if ([self.saveButton.title isEqualToString:@"save"]) {
+		if([self checkFields]){
+			
+			DontRepeat *dontRepeat=[[DontRepeat alloc]init];
+			dontRepeat.dontRepeatTitle= self.titleTextField.text;
+			dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
+			dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
+			NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
+			dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
+			
+			UIImage *compressedImage=[self.pictureImageView.image imageScaledToQuarter];
+			
+			NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.1);
+			NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+			dontRepeat.dontRepeatPicture = dataString;
+			
+			[self.delegate addDontRepeat:dontRepeat];
+			[self.navigationController popViewControllerAnimated:YES];
+		}
+	}else if ([self.saveButton.title isEqualToString:@"update"]){
+		if([self checkFields]){
+//			[self.delegate updateDontRepeat:dontRepeat];
 		
-		DontRepeat *dontRepeat=[[DontRepeat alloc]init];
-		dontRepeat.dontRepeatTitle= self.titleTextField.text;
-		dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
-		dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
-		NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
-		dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
-		
-		UIImage *compressedImage=[self.pictureImageView.image imageScaledToQuarter];
-		
-		NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.1);
-		NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-		dontRepeat.dontRepeatPicture = dataString;
-		
-		
-		[self.delegate addDontRepeatToFirebase:dontRepeat forUser:self.user];
-		[self.delegate addDontRepeatToPlist:dontRepeat];
-		[self.navigationController popViewControllerAnimated:YES];
+		}
 	}
+	
+	
+	
 }
 
 - (IBAction)titlePressed:(id)sender {
@@ -235,7 +244,24 @@
 						 gotPhoto:(UIImage *)photo
 						 withInfo:(NSDictionary *)info{
 	self.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
-		[self.pictureImageView setImage:photo];
+	[self.pictureImageView setImage:photo];
+	newPicture=YES;
+}
+
+- (IBAction)deletePressed:(id)sender {
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete item"
+																									message:@"Are you sure to want to delete?"
+																								 delegate:self
+																				cancelButtonTitle:@"No"
+																				otherButtonTitles:@"Of course",nil];
+	[alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 1) {
+		[self.delegate removeDontRepeat:self.dontRepeat];
+		[self.navigationController popViewControllerAnimated:YES];
+	}
 }
 
 @end
