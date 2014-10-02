@@ -242,7 +242,7 @@
 }
 
 - (IBAction)deletePressed:(id)sender {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete item"
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Don't Repeat"
 																									message:@"Are you sure to want to delete?"
 																								 delegate:self
 																				cancelButtonTitle:@"No"

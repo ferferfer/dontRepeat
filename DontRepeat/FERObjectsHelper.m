@@ -22,7 +22,7 @@
 										 CGRect rectPic = obj.pictureButton.frame;
 										 CGRect rectImg = obj.pictureImageView.frame;
 										 
-										 rectTitButton.origin = CGPointMake(8, 0);
+										 rectTitButton.origin = CGPointMake(8, 10);
 										 rectTit.origin = CGPointMake(8, 58);
 										 rectDesc.origin = CGPointMake(8, 96);
 										 rectDate.origin = CGPointMake(8, 154);
@@ -62,7 +62,7 @@
 										 CGRect rectPic = obj.pictureButton.frame;
 										 CGRect rectImg = obj.pictureImageView.frame;
 										 
-										 rectTitButton.origin = CGPointMake(8, 0);
+										 rectTitButton.origin = CGPointMake(8, 10);
 										 rectDesc.origin = CGPointMake(8,58);
 										 rectDate.origin = CGPointMake(8,116);
 										 rectDatePicker.origin = CGPointMake(8,144);
@@ -98,7 +98,7 @@
 										 CGRect rectPic = obj.pictureButton.frame;
 										 CGRect rectImg = obj.pictureImageView.frame;
 										 
-										 rectTitButton.origin = CGPointMake(8, 0);
+										 rectTitButton.origin = CGPointMake(8, 10);
 										 rectDesc.origin = CGPointMake(8,58);
 										 rectDescText.origin = CGPointMake(8, 116);
 										 rectDate.origin = CGPointMake(8,237);
@@ -138,7 +138,7 @@
 	CGRect rectPic = obj.pictureButton.frame;
 	CGRect rectPicView = obj.pictureImageView.frame;
 	
-	rectTitButton.origin = CGPointMake(8, 0);
+	rectTitButton.origin = CGPointMake(8, 10);
 	rectDesc.origin = CGPointMake(8,58);
 	rectDate.origin = CGPointMake(8,116);
 	rectPic.origin = CGPointMake(8,174);
@@ -169,7 +169,7 @@
 	CGRect rectPic = obj.pictureButton.frame;
 	CGRect rectImage =obj.pictureImageView.frame;
 	
-	rectTitButton.origin = CGPointMake(8, 0);
+	rectTitButton.origin = CGPointMake(8, 10);
 	rectDesc.origin = CGPointMake(8,58);
 	rectDate.origin = CGPointMake(8,116);
 	rectPic.origin = CGPointMake(8,174);
