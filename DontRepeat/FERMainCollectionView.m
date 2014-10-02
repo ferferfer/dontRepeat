@@ -17,7 +17,7 @@
 #import "FERMomentLayout.h"
 #import "FERDaysLayout.h"
 
-@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate,MGTileMenuDelegate>
+@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong)UICollectionView *collectionViewProperty;
 @property	(nonatomic,strong)FERMomentLayout *momentLayout;
@@ -49,10 +49,6 @@
 	[self loadMomentLayout];
 	[self loadDaysLayout];
 	[self initializeCollectionView];
-	
-	UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePress:)];
-	tapRecognizer.delegate = self;
-	[self.view addGestureRecognizer:tapRecognizer];
 	
 }
 
@@ -98,12 +94,6 @@
 	//For the selection
 	self.collectionViewProperty.allowsMultipleSelection=YES;
 	self.collectionViewProperty.delegate=self;
-	
-	// attach long press gesture to collectionView
-	UILongPressGestureRecognizer *longPress= [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handlePress:)];
-	longPress.minimumPressDuration=.3;
-	longPress.delegate = self;
-	[self.collectionViewProperty addGestureRecognizer:longPress];
 	
 }
 
@@ -155,43 +145,6 @@
 	[self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
--(void)handlePress:(UILongPressGestureRecognizer *)gestureRecognizer{
-	if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
-		return;
-	}
-	CGPoint p = [gestureRecognizer locationInView:self.collectionViewProperty];
-	
-	NSIndexPath *indexPath = [self.collectionViewProperty indexPathForItemAtPoint:p];
-	if (indexPath == nil){
-		NSLog(@"couldn't find index path");
-	}else {
-		CGPoint loc = [gestureRecognizer locationInView:self.view];
-		if ([gestureRecognizer isMemberOfClass:[UILongPressGestureRecognizer class]]) {
-			
-			// get the cell at indexPath (the one you long pressed)
-			DontRepeat *dont=[[DontRepeat alloc]init];
-			dont = [self.dontRepeats objectAtIndex:indexPath.item];
-			dontRepeatSeleccionado=dont;
-			
-			if (!self.tileController || self.tileController.isVisible == NO) {
-				if (!self.tileController) {
-					// Create a tileController.
-					self.tileController = [[MGTileMenuController alloc] initWithDelegate:self];
-					self.tileController.dismissAfterTileActivated = NO; // to make it easier to play with in the demo app.
-				}
-				// Display the TileMenu.
-				[self.tileController displayMenuCenteredOnPoint:loc inView:self.view];
-			}
-		}else{
-			if (self.tileController && self.tileController.isVisible == YES) {
-				// Only dismiss if the tap wasn't inside the tile menu itself.
-				if (!CGRectContainsPoint(self.tileController.view.frame, loc)) {
-					[self.tileController dismissMenu];
-				}
-			}
-		}
-	}
-}
 
 - (IBAction)addPressed:(id)sender {
 	
@@ -324,10 +277,6 @@
 		dontRepeatViewController.user=self.user;
 		dontRepeatViewController.delegate=self;
 		dontRepeatViewController.dontRepeat=dontRepeatSeleccionado;
-		dontRepeatViewController.isUpdate=NO;
-		if (self.tileController && self.tileController.isVisible == YES) {
-			dontRepeatViewController.isUpdate=YES;
-		}
 	}
 	if ([segue.identifier isEqualToString:@"newSegue"]){
 		FERDontRepeatViewController *dontRepeatViewController=[segue destinationViewController];
@@ -335,45 +284,5 @@
 		dontRepeatViewController.delegate=self;
 	}
 }
-
-
-#pragma mark - TileMenu delegate
-- (NSInteger)numberOfTilesInMenu:(MGTileMenuController *)tileMenu{
-	return 2;
-}
-
-- (UIImage *)imageForTile:(NSInteger)tileNumber inMenu:(MGTileMenuController *)tileMenu{
-	NSArray *images = [NSArray arrayWithObjects:@"delete",@"update",nil];
-	if (tileNumber >= 0 && tileNumber < images.count) {
-		return [UIImage imageNamed:[images objectAtIndex:tileNumber]];
-	}
-	
-	return [UIImage imageNamed:@"Text"];
-}
-
-- (void)tileMenu:(MGTileMenuController *)tileMenu didActivateTile:(NSInteger)tileNumber{
-	if (tileNumber==0) {
-		[self removeDontRepeat];
-	}else{
-		[self performSegueWithIdentifier:@"detailSegue" sender:self];
-	}
-}
-
-
-- (void)tileMenuDidDismiss:(MGTileMenuController *)tileMenu{
-	self.tileController = nil;
-}
-
-- (NSString *)labelForTile:(NSInteger)tileNumber inMenu:(MGTileMenuController *)tileMenu{
- return @"";
-}
-- (NSString *)descriptionForTile:(NSInteger)tileNumber inMenu:(MGTileMenuController *)tileMenu{
- return @"";
-}
-
-- (UIImage *)backgroundImageForTile:(NSInteger)tileNumber inMenu:(MGTileMenuController *)tileMenu{
-	return [UIImage imageNamed:@"orange_gradient"];
-}
-
 
 @end
