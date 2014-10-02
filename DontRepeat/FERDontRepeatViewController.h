@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property	(nonatomic,strong)FERUser *user;
 @property	(nonatomic,strong)DontRepeat *dontRepeat;
+@property	(nonatomic)BOOL isUpdate;
 @property	(nonatomic, weak)	id<FERDontRepeatViewControllerDelegate> delegate;
 
 @end

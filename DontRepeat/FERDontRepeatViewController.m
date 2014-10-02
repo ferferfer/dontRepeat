@@ -25,7 +25,10 @@
 
 @end
 
-@implementation FERDontRepeatViewController
+@implementation FERDontRepeatViewController{
+	NSString *picture;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -86,15 +89,20 @@
 		_dontRepeat=[[DontRepeat alloc]init];
 		self.saveButton.enabled=YES;
 	}else{
+		if (!self.isUpdate) {
+			[self disableControls];
+		}
 		self.titleTextField.text=self.dontRepeat.dontRepeatTitle;
 		self.datePicker.date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
 		self.descriptionTextView.text=self.dontRepeat.dontRepeatDesc;
 		
 		NSString *dataString =self.dontRepeat.dontRepeatPicture;
+		//This is to compare in case of update for not to compress twice
+		picture=self.dontRepeat.dontRepeatPicture;
 		NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
 																														options:NSDataBase64DecodingIgnoreUnknownCharacters];
 		self.pictureImageView.image=[UIImage imageWithData:stringData];
-		[self disableControls];
+		
 	}
 }
 
@@ -137,10 +145,10 @@
 		[self.titleButton shakeAnimate];
 		[UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
 			[self.titleButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
-				[self.titleButton setBackgroundColor:[UIColor clearColor]];
+			[self.titleButton setBackgroundColor:[UIColor clearColor]];
 		} completion:^(BOOL finished) {
 		}];
-
+		
 		return NO;
 	}
 	if ([self.descriptionTextView.text isEqualToString:@""]) {
@@ -178,11 +186,13 @@
 		NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 		dontRepeat.dontRepeatPicture = dataString;
 		
+		
 		[self.delegate addDontRepeatToFirebase:dontRepeat forUser:self.user];
 		[self.delegate addDontRepeatToPlist:dontRepeat];
 		[self.navigationController popViewControllerAnimated:YES];
 	}
 }
+
 - (IBAction)titlePressed:(id)sender {
 	if (self.titleTextField.hidden) {
 		[self.objectsHelper titlePressed:self.dontRepeatObjects];

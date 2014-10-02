@@ -128,8 +128,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <connections>
-                                            <segue destination="UWy-oZ-lI9" kind="push" identifier="detailSegue" id="mOT-g8-YZK"/>
+                                            <segue destination="UWy-oZ-lI9" kind="push" identifier="detailSegue" id="aA1-C6-e5r"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -308,6 +309,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gIW-Gr-aQi"/>
+        <segue reference="aA1-C6-e5r"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -56,6 +56,13 @@
 		3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEC021619A4B0C700C85141 /* Main_iPhone.storyboard */; };
 		3FEC021D19A4B0C700C85141 /* DontRepeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC021819A4B0C700C85141 /* DontRepeat.m */; };
 		3FEEF9AF19DC52C600E6DB82 /* UIButton+FERAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */; };
+		3FEEF9B819DC666F00E6DB82 /* CloseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEF9B119DC666F00E6DB82 /* CloseButton@2x.png */; };
+		3FEEF9B919DC666F00E6DB82 /* ellipsis@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEF9B219DC666F00E6DB82 /* ellipsis@2x.png */; };
+		3FEEF9BA19DC666F00E6DB82 /* MGTileMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEF9B419DC666F00E6DB82 /* MGTileMenuController.m */; };
+		3FEEF9BB19DC666F00E6DB82 /* MGTileMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEF9B719DC666F00E6DB82 /* MGTileMenuView.m */; };
+		3FEEF9BE19DC69A500E6DB82 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEF9BC19DC69A500E6DB82 /* delete.png */; };
+		3FEEF9BF19DC69A500E6DB82 /* update.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEF9BD19DC69A500E6DB82 /* update.png */; };
+		3FEEF9C519DC725900E6DB82 /* orange_gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEF9C419DC725900E6DB82 /* orange_gradient@2x.png */; };
 		D388CAF56A874C259DC89E43 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA850BEC4643DEA1901786 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +153,16 @@
 		3FEC021819A4B0C700C85141 /* DontRepeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DontRepeat.m; sourceTree = "<group>"; };
 		3FEEF9AD19DC52C600E6DB82 /* UIButton+FERAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FERAnimations.h"; sourceTree = "<group>"; };
 		3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FERAnimations.m"; sourceTree = "<group>"; };
+		3FEEF9B119DC666F00E6DB82 /* CloseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseButton@2x.png"; sourceTree = "<group>"; };
+		3FEEF9B219DC666F00E6DB82 /* ellipsis@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ellipsis@2x.png"; sourceTree = "<group>"; };
+		3FEEF9B319DC666F00E6DB82 /* MGTileMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTileMenuController.h; sourceTree = "<group>"; };
+		3FEEF9B419DC666F00E6DB82 /* MGTileMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTileMenuController.m; sourceTree = "<group>"; };
+		3FEEF9B519DC666F00E6DB82 /* MGTileMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTileMenuDelegate.h; sourceTree = "<group>"; };
+		3FEEF9B619DC666F00E6DB82 /* MGTileMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTileMenuView.h; sourceTree = "<group>"; };
+		3FEEF9B719DC666F00E6DB82 /* MGTileMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTileMenuView.m; sourceTree = "<group>"; };
+		3FEEF9BC19DC69A500E6DB82 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		3FEEF9BD19DC69A500E6DB82 /* update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update.png; sourceTree = "<group>"; };
+		3FEEF9C419DC725900E6DB82 /* orange_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_gradient@2x.png"; sourceTree = "<group>"; };
 		9ABF90E9E27E4CF085DDF6D0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,6 +327,7 @@
 		3FEC01DE19A4AFDA00C85141 /* DontRepeat */ = {
 			isa = PBXGroup;
 			children = (
+				3FEEF9B019DC666100E6DB82 /* Menu */,
 				3FEC01E719A4AFDA00C85141 /* FERAppDelegate.h */,
 				3FEC01E819A4AFDA00C85141 /* FERAppDelegate.m */,
 				3F5A84DA19B765B500797C84 /* Helpers */,
@@ -363,6 +381,23 @@
 				3FEC020319A4AFDA00C85141 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FEEF9B019DC666100E6DB82 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3FEEF9BC19DC69A500E6DB82 /* delete.png */,
+				3FEEF9BD19DC69A500E6DB82 /* update.png */,
+				3FEEF9B119DC666F00E6DB82 /* CloseButton@2x.png */,
+				3FEEF9B219DC666F00E6DB82 /* ellipsis@2x.png */,
+				3FEEF9C419DC725900E6DB82 /* orange_gradient@2x.png */,
+				3FEEF9B319DC666F00E6DB82 /* MGTileMenuController.h */,
+				3FEEF9B419DC666F00E6DB82 /* MGTileMenuController.m */,
+				3FEEF9B519DC666F00E6DB82 /* MGTileMenuDelegate.h */,
+				3FEEF9B619DC666F00E6DB82 /* MGTileMenuView.h */,
+				3FEEF9B719DC666F00E6DB82 /* MGTileMenuView.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,17 +479,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEEF9BE19DC69A500E6DB82 /* delete.png in Resources */,
 				3FEC01EF19A4AFDA00C85141 /* Main_iPad.storyboard in Resources */,
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
 				3F661F7319DB064A0034B550 /* launch960.png in Resources */,
 				3F661F7419DB064A0034B550 /* launch1136.png in Resources */,
 				3FA7B53919BDACA8004365C1 /* background.png in Resources */,
+				3FEEF9C519DC725900E6DB82 /* orange_gradient@2x.png in Resources */,
+				3FEEF9B819DC666F00E6DB82 /* CloseButton@2x.png in Resources */,
+				3FEEF9BF19DC69A500E6DB82 /* update.png in Resources */,
 				3FAA20A619A5235A003E22AC /* newDress.png in Resources */,
 				3F8D67D119C843FF008F70C4 /* logo.png in Resources */,
 				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
 				3F8DAD2419DB137C007407CC /* themePolaroid.png in Resources */,
 				3F661F6A19DAAA880034B550 /* backgroundOrange.png in Resources */,
+				3FEEF9B919DC666F00E6DB82 /* ellipsis@2x.png in Resources */,
 				3F661F6819DAA5050034B550 /* NoPic.png in Resources */,
 				3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */,
 			);
@@ -508,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEEF9BA19DC666F00E6DB82 /* MGTileMenuController.m in Sources */,
 				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */,
@@ -520,6 +561,7 @@
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
 				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,
 				3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */,
+				3FEEF9BB19DC666F00E6DB82 /* MGTileMenuView.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
 				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,
 				3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */,
