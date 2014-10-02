@@ -1,2 +1,3 @@
+source 'https://github.com/CocoaPods/Specs.git'
 pod 'Firebase'
-pod 'FireData'
+pod 'FDTake', '~> 0.2.1'

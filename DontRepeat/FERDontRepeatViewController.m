@@ -14,14 +14,16 @@
 #import "FERDontRepeatObjects.h"
 #import "UIImage+Scale.h"
 #import "UIButton+FERAnimations.h"
+#import <FDTake/FDTakeController.h>
 
-@interface FERDontRepeatViewController () <UIScrollViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface FERDontRepeatViewController () <UIScrollViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,FDTakeDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property	(nonatomic,strong)FERFirebaseManager *firebaseManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 @property	(nonatomic,strong)FERObjectsHelper *objectsHelper;
 @property	(nonatomic,strong)FERDontRepeatObjects *dontRepeatObjects;
 @property (nonatomic,strong)UIImagePickerController *imagePicker;
+@property	(nonatomic,strong)FDTakeController *takeController;
 
 @end
 
@@ -42,6 +44,7 @@
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	self.scrollView.delegate=self;
+	self.takeController.delegate=self;
 	[self configure];
 	[self loadData];
 	
@@ -84,14 +87,18 @@
 	return _imagePicker;
 }
 
+-(FDTakeController *)takeController{
+	if (_takeController==nil) {
+		_takeController=[[FDTakeController alloc]init];
+	}
+	return _takeController;
+}
+
 -(void)loadData{
 	if (_dontRepeat==nil) {
 		_dontRepeat=[[DontRepeat alloc]init];
 		self.saveButton.enabled=YES;
 	}else{
-		if (!self.isUpdate) {
-			[self disableControls];
-		}
 		self.titleTextField.text=self.dontRepeat.dontRepeatTitle;
 		self.datePicker.date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
 		self.descriptionTextView.text=self.dontRepeat.dontRepeatDesc;
@@ -102,25 +109,27 @@
 		NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
 																														options:NSDataBase64DecodingIgnoreUnknownCharacters];
 		self.pictureImageView.image=[UIImage imageWithData:stringData];
-		
+
+		[self disableControls];
 	}
 }
 
 -(void)disableControls{
 	NSDate *date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
-	self.saveButton.enabled=NO;
+	self.saveButton.title=@"update";
 	self.titleTextField.enabled=NO;
 	[self.datePicker setMinimumDate:date];
 	[self.datePicker setMaximumDate:date];
 	self.descriptionTextView.editable=NO;
 	self.pictureButton.enabled=NO;
+	self.deleteButton.hidden=NO;
 }
 
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	
-	self.scrollView.contentSize = self.scrollView.frame.size;
 	self.scrollView.frame = self.view.frame;
+	self.scrollView.contentSize = self.scrollView.frame.size;
 	[self.view addSubview:self.scrollView];
 	
 	self.dontRepeatObjects.titleButton= self.titleButton;
@@ -218,27 +227,15 @@
 }
 
 - (IBAction)picturePressed:(id)sender {
-	
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-		UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
-		imagePicker.delegate = self;
-		imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-		imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
-		imagePicker.allowsEditing = NO;
-		[self presentViewController:imagePicker animated:YES completion:nil];
-	}
+	[self.objectsHelper picturePressed:self.dontRepeatObjects];
+	[self.takeController takePhotoOrChooseFromLibrary];
 }
 
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-	
-	NSString *mediaType = info[UIImagePickerControllerMediaType];
-	[self dismissViewControllerAnimated:YES completion:nil];
-	if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
-		self.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
-		UIImage *image = info[UIImagePickerControllerOriginalImage];
-		self.pictureImageView.image=image;
-	}
+-(void)takeController:(FDTakeController *)controller
+						 gotPhoto:(UIImage *)photo
+						 withInfo:(NSDictionary *)info{
+	self.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
+		[self.pictureImageView setImage:photo];
 }
 
 @end

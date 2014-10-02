@@ -28,9 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *pictureButton;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property	(nonatomic,strong)FERUser *user;
 @property	(nonatomic,strong)DontRepeat *dontRepeat;
-@property	(nonatomic)BOOL isUpdate;
 @property	(nonatomic, weak)	id<FERDontRepeatViewControllerDelegate> delegate;
 
 @end
