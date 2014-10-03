@@ -66,7 +66,9 @@
 - (void) textFilter:(NSString *) searchText{
 	self.filteredDontRepeats=[[NSMutableArray alloc]init];
 	for (DontRepeat *dont in self.dontRepeats) {
-		if ([dont.dontRepeatTitle containsString:searchText]) {
+		NSString *upperTitle=[dont.dontRepeatTitle uppercaseString];
+		NSString *upperSearch=[searchText uppercaseString];
+		if ([upperTitle containsString:upperSearch]) {
 			if (![self.filteredDontRepeats containsObject:dont]) {
 				[self.filteredDontRepeats addObject:dont];
 			}
