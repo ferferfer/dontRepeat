@@ -132,8 +132,10 @@
 	[self.authClient loginWithEmail:self.email.text andPassword:self.password.text
 							withCompletionBlock:^(NSError* error, FAUser* user) {
 								if (error != nil) {
-									[self alertRegisterError];
-									NSLog(@"There was an error logging in to this account");
+									if (![self tryToLoginWithPlist]) {
+										[self alertRegisterError];
+										NSLog(@"There was an error logging in to this account: %@",error);
+									}
 								} else {									
 									theUser.userMail=self.email.text;
 									theUser.userPassword=self.password.text;
@@ -141,9 +143,20 @@
 									[self.plist addUser:theUser];
 									
 									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
-									NSLog(@"We are now logged in");// We are now logged in
+									NSLog(@"We are now logged in");
 								}
 							}];
+}
+
+-(BOOL)tryToLoginWithPlist{
+	FERUser *userText=[self.plist loadUser];
+	if ([self.email.text isEqualToString:userText.userMail] &&
+			[self.password.text isEqualToString:userText.userPassword]) {
+		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+		NSLog(@"We are now logged in");
+		return YES;
+	}
+	return NO;
 }
 
 -(void)alertNewUserCreated{

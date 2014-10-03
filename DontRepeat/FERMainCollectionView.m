@@ -17,7 +17,7 @@
 #import "FERMomentLayout.h"
 #import "FERDaysLayout.h"
 
-@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate>
+@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate,UISearchBarDelegate,UITextFieldDelegate>
 
 @property (nonatomic,strong)UICollectionView *collectionViewProperty;
 @property	(nonatomic,strong)FERMomentLayout *momentLayout;
@@ -26,10 +26,12 @@
 @property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
 @property	 (nonatomic, strong)FERPlistManager *plistManager;
 @property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
-@property (nonatomic,strong)	NSMutableArray *dontRepeats;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (nonatomic,strong)NSMutableArray *dontRepeats;
+@property (weak, nonatomic)IBOutlet UIBarButtonItem *addButton;
 @property	(nonatomic,strong)FERImageDownloader *imageDownloader;
-
+@property (nonatomic,strong)NSMutableArray *filteredDontRepeats;
+@property	(nonatomic,strong)UISearchBar *searchBar;
+@property	(nonatomic,strong)UISearchController *searchController;
 @end
 
 @implementation FERMainCollectionView {
@@ -45,12 +47,54 @@
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
-	
 	[self loadMomentLayout];
 	[self loadDaysLayout];
 	[self initializeCollectionView];
-	
+	self.filteredDontRepeats = [[NSMutableArray alloc] init];
+
+	self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.bounds.size.width, 44.0f)];
+	self.searchBar.showsCancelButton=YES;
+	self.searchBar.returnKeyType=UIReturnKeyGo;
+	self.searchBar.delegate = self;
+	self.searchBar.backgroundColor=[UIColor clearColor];
+//	self.searchDisplayController.searchBar.=[UIColor blueColor];
+	[self.view addSubview:self.searchBar];
+
+
 }
+
+- (void) textFilter:(NSString *) searchText{
+	self.filteredDontRepeats=[[NSMutableArray alloc]init];
+	for (DontRepeat *dont in self.dontRepeats) {
+		if ([dont.dontRepeatTitle containsString:searchText]) {
+			if (![self.filteredDontRepeats containsObject:dont]) {
+				[self.filteredDontRepeats addObject:dont];
+			}
+		}
+	}
+}
+
+#pragma mark UISearchDisplayController Delegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+	[self textFilter:searchText];
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+	[self.collectionViewProperty	reloadData];
+									 } completion:^(BOOL finished) {
+									 }];
+//	if ([searchText isEqualToString:@""]) {
+//		[searchBar resignFirstResponder];
+//	}
+
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+	[searchBar resignFirstResponder];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+	[searchBar resignFirstResponder];
+}
+
 
 -(FERFirebaseManager *)firebaseManager{
 	if (_firebaseManager==nil) {
@@ -88,7 +132,7 @@
 	self.collectionViewProperty.dataSource=self;
 	
 	self.collectionViewProperty.backgroundColor=[UIColor clearColor];
-	self.collectionViewProperty.contentInset=UIEdgeInsetsMake(64, 0, 0, 0);
+	self.collectionViewProperty.contentInset=UIEdgeInsetsMake(108, 0, 0, 0);
 	[self.collectionViewProperty registerClass:[FERDontRepeatCell class] forCellWithReuseIdentifier:@"dontRepeatCell"];
 	
 	//For the selection
@@ -109,8 +153,11 @@
 	return 1;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-	
-	return [self.dontRepeats count];
+	if(![self.searchBar.text isEqualToString:@""]){
+		return [self.filteredDontRepeats count];
+	}else{
+		return [self.dontRepeats count];
+	}
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -119,7 +166,12 @@
 	
 	NSLog(@"index: %li",(long)indexPath.item);
 	DontRepeat *dont=[[DontRepeat alloc]init];
-	dont = [self.dontRepeats objectAtIndex:indexPath.row];
+	if(![self.searchBar.text isEqualToString:@""]){
+		dont = [self.filteredDontRepeats objectAtIndex:indexPath.row];
+	}else{
+		dont = [self.dontRepeats objectAtIndex:indexPath.row];
+	}
+
 	if (dont.dontRepeatPicture.length==0) {
 		UIImage	*image=[UIImage imageNamed:@"NoPic"];
 		cell.thumbnail.image=image;
@@ -265,7 +317,6 @@
 		}
 		[self.collectionViewProperty reloadData];
 	}];
-	
 	
 }
 

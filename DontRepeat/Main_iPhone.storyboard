@@ -110,7 +110,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3p-54-KcX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="457"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.25943902130000002" green="0.60511815550000003" blue="0.84079384800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yux-iR-LGH">
@@ -169,9 +169,34 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addButton" destination="3gG-1I-Slj" id="8Uu-CZ-Afk"/>
+                        <outlet property="searchDisplayController" destination="87m-hd-Pbr" id="SeG-rN-RlJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inc-Ux-9y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="B0m-89-0Ew">
+                    <connections>
+                        <outlet property="delegate" destination="0r6-bs-tRG" id="Xf0-Op-0zg"/>
+                        <outlet property="searchContentsController" destination="0r6-bs-tRG" id="NIa-As-j7y"/>
+                        <outlet property="searchResultsDataSource" destination="0r6-bs-tRG" id="HzX-1y-rLZ"/>
+                        <outlet property="searchResultsDelegate" destination="0r6-bs-tRG" id="FRA-o3-A4L"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="iLz-KH-4IW">
+                    <connections>
+                        <outlet property="delegate" destination="0r6-bs-tRG" id="MRY-D2-Vqs"/>
+                        <outlet property="searchContentsController" destination="0r6-bs-tRG" id="N87-72-ZOo"/>
+                        <outlet property="searchResultsDataSource" destination="0r6-bs-tRG" id="Uat-7j-4oz"/>
+                        <outlet property="searchResultsDelegate" destination="0r6-bs-tRG" id="ee3-gr-Xgv"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="87m-hd-Pbr">
+                    <connections>
+                        <outlet property="delegate" destination="0r6-bs-tRG" id="Cv0-OT-7i9"/>
+                        <outlet property="searchContentsController" destination="0r6-bs-tRG" id="OeV-0T-ZBu"/>
+                        <outlet property="searchResultsDataSource" destination="0r6-bs-tRG" id="ZBE-Fz-uiH"/>
+                        <outlet property="searchResultsDelegate" destination="0r6-bs-tRG" id="e3h-gn-JR7"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1325" y="322"/>
         </scene>
