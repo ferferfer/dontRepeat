@@ -43,6 +43,7 @@
 	self.navigationController.navigationBarHidden=NO;
 	[self comparePlistVsFireBase];
 	[self loadPlistDontRepeats];
+	[self.searchBar resignFirstResponder];
 }
 
 - (void)viewDidLoad{
@@ -90,6 +91,9 @@
 
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+	searchBar.text=@"";
+	self.filteredDontRepeats=[[NSMutableArray alloc]init];
+	[self.collectionViewProperty reloadData];
 	[searchBar resignFirstResponder];
 }
 

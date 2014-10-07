@@ -46,6 +46,8 @@
 	self.scrollView.delegate=self;
 	self.takeController.delegate=self;
 	newPicture=NO;
+	UIBarButtonItem *barButtonItemAtras = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+	[self.navigationItem setBackBarButtonItem:barButtonItemAtras];
 	[self configure];
 	[self loadData];
 	
@@ -115,7 +117,7 @@
 }
 
 -(void)disableControls{
-	self.saveButton.title=@"update";
+	self.saveButton.title=@"Update";
 	self.deleteButton.hidden=NO;
 }
 
@@ -192,10 +194,10 @@
 			dontRepeat.dontRepeatPicture=self.dontRepeat.dontRepeatPicture;
 		}
 		
-		if ([self.saveButton.title isEqualToString:@"save"]) {
+		if ([self.saveButton.title isEqualToString:@"Save"]) {
 			[self.delegate addDontRepeat:dontRepeat];
 			[self.navigationController popViewControllerAnimated:YES];
-		}else if ([self.saveButton.title isEqualToString:@"update"]){
+		}else if ([self.saveButton.title isEqualToString:@"Update"]){
 			[self.delegate updateDontRepeat:dontRepeat with:self.dontRepeat];
 			[self.navigationController popViewControllerAnimated:YES];
 		}

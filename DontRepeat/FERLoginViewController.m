@@ -131,6 +131,7 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[self.authClient loginWithEmail:self.email.text andPassword:self.password.text
 							withCompletionBlock:^(NSError* error, FAUser* user) {
+								[self showLoadingIndicator];
 								if (error != nil) {
 									if (![self tryToLoginWithPlist]) {
 										[self alertRegisterError];
@@ -190,15 +191,18 @@
 #pragma mark - Login Process
 -(void)loginProcess{
 	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
-		
+		[self showLoadingIndicator ];
 		if (isLogin) {
-			self.labelLoginin.hidden=NO;
-			self.loadingIndicator.hidden=NO;
-			[self.loadingIndicator startAnimating];
 			NSLog(@"User is Login");
 			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 		};
 	}];
+}
+
+-(void)showLoadingIndicator{
+	self.labelLoginin.hidden=NO;
+	self.loadingIndicator.hidden=NO;
+	[self.loadingIndicator startAnimating];
 }
 
 -(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{

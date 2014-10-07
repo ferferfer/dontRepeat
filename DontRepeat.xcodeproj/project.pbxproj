@@ -27,7 +27,6 @@
 		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
 		3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6319A64C7600C10435 /* FERUserManager.m */; };
 		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
-		3FA7B53919BDACA8004365C1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA7B53819BDACA7004365C1 /* background.png */; };
 		3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */; };
 		3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA996B119A655B5003B00AE /* FERLoginViewController.m */; };
 		3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */; };
@@ -105,7 +104,6 @@
 		3F9F4D6319A64C7600C10435 /* FERUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUserManager.m; sourceTree = "<group>"; };
 		3F9F4D6719A64D5900C10435 /* FERUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUser.h; sourceTree = "<group>"; };
 		3F9F4D6819A64D5900C10435 /* FERUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUser.m; sourceTree = "<group>"; };
-		3FA7B53819BDACA7004365C1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERPlistManager.h; sourceTree = "<group>"; };
 		3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManager.m; sourceTree = "<group>"; };
 		3FA996B019A655B5003B00AE /* FERLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginViewController.h; sourceTree = "<group>"; };
@@ -320,7 +318,6 @@
 				3F5A84D619B7263700797C84 /* FireBaseManagers */,
 				3F5A84D519B7261900797C84 /* PlistManagers */,
 				3F8C8E3D19D40835008EF71C /* JsonManager */,
-				3FA7B53819BDACA7004365C1 /* background.png */,
 				3FAA20A519A5235A003E22AC /* newDress.png */,
 				3F661F6919DAAA880034B550 /* backgroundOrange.png */,
 				3F661F6719DAA5050034B550 /* NoPic.png */,
@@ -458,7 +455,6 @@
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
 				3F661F7319DB064A0034B550 /* launch960.png in Resources */,
 				3F661F7419DB064A0034B550 /* launch1136.png in Resources */,
-				3FA7B53919BDACA8004365C1 /* background.png in Resources */,
 				3FAA20A619A5235A003E22AC /* newDress.png in Resources */,
 				3F8D67D119C843FF008F70C4 /* logo.png in Resources */,
 				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
