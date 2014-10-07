@@ -46,9 +46,11 @@
 	self.scrollView.delegate=self;
 	self.takeController.delegate=self;
 	newPicture=NO;
-	UIBarButtonItem *barButtonItemAtras = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-	[self.navigationItem setBackBarButtonItem:barButtonItemAtras];
-	[self configure];
+	if (self.scrollView!=nil) {//iPhone (with scroll) or iPad (without scroll)
+		[self configure];
+	}else{
+		[self configureiPad];
+	}
 	[self loadData];
 	
 	
@@ -119,6 +121,14 @@
 -(void)disableControls{
 	self.saveButton.title=@"Update";
 	self.deleteButton.hidden=NO;
+}
+
+-(void)configureiPad{
+
+	self.titleTextField.layer.borderWidth = 1.0f;
+	self.titleTextField.layer.borderColor = [[UIColor grayColor] CGColor];
+	self.descriptionTextView.layer.borderWidth = 1.0f;
+	self.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 -(void)configure{
