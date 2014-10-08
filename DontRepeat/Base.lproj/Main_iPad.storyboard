@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -242,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-Kr-plX">
-                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-sm-8s4">
                                 <rect key="frame" x="245" y="80" width="278" height="40"/>
@@ -329,12 +330,12 @@
                                 <rect key="frame" x="160" y="619" width="448" height="338"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="338" id="1mq-Vv-JT8"/>
+                                    <constraint firstAttribute="width" secondItem="GbI-4i-8sh" secondAttribute="height" multiplier="224:169" id="fie-uJ-nW3"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="GbI-4i-8sh" secondAttribute="trailing" constant="140" id="0Rw-Rx-rCf"/>
                             <constraint firstItem="reC-RB-Tcm" firstAttribute="top" secondItem="uvO-sm-8s4" secondAttribute="bottom" constant="8" id="2JH-Gw-H44"/>
                             <constraint firstItem="e2D-SZ-AJ1" firstAttribute="top" secondItem="xyr-kq-CDg" secondAttribute="bottom" constant="186" id="2hM-5l-zP4"/>
                             <constraint firstItem="VT0-uC-igA" firstAttribute="top" secondItem="zWg-Dq-W8p" secondAttribute="bottom" constant="31" id="486-sV-kvQ"/>
@@ -358,7 +359,7 @@
                             <constraint firstItem="zWg-Dq-W8p" firstAttribute="top" secondItem="qJU-tM-LNx" secondAttribute="bottom" constant="8" id="Zv6-qs-vKX"/>
                             <constraint firstItem="zWg-Dq-W8p" firstAttribute="top" secondItem="wv2-kv-tHR" secondAttribute="top" constant="209" id="bXu-tD-Fgj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uvO-sm-8s4" secondAttribute="trailing" constant="225" id="c6r-Uq-6JX"/>
-                            <constraint firstItem="VT0-uC-igA" firstAttribute="trailing" secondItem="LzO-Kr-plX" secondAttribute="trailing" constant="-189" id="cJb-ug-aYK"/>
+                            <constraint firstItem="VT0-uC-igA" firstAttribute="trailing" secondItem="LzO-Kr-plX" secondAttribute="trailing" constant="-193" id="cJb-ug-aYK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zWg-Dq-W8p" secondAttribute="trailing" constant="169" id="d0V-il-wRe"/>
                             <constraint firstItem="GbI-4i-8sh" firstAttribute="top" secondItem="VT0-uC-igA" secondAttribute="bottom" constant="35" id="dJU-gt-qeS"/>
                             <constraint firstItem="reC-RB-Tcm" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="170" id="dZz-ki-CZI"/>
@@ -367,12 +368,12 @@
                             <constraint firstItem="uvO-sm-8s4" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="225" id="fWc-up-jvt"/>
                             <constraint firstItem="zWg-Dq-W8p" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="170" id="hsz-EI-1ES"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VT0-uC-igA" secondAttribute="trailing" constant="173" id="jTq-Ys-YTb"/>
+                            <constraint firstItem="LzO-Kr-plX" firstAttribute="centerX" secondItem="GbI-4i-8sh" secondAttribute="centerX" id="jWE-ES-Qmg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e2D-SZ-AJ1" secondAttribute="trailing" constant="229" id="kvP-B6-G7f"/>
                             <constraint firstItem="zWg-Dq-W8p" firstAttribute="top" secondItem="qJU-tM-LNx" secondAttribute="bottom" constant="8" symbolic="YES" id="oYS-Kn-L8q"/>
                             <constraint firstItem="LzO-Kr-plX" firstAttribute="bottom" secondItem="rGe-ms-hbl" secondAttribute="top" id="s6B-QT-UOm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xyr-kq-CDg" secondAttribute="trailing" constant="229" id="u9F-li-H05"/>
-                            <constraint firstItem="GbI-4i-8sh" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="140" id="uet-sN-PLR"/>
-                            <constraint firstItem="VT0-uC-igA" firstAttribute="leading" secondItem="LzO-Kr-plX" secondAttribute="leading" constant="190" id="vxo-7O-Ern"/>
+                            <constraint firstItem="VT0-uC-igA" firstAttribute="leading" secondItem="LzO-Kr-plX" secondAttribute="leading" constant="194" id="vxo-7O-Ern"/>
                             <constraint firstItem="qJU-tM-LNx" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="229" id="zWO-Mf-akc"/>
                         </constraints>
                     </view>
