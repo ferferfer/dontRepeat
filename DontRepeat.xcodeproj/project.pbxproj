@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F01661F19E5418B001D302A /* logo29.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F01661A19E5418B001D302A /* logo29.png */; };
+		3F01662019E5418B001D302A /* logo40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F01661B19E5418B001D302A /* logo40.png */; };
+		3F01662119E5418B001D302A /* logo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F01661C19E5418B001D302A /* logo58.png */; };
+		3F01662219E5418B001D302A /* logo80.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F01661D19E5418B001D302A /* logo80.png */; };
+		3F01662319E5418B001D302A /* logo180.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F01661E19E5418B001D302A /* logo180.png */; };
+		3F01662519E542CD001D302A /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F01662419E542CD001D302A /* logo120.png */; };
 		3F238D1319C1A9FB00F0A186 /* FERFormatHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */; };
 		3F34224619E3ECD6008E0095 /* logo76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224419E3ECD6008E0095 /* logo76.png */; };
 		3F34224719E3ECD6008E0095 /* logo152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224519E3ECD6008E0095 /* logo152.png */; };
@@ -21,7 +27,6 @@
 		3F661F7419DB064A0034B550 /* launch1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F7219DB064A0034B550 /* launch1136.png */; };
 		3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E3F19D40865008EF71C /* FERJsonManager.m */; };
 		3F8C8E4619D46912008EF71C /* FERPlistManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */; };
-		3F8D67D119C843FF008F70C4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D67D019C843FF008F70C4 /* logo.png */; };
 		3F8D67D419C89253008F70C4 /* FERImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D319C89253008F70C4 /* FERImageDownloader.m */; };
 		3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D919C98BFB008F70C4 /* UIImage+Scale.m */; };
 		3F8DAD2219DB0D96007407CC /* UIColor+FERcolors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8DAD2119DB0D96007407CC /* UIColor+FERcolors.m */; };
@@ -33,8 +38,6 @@
 		3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA996B119A655B5003B00AE /* FERLoginViewController.m */; };
 		3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */; };
 		3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */; };
-		3FAA20A419A517C8003E22AC /* dress.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAA20A319A517C8003E22AC /* dress.png */; };
-		3FAA20A619A5235A003E22AC /* newDress.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAA20A519A5235A003E22AC /* newDress.png */; };
 		3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */; };
 		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
 		3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */; };
@@ -74,6 +77,12 @@
 		00DA850BEC4643DEA1901786 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1223117E815D6217874DE9C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		12990183C8AC95F555920757 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3F01661A19E5418B001D302A /* logo29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo29.png; sourceTree = "<group>"; };
+		3F01661B19E5418B001D302A /* logo40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo40.png; sourceTree = "<group>"; };
+		3F01661C19E5418B001D302A /* logo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo58.png; sourceTree = "<group>"; };
+		3F01661D19E5418B001D302A /* logo80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo80.png; sourceTree = "<group>"; };
+		3F01661E19E5418B001D302A /* logo180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo180.png; sourceTree = "<group>"; };
+		3F01662419E542CD001D302A /* logo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo120.png; sourceTree = "<group>"; };
 		3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelperTests.m; sourceTree = "<group>"; };
 		3F34224419E3ECD6008E0095 /* logo76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo76.png; sourceTree = "<group>"; };
 		3F34224519E3ECD6008E0095 /* logo152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo152.png; sourceTree = "<group>"; };
@@ -94,7 +103,6 @@
 		3F8C8E3E19D40865008EF71C /* FERJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERJsonManager.h; sourceTree = "<group>"; };
 		3F8C8E3F19D40865008EF71C /* FERJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERJsonManager.m; sourceTree = "<group>"; };
 		3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManagerTests.m; sourceTree = "<group>"; };
-		3F8D67D019C843FF008F70C4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F8D67D219C89253008F70C4 /* FERImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERImageDownloader.h; sourceTree = "<group>"; };
 		3F8D67D319C89253008F70C4 /* FERImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERImageDownloader.m; sourceTree = "<group>"; };
 		3F8D67D819C98BFB008F70C4 /* UIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scale.h"; sourceTree = "<group>"; };
@@ -116,8 +124,6 @@
 		3FAA209E19A5018F003E22AC /* FERDontRepeatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDontRepeatCell.m; sourceTree = "<group>"; };
 		3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERMainCollectionView.h; sourceTree = "<group>"; };
 		3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERMainCollectionView.m; sourceTree = "<group>"; };
-		3FAA20A319A517C8003E22AC /* dress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress.png; sourceTree = "<group>"; };
-		3FAA20A519A5235A003E22AC /* newDress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newDress.png; sourceTree = "<group>"; };
 		3FB15DCC19AB59A200F6BD26 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSimpleLogin.framework; path = ../../Downloads/FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3FB15DD019AB59B500F6BD26 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -322,14 +328,17 @@
 				3F5A84D619B7263700797C84 /* FireBaseManagers */,
 				3F5A84D519B7261900797C84 /* PlistManagers */,
 				3F8C8E3D19D40835008EF71C /* JsonManager */,
-				3FAA20A519A5235A003E22AC /* newDress.png */,
 				3F661F6919DAAA880034B550 /* backgroundOrange.png */,
 				3F661F6719DAA5050034B550 /* NoPic.png */,
 				3F661F7119DB064A0034B550 /* launch960.png */,
 				3F661F7219DB064A0034B550 /* launch1136.png */,
-				3FAA20A319A517C8003E22AC /* dress.png */,
-				3F8D67D019C843FF008F70C4 /* logo.png */,
 				3F8DAD2319DB137C007407CC /* themePolaroid.png */,
+				3F01661A19E5418B001D302A /* logo29.png */,
+				3F01661B19E5418B001D302A /* logo40.png */,
+				3F01661C19E5418B001D302A /* logo58.png */,
+				3F01661D19E5418B001D302A /* logo80.png */,
+				3F01662419E542CD001D302A /* logo120.png */,
+				3F01661E19E5418B001D302A /* logo180.png */,
 				3F34224419E3ECD6008E0095 /* logo76.png */,
 				3F34224519E3ECD6008E0095 /* logo152.png */,
 				3FEC01F319A4AFDA00C85141 /* Images.xcassets */,
@@ -459,17 +468,20 @@
 			files = (
 				3FEC01EF19A4AFDA00C85141 /* Main_iPad.storyboard in Resources */,
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
+				3F01662019E5418B001D302A /* logo40.png in Resources */,
+				3F01662319E5418B001D302A /* logo180.png in Resources */,
 				3F661F7319DB064A0034B550 /* launch960.png in Resources */,
 				3F34224619E3ECD6008E0095 /* logo76.png in Resources */,
 				3F661F7419DB064A0034B550 /* launch1136.png in Resources */,
-				3FAA20A619A5235A003E22AC /* newDress.png in Resources */,
-				3F8D67D119C843FF008F70C4 /* logo.png in Resources */,
-				3FAA20A419A517C8003E22AC /* dress.png in Resources */,
+				3F01662219E5418B001D302A /* logo80.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
 				3F8DAD2419DB137C007407CC /* themePolaroid.png in Resources */,
 				3F661F6A19DAAA880034B550 /* backgroundOrange.png in Resources */,
+				3F01662119E5418B001D302A /* logo58.png in Resources */,
 				3F34224719E3ECD6008E0095 /* logo152.png in Resources */,
+				3F01661F19E5418B001D302A /* logo29.png in Resources */,
 				3F661F6819DAA5050034B550 /* NoPic.png in Resources */,
+				3F01662519E542CD001D302A /* logo120.png in Resources */,
 				3FEC021C19A4B0C700C85141 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
