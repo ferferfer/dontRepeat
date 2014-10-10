@@ -16,6 +16,8 @@
 		3F238D1319C1A9FB00F0A186 /* FERFormatHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */; };
 		3F34224619E3ECD6008E0095 /* logo76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224419E3ECD6008E0095 /* logo76.png */; };
 		3F34224719E3ECD6008E0095 /* logo152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224519E3ECD6008E0095 /* logo152.png */; };
+		3F55DA6119E7E52700913AE5 /* FERFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */; };
+		3F55DA6419E7E53700913AE5 /* FERSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */; };
 		3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */; };
 		3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D319B7260800797C84 /* FERFirebaseManager.m */; };
 		3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84DC19B765D100797C84 /* FERFormatHelper.m */; };
@@ -25,7 +27,6 @@
 		3F661F7019DAEA3E0034B550 /* FERDaysLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F661F6F19DAEA3E0034B550 /* FERDaysLayout.m */; };
 		3F661F7319DB064A0034B550 /* launch960.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F7119DB064A0034B550 /* launch960.png */; };
 		3F661F7419DB064A0034B550 /* launch1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F661F7219DB064A0034B550 /* launch1136.png */; };
-		3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E3F19D40865008EF71C /* FERJsonManager.m */; };
 		3F8C8E4619D46912008EF71C /* FERPlistManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */; };
 		3F8D67D419C89253008F70C4 /* FERImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D319C89253008F70C4 /* FERImageDownloader.m */; };
 		3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D919C98BFB008F70C4 /* UIImage+Scale.m */; };
@@ -86,6 +87,10 @@
 		3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelperTests.m; sourceTree = "<group>"; };
 		3F34224419E3ECD6008E0095 /* logo76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo76.png; sourceTree = "<group>"; };
 		3F34224519E3ECD6008E0095 /* logo152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo152.png; sourceTree = "<group>"; };
+		3F55DA5F19E7E52700913AE5 /* FERFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFirstViewController.h; sourceTree = "<group>"; };
+		3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFirstViewController.m; sourceTree = "<group>"; };
+		3F55DA6219E7E53700913AE5 /* FERSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERSignupViewController.h; sourceTree = "<group>"; };
+		3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERSignupViewController.m; sourceTree = "<group>"; };
 		3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatViewController.h; sourceTree = "<group>"; };
 		3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDontRepeatViewController.m; sourceTree = "<group>"; };
 		3F5A84D219B7260800797C84 /* FERFirebaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFirebaseManager.h; sourceTree = "<group>"; };
@@ -100,8 +105,6 @@
 		3F661F6F19DAEA3E0034B550 /* FERDaysLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERDaysLayout.m; sourceTree = "<group>"; };
 		3F661F7119DB064A0034B550 /* launch960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch960.png; sourceTree = "<group>"; };
 		3F661F7219DB064A0034B550 /* launch1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch1136.png; sourceTree = "<group>"; };
-		3F8C8E3E19D40865008EF71C /* FERJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERJsonManager.h; sourceTree = "<group>"; };
-		3F8C8E3F19D40865008EF71C /* FERJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERJsonManager.m; sourceTree = "<group>"; };
 		3F8C8E4519D46912008EF71C /* FERPlistManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERPlistManagerTests.m; sourceTree = "<group>"; };
 		3F8D67D219C89253008F70C4 /* FERImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERImageDownloader.h; sourceTree = "<group>"; };
 		3F8D67D319C89253008F70C4 /* FERImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERImageDownloader.m; sourceTree = "<group>"; };
@@ -248,6 +251,10 @@
 				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
 				3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */,
 				3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */,
+				3F55DA5F19E7E52700913AE5 /* FERFirstViewController.h */,
+				3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */,
+				3F55DA6219E7E53700913AE5 /* FERSignupViewController.h */,
+				3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -267,15 +274,6 @@
 				3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		3F8C8E3D19D40835008EF71C /* JsonManager */ = {
-			isa = PBXGroup;
-			children = (
-				3F8C8E3E19D40865008EF71C /* FERJsonManager.h */,
-				3F8C8E3F19D40865008EF71C /* FERJsonManager.m */,
-			);
-			name = JsonManager;
 			sourceTree = "<group>";
 		};
 		3FEC01CC19A4AFDA00C85141 = {
@@ -327,7 +325,6 @@
 				3F5A84D719B7266300797C84 /* Model */,
 				3F5A84D619B7263700797C84 /* FireBaseManagers */,
 				3F5A84D519B7261900797C84 /* PlistManagers */,
-				3F8C8E3D19D40835008EF71C /* JsonManager */,
 				3F661F6919DAAA880034B550 /* backgroundOrange.png */,
 				3F661F6719DAA5050034B550 /* NoPic.png */,
 				3F661F7119DB064A0034B550 /* launch960.png */,
@@ -537,6 +534,7 @@
 				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */,
+				3F55DA6419E7E53700913AE5 /* FERSignupViewController.m in Sources */,
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
 				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
@@ -547,8 +545,8 @@
 				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,
 				3F9F4D6619A64C7600C10435 /* FERUserManager.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
+				3F55DA6119E7E52700913AE5 /* FERFirstViewController.m in Sources */,
 				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,
-				3F8C8E4019D40865008EF71C /* FERJsonManager.m in Sources */,
 				3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */,
 				3F5A84D419B7260800797C84 /* FERFirebaseManager.m in Sources */,
 				3F8DAD2219DB0D96007407CC /* UIColor+FERcolors.m in Sources */,

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UDk-5T-stx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UDk-5T-stx">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -25,6 +24,9 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElL-k1-MWe">
                                 <rect key="frame" x="237" y="198" width="294" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="294" id="BvY-3n-Nuy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -75,35 +77,22 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="singUpPressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="gRa-h3-vtx"/>
+                                            <action selector="signUpPressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="BFS-jt-6po"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="f5s-CX-lqQ">
-                                        <rect key="frame" x="191" y="79" width="37" height="37"/>
-                                    </activityIndicatorView>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-bu-ZO8">
-                                        <rect key="frame" x="88" y="87" width="95" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="hbz-bu-ZO8" firstAttribute="centerY" secondItem="Ydy-aj-e6k" secondAttribute="centerY" id="0u8-I0-pb6"/>
-                                    <constraint firstItem="hbz-bu-ZO8" firstAttribute="centerY" secondItem="f5s-CX-lqQ" secondAttribute="centerY" id="NNF-wL-blq"/>
+                                    <constraint firstItem="7F8-mo-Gzg" firstAttribute="trailing" secondItem="Ydy-aj-e6k" secondAttribute="trailingMargin" id="LR2-WW-jy4"/>
                                     <constraint firstItem="XHf-Yq-pb0" firstAttribute="leading" secondItem="Ydy-aj-e6k" secondAttribute="leadingMargin" id="PBJ-sH-VHx"/>
-                                    <constraint firstItem="7F8-mo-Gzg" firstAttribute="trailing" secondItem="Ydy-aj-e6k" secondAttribute="trailingMargin" id="PVh-Pe-KrP"/>
                                     <constraint firstItem="7F8-mo-Gzg" firstAttribute="baseline" secondItem="XHf-Yq-pb0" secondAttribute="baseline" id="gZD-0v-RWo"/>
-                                    <constraint firstItem="hbz-bu-ZO8" firstAttribute="leading" secondItem="Ydy-aj-e6k" secondAttribute="leading" constant="88" id="iNd-Os-VrD"/>
-                                    <constraint firstAttribute="trailing" secondItem="f5s-CX-lqQ" secondAttribute="trailing" constant="66" id="jNh-BQ-Ewn"/>
                                     <constraint firstItem="XHf-Yq-pb0" firstAttribute="top" secondItem="Ydy-aj-e6k" secondAttribute="topMargin" id="oyY-t7-61A"/>
-                                    <constraint firstItem="f5s-CX-lqQ" firstAttribute="leading" secondItem="hbz-bu-ZO8" secondAttribute="trailing" constant="8" symbolic="YES" id="umo-TB-QXM"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ydy-aj-e6k" secondAttribute="bottom" constant="430" id="3JL-e9-UkV"/>
                             <constraint firstItem="lcQ-ET-Mbr" firstAttribute="bottom" secondItem="Rlx-aK-yVM" secondAttribute="top" id="3mc-8j-yht"/>
                             <constraint firstItem="UoD-ga-JT8" firstAttribute="leading" secondItem="ElL-k1-MWe" secondAttribute="leading" id="4EI-lc-56D"/>
                             <constraint firstItem="lcQ-ET-Mbr" firstAttribute="top" secondItem="oCc-Ft-lAP" secondAttribute="top" id="6Dj-nu-Thm"/>
@@ -122,7 +111,6 @@
                             <constraint firstItem="nqz-1q-YRX" firstAttribute="top" secondItem="UoD-ga-JT8" secondAttribute="bottom" constant="44" id="drc-J2-zhA"/>
                             <constraint firstItem="oIe-zc-0vd" firstAttribute="trailing" secondItem="Ydy-aj-e6k" secondAttribute="trailing" id="epV-Oo-eQ8"/>
                             <constraint firstItem="oIe-zc-0vd" firstAttribute="top" secondItem="nqz-1q-YRX" secondAttribute="bottom" constant="8" id="fEm-Vh-CMP"/>
-                            <constraint firstItem="lcQ-ET-Mbr" firstAttribute="centerY" secondItem="Ydy-aj-e6k" secondAttribute="centerY" constant="15.5" id="g6u-CN-JUx"/>
                             <constraint firstItem="UoD-ga-JT8" firstAttribute="top" secondItem="ElL-k1-MWe" secondAttribute="bottom" constant="8" id="kM3-tW-yBN"/>
                             <constraint firstItem="Rlx-aK-yVM" firstAttribute="top" secondItem="pIr-Yz-xSF" secondAttribute="bottom" constant="285" id="qM1-MD-J8B"/>
                             <constraint firstItem="Ydy-aj-e6k" firstAttribute="top" secondItem="oIe-zc-0vd" secondAttribute="bottom" constant="39" id="vbU-Z1-8pI"/>
@@ -136,8 +124,6 @@
                     <connections>
                         <outlet property="buttonSegue" destination="pIr-Yz-xSF" id="X7p-42-Ezz"/>
                         <outlet property="email" destination="UoD-ga-JT8" id="ja7-dk-npA"/>
-                        <outlet property="labelLoginin" destination="hbz-bu-ZO8" id="oCw-mY-Bdz"/>
-                        <outlet property="loadingIndicator" destination="f5s-CX-lqQ" id="Te0-ry-mpl"/>
                         <outlet property="password" destination="oIe-zc-0vd" id="fTE-5Z-qpG"/>
                     </connections>
                 </viewController>

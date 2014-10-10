@@ -26,8 +26,7 @@
 @property	(nonatomic,strong)Firebase* ref;
 @property	(nonatomic,strong)FERFirebaseManager *fireManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
-@property (weak, nonatomic) IBOutlet UILabel *labelLoginin;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+
 @end
 
 @implementation FERLoginViewController
@@ -38,8 +37,6 @@
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
-	self.labelLoginin.hidden=YES;
-	self.loadingIndicator.hidden=YES;
 	[self loadUserTextFields];
 	[self loginProcess];
 }
@@ -106,13 +103,21 @@
 	[self loginUser:self.theUser];
 }
 
-- (IBAction)singUpPressed:(id)sender {
+- (IBAction)signUpPressed:(id)sender {
 	[self saveUser];
-	[self singUpUser:self.theUser];
+	[self signUpUser:self.theUser];
 }
 
+- (IBAction)passwordResetPressed:(id)sender {
+}
+
+- (IBAction)passwordChangePressed:(id)sender {
+}
+
+
+
 #pragma mark - User SingUp
--(void)singUpUser:(FERUser *)theUser{
+-(void)signUpUser:(FERUser *)theUser{
 	[self.authClient createUserWithEmail:theUser.userMail password:theUser.userPassword
 										andCompletionBlock:^(NSError* error, FAUser* user) {
 											if (error != nil) {
@@ -131,7 +136,6 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[self.authClient loginWithEmail:self.email.text andPassword:self.password.text
 							withCompletionBlock:^(NSError* error, FAUser* user) {
-								[self showLoadingIndicator];
 								if (error != nil) {
 									if (![self tryToLoginWithPlist]) {
 										[self alertRegisterError];
@@ -191,18 +195,11 @@
 #pragma mark - Login Process
 -(void)loginProcess{
 	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
-		[self showLoadingIndicator ];
 		if (isLogin) {
 			NSLog(@"User is Login");
 			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 		};
 	}];
-}
-
--(void)showLoadingIndicator{
-	self.labelLoginin.hidden=NO;
-	self.loadingIndicator.hidden=NO;
-	[self.loadingIndicator startAnimating];
 }
 
 -(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
@@ -228,8 +225,6 @@
 			FERUser *loggedUser=[self.plist loadUser];
 			mcv.user=loggedUser;
 			mcv.authClient=self.authClient;
-			self.labelLoginin.hidden=YES;
-			self.loadingIndicator.hidden=YES;
 	}
 	// Get the new view controller using [segue destinationViewController].
 	// Pass the selected object to the new view controller.

@@ -51,17 +51,20 @@
 	[self loadMomentLayout];
 	[self loadDaysLayout];
 	[self initializeCollectionView];
-	self.filteredDontRepeats = [[NSMutableArray alloc] init];
+	[self configureSearch];
+}
 
+-(void)configureSearch{
+	self.filteredDontRepeats = [[NSMutableArray alloc] init];
+	
 	self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.bounds.size.width, 44.0f)];
-	self.searchBar.showsCancelButton=YES;
+	self.searchBar.showsCancelButton=NO;
 	self.searchBar.returnKeyType=UIReturnKeyGo;
 	self.searchBar.delegate = self;
 	self.searchBar.backgroundColor=[UIColor clearColor];
-//	self.searchDisplayController.searchBar.=[UIColor blueColor];
+	self.searchBar.placeholder=@"Search";
+	//	self.searchDisplayController.searchBar.=[UIColor blueColor];
 	[self.view addSubview:self.searchBar];
-
-
 }
 
 - (void) textFilter:(NSString *) searchText{
@@ -90,10 +93,16 @@
 //	}
 
 }
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+	self.searchBar.showsCancelButton=YES;
+}
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
 	searchBar.text=@"";
 	self.filteredDontRepeats=[[NSMutableArray alloc]init];
 	[self.collectionViewProperty reloadData];
+	self.searchBar.showsCancelButton=NO;
 	[searchBar resignFirstResponder];
 }
 
