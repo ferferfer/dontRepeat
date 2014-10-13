@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UDk-5T-stx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UDk-5T-stx">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -144,10 +145,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="KTn-C5-syG">
-                                <rect key="frame" x="0.0" y="33" width="818" height="1024"/>
+                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yCX-6p-Jel" userLabel="Collection View" customClass="feliz">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QTV-0d-jB8">
                                     <size key="itemSize" width="105" height="116"/>
@@ -173,14 +174,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="yCX-6p-Jel" secondAttribute="trailing" id="0Rb-ej-LBu"/>
-                            <constraint firstItem="yCX-6p-Jel" firstAttribute="leading" secondItem="bUH-fZ-9Dc" secondAttribute="leading" id="HEP-l2-LcI"/>
-                            <constraint firstItem="KTn-C5-syG" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="topMargin" constant="33" id="KJO-xq-jPh"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="KTn-C5-syG" secondAttribute="bottom" constant="-33" id="NcR-Qu-SjM"/>
-                            <constraint firstItem="yCX-6p-Jel" firstAttribute="leading" secondItem="KTn-C5-syG" secondAttribute="leading" id="ZQY-Cg-XtV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KTn-C5-syG" secondAttribute="trailing" constant="-70" id="fEf-HE-ZZN"/>
-                            <constraint firstItem="yCX-6p-Jel" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="top" id="mKE-xx-Ln8"/>
-                            <constraint firstItem="yCX-6p-Jel" firstAttribute="bottom" secondItem="G8a-dr-fCo" secondAttribute="top" id="rAY-sx-iUE"/>
+                            <constraint firstItem="yCX-6p-Jel" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="topMargin" id="0mI-rp-7gU"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="KTn-C5-syG" secondAttribute="bottom" id="2sv-Mi-j6p"/>
+                            <constraint firstItem="KTn-C5-syG" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="topMargin" id="ETz-X2-LnF"/>
+                            <constraint firstItem="G8a-dr-fCo" firstAttribute="top" secondItem="yCX-6p-Jel" secondAttribute="bottom" id="Lan-7H-o3D"/>
+                            <constraint firstItem="KTn-C5-syG" firstAttribute="leading" secondItem="bUH-fZ-9Dc" secondAttribute="leadingMargin" constant="-16" id="dNH-B4-f3A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KTn-C5-syG" secondAttribute="trailing" constant="-16" id="eug-Nx-W4h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yCX-6p-Jel" secondAttribute="trailing" constant="-16" id="f9v-E3-O2G"/>
+                            <constraint firstItem="yCX-6p-Jel" firstAttribute="leading" secondItem="bUH-fZ-9Dc" secondAttribute="leadingMargin" constant="-16" id="rkP-Mc-ncg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Tt-xw-8NI">

@@ -32,7 +32,7 @@
 @implementation FERLoginViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-	self.navigationController.navigationBarHidden=YES;
+	self.navigationController.navigationBarHidden=NO;
 }
 
 - (void)viewDidLoad{
@@ -84,11 +84,7 @@
 	return _formatHelper;
 }
 
-- (void)saveUser{
-	self.theUser.userMail = self.email.text;
-	self.theUser.userPassword = self.password.text;
-	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
-}
+
 
 -(void)loadUserTextFields{
 	FERUser *userText=[self.plist loadUser];
@@ -103,33 +99,12 @@
 	[self loginUser:self.theUser];
 }
 
-- (IBAction)signUpPressed:(id)sender {
-	[self saveUser];
-	[self signUpUser:self.theUser];
-}
-
 - (IBAction)passwordResetPressed:(id)sender {
 }
 
 - (IBAction)passwordChangePressed:(id)sender {
 }
 
-
-
-#pragma mark - User SingUp
--(void)signUpUser:(FERUser *)theUser{
-	[self.authClient createUserWithEmail:theUser.userMail password:theUser.userPassword
-										andCompletionBlock:^(NSError* error, FAUser* user) {
-											if (error != nil) {
-												[self alertRegisterErrorMailInUse];
-												NSLog(@"There was an error creating the account, %@",error);
-											} else {
-												[self.fireManager saveUserInFirebase:theUser];
-												[self alertNewUserCreated];
-												NSLog(@"We created a new user account");
-											}
-										}];
-}
 
 #pragma mark - User LogIn
 -(void)loginUser:(FERUser *)theUser{
@@ -164,15 +139,6 @@
 	return NO;
 }
 
--(void)alertNewUserCreated{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Successful"
-																									message:@"Now you can log in"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-}
-
 -(void)alertRegisterError{
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
 																									message:@"User Name or password incorect"
@@ -182,14 +148,10 @@
 	[alert show];
 }
 
--(void)alertRegisterErrorMailInUse{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"This email is allready use, try with a diferent mail."
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-	
+- (void)saveUser{
+	self.theUser.userMail = self.email.text;
+	self.theUser.userPassword = self.password.text;
+	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
 }
 
 #pragma mark - Login Process

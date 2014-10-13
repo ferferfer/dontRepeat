@@ -245,16 +245,16 @@
 		3F5A84D919B7268100797C84 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F55DA5F19E7E52700913AE5 /* FERFirstViewController.h */,
+				3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */,
 				3FA996B019A655B5003B00AE /* FERLoginViewController.h */,
 				3FA996B119A655B5003B00AE /* FERLoginViewController.m */,
+				3F55DA6219E7E53700913AE5 /* FERSignupViewController.h */,
+				3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */,
 				3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */,
 				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
 				3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */,
 				3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */,
-				3F55DA5F19E7E52700913AE5 /* FERFirstViewController.h */,
-				3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */,
-				3F55DA6219E7E53700913AE5 /* FERSignupViewController.h */,
-				3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +434,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = FernandoGarciaCorrochano;
 				TargetAttributes = {
+					3FEC01D419A4AFDA00C85141 = {
+						DevelopmentTeam = YA8E6467UK;
+					};
 					3FEC01F819A4AFDA00C85141 = {
 						TestTargetID = 3FEC01D419A4AFDA00C85141;
 					};
@@ -683,6 +686,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DontRepeat/DontRepeat-Prefix.pch";
 				INFOPLIST_FILE = "DontRepeat/DontRepeat-Info.plist";
@@ -692,6 +697,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -702,6 +708,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DontRepeat/DontRepeat-Prefix.pch";
 				INFOPLIST_FILE = "DontRepeat/DontRepeat-Info.plist";
@@ -712,6 +720,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
