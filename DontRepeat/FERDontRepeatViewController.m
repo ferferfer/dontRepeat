@@ -33,16 +33,6 @@
 	BOOL portrait;
 }
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		// Custom initialization
-	}
-	return self;
-}
-
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	self.scrollView.delegate=self;
@@ -54,6 +44,7 @@
 	}else{
 		isiPhone=YES;
 	}
+	
 	[self configure];
 	[self loadData];
 
@@ -72,18 +63,6 @@
 		[self.objectsHelper hideFields:self.dontRepeatObjects];
 	}
 	
-}
-
--(void)viewWillLayoutSubviews{
-	BOOL isPortraitNow = UIInterfaceOrientationIsPortrait(self.interfaceOrientation);
-	
-	if(isPortraitNow != portrait){
-			NSLog(@"Interfaceorientation mismatch!, correcting");
-		
-			portrait = isPortraitNow;
-		NSLog(@"viewWillLayoutSubviews portrait %i",portrait);
-			// Code to update subview layout goes here
-	}
 }
 
 -(FERFirebaseManager *)firebaseManager{
@@ -167,6 +146,7 @@
 	self.dontRepeatObjects.descriptionTextView=	self.descriptionTextView;
 	self.dontRepeatObjects.pictureButton=	self.pictureButton;
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
+	self.dontRepeatObjects.deleteButton=self.deleteButton;
 	
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	[self.objectsHelper hideFields:self.dontRepeatObjects];

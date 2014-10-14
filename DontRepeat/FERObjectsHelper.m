@@ -147,7 +147,7 @@
 									 }];
 }
 
--(void)originalPosition:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)view{
+-(void)originalPosition:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView{
 	
 	if (iPhone) {
 		obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
@@ -159,18 +159,20 @@
 		obj.pictureButton.frame = CGRectMake(8,174, 304, 50);
 		obj.pictureImageView.frame = CGRectMake(8, 232, 304, 408);
 	}else{
-		obj.titleButton.frame = CGRectMake(view.frame.size.width/2-270/2,80,270,40);
-		obj.titleTextField.frame = CGRectMake(view.frame.size.width/2-389/2,128,389,25);
-		obj.dateButton.frame = CGRectMake(view.frame.size.width/2-270/2,176,270,40);
-		obj.datePicker.frame = CGRectMake(view.frame.size.width/2-389/2,204,389,216);
-		obj.descriptionButton.frame = CGRectMake(view.frame.size.width/2-270/2,128,270,40);
-		obj.descriptionTextView.frame = CGRectMake(view.frame.size.width/2-389/2,176,389,128);
-		obj.pictureButton.frame = CGRectMake(view.frame.size.width/2-270/2,224,270,40);
-		if (view.frame.size.height>view.frame.size.width) {
-			obj.pictureImageView.frame = CGRectMake(view.frame.size.width/2-640/2,272,640,689);
+		obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
+		obj.titleTextField.frame = CGRectMake(myView.frame.size.width/2-389/2,128,389,25);
+		obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,176,270,40);
+		obj.datePicker.frame = CGRectMake(myView.frame.size.width/2-389/2,204,389,216);
+		obj.descriptionButton.frame = CGRectMake(myView.frame.size.width/2-270/2,128,270,40);
+		obj.descriptionTextView.frame = CGRectMake(myView.frame.size.width/2-389/2,176,389,128);
+		obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,224,270,40);
+
+		if ([[UIDevice currentDevice] orientation]<3) {//orientation 1y2 is portait. 3y4 landscape 
+			obj.pictureImageView.frame = CGRectMake(myView.frame.size.width/2-640/2,272,640,689);
 		}else{
-			obj.pictureImageView.frame = CGRectMake(view.frame.size.width/2-640/2,272,640,430);
+			obj.pictureImageView.frame = CGRectMake(myView.frame.size.width/2-640/2,272,640,430);
 		}
+		obj.deleteButton.frame = CGRectMake(myView.frame.size.width/2-270/2, myView.frame.size.height-55, 270, 35);
 
 	}
 	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UDk-5T-stx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UDk-5T-stx">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -228,8 +228,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-Kr-plX">
-                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-Kr-plX">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-sm-8s4">
                                 <rect key="frame" x="249" y="80" width="270" height="40"/>
@@ -262,19 +262,18 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="reC-RB-Tcm">
-                                <rect key="frame" x="181" y="366" width="389" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="9" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-Dq-W8p">
-                                <rect key="frame" x="186" y="488" width="389" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-uC-igA">
-                                <rect key="frame" x="187" y="444" width="389" height="216"/>
+                                <rect key="frame" x="0.0" y="-125" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="434289634.359878">
                                     <!--2014-10-06 12:00:34 +0000-->
                                 </date>
@@ -289,7 +288,7 @@
                                     <action selector="picturePressed:" destination="1WC-LK-POL" eventType="touchUpInside" id="Bg6-xZ-y0c"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-QG-00G">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-QG-00G">
                                 <rect key="frame" x="249" y="969" width="270" height="35"/>
                                 <color key="backgroundColor" red="0.86274051666259766" green="0.36159411072731018" blue="0.26600649952888489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -302,19 +301,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbI-4i-8sh">
-                                <rect key="frame" x="60" y="272" width="640" height="302"/>
+                                <rect key="frame" x="60" y="272" width="640" height="689"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="LzO-Kr-plX" secondAttribute="trailing" constant="-16" id="Bik-ba-HYK"/>
-                            <constraint firstItem="LzO-Kr-plX" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="-16" id="Gqf-qg-mRs"/>
-                            <constraint firstItem="rGe-ms-hbl" firstAttribute="top" secondItem="LzO-Kr-plX" secondAttribute="bottom" id="OfP-7k-gdb"/>
-                            <constraint firstItem="XCk-QG-00G" firstAttribute="leading" secondItem="wv2-kv-tHR" secondAttribute="leadingMargin" constant="229" id="dKK-dc-2GN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XCk-QG-00G" secondAttribute="trailing" constant="229" id="gZ3-6s-pln"/>
-                            <constraint firstItem="LzO-Kr-plX" firstAttribute="top" secondItem="wv2-kv-tHR" secondAttribute="topMargin" id="w6o-iR-GLY"/>
-                            <constraint firstItem="rGe-ms-hbl" firstAttribute="top" secondItem="XCk-QG-00G" secondAttribute="bottom" constant="20" id="zwc-a0-CR5"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y35-Ku-ZBL">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="zHe-qq-zfp">

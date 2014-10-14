@@ -18,5 +18,6 @@
 @property (strong, nonatomic) UITextView *descriptionTextView;
 @property (strong, nonatomic) UIButton *pictureButton;
 @property (strong, nonatomic) UIImageView *pictureImageView;
+@property (strong, nonatomic) UIButton *deleteButton;
 
 @end
