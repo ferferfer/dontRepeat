@@ -30,6 +30,7 @@
 @implementation FERDontRepeatViewController{
 	BOOL newPicture;
 	BOOL isiPhone;
+	BOOL portrait;
 }
 
 
@@ -55,9 +56,34 @@
 	}
 	[self configure];
 	[self loadData];
+
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+	portrait = UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
 	
+	if (portrait) {
+		NSLog(@"PORTRAIT self.view.frame: %@",NSStringFromCGRect(self.view.frame));
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
+		[self.objectsHelper hideFields:self.dontRepeatObjects];
+	}else{
+		NSLog(@"LANDSCAPE self.view.frame: %@",NSStringFromCGRect(self.view.frame));
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
+		[self.objectsHelper hideFields:self.dontRepeatObjects];
+	}
 	
-	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillLayoutSubviews{
+	BOOL isPortraitNow = UIInterfaceOrientationIsPortrait(self.interfaceOrientation);
+	
+	if(isPortraitNow != portrait){
+			NSLog(@"Interfaceorientation mismatch!, correcting");
+		
+			portrait = isPortraitNow;
+		NSLog(@"viewWillLayoutSubviews portrait %i",portrait);
+			// Code to update subview layout goes here
+	}
 }
 
 -(FERFirebaseManager *)firebaseManager{
@@ -142,7 +168,7 @@
 	self.dontRepeatObjects.pictureButton=	self.pictureButton;
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
 	
-	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
+	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	[self.objectsHelper hideFields:self.dontRepeatObjects];
 }
 
@@ -213,30 +239,30 @@
 
 - (IBAction)titlePressed:(id)sender {
 	if (self.titleTextField.hidden) {
-		[self.objectsHelper titlePressed:self.dontRepeatObjects foriPhone:isiPhone];
+		[self.objectsHelper titlePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}
 }
 
 - (IBAction)datePressed:(id)sender {
 	if (self.datePicker.hidden) {
-		[self.objectsHelper datePressed:self.dontRepeatObjects foriPhone:isiPhone];
+		[self.objectsHelper datePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}
 }
 
 - (IBAction)descriptionPressed:(id)sender {
 	if (self.descriptionTextView.hidden) {
-		[self.objectsHelper descriptionPressed:self.dontRepeatObjects foriPhone:isiPhone];
+		[self.objectsHelper descriptionPressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}
 }
 
 - (IBAction)picturePressed:(id)sender {
-	[self.objectsHelper picturePressed:self.dontRepeatObjects foriPhone:isiPhone];
+	[self.objectsHelper picturePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	[self.takeController takePhotoOrChooseFromLibrary];
 }
 

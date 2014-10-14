@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbI-4i-8sh">
-                                <rect key="frame" x="60" y="272" width="640" height="689"/>
+                                <rect key="frame" x="60" y="272" width="640" height="302"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
