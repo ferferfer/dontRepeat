@@ -11,11 +11,11 @@
 
 @interface FERObjectsHelper : NSObject
 
-- (void)titlePressed:(FERDontRepeatObjects *)obj;
-- (void)datePressed:(FERDontRepeatObjects *)obj;
-- (void)descriptionPressed:(FERDontRepeatObjects *)obj;
-- (void)picturePressed:(FERDontRepeatObjects *)obj;
-- (void)originalPosition:(FERDontRepeatObjects *)obj;
+- (void)titlePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone;
+- (void)datePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone;
+- (void)descriptionPressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone;
+- (void)picturePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone;
+- (void)originalPosition:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone;
 - (void)hideFields:(FERDontRepeatObjects *)obj;
 
 

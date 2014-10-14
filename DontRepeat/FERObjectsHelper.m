@@ -9,34 +9,31 @@
 #import "FERObjectsHelper.h"
 
 @implementation FERObjectsHelper
-
-- (void)titlePressed:(FERDontRepeatObjects *)obj{
+- (void)titlePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone{
 	[obj.titleTextField becomeFirstResponder];
 	[obj.descriptionTextView resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
-										 CGRect rectTitButton = obj.titleButton.frame;
-										 CGRect rectTit = obj.titleTextField.frame;
-										 CGRect rectDate = obj.dateButton.frame;
-										 CGRect rectDesc = obj.descriptionButton.frame;
-										 CGRect rectPic = obj.pictureButton.frame;
-										 CGRect rectImg = obj.pictureImageView.frame;
+										 ;
 										 
-										 rectTitButton.origin = CGPointMake(8, 10);
-										 rectTit.origin = CGPointMake(8, 58);
-										 rectDesc.origin = CGPointMake(8, 96);
-										 rectDate.origin = CGPointMake(8, 154);
-										 rectPic.origin = CGPointMake(8, 212);
-										 rectImg.origin = CGPointMake(8, 270);
+										 if (iPhone) {
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.titleTextField.frame = CGRectMake(8, 58, 304, 30);
+											 obj.descriptionButton.frame = CGRectMake(8, 96, 304, 50);
+											 obj.dateButton.frame = CGRectMake(8, 154, 304, 50);
+											 obj.pictureButton.frame = CGRectMake(8, 212, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8, 270, 304, 408);
+										 }else{
+											 obj.titleButton.frame = CGRectMake(249,80,270,40);
+											 obj.titleTextField.frame = CGRectMake(249,128,389,25);
+											 obj.descriptionButton.frame= CGRectMake(249,168,270,40);
+											 obj.dateButton.frame = CGRectMake(249,216,270,40);
+											 obj.pictureButton.frame = CGRectMake(249,254,270,40);
+											 obj.pictureImageView.frame = CGRectMake(60,307,640,654);
+										 }
 										 
-										 obj.titleButton.frame=rectTitButton;
-										 obj.titleTextField.frame=rectTit;
 										 obj.titleTextField.layer.borderWidth = 1.0f;
 										 obj.titleTextField.layer.borderColor = [[UIColor grayColor] CGColor];
-										 obj.dateButton.frame = rectDate;
-										 obj.descriptionButton.frame = rectDesc;
-										 obj.pictureButton.frame = rectPic;
-										 obj.pictureImageView.frame = rectImg;
 										 
 										 obj.titleTextField.hidden=NO;
 										 obj.titleTextField.alpha=1;
@@ -49,32 +46,28 @@
 									 }];
 	
 }
-- (void)datePressed:(FERDontRepeatObjects *)obj {
+- (void)datePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone {
 	[obj.datePicker becomeFirstResponder];
 	[obj.titleTextField resignFirstResponder];
 	[obj.descriptionTextView resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
-										 CGRect rectTitButton = obj.titleButton.frame;
-										 CGRect rectDate = obj.dateButton.frame;
-										 CGRect rectDatePicker = obj.datePicker.frame;
-										 CGRect rectDesc = obj.descriptionButton.frame;
-										 CGRect rectPic = obj.pictureButton.frame;
-										 CGRect rectImg = obj.pictureImageView.frame;
 										 
-										 rectTitButton.origin = CGPointMake(8, 10);
-										 rectDesc.origin = CGPointMake(8,58);
-										 rectDate.origin = CGPointMake(8,116);
-										 rectDatePicker.origin = CGPointMake(8,144);
-										 rectPic.origin = CGPointMake(8,344);
-										 rectImg.origin = CGPointMake(8,392);
-										 
-										 obj.titleButton.frame=rectTitButton;
-										 obj.dateButton.frame = rectDate;
-										 obj.datePicker.frame = rectDatePicker;
-										 obj.descriptionButton.frame = rectDesc;
-										 obj.pictureButton.frame = rectPic;
-										 obj.pictureImageView.frame = rectImg;
+										 if (iPhone) {
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+											 obj.dateButton.frame = CGRectMake(8,116, 304, 50);
+											 obj.datePicker.frame = CGRectMake(8,144, 304, 162);
+											 obj.pictureButton.frame = CGRectMake(8,344, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8,392, 304, 408);
+										 }else{
+											 obj.titleButton.frame = CGRectMake(249,80,270,40);
+											 obj.descriptionButton.frame = CGRectMake(249,128,270,40);
+											 obj.dateButton.frame = CGRectMake(249,176,270,40);
+											 obj.datePicker.frame = CGRectMake(190,204,389,216);
+											 obj.pictureButton.frame = CGRectMake(249,408,270,40);
+											 obj.pictureImageView.frame = CGRectMake(61,456,640,510);
+										 }
 										 
 										 obj.titleTextField.hidden=YES;
 										 obj.titleTextField.alpha=0;
@@ -86,33 +79,30 @@
 									 } completion:^(BOOL finished) {
 									 }];
 }
-- (void)descriptionPressed:(FERDontRepeatObjects *)obj {
+- (void)descriptionPressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone {
 	[obj.descriptionTextView becomeFirstResponder];
 	[obj.titleTextField resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
-										 CGRect rectTitButton = obj.titleButton.frame;
-										 CGRect rectDate = obj.dateButton.frame;
-										 CGRect rectDescText = obj.descriptionTextView.frame;
-										 CGRect rectDesc = obj.descriptionButton.frame;
-										 CGRect rectPic = obj.pictureButton.frame;
-										 CGRect rectImg = obj.pictureImageView.frame;
 										 
-										 rectTitButton.origin = CGPointMake(8, 10);
-										 rectDesc.origin = CGPointMake(8,58);
-										 rectDescText.origin = CGPointMake(8, 116);
-										 rectDate.origin = CGPointMake(8,237);
-										 rectPic.origin = CGPointMake(8,295);
-										 rectImg.origin = CGPointMake(8,353);
+										 if (iPhone) {
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+											 obj.descriptionTextView.frame = CGRectMake(8, 116, 304, 121);
+											 obj.dateButton.frame = CGRectMake(8,237, 304, 50);
+											 obj.pictureButton.frame = CGRectMake(8,295, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8,353, 304, 408);
+										 }else{
+											 obj.titleButton.frame = CGRectMake(249,80,270,40);
+											 obj.descriptionButton.frame = CGRectMake(249,128,270,40);
+											 obj.descriptionTextView.frame = CGRectMake(190,176,389,128);
+											 obj.dateButton.frame = CGRectMake(245,312,270,40);
+											 obj.pictureButton.frame = CGRectMake(245,360,270,40);
+											 obj.pictureImageView.frame = CGRectMake(61,408,639,558);
+										 }
 										 
-										 obj.titleButton.frame=rectTitButton;
-										 obj.dateButton.frame = rectDate;
-										 obj.descriptionTextView.frame = rectDescText;
 										 obj.descriptionTextView.layer.borderWidth = 1.0f;
 										 obj.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-										 obj.descriptionButton.frame = rectDesc;
-										 obj.pictureButton.frame = rectPic;
-										 obj.pictureImageView.frame = rectImg;
 										 
 										 obj.titleTextField.hidden=YES;
 										 obj.titleTextField.alpha=0;
@@ -126,60 +116,59 @@
 	
 	
 }
-- (void)picturePressed:(FERDontRepeatObjects *)obj {
+- (void)picturePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone {
 	[obj.pictureImageView becomeFirstResponder];
 	[obj.titleTextField resignFirstResponder];
 	[obj.descriptionTextView resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
-	CGRect rectTitButton = obj.titleButton.frame;
-	CGRect rectDate = obj.dateButton.frame;
-	CGRect rectDesc = obj.descriptionButton.frame;
-	CGRect rectPic = obj.pictureButton.frame;
-	CGRect rectPicView = obj.pictureImageView.frame;
-	
-	rectTitButton.origin = CGPointMake(8, 10);
-	rectDesc.origin = CGPointMake(8,58);
-	rectDate.origin = CGPointMake(8,116);
-	rectPic.origin = CGPointMake(8,174);
-	rectPicView.origin = CGPointMake(8, 232);
-	
-	obj.titleButton.frame=rectTitButton;
-	obj.dateButton.frame = rectDate;
-	obj.descriptionButton.frame = rectDesc;
-	obj.pictureButton.frame = rectPic;
-	obj.pictureImageView.frame = rectPicView;
-	
-	obj.titleTextField.hidden=YES;
-	obj.titleTextField.alpha=0;
-	obj.datePicker.hidden=YES;
-	obj.datePicker.alpha=0;
-	obj.descriptionTextView.hidden=YES;
-	obj.descriptionTextView.alpha=0;
-	obj.pictureImageView.hidden=NO;
-} completion:^(BOOL finished) {
-}];
+										 
+										 if (iPhone) {
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+											 obj.dateButton.frame = CGRectMake(8,116, 304, 50);
+											 obj.pictureButton.frame = CGRectMake(8,174, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8, 232, 304, 408);
+										 }else{
+											 obj.titleButton.frame = CGRectMake(249,80,270,40);
+											 obj.descriptionButton.frame = CGRectMake(249,128,270,40);
+											 obj.dateButton.frame = CGRectMake(249,176,270,40);
+											 obj.pictureButton.frame = CGRectMake(249,224,270,40);
+											 obj.pictureImageView.frame = CGRectMake(65,272,640,689);
+										 }
+										 
+										 obj.titleTextField.hidden=YES;
+										 obj.titleTextField.alpha=0;
+										 obj.datePicker.hidden=YES;
+										 obj.datePicker.alpha=0;
+										 obj.descriptionTextView.hidden=YES;
+										 obj.descriptionTextView.alpha=0;
+										 obj.pictureImageView.hidden=NO;
+									 } completion:^(BOOL finished) {
+									 }];
 }
 
--(void)originalPosition:(FERDontRepeatObjects *)obj{
+-(void)originalPosition:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone{
 	
-	CGRect rectTitButton = obj.titleButton.frame;
-	CGRect rectDate = obj.dateButton.frame;
-	CGRect rectDesc = obj.descriptionButton.frame;
-	CGRect rectPic = obj.pictureButton.frame;
-	CGRect rectImage =obj.pictureImageView.frame;
-	
-	rectTitButton.origin = CGPointMake(8, 10);
-	rectDesc.origin = CGPointMake(8,58);
-	rectDate.origin = CGPointMake(8,116);
-	rectPic.origin = CGPointMake(8,174);
-	rectImage.origin = CGPointMake(8, 232);
-	
-	obj.titleButton.frame=rectTitButton;
-	obj.dateButton.frame = rectDate;
-	obj.descriptionButton.frame = rectDesc;
-	obj.pictureButton.frame = rectPic;
-	obj.pictureImageView.frame=rectImage;
+	if (iPhone) {
+		obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+		obj.titleTextField.frame = CGRectMake(8, 58, 304, 30);
+		obj.dateButton.frame = CGRectMake(8,116, 304, 50);
+		obj.datePicker.frame = CGRectMake(8,144, 304, 162);
+		obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+		obj.descriptionTextView.frame = CGRectMake(8, 116, 304, 121);
+		obj.pictureButton.frame = CGRectMake(8,174, 304, 50);
+		obj.pictureImageView.frame = CGRectMake(8, 232, 304, 408);
+	}else{
+		obj.titleButton.frame = CGRectMake(249,80,270,40);
+		obj.titleTextField.frame = CGRectMake(249,128,389,25);
+		obj.dateButton.frame = CGRectMake(249,176,270,40);
+		obj.datePicker.frame = CGRectMake(190,204,389,216);
+		obj.descriptionButton.frame = CGRectMake(249,128,270,40);
+		obj.descriptionTextView.frame = CGRectMake(190,176,389,128);
+		obj.pictureButton.frame = CGRectMake(249,224,270,40);
+		obj.pictureImageView.frame = CGRectMake(65,272,640,689);
+	}
 	
 	obj.titleTextField.hidden=YES;
 	obj.titleTextField.alpha=0;

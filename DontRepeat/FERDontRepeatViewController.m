@@ -29,6 +29,7 @@
 
 @implementation FERDontRepeatViewController{
 	BOOL newPicture;
+	BOOL isiPhone;
 }
 
 
@@ -46,11 +47,13 @@
 	self.scrollView.delegate=self;
 	self.takeController.delegate=self;
 	newPicture=NO;
-	if (self.scrollView!=nil) {//iPhone (with scroll) or iPad (without scroll)
-		[self configure];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		isiPhone=NO;
 	}else{
-		[self configureiPad];
+		isiPhone=YES;
 	}
+	[self configure];
 	[self loadData];
 	
 	
@@ -123,14 +126,6 @@
 	self.deleteButton.hidden=NO;
 }
 
--(void)configureiPad{
-
-	self.titleTextField.layer.borderWidth = 1.0f;
-	self.titleTextField.layer.borderColor = [[UIColor grayColor] CGColor];
-	self.descriptionTextView.layer.borderWidth = 1.0f;
-	self.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-}
-
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	
@@ -147,7 +142,7 @@
 	self.dontRepeatObjects.pictureButton=	self.pictureButton;
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
 	
-	[self.objectsHelper originalPosition:self.dontRepeatObjects];
+	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
 	[self.objectsHelper hideFields:self.dontRepeatObjects];
 }
 
@@ -218,30 +213,30 @@
 
 - (IBAction)titlePressed:(id)sender {
 	if (self.titleTextField.hidden) {
-		[self.objectsHelper titlePressed:self.dontRepeatObjects];
+		[self.objectsHelper titlePressed:self.dontRepeatObjects foriPhone:isiPhone];
 	}else{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
 	}
 }
 
 - (IBAction)datePressed:(id)sender {
 	if (self.datePicker.hidden) {
-		[self.objectsHelper datePressed:self.dontRepeatObjects];
+		[self.objectsHelper datePressed:self.dontRepeatObjects foriPhone:isiPhone];
 	}else{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
 	}
 }
 
 - (IBAction)descriptionPressed:(id)sender {
 	if (self.descriptionTextView.hidden) {
-		[self.objectsHelper descriptionPressed:self.dontRepeatObjects];
+		[self.objectsHelper descriptionPressed:self.dontRepeatObjects foriPhone:isiPhone];
 	}else{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects];
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone];
 	}
 }
 
 - (IBAction)picturePressed:(id)sender {
-	[self.objectsHelper picturePressed:self.dontRepeatObjects];
+	[self.objectsHelper picturePressed:self.dontRepeatObjects foriPhone:isiPhone];
 	[self.takeController takePhotoOrChooseFromLibrary];
 }
 
