@@ -146,8 +146,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="KTn-C5-syG">
                                 <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yCX-6p-Jel" userLabel="Collection View" customClass="feliz">
-                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yCX-6p-Jel" userLabel="Collection View" customClass="feliz">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QTV-0d-jB8">
                                     <size key="itemSize" width="105" height="116"/>
@@ -160,7 +159,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="105" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -173,14 +171,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yCX-6p-Jel" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="topMargin" id="0mI-rp-7gU"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="KTn-C5-syG" secondAttribute="bottom" id="2sv-Mi-j6p"/>
-                            <constraint firstItem="KTn-C5-syG" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="topMargin" id="ETz-X2-LnF"/>
-                            <constraint firstItem="G8a-dr-fCo" firstAttribute="top" secondItem="yCX-6p-Jel" secondAttribute="bottom" id="Lan-7H-o3D"/>
-                            <constraint firstItem="KTn-C5-syG" firstAttribute="leading" secondItem="bUH-fZ-9Dc" secondAttribute="leadingMargin" constant="-16" id="dNH-B4-f3A"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KTn-C5-syG" secondAttribute="trailing" constant="-16" id="eug-Nx-W4h"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yCX-6p-Jel" secondAttribute="trailing" constant="-16" id="f9v-E3-O2G"/>
-                            <constraint firstItem="yCX-6p-Jel" firstAttribute="leading" secondItem="bUH-fZ-9Dc" secondAttribute="leadingMargin" constant="-16" id="rkP-Mc-ncg"/>
+                            <constraint firstItem="G8a-dr-fCo" firstAttribute="top" secondItem="KTn-C5-syG" secondAttribute="bottom" id="8Dv-Yj-jlQ"/>
+                            <constraint firstItem="KTn-C5-syG" firstAttribute="top" secondItem="bUH-fZ-9Dc" secondAttribute="topMargin" id="ASg-MF-uY6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KTn-C5-syG" secondAttribute="trailing" constant="-16" id="BsH-5r-EX2"/>
+                            <constraint firstItem="KTn-C5-syG" firstAttribute="leading" secondItem="bUH-fZ-9Dc" secondAttribute="leadingMargin" constant="-16" id="M30-AU-ru6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Tt-xw-8NI">

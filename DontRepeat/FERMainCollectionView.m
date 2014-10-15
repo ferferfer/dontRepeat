@@ -36,6 +36,7 @@
 
 @implementation FERMainCollectionView {
 	DontRepeat* dontRepeatSeleccionado;
+	BOOL portrait;
 }
 
 
@@ -54,62 +55,19 @@
 	[self configureSearch];
 }
 
--(void)configureSearch{
-	self.filteredDontRepeats = [[NSMutableArray alloc] init];
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
 	
-	self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.bounds.size.width, 44.0f)];
-	self.searchBar.showsCancelButton=NO;
-	self.searchBar.returnKeyType=UIReturnKeyGo;
-	self.searchBar.delegate = self;
-	self.searchBar.backgroundColor=[UIColor clearColor];
-	self.searchBar.placeholder=@"Search";
-	//	self.searchDisplayController.searchBar.=[UIColor blueColor];
-	[self.view addSubview:self.searchBar];
-}
-
-- (void) textFilter:(NSString *) searchText{
-	self.filteredDontRepeats=[[NSMutableArray alloc]init];
-	for (DontRepeat *dont in self.dontRepeats) {
-		NSString *upperTitle=[dont.dontRepeatTitle uppercaseString];
-		NSString *upperSearch=[searchText uppercaseString];
-		if ([upperTitle containsString:upperSearch]) {
-			if (![self.filteredDontRepeats containsObject:dont]) {
-				[self.filteredDontRepeats addObject:dont];
-			}
-		}
-	}
-}
-
-#pragma mark UISearchDisplayController Delegate
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-	[self textFilter:searchText];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
-	[self.collectionViewProperty	reloadData];
+										 self.searchBar.frame=CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.width, 44.0f);
+										 
+										 self.collectionViewProperty.frame=CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.width, self.view.layer.bounds.size.height);
+										 
+										 
 									 } completion:^(BOOL finished) {
 									 }];
-//	if ([searchText isEqualToString:@""]) {
-//		[searchBar resignFirstResponder];
-//	}
-
+	
 }
-
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-	self.searchBar.showsCancelButton=YES;
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-	searchBar.text=@"";
-	self.filteredDontRepeats=[[NSMutableArray alloc]init];
-	[self.collectionViewProperty reloadData];
-	self.searchBar.showsCancelButton=NO;
-	[searchBar resignFirstResponder];
-}
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-	[searchBar resignFirstResponder];
-}
-
 
 -(FERFirebaseManager *)firebaseManager{
 	if (_firebaseManager==nil) {
@@ -141,8 +99,12 @@
 
 -(void)initializeCollectionView{
 	
-	self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.momentLayout];
-	//ADDED THE SUBVIEW AND DATA SOURCE
+	if ([[UIDevice currentDevice] orientation]<3) {//orientation 1y2 is portait. 3y4 landscape
+		self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.width, self.view.layer.bounds.size.height) collectionViewLayout:self.momentLayout];
+	}else{
+		self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.height, self.view.layer.bounds.size.width) collectionViewLayout:self.momentLayout];
+	}
+		//ADDED THE SUBVIEW AND DATA SOURCE
 	[self.view addSubview:self.collectionViewProperty];
 	self.collectionViewProperty.dataSource=self;
 	
@@ -164,6 +126,64 @@
 	self.daysLayout=[[FERDaysLayout alloc]init];
 }
 
+-(void)configureSearch{
+	self.filteredDontRepeats = [[NSMutableArray alloc] init];
+	
+	if ([[UIDevice currentDevice] orientation]<3) {//orientation 1y2 is portait. 3y4 landscape
+		self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.width, 44.0f)];
+	}else{
+		self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.height, 44.0f)];
+	}
+	
+	self.searchBar.showsCancelButton=NO;
+	self.searchBar.returnKeyType=UIReturnKeyGo;
+	self.searchBar.delegate = self;
+	self.searchBar.backgroundColor=[UIColor clearColor];
+	self.searchBar.placeholder=@"Search";
+	//	self.searchDisplayController.searchBar.=[UIColor blueColor];
+	[self.view addSubview:self.searchBar];
+}
+
+- (void) textFilter:(NSString *) searchText{
+	self.filteredDontRepeats=[[NSMutableArray alloc]init];
+	for (DontRepeat *dont in self.dontRepeats) {
+		NSString *upperTitle=[dont.dontRepeatTitle uppercaseString];
+		NSString *upperSearch=[searchText uppercaseString];
+		if ([upperTitle containsString:upperSearch]) {
+			if (![self.filteredDontRepeats containsObject:dont]) {
+				[self.filteredDontRepeats addObject:dont];
+			}
+		}
+	}
+}
+
+#pragma mark UISearchDisplayController Delegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+	[self textFilter:searchText];
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+										 [self.collectionViewProperty	reloadData];
+									 } completion:^(BOOL finished) {
+									 }];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+	self.searchBar.showsCancelButton=YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+	searchBar.text=@"";
+	self.filteredDontRepeats=[[NSMutableArray alloc]init];
+	[self.collectionViewProperty reloadData];
+	self.searchBar.showsCancelButton=NO;
+	[searchBar resignFirstResponder];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+	[searchBar resignFirstResponder];
+}
+
+
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
 	return 1;
 }
@@ -179,14 +199,13 @@
 	FERDontRepeatCell	*cell  = [[FERDontRepeatCell alloc ]init];
 	cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dontRepeatCell" forIndexPath:indexPath];
 	
-	NSLog(@"index: %li",(long)indexPath.item);
 	DontRepeat *dont=[[DontRepeat alloc]init];
 	if(![self.searchBar.text isEqualToString:@""]){
 		dont = [self.filteredDontRepeats objectAtIndex:indexPath.row];
 	}else{
 		dont = [self.dontRepeats objectAtIndex:indexPath.row];
 	}
-
+	
 	if (dont.dontRepeatPicture.length==0) {
 		UIImage	*image=[UIImage imageNamed:@"NoPic"];
 		cell.thumbnail.image=image;
@@ -199,7 +218,6 @@
 	
 	cell.title.text=dont.dontRepeatTitle;
 	cell.dateLabel.text=dont.dontRepeatDate;
-	NSLog(@"index: %li - %@",(long)indexPath.item,dont.dontRepeatTitle);
 	return cell;
 }
 
@@ -273,8 +291,6 @@
 -(void)loadPlistDontRepeats{
 	
 	self.dontRepeats=[self.plistManager loadDontRepeatsFromUser:self.user];
-	DontRepeat *fer=[self.dontRepeats firstObject];
-	NSLog(@"viewDidAppear%@",fer.dontRepeatID);
 	self.dontRepeats=[self.formatHelper sortDontRepeatsByTitle:self.dontRepeats];
 	[self.collectionViewProperty reloadData];
 	

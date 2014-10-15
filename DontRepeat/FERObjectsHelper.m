@@ -33,7 +33,6 @@
 											 obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,216,270,40);
 											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,254,270,40);
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
-											 //CGRectMake(myView.frame.size.width/2-640/2,307,640,654);
 										 }
 										 
 										 obj.titleTextField.layer.borderWidth = 1.0f;
@@ -71,7 +70,6 @@
 											 obj.datePicker.frame = CGRectMake(myView.frame.size.width/2-389/2,204,389,216);
 											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,408,270,40);
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
-											 //CGRectMake(myView.frame.size.width/2-640/2,456,640,510);
 										 }
 										 
 										 obj.titleTextField.hidden=YES;
@@ -104,7 +102,6 @@
 											 obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,312,270,40);
 											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,360,270,40);
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
-											 //CGRectMake(myView.frame.size.width/2-640/2,408,640,558);
 										 }
 										 
 										 obj.descriptionTextView.layer.borderWidth = 1.0f;
@@ -141,7 +138,6 @@
 											 obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,176,270,40);
 											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,224,270,40);
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
-											 //CGRectMake(myView.frame.size.width/2-640/2,272,640,689);
 										 }
 										 
 										 obj.titleTextField.hidden=YES;
@@ -175,13 +171,6 @@
 		obj.descriptionTextView.frame = CGRectMake(myView.frame.size.width/2-389/2,176,389,128);
 		obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,224,270,40);
 		obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
-//		if ([[UIDevice currentDevice] orientation]<3) {//orientation 1y2 is portait. 3y4 landscape
-//			obj.pictureImageView.frame = CGRectMake(myView.frame.size.width/2-640/2,272,640,689);
-//		}else{
-//			obj.pictureImageView.frame = CGRectMake(myView.frame.size.width/2-640/2,272,640,430);
-//		}
-//		obj.deleteButton.frame = CGRectMake(myView.frame.size.width/2-270/2, myView.frame.size.height-55, 270, 35);
-		
 	}
 	
 	obj.titleTextField.hidden=YES;
