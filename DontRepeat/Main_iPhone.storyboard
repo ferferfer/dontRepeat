@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wqz-mY-iyq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wqz-mY-iyq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -538,8 +538,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="EWa-qc-8pj"/>
                     <connections>
-                        <outlet property="aNewUserButton" destination="gcu-Tc-PZJ" id="8Za-l6-GHz"/>
-                        <outlet property="existingUserButton" destination="EIZ-vj-eqU" id="d7K-2l-p4p"/>
+                        <outlet property="aNewUserButton" destination="gcu-Tc-PZJ" id="FWC-dr-TZN"/>
+                        <outlet property="existingUserButton" destination="EIZ-vj-eqU" id="m6E-2G-jaR"/>
                         <outlet property="imageView" destination="hMV-oL-cML" id="FQ3-gd-LaF"/>
                     </connections>
                 </viewController>
@@ -651,12 +651,12 @@
                             <constraint firstItem="vTO-wB-DiV" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="44" id="X3D-bj-LKo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fc7-Pq-7cV" secondAttribute="trailing" constant="44" id="aRA-Gv-glq"/>
                             <constraint firstItem="Fc7-Pq-7cV" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="44" id="c3I-n8-vwy"/>
+                            <constraint firstItem="vTO-wB-DiV" firstAttribute="top" secondItem="CSE-Gx-h4i" secondAttribute="bottom" constant="19" id="cBK-kJ-Bpa"/>
                             <constraint firstItem="23d-Jt-XYp" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="44" id="cJv-Y8-VbH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FLN-ZA-VJt" secondAttribute="trailing" constant="44" id="cYu-wU-kYR"/>
                             <constraint firstItem="Fc7-Pq-7cV" firstAttribute="top" secondItem="vTO-wB-DiV" secondAttribute="bottom" constant="8" id="djN-69-IWO"/>
                             <constraint firstItem="MGW-6C-r3a" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="44" id="fow-Cp-Av8"/>
                             <constraint firstItem="WHw-b9-9N0" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="44" id="g8G-kc-re7"/>
-                            <constraint firstItem="vTO-wB-DiV" firstAttribute="top" secondItem="CSE-Gx-h4i" secondAttribute="bottom" constant="19" id="gKW-DS-Y3w"/>
                             <constraint firstItem="kQ5-bb-eOO" firstAttribute="top" secondItem="P8D-pS-Cos" secondAttribute="topMargin" id="p4y-Nu-dGj"/>
                             <constraint firstItem="WHw-b9-9N0" firstAttribute="top" secondItem="Fc7-Pq-7cV" secondAttribute="bottom" constant="8" id="tLb-pZ-j23"/>
                             <constraint firstItem="kQ5-bb-eOO" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="-16" id="x4n-kl-eWi"/>
@@ -703,7 +703,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aA1-C6-e5r"/>
         <segue reference="Src-wZ-HGh"/>
+        <segue reference="aA1-C6-e5r"/>
     </inferredMetricsTieBreakers>
 </document>

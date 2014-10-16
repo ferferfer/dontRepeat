@@ -23,7 +23,8 @@
 #pragma mark - Setup Live Firebase CallBacks
 -(void)setupFirebaseCallbacks
 {
-    [self.fireBaseURLLiveUsers observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+	NSLog(@"*****");
+	[self.fireBaseURLLiveUsers observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         [self fireBaseDetectNewUser:snapshot.name];
     }];
 }
@@ -31,7 +32,7 @@
 #pragma mark - User Utils
 -(void)fireBaseDetectNewUser:(NSString *)userID
 {
-    NSLog(@"UserId: %@ join to Session", userID);
+    NSLog(@"*****UserId: %@ join to Session", userID);
     
     Firebase *userURL = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://dontrepeat.firebaseio.com/users/%@", userID]];
     [userURL observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {

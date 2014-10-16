@@ -7,13 +7,22 @@
 //
 
 #import "FERFirstViewController.h"
+#import "FERPlistManager.h"
+#import "FERUser.h"
+#import "FERMainCollectionView.h"
+
+#import <Firebase/Firebase.h>
+#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
 @interface FERFirstViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
 @property (weak, nonatomic) IBOutlet UIButton *aNewUserButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *existingUserButton;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
+@property (nonatomic,strong)FERPlistManager *plist;
+@property (nonatomic,strong)FERUser *theUser;
+@property	(nonatomic,strong)FirebaseSimpleLogin *authClient;
+@property	(nonatomic,strong)Firebase* ref;
 
 @end
 
@@ -24,12 +33,47 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
+		[self loginProcess];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		[self iPadBackground];
+	}
 	[self configure];
 }
 
+
+-(Firebase *)ref{
+	if(_ref==nil){
+		_ref = [[Firebase alloc] initWithUrl:@"https://dontrepeat.firebaseio.com/"];
+	}
+	return _ref;
+}
+
+-(FirebaseSimpleLogin *)authClient{
+	if(_authClient==nil){
+		_authClient = [[FirebaseSimpleLogin alloc] initWithRef:self.ref];
+	}
+	return _authClient;
+}
+
+-(FERUser *)theUser{
+	if (_theUser==nil) {
+		_theUser=[[FERUser alloc]init];
+		
+	}
+	return _theUser;
+}
+
+-(FERPlistManager	*)plist{
+	if (_plist==nil) {
+		_plist=[[FERPlistManager alloc]init];
+	}
+	return _plist;
+}
+
+
 -(void)configure{
-	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+	[UIView animateWithDuration:2 delay:2 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
 										 self.imageView.alpha=0.4;
 										 self.aNewUserButton.alpha=1;
@@ -37,14 +81,76 @@
 									 } completion:^(BOOL finished) {
 									 }];
 }
-/*
-#pragma mark - Navigation
+
+
+-(void)iPadBackground{
+	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+	if ([[UIDevice currentDevice]orientation]<3) {
+		self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage
+	imageNamed:@"launch_portrait1024"]];
+	}else{
+		self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage
+				imageNamed:@"launch_landscapeRight1024"]];
+	}
+	
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+			self.imageView.contentMode=UIViewContentModeScaleAspectFill;
+	switch ([[UIDevice currentDevice]orientation]) {
+		case 1:
+			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_portrait1024"]];
+
+			break;
+		case 2:
+			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_portraitUpsidedown1024"]];
+			break;
+		case 3:
+			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_landscapeLeft1024"]];
+			break;
+		case 4:
+			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_landscapeRight1024"]];
+			break;
+  default:
+			break;
+	}
+}
+
+#pragma mark - Login Process
+-(void)loginProcess{
+	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
+		if (isLogin) {
+			NSLog(@"User is Login");
+			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+		};
+	}];
+}
+
+-(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
+	[self.authClient checkAuthStatusWithBlock:^(NSError* error, FAUser* fbuser) {
+		
+		if (error != nil) {
+			completion(FALSE, nil);
+		} else if (fbuser == nil) {
+			completion(FALSE, nil);
+		} else {
+			self.theUser.userID = fbuser.userId;
+			completion(TRUE, self.theUser);
+		}
+	}];
+}
+
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	if ([segue.identifier isEqualToString:@"goAhead"]) {
+		FERMainCollectionView *mcv=[segue destinationViewController];
+		FERUser *loggedUser=[self.plist loadUser];
+		mcv.user=loggedUser;
+		mcv.authClient=self.authClient;
+	}
+	// Get the new view controller using [segue destinationViewController].
+	// Pass the selected object to the new view controller.
 }
-*/
 
 @end

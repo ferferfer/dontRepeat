@@ -16,6 +16,14 @@
 		3F238D1319C1A9FB00F0A186 /* FERFormatHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */; };
 		3F34224619E3ECD6008E0095 /* logo76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224419E3ECD6008E0095 /* logo76.png */; };
 		3F34224719E3ECD6008E0095 /* logo152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224519E3ECD6008E0095 /* logo152.png */; };
+		3F54606E19EFBE0D00187FAC /* launch_landscapeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606A19EFBE0D00187FAC /* launch_landscapeLeft.png */; };
+		3F54606F19EFBE0D00187FAC /* launch_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606B19EFBE0D00187FAC /* launch_portrait.png */; };
+		3F54607019EFBE0D00187FAC /* launch_portraitUpsidedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606C19EFBE0D00187FAC /* launch_portraitUpsidedown.png */; };
+		3F54607119EFBE0D00187FAC /* launch_landscapeRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606D19EFBE0D00187FAC /* launch_landscapeRight.png */; };
+		3F54607619EFC71B00187FAC /* launch_landscapeLeft1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54607219EFC71B00187FAC /* launch_landscapeLeft1024.png */; };
+		3F54607719EFC71B00187FAC /* launch_portrait1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54607319EFC71B00187FAC /* launch_portrait1024.png */; };
+		3F54607819EFC71B00187FAC /* launch_portraitUpsidedown1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54607419EFC71B00187FAC /* launch_portraitUpsidedown1024.png */; };
+		3F54607919EFC71B00187FAC /* launch_landscapeRight1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54607519EFC71B00187FAC /* launch_landscapeRight1024.png */; };
 		3F55DA6119E7E52700913AE5 /* FERFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */; };
 		3F55DA6419E7E53700913AE5 /* FERSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */; };
 		3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */; };
@@ -87,6 +95,14 @@
 		3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelperTests.m; sourceTree = "<group>"; };
 		3F34224419E3ECD6008E0095 /* logo76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo76.png; sourceTree = "<group>"; };
 		3F34224519E3ECD6008E0095 /* logo152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo152.png; sourceTree = "<group>"; };
+		3F54606A19EFBE0D00187FAC /* launch_landscapeLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_landscapeLeft.png; sourceTree = "<group>"; };
+		3F54606B19EFBE0D00187FAC /* launch_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_portrait.png; sourceTree = "<group>"; };
+		3F54606C19EFBE0D00187FAC /* launch_portraitUpsidedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_portraitUpsidedown.png; sourceTree = "<group>"; };
+		3F54606D19EFBE0D00187FAC /* launch_landscapeRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_landscapeRight.png; sourceTree = "<group>"; };
+		3F54607219EFC71B00187FAC /* launch_landscapeLeft1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_landscapeLeft1024.png; sourceTree = "<group>"; };
+		3F54607319EFC71B00187FAC /* launch_portrait1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_portrait1024.png; sourceTree = "<group>"; };
+		3F54607419EFC71B00187FAC /* launch_portraitUpsidedown1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_portraitUpsidedown1024.png; sourceTree = "<group>"; };
+		3F54607519EFC71B00187FAC /* launch_landscapeRight1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_landscapeRight1024.png; sourceTree = "<group>"; };
 		3F55DA5F19E7E52700913AE5 /* FERFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERFirstViewController.h; sourceTree = "<group>"; };
 		3F55DA6019E7E52700913AE5 /* FERFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFirstViewController.m; sourceTree = "<group>"; };
 		3F55DA6219E7E53700913AE5 /* FERSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERSignupViewController.h; sourceTree = "<group>"; };
@@ -329,6 +345,14 @@
 				3F661F6719DAA5050034B550 /* NoPic.png */,
 				3F661F7119DB064A0034B550 /* launch960.png */,
 				3F661F7219DB064A0034B550 /* launch1136.png */,
+				3F54606B19EFBE0D00187FAC /* launch_portrait.png */,
+				3F54607319EFC71B00187FAC /* launch_portrait1024.png */,
+				3F54606C19EFBE0D00187FAC /* launch_portraitUpsidedown.png */,
+				3F54607419EFC71B00187FAC /* launch_portraitUpsidedown1024.png */,
+				3F54606D19EFBE0D00187FAC /* launch_landscapeRight.png */,
+				3F54607519EFC71B00187FAC /* launch_landscapeRight1024.png */,
+				3F54606A19EFBE0D00187FAC /* launch_landscapeLeft.png */,
+				3F54607219EFC71B00187FAC /* launch_landscapeLeft1024.png */,
 				3F8DAD2319DB137C007407CC /* themePolaroid.png */,
 				3F01661A19E5418B001D302A /* logo29.png */,
 				3F01661B19E5418B001D302A /* logo40.png */,
@@ -466,18 +490,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F54607119EFBE0D00187FAC /* launch_landscapeRight.png in Resources */,
 				3FEC01EF19A4AFDA00C85141 /* Main_iPad.storyboard in Resources */,
 				3FEC01F419A4AFDA00C85141 /* Images.xcassets in Resources */,
 				3F01662019E5418B001D302A /* logo40.png in Resources */,
 				3F01662319E5418B001D302A /* logo180.png in Resources */,
 				3F661F7319DB064A0034B550 /* launch960.png in Resources */,
+				3F54606F19EFBE0D00187FAC /* launch_portrait.png in Resources */,
 				3F34224619E3ECD6008E0095 /* logo76.png in Resources */,
+				3F54607719EFC71B00187FAC /* launch_portrait1024.png in Resources */,
+				3F54607619EFC71B00187FAC /* launch_landscapeLeft1024.png in Resources */,
 				3F661F7419DB064A0034B550 /* launch1136.png in Resources */,
+				3F54606E19EFBE0D00187FAC /* launch_landscapeLeft.png in Resources */,
+				3F54607819EFC71B00187FAC /* launch_portraitUpsidedown1024.png in Resources */,
 				3F01662219E5418B001D302A /* logo80.png in Resources */,
 				3FEC01E319A4AFDA00C85141 /* InfoPlist.strings in Resources */,
 				3F8DAD2419DB137C007407CC /* themePolaroid.png in Resources */,
 				3F661F6A19DAAA880034B550 /* backgroundOrange.png in Resources */,
+				3F54607019EFBE0D00187FAC /* launch_portraitUpsidedown.png in Resources */,
 				3F01662119E5418B001D302A /* logo58.png in Resources */,
+				3F54607919EFC71B00187FAC /* launch_landscapeRight1024.png in Resources */,
 				3F34224719E3ECD6008E0095 /* logo152.png in Resources */,
 				3F01661F19E5418B001D302A /* logo29.png in Resources */,
 				3F661F6819DAA5050034B550 /* NoPic.png in Resources */,
