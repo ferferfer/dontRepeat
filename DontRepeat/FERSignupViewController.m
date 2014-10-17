@@ -69,6 +69,13 @@
 	return _formatHelper;
 }
 
+-(FERFirebaseManager *)fireManager{
+	if (_fireManager==nil) {
+		_fireManager=[[FERFirebaseManager alloc]init];
+	}
+	return _fireManager;
+}
+
 -(FERPlistManager	*)plist{
 	if (_plist==nil) {
 		_plist=[[FERPlistManager alloc]init];
@@ -86,9 +93,13 @@
 }
 
 -(BOOL)checkPasswordMach{
-	if([self.passwordTextField.text isEqualToString:self.rePasswordTextField.text]){
+	if ([self.passwordTextField.text isEqualToString:@""]) {
+		[self alertPasswordCannotBeBlank];
+		return NO;
+	}else if([self.passwordTextField.text isEqualToString:self.rePasswordTextField.text]){
 		return YES;
 	}
+	[self alertPasswordsNotMatch];
 	return NO;
 }
 
@@ -100,9 +111,10 @@
 												[self alertRegisterErrorMailInUse];
 												NSLog(@"There was an error creating the account, %@",error);
 											} else {
+												[self.plist addUser:theUser];
 												[self.fireManager saveUserInFirebase:theUser];
 												[self alertNewUserCreated];
-												[self login];
+												[self loginUser:theUser];
 												NSLog(@"We created a new user account");
 											}
 										}];
@@ -114,8 +126,25 @@
 	self.theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
 }
 
--(void)login{
-	[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+#pragma mark - User LogIn
+-(void)loginUser:(FERUser *)theUser{
+	[self dismissViewControllerAnimated:YES completion:nil];
+	[self.authClient loginWithEmail:self.emailTextField.text
+											andPassword:self.passwordTextField.text
+							withCompletionBlock:^(NSError* error, FAUser* user) {
+								if (error != nil) {
+									[self alertError];
+									NSLog(@"There was an error logging in to this account: %@",error);
+								} else {
+									theUser.userMail=self.emailTextField.text;
+									theUser.userPassword=self.passwordTextField.text;
+									theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
+									[self.plist addUser:theUser];
+									
+									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+									NSLog(@"We are now logged in");
+								}
+							}];
 }
 
 -(void)alertNewUserCreated{
@@ -130,6 +159,36 @@
 -(void)alertRegisterErrorMailInUse{
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
 																									message:@"This email is allready use, try with a diferent mail."
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+	
+}
+
+-(void)alertError{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
+																									message:@"There was an error logging in to this account."
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+	
+}
+
+-(void)alertPasswordsNotMatch{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
+																									message:@"Passwords do not match."
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+	
+}
+
+-(void)alertPasswordCannotBeBlank{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
+																									message:@"Passwords cannot be blank."
 																								 delegate:nil
 																				cancelButtonTitle:@"OK"
 																				otherButtonTitles:nil];

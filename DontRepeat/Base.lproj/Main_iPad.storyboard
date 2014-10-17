@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zos-vC-hRx">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -80,15 +81,6 @@
                                             <action selector="loginPressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="fVk-Bu-qxH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHf-Yq-pb0">
-                                        <rect key="frame" x="8" y="8" width="47" height="30"/>
-                                        <state key="normal" title="Sign in">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signUpPressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="BFS-jt-6po"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -146,7 +138,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="KTn-C5-syG">
                                 <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yCX-6p-Jel" userLabel="Collection View" customClass="feliz">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yCX-6p-Jel" userLabel="Collection View">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QTV-0d-jB8">
                                     <size key="itemSize" width="105" height="116"/>
@@ -508,7 +500,7 @@
                                     <constraint firstAttribute="height" constant="30" id="71n-to-u6e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNM-cW-Zbk">
                                 <rect key="frame" x="237" y="198" width="294" height="21"/>
@@ -547,6 +539,9 @@
                                 <state key="normal" title="Sign up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signupPressed:" destination="dzn-uK-aBD" eventType="touchUpInside" id="cGX-ns-DWo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLW-Qu-Snh">
                                 <rect key="frame" x="237" y="301" width="294" height="21"/>
@@ -563,7 +558,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="raq-V5-qEk" kind="push" id="1OQ-gM-nFF"/>
+                                    <segue destination="raq-V5-qEk" kind="push" identifier="signupSegue" id="1OQ-gM-nFF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -592,6 +587,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8yw-Mm-pPD"/>
+                    <connections>
+                        <outlet property="buttonSegue" destination="iod-tx-gKV" id="Ggj-G0-SRb"/>
+                        <outlet property="emailTextField" destination="WQw-QR-MUa" id="ZFp-Yc-4DS"/>
+                        <outlet property="passwordTextField" destination="iAI-Bj-TmV" id="N5U-gH-w5j"/>
+                        <outlet property="rePasswordTextField" destination="1xB-Pk-D5U" id="ahn-Rn-Ban"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03I-rz-BE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -625,7 +626,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vys-dl-dr5"/>
+        <segue reference="1OQ-gM-nFF"/>
         <segue reference="LXk-NG-oCT"/>
     </inferredMetricsTieBreakers>
 </document>

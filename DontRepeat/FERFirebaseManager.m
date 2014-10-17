@@ -56,6 +56,7 @@ NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 }
 
 -(void)saveUserInFirebase:(FERUser *)user{
+	NSLog(@"saveUserInFirebase");
 	Firebase *nameRef = [self arriveToUserFolder:user];
 	[[nameRef childByAppendingPath:@"mail"] setValue:user.userMail];
 }

@@ -24,7 +24,6 @@
 @property (nonatomic,strong)FERPlistManager *plist;
 @property	(nonatomic,strong)FirebaseSimpleLogin *authClient;
 @property	(nonatomic,strong)Firebase* ref;
-@property	(nonatomic,strong)FERFirebaseManager *fireManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 
 @end
@@ -70,13 +69,6 @@
 	return _plist;
 }
 
--(FERFirebaseManager *)fireManager{
-	if (_fireManager==nil) {
-		_fireManager=[[FERFirebaseManager alloc]init];
-	}
-	return _fireManager;
-}
-
 -(FERFormatHelper *)formatHelper{
 	if (_formatHelper==nil) {
 		_formatHelper=[[FERFormatHelper alloc]init];
@@ -116,12 +108,8 @@
 										[self alertRegisterError];
 										NSLog(@"There was an error logging in to this account: %@",error);
 									}
-								} else {									
-									theUser.userMail=self.email.text;
-									theUser.userPassword=self.password.text;
-									theUser.userNick = [self.formatHelper cleanMail:self.email.text];
+								} else {
 									[self.plist addUser:theUser];
-									
 									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 									NSLog(@"We are now logged in");
 								}
@@ -133,7 +121,7 @@
 	if ([self.email.text isEqualToString:userText.userMail] &&
 			[self.password.text isEqualToString:userText.userPassword]) {
 		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
-		NSLog(@"We are now logged in");
+		NSLog(@"We are now logged in with plist");
 		return YES;
 	}
 	return NO;

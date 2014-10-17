@@ -40,7 +40,7 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
 	self.navigationController.navigationBarHidden=NO;
 	[self comparePlistVsFireBase];
 	[self loadPlistDontRepeats];
@@ -240,6 +240,7 @@
 
 - (IBAction)logoutPressed:(id)sender {
 	[self.authClient logout];
+	[self.plistManager removeUserFromUserList];
 	[self.navigationController popViewControllerAnimated:YES];
 }
 

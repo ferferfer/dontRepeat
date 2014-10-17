@@ -35,7 +35,7 @@
 	[newUser setValue:user.userID forKey:@"userID"];
 	
 	NSMutableArray *array=[NSMutableArray arrayWithContentsOfFile:filePath];
-	if (array) {
+	if ([array count]) {
 		[array removeObjectAtIndex:0];
 		[array insertObject:newUser atIndex:0];
 	}else{
@@ -45,6 +45,13 @@
 	
 	[array writeToFile:filePath atomically: YES];
 	
+}
+
+-(void)removeUserFromUserList{
+	NSString *filePath=[self pathOfPlistInDocumentsFolder:@"UserList"];
+		NSMutableArray *array=[NSMutableArray arrayWithContentsOfFile:filePath];
+			[array removeObjectAtIndex:0];
+		[array writeToFile:filePath atomically: YES];
 }
 
 -(BOOL)plistExistInDocumentsFolder:(NSString *)name{

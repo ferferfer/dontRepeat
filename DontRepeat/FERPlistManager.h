@@ -13,6 +13,7 @@
 @interface FERPlistManager : NSObject
 
 -(void)addUser:(FERUser *)user;
+-(void)removeUserFromUserList;
 -(BOOL)plistExistInDocumentsFolder:(NSString *)name;
 -(FERUser	*)loadUser;
 -(NSInteger)numberOfUsersInPlist;

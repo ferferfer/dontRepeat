@@ -617,7 +617,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0r6-bs-tRG" kind="push" id="Att-FO-dM4"/>
+                                    <segue destination="0r6-bs-tRG" kind="push" identifier="signupSegue" id="Att-FO-dM4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLN-ZA-VJt">
@@ -703,7 +703,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Src-wZ-HGh"/>
+        <segue reference="Att-FO-dM4"/>
         <segue reference="aA1-C6-e5r"/>
     </inferredMetricsTieBreakers>
 </document>
