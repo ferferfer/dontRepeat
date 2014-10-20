@@ -16,6 +16,8 @@
 		3F238D1319C1A9FB00F0A186 /* FERFormatHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */; };
 		3F34224619E3ECD6008E0095 /* logo76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224419E3ECD6008E0095 /* logo76.png */; };
 		3F34224719E3ECD6008E0095 /* logo152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F34224519E3ECD6008E0095 /* logo152.png */; };
+		3F4E198A19F5188A0002CEBD /* FERResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E198919F5188A0002CEBD /* FERResetPasswordViewController.m */; };
+		3F4E198D19F518990002CEBD /* FERChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E198C19F518990002CEBD /* FERChangePasswordViewController.m */; };
 		3F54606E19EFBE0D00187FAC /* launch_landscapeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606A19EFBE0D00187FAC /* launch_landscapeLeft.png */; };
 		3F54606F19EFBE0D00187FAC /* launch_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606B19EFBE0D00187FAC /* launch_portrait.png */; };
 		3F54607019EFBE0D00187FAC /* launch_portraitUpsidedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54606C19EFBE0D00187FAC /* launch_portraitUpsidedown.png */; };
@@ -94,6 +96,10 @@
 		3F238D1219C1A9FB00F0A186 /* FERFormatHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERFormatHelperTests.m; sourceTree = "<group>"; };
 		3F34224419E3ECD6008E0095 /* logo76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo76.png; sourceTree = "<group>"; };
 		3F34224519E3ECD6008E0095 /* logo152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo152.png; sourceTree = "<group>"; };
+		3F4E198819F5188A0002CEBD /* FERResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERResetPasswordViewController.h; sourceTree = "<group>"; };
+		3F4E198919F5188A0002CEBD /* FERResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERResetPasswordViewController.m; sourceTree = "<group>"; };
+		3F4E198B19F518990002CEBD /* FERChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERChangePasswordViewController.h; sourceTree = "<group>"; };
+		3F4E198C19F518990002CEBD /* FERChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERChangePasswordViewController.m; sourceTree = "<group>"; };
 		3F54606A19EFBE0D00187FAC /* launch_landscapeLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_landscapeLeft.png; sourceTree = "<group>"; };
 		3F54606B19EFBE0D00187FAC /* launch_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_portrait.png; sourceTree = "<group>"; };
 		3F54606C19EFBE0D00187FAC /* launch_portraitUpsidedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_portraitUpsidedown.png; sourceTree = "<group>"; };
@@ -266,6 +272,10 @@
 				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
 				3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */,
 				3F5A84D019B71C1D00797C84 /* FERDontRepeatViewController.m */,
+				3F4E198819F5188A0002CEBD /* FERResetPasswordViewController.h */,
+				3F4E198919F5188A0002CEBD /* FERResetPasswordViewController.m */,
+				3F4E198B19F518990002CEBD /* FERChangePasswordViewController.h */,
+				3F4E198C19F518990002CEBD /* FERChangePasswordViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -564,7 +574,9 @@
 				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */,
+				3F4E198D19F518990002CEBD /* FERChangePasswordViewController.m in Sources */,
 				3F55DA6419E7E53700913AE5 /* FERSignupViewController.m in Sources */,
+				3F4E198A19F5188A0002CEBD /* FERResetPasswordViewController.m in Sources */,
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
 				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
