@@ -8,12 +8,14 @@
 
 #import "FERChangePasswordViewController.h"
 
-#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+#import <Firebase/Firebase.h>
+
+//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
 @interface FERChangePasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *theNewPasswordTextField;
-@property (nonatomic,strong)FirebaseSimpleLogin *authClient;
+@property (nonatomic,strong)Firebase *firebase;
 @end
 
 @implementation FERChangePasswordViewController
@@ -23,23 +25,23 @@
     // Do any additional setup after loading the view.
 }
 
--(FirebaseSimpleLogin *)authClient{
-	if (_authClient==nil) {
-		_authClient=[[FirebaseSimpleLogin alloc]init];
+-(Firebase *)firebase{
+	if (_firebase==nil) {
+		_firebase=[[Firebase alloc]initWithUrl:FERFireBaseURL];
 	}
-	return _authClient;
+	return _firebase;
 }
 
 - (IBAction)changePressed:(id)sender {
-	[self.authClient changePasswordForEmail:self.emailTextField.text
-															oldPassword:self.oldPasswordTextField.text
-															newPassword:self.theNewPasswordTextField.text
-													completionBlock:^(NSError *error, BOOL success) {
+	[self.firebase changePasswordForUser:self.emailTextField.text
+															 fromOld:self.oldPasswordTextField.text
+																 toNew:self.theNewPasswordTextField.text
+									 withCompletionBlock:^(NSError *error) {
 		if (error != nil) {
 			[self alertChangePasswordError];
 		} else {
 			[self alertChangePasswordSuccess];
-			[self dismissViewControllerAnimated:YES completion:nil];
+			[self.navigationController popViewControllerAnimated:YES];
 		}
 	}];
 }

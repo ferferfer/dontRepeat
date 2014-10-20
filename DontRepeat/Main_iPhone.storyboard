@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="hUO-uL-0RC"/>
                         <viewControllerLayoutGuide type="bottom" id="3av-qd-Ve4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lKr-VB-U6u">
+                    <view key="view" contentMode="scaleAspectFit" id="lKr-VB-U6u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjS-4j-JBW">
-                                <rect key="frame" x="220" y="231" width="40" height="30"/>
+                                <rect key="frame" x="220" y="235" width="40" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -89,8 +89,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="passwordChangePressed:" destination="agq-Bd-Zv7" eventType="touchUpInside" id="Q8h-d2-SA4"/>
-                                    <action selector="passwordResetPressed:" destination="agq-Bd-Zv7" eventType="touchUpInside" id="Tg5-KE-Prg"/>
                                     <segue destination="yNg-0p-19S" kind="push" identifier="changeSegue" id="8tt-wO-wFE"/>
                                 </connections>
                             </button>
@@ -104,10 +102,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="passwordResetPressed:" destination="agq-Bd-Zv7" eventType="touchUpInside" id="ETo-Xb-h4v"/>
-                                    <segue destination="gIE-oK-CYC" kind="push" identifier="resetSegue" id="lxF-WG-rLY"/>
+                                    <segue destination="gIE-oK-CYC" kind="push" identifier="resetSegue" id="xID-sa-N2M"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LK5-Ic-YmW">
+                                <rect key="frame" x="142" y="231" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -129,8 +129,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="rie-9S-jZH"/>
                     <connections>
-                        <outlet property="buttonSegue" destination="vSy-io-tLu" id="CLV-mW-7TH"/>
+                        <outlet property="activityIndicator" destination="LK5-Ic-YmW" id="zB1-yA-RiR"/>
+                        <outlet property="buttonSegue" destination="vSy-io-tLu" id="CHg-cX-ozJ"/>
                         <outlet property="email" destination="jC4-bh-Oa2" id="s7d-BT-eSY"/>
+                        <outlet property="loginButton" destination="TjS-4j-JBW" id="4qs-cO-NKB"/>
                         <outlet property="password" destination="cAw-r6-X9J" id="rJZ-DH-74C"/>
                     </connections>
                 </viewController>
@@ -297,7 +299,6 @@
                                 </state>
                                 <connections>
                                     <action selector="changePressed:" destination="yNg-0p-19S" eventType="touchUpInside" id="zlo-nV-qWM"/>
-                                    <action selector="loginPressed:" destination="agq-Bd-Zv7" eventType="touchUpInside" id="NRn-DJ-YFd"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Enter the email account you registered with, your current password and the new one." translatesAutoresizingMaskIntoConstraints="NO" id="NDP-89-IrG">
@@ -359,7 +360,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPressed:" destination="agq-Bd-Zv7" eventType="touchUpInside" id="KYe-Ct-Smt"/>
                                     <action selector="resetPressed:" destination="gIE-oK-CYC" eventType="touchUpInside" id="KUs-xi-KtB"/>
                                 </connections>
                             </button>

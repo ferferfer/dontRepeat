@@ -8,11 +8,13 @@
 
 #import "FERResetPasswordViewController.h"
 
-#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+#import <Firebase/Firebase.h>
+
+//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
 @interface FERResetPasswordViewController ()
 
-@property (nonatomic,strong)FirebaseSimpleLogin *authClient;
+@property (nonatomic,strong)Firebase *firebase;
 
 @end
 
@@ -23,21 +25,21 @@
     // Do any additional setup after loading the view.
 }
 
--(FirebaseSimpleLogin *)authClient{
-	if (_authClient==nil) {
-		_authClient=[[FirebaseSimpleLogin alloc]init];
+-(Firebase *)firebase{
+	if (_firebase==nil) {
+		_firebase=[[Firebase alloc]initWithUrl:FERFireBaseURL];
 	}
-	return _authClient;
+	return _firebase;
 }
 
 - (IBAction)resetPressed:(id)sender {
 	
-	[self.authClient sendPasswordResetForEmail:self.emailTextField.text andCompletionBlock:^(NSError *error, BOOL success) {
+	[self.firebase resetPasswordForUser:self.emailTextField.text withCompletionBlock:^(NSError *error) {
 		if (error != nil) {
 			[self alertResetPasswordError];
 		} else {
 			[self alertResetPasswordSuccess];
-			[self dismissViewControllerAnimated:YES completion:nil];
+			[self.navigationController popViewControllerAnimated:YES];
 		}
 		
 	}];

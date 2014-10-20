@@ -42,7 +42,6 @@
 		3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D67D919C98BFB008F70C4 /* UIImage+Scale.m */; };
 		3F8DAD2219DB0D96007407CC /* UIColor+FERcolors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8DAD2119DB0D96007407CC /* UIColor+FERcolors.m */; };
 		3F8DAD2419DB137C007407CC /* themePolaroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8DAD2319DB137C007407CC /* themePolaroid.png */; };
-		3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */; };
 		3F9F4D6919A64D5900C10435 /* FERUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4D6819A64D5900C10435 /* FERUser.m */; };
 		3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8D48B19B5E0A900C57137 /* FERPlistManager.m */; };
 		3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA996B119A655B5003B00AE /* FERLoginViewController.m */; };
@@ -50,7 +49,6 @@
 		3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */; };
 		3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */; };
 		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
-		3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */; };
 		3FC5703B19C0A202009868FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */; };
 		3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */; };
 		3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */; };
@@ -134,8 +132,6 @@
 		3F8DAD2019DB0D96007407CC /* UIColor+FERcolors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FERcolors.h"; sourceTree = "<group>"; };
 		3F8DAD2119DB0D96007407CC /* UIColor+FERcolors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FERcolors.m"; sourceTree = "<group>"; };
 		3F8DAD2319DB137C007407CC /* themePolaroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = themePolaroid.png; sourceTree = "<group>"; };
-		3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERLoginManager.h; sourceTree = "<group>"; };
-		3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERLoginManager.m; sourceTree = "<group>"; };
 		3F9F4D6719A64D5900C10435 /* FERUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERUser.h; sourceTree = "<group>"; };
 		3F9F4D6819A64D5900C10435 /* FERUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERUser.m; sourceTree = "<group>"; };
 		3FA8D48A19B5E0A900C57137 /* FERPlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERPlistManager.h; sourceTree = "<group>"; };
@@ -186,7 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC5703B19C0A202009868FC /* MobileCoreServices.framework in Frameworks */,
-				3FB15E2219AC97D500F6BD26 /* FirebaseSimpleLogin.framework in Frameworks */,
 				3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */,
 				3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */,
 				3FEC01DB19A4AFDA00C85141 /* CoreGraphics.framework in Frameworks */,
@@ -225,8 +220,6 @@
 				3F8D67D319C89253008F70C4 /* FERImageDownloader.m */,
 				3F5A84D219B7260800797C84 /* FERFirebaseManager.h */,
 				3F5A84D319B7260800797C84 /* FERFirebaseManager.m */,
-				3F9F4D5E19A64C7600C10435 /* FERLoginManager.h */,
-				3F9F4D5F19A64C7600C10435 /* FERLoginManager.m */,
 			);
 			name = FireBaseManagers;
 			sourceTree = "<group>";
@@ -571,7 +564,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F9F4D6419A64C7600C10435 /* FERLoginManager.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */,
 				3F4E198D19F518990002CEBD /* FERChangePasswordViewController.m in Sources */,

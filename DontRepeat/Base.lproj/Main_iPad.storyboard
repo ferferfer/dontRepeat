@@ -81,6 +81,9 @@
                                             <action selector="loginPressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="fVk-Bu-qxH"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ipn-lC-Amc">
+                                        <rect key="frame" x="129" y="4" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -112,7 +115,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="passwordResetPressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="gyl-Sw-HkI"/>
                                             <segue destination="kFO-N7-fNz" kind="push" identifier="resetSegue" id="Scc-Mg-tX8"/>
                                         </connections>
                                     </button>
@@ -127,7 +129,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="passwordChangePressed:" destination="5tJ-kj-Nez" eventType="touchUpInside" id="KrD-m1-W8X"/>
                                             <segue destination="lF2-EF-QKh" kind="push" identifier="changeSegue" id="9sR-9w-rOa"/>
                                         </connections>
                                     </button>
@@ -188,8 +189,9 @@
                     <navigationItem key="navigationItem" id="Bs7-aa-ogR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="buttonSegue" destination="pIr-Yz-xSF" id="X7p-42-Ezz"/>
+                        <outlet property="activityIndicator" destination="Ipn-lC-Amc" id="wGg-eB-v4y"/>
                         <outlet property="email" destination="UoD-ga-JT8" id="ja7-dk-npA"/>
+                        <outlet property="loginButton" destination="7F8-mo-Gzg" id="zNn-bm-0SI"/>
                         <outlet property="password" destination="oIe-zc-0vd" id="fTE-5Z-qpG"/>
                     </connections>
                 </viewController>
@@ -922,24 +924,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RqP-Om-g13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1388" y="590"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hLg-GY-a2E">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pSv-72-12S" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1wb-Ve-ddu"/>
-                        <viewControllerLayoutGuide type="bottom" id="S8U-fb-EE7"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cVf-AS-c31">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ktS-So-9jP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

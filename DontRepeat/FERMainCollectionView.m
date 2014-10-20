@@ -99,12 +99,14 @@
 
 -(void)initializeCollectionView{
 	
-	if ([[UIDevice currentDevice] orientation]<3) {//orientation 1y2 is portait. 3y4 landscape
-		self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.width, self.view.layer.bounds.size.height) collectionViewLayout:self.momentLayout];
-	}else{
+	if ([[UIDevice currentDevice] orientation]==UIInterfaceOrientationLandscapeLeft ||
+			[[UIDevice currentDevice] orientation]==UIInterfaceOrientationLandscapeRight) {
 		self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.height, self.view.layer.bounds.size.width) collectionViewLayout:self.momentLayout];
+	}else{
+		self.collectionViewProperty=[[UICollectionView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.width, self.view.layer.bounds.size.height) collectionViewLayout:self.momentLayout];
+		
 	}
-		//ADDED THE SUBVIEW AND DATA SOURCE
+	//ADDED THE SUBVIEW AND DATA SOURCE
 	[self.view addSubview:self.collectionViewProperty];
 	self.collectionViewProperty.dataSource=self;
 	
@@ -129,10 +131,11 @@
 -(void)configureSearch{
 	self.filteredDontRepeats = [[NSMutableArray alloc] init];
 	
-	if ([[UIDevice currentDevice] orientation]<3) {//orientation 1y2 is portait. 3y4 landscape
-		self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.width, 44.0f)];
-	}else{
+	if ([[UIDevice currentDevice] orientation]==UIInterfaceOrientationLandscapeLeft ||
+			[[UIDevice currentDevice] orientation]==UIInterfaceOrientationLandscapeRight) {
 		self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.height, 44.0f)];
+	}else{
+		self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.width, 44.0f)];
 	}
 	
 	self.searchBar.showsCancelButton=NO;
@@ -239,7 +242,7 @@
 
 
 - (IBAction)logoutPressed:(id)sender {
-	[self.authClient logout];
+	[self.authClient unauth];
 	[self.plistManager removeUserFromUserList];
 	[self.navigationController popViewControllerAnimated:YES];
 }

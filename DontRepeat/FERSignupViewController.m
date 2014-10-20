@@ -14,7 +14,8 @@
 #import "FERPlistManager.h"
 
 #import <Firebase/Firebase.h>
-#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+
+//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
 @interface FERSignupViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -22,8 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *rePasswordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
 @property	(strong, nonatomic)FERUser *theUser;
-@property	(nonatomic,strong)FirebaseSimpleLogin *authClient;
-@property	(nonatomic,strong)Firebase *ref;
+@property	(nonatomic,strong)Firebase *firebase;
 @property	(nonatomic,strong)FERFirebaseManager *fireManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 @property (nonatomic,strong)FERPlistManager *plist;
@@ -41,11 +41,11 @@
 	// Do any additional setup after loading the view.
 }
 
--(Firebase *)ref{
-	if(_ref==nil){
-		_ref = [[Firebase alloc] initWithUrl:@"https://dontrepeat.firebaseio.com/"];
+-(Firebase *)firebase{
+	if(_firebase==nil){
+		_firebase = [[Firebase alloc] initWithUrl:FERFireBaseURL];
 	}
-	return _ref;
+	return _firebase;
 }
 
 -(FERUser *)theUser{
@@ -53,13 +53,6 @@
 		_theUser=[[FERUser alloc]init];
 	}
 	return _theUser;
-}
-
--(FirebaseSimpleLogin *)authClient{
-	if(_authClient==nil){
-		_authClient = [[FirebaseSimpleLogin alloc] initWithRef:self.ref];
-	}
-	return _authClient;
 }
 
 -(FERFormatHelper *)formatHelper{
@@ -105,8 +98,7 @@
 
 #pragma mark - User SingUp
 -(void)signUpUser:(FERUser *)theUser{
-	[self.authClient createUserWithEmail:theUser.userMail password:theUser.userPassword
-										andCompletionBlock:^(NSError* error, FAUser* user) {
+	[self.firebase createUser:theUser.userMail password:theUser.userPassword withCompletionBlock:^(NSError *error) {
 											if (error != nil) {
 												[self alertRegisterErrorMailInUse];
 												NSLog(@"There was an error creating the account, %@",error);
@@ -133,9 +125,8 @@
 #pragma mark - User LogIn
 -(void)loginUser:(FERUser *)theUser{
 	[self dismissViewControllerAnimated:YES completion:nil];
-	[self.authClient loginWithEmail:self.emailTextField.text
-											andPassword:self.passwordTextField.text
-							withCompletionBlock:^(NSError* error, FAUser* user) {
+	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
+	
 								if (error != nil) {
 									[self alertError];
 									NSLog(@"There was an error logging in to this account: %@",error);
@@ -208,7 +199,7 @@
 		FERMainCollectionView *mcv=[segue destinationViewController];
 		FERUser *loggedUser=[self.plist loadUser];
 		mcv.user=loggedUser;
-		mcv.authClient=self.authClient;
+		mcv.authClient=self.firebase;
 	}
 }
 

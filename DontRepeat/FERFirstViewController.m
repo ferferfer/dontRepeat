@@ -12,7 +12,6 @@
 #import "FERMainCollectionView.h"
 
 #import <Firebase/Firebase.h>
-#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
 @interface FERFirstViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -21,8 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
 @property (nonatomic,strong)FERPlistManager *plist;
 @property (nonatomic,strong)FERUser *theUser;
-@property	(nonatomic,strong)FirebaseSimpleLogin *authClient;
-@property	(nonatomic,strong)Firebase* ref;
+@property	(nonatomic,strong)Firebase* firebase;
 
 @end
 
@@ -42,18 +40,11 @@
 }
 
 
--(Firebase *)ref{
-	if(_ref==nil){
-		_ref = [[Firebase alloc] initWithUrl:@"https://dontrepeat.firebaseio.com/"];
+-(Firebase *)firebase{
+	if(_firebase==nil){
+		_firebase = [[Firebase alloc] initWithUrl:@"https://dontrepeat.firebaseio.com/"];
 	}
-	return _ref;
-}
-
--(FirebaseSimpleLogin *)authClient{
-	if(_authClient==nil){
-		_authClient = [[FirebaseSimpleLogin alloc] initWithRef:self.ref];
-	}
-	return _authClient;
+	return _firebase;
 }
 
 -(FERUser *)theUser{
@@ -118,7 +109,7 @@
 
 #pragma mark - Login Process
 -(void)loginProcess{
-	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
+	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user){
 		if (isLogin) {
 			NSLog(@"User is Login");
 			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
@@ -127,14 +118,12 @@
 }
 
 -(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
-	[self.authClient checkAuthStatusWithBlock:^(NSError* error, FAUser* fbuser) {
+	[self.firebase observeAuthEventWithBlock:^(FAuthData *authData) {
 		
-		if (error != nil) {
-			completion(FALSE, nil);
-		} else if (fbuser == nil) {
+		if (authData == nil) {
 			completion(FALSE, nil);
 		} else {
-			self.theUser.userID = fbuser.userId;
+			self.theUser.userID = authData.uid;
 			completion(TRUE, self.theUser);
 		}
 	}];
@@ -147,7 +136,7 @@
 		FERMainCollectionView *mcv=[segue destinationViewController];
 		FERUser *loggedUser=[self.plist loadUser];
 		mcv.user=loggedUser;
-		mcv.authClient=self.authClient;
+		mcv.authClient=self.firebase;
 	}
 	// Get the new view controller using [segue destinationViewController].
 	// Pass the selected object to the new view controller.

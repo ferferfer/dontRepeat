@@ -1,13 +1,13 @@
 PODS:
   - FDTake (0.2.2)
-  - Firebase (1.1.12)
+  - Firebase (1.2.2)
 
 DEPENDENCIES:
   - FDTake (~> 0.2.1)
-  - Firebase
+  - Firebase (~> 1.2)
 
 SPEC CHECKSUMS:
   FDTake: 8d7c4f2ac64298017d5b57da023704c6d0afbe35
-  Firebase: 26ca966dea982f29a4685f7fa8f596d56e5487ad
+  Firebase: 1a8b62e7562c167c445b681493c4d33b51606df8
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.34.4

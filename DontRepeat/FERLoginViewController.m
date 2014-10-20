@@ -16,16 +16,16 @@
 #import	"FERChangePasswordViewController.h"
 
 #import <Firebase/Firebase.h>
-#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
 @interface FERLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
 @property (nonatomic,strong)FERUser *theUser;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (nonatomic,strong)FERPlistManager *plist;
-@property	(nonatomic,strong)FirebaseSimpleLogin *authClient;
-@property	(nonatomic,strong)Firebase* ref;
+@property	(nonatomic,strong)Firebase* firebase;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 
 @end
@@ -38,22 +38,15 @@
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
+	[self stop];
 	[self loadUserTextFields];
-	[self loginProcess];
 }
 
--(Firebase *)ref{
-	if(_ref==nil){
-		_ref = [[Firebase alloc] initWithUrl:@"https://dontrepeat.firebaseio.com/"];
+-(Firebase *)firebase{
+	if(_firebase==nil){
+		_firebase = [[Firebase alloc] initWithUrl:FERFireBaseURL];
 	}
-	return _ref;
-}
-
--(FirebaseSimpleLogin *)authClient{
-	if(_authClient==nil){
-		_authClient = [[FirebaseSimpleLogin alloc] initWithRef:self.ref];
-	}
-	return _authClient;
+	return _firebase;
 }
 
 -(FERUser *)theUser{
@@ -91,35 +84,38 @@
 - (IBAction)loginPressed:(id)sender {
 	[self saveUser];
 	[self loginUser:self.theUser];
+	[self wait];
 }
 
-- (IBAction)passwordResetPressed:(id)sender {
-
+-(void)wait{
+	self.loginButton.enabled=NO;
+	self.activityIndicator.hidden=NO;
+	[self.activityIndicator startAnimating];
 }
 
-- (IBAction)passwordChangePressed:(id)sender {
-	
-	
-
+-(void)stop{
+	self.loginButton.enabled=YES;
+	self.activityIndicator.hidden=YES;
+	[self.activityIndicator stopAnimating];
 }
-
 
 #pragma mark - User LogIn
 -(void)loginUser:(FERUser *)theUser{
 	[self dismissViewControllerAnimated:YES completion:nil];
-	[self.authClient loginWithEmail:self.email.text andPassword:self.password.text
-							withCompletionBlock:^(NSError* error, FAUser* user) {
-								if (error != nil) {
-									if (![self tryToLoginWithPlist]) {
-										[self alertRegisterError];
-										NSLog(@"There was an error logging in to this account: %@",error);
-									}
-								} else {
-									[self.plist addUser:theUser];
-									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
-									NSLog(@"We are now logged in");
-								}
-							}];
+	[self.firebase authUser:self.email.text password:self.password.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
+		if (error != nil) {
+			if (![self tryToLoginWithPlist]) {
+				[self alertRegisterError];
+				[self stop];
+				NSLog(@"There was an error logging in to this account: %@",error);
+			}
+		} else {
+			[self.plist addUser:theUser];
+			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+			[self stop];
+			NSLog(@"We are now logged in");
+		}
+	}];
 }
 
 -(BOOL)tryToLoginWithPlist{
@@ -152,25 +148,13 @@
 	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
 }
 
-#pragma mark - Login Process
--(void)loginProcess{
-	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user) {
-		if (isLogin) {
-			NSLog(@"User is Login");
-			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
-		};
-	}];
-}
-
 -(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
-	[self.authClient checkAuthStatusWithBlock:^(NSError* error, FAUser* fbuser) {
+	[self.firebase observeAuthEventWithBlock:^(FAuthData *authData) {
 		
-		if (error != nil) {
-			completion(FALSE, nil);
-		} else if (fbuser == nil) {
+		if (authData == nil) {
 			completion(FALSE, nil);
 		} else {
-			self.theUser.userID = fbuser.userId;
+			self.theUser.userID = authData.uid;
 			completion(TRUE, self.theUser);
 		}
 	}];
@@ -181,10 +165,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	if ([segue.identifier isEqualToString:@"logInSegue"]) {
-			FERMainCollectionView *mcv=[segue destinationViewController];
-			FERUser *loggedUser=[self.plist loadUser];
-			mcv.user=loggedUser;
-			mcv.authClient=self.authClient;
+		FERMainCollectionView *mcv=[segue destinationViewController];
+		FERUser *loggedUser=[self.plist loadUser];
+		mcv.user=loggedUser;
+		mcv.authClient=self.firebase;
 	}
 	if ([segue.identifier isEqualToString:@"resetSegue"]) {
 		FERResetPasswordViewController *rpvc=[segue destinationViewController];

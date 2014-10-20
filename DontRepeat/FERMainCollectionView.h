@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+#import <Firebase/Firebase.h>
 #import "FERUser.h"
 
 @interface FERMainCollectionView : UIViewController
 
 @property	(nonatomic,strong)FERUser *user;
-@property (nonatomic,strong)FirebaseSimpleLogin *authClient;
+@property (nonatomic,strong)Firebase *authClient;
 
 @end

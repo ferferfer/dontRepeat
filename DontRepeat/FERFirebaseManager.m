@@ -10,7 +10,7 @@
 #import "FERFormatHelper.h"
 #import	"FERPlistManager.h"
 
-NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
+//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
 @interface FERFirebaseManager	()
 
