@@ -149,7 +149,7 @@
 
 -(void)alertNewUserCreated{
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Successful"
-																									message:@"Now you can log in"
+																									message:@"You are now logged"
 																								 delegate:nil
 																				cancelButtonTitle:@"OK"
 																				otherButtonTitles:nil];

@@ -55,20 +55,6 @@
 	[self configureSearch];
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-	
-	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
-									 animations:^{
-										 self.searchBar.frame=CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.width, 44.0f);
-										 
-										 self.collectionViewProperty.frame=CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.width, self.view.layer.bounds.size.height);
-										 
-										 
-									 } completion:^(BOOL finished) {
-									 }];
-	
-}
-
 -(FERFirebaseManager *)firebaseManager{
 	if (_firebaseManager==nil) {
 		_firebaseManager=[[FERFirebaseManager alloc]init];
@@ -95,6 +81,20 @@
 		_imageDownloader=[[FERImageDownloader alloc]init];
 	}
 	return _imageDownloader;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+	
+	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+									 animations:^{
+										 self.searchBar.frame=CGRectMake(0.0f, 64.0f, self.view.layer.bounds.size.width, 44.0f);
+										 
+										 self.collectionViewProperty.frame=CGRectMake(0.0f, 0.0f, self.view.layer.bounds.size.width, self.view.layer.bounds.size.height);
+										 
+										 
+									 } completion:^(BOOL finished) {
+									 }];
+	
 }
 
 -(void)initializeCollectionView{

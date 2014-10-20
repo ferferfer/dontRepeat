@@ -92,9 +92,17 @@
 }
 
 - (IBAction)passwordResetPressed:(id)sender {
+	
 }
 
 - (IBAction)passwordChangePressed:(id)sender {
+//	[self.authClient changePasswordForEmail:self.email.text oldPassword:self.oldPassword.text newPassword:self.newPassword.text completionBlock:^(NSError *error, BOOL success) {
+//		if (error != nil) {
+//			[self alertChangePasswordError];
+//		} else {
+//			[self alertChangePasswordSuccess];
+//		}
+//	}];
 }
 
 
@@ -130,6 +138,24 @@
 -(void)alertRegisterError{
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
 																									message:@"User Name or password incorect"
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+}
+
+-(void)alertChangePasswordError{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Change Password Error"
+																									message:@"There was an error changing your password, try again later"
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+}
+
+-(void)alertChangePasswordSuccess{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Change Password Succeeded"
+																									message:@"Now you can log with your new password"
 																								 delegate:nil
 																				cancelButtonTitle:@"OK"
 																				otherButtonTitles:nil];
