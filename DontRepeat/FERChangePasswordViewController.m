@@ -44,6 +44,10 @@
 	}];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	[self.view endEditing:YES];
+}		
+
 -(void)alertChangePasswordError{
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Change Password Error"
 																									message:@"There was an error changing your password, try again later"

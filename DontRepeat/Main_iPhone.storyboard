@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wqz-mY-iyq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wqz-mY-iyq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -261,42 +262,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ud-tC-ROj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ud-tC-ROj">
                                 <rect key="frame" x="0.0" y="-17" width="320" height="514"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybW-nw-5nE">
-                                <rect key="frame" x="60" y="114" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Wkz-I5-d6c">
-                                <rect key="frame" x="59" y="143" width="200" height="30"/>
+                                <rect key="frame" x="45" y="159" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-6S-ANj">
-                                <rect key="frame" x="59" y="277" width="200" height="30"/>
+                                <rect key="frame" x="45" y="293" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Jc-Daa">
-                                <rect key="frame" x="60" y="248" width="116" height="21"/>
+                                <rect key="frame" x="45" y="264" width="116" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="kzQ-pn-r2o">
-                                <rect key="frame" x="60" y="210" width="200" height="30"/>
+                                <rect key="frame" x="45" y="226" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Old Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhD-t6-fEj">
-                                <rect key="frame" x="60" y="181" width="108" height="21"/>
+                                <rect key="frame" x="45" y="197" width="108" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebb-5z-dBx">
-                                <rect key="frame" x="219" y="315" width="54" height="30"/>
+                                <rect key="frame" x="214" y="326" width="54" height="30"/>
                                 <state key="normal" title="Change">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -305,14 +300,27 @@
                                     <action selector="loginPressed:" destination="agq-Bd-Zv7" eventType="touchUpInside" id="NRn-DJ-YFd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Enter the email account you registered with, push &quot;Reset&quot; and we will send an email with your new password." translatesAutoresizingMaskIntoConstraints="NO" id="NDP-89-IrG">
-                                <rect key="frame" x="59" y="33" width="200" height="83"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Enter the email account you registered with, your current password and the new one." translatesAutoresizingMaskIntoConstraints="NO" id="NDP-89-IrG">
+                                <rect key="frame" x="16" y="64" width="288" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybW-nw-5nE">
+                                <rect key="frame" x="45" y="132" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="3ud-tC-ROj" secondAttribute="bottom" constant="-17" id="4HT-gc-hYn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3ud-tC-ROj" secondAttribute="trailing" constant="-16" id="9bg-t0-eLl"/>
+                            <constraint firstAttribute="centerX" secondItem="3ud-tC-ROj" secondAttribute="centerX" id="aiE-g0-9FO"/>
+                            <constraint firstItem="3ud-tC-ROj" firstAttribute="leading" secondItem="LVb-Yw-P4z" secondAttribute="leadingMargin" constant="-16" id="fX7-lT-thk"/>
+                            <constraint firstItem="3ud-tC-ROj" firstAttribute="top" secondItem="LVb-Yw-P4z" secondAttribute="topMargin" constant="-17" id="ys9-ju-5FL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="310-kZ-Hja"/>
                     <connections>
@@ -337,16 +345,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Gp-aI-oFh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundOrange.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Gp-aI-oFh">
                                 <rect key="frame" x="0.0" y="-34" width="320" height="514"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Hnh-u9-b01">
-                                <rect key="frame" x="60" y="245" width="200" height="30"/>
+                                <rect key="frame" x="45" y="192" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2H1-BS-Ptl">
-                                <rect key="frame" x="220" y="283" width="40" height="30"/>
+                                <rect key="frame" x="234" y="230" width="40" height="30"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -356,19 +364,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QN-t0-3w4">
-                                <rect key="frame" x="60" y="216" width="41" height="21"/>
+                                <rect key="frame" x="45" y="163" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Enter the email account you registered with, push &quot;Reset&quot; and we will send an email with your new password." translatesAutoresizingMaskIntoConstraints="NO" id="LB7-mQ-acX">
-                                <rect key="frame" x="60" y="132" width="200" height="83"/>
+                                <rect key="frame" x="16" y="72" width="288" height="62"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Gp-aI-oFh" secondAttribute="trailing" constant="-16" id="Q6k-OZ-5ZB"/>
+                            <constraint firstItem="2Gp-aI-oFh" firstAttribute="leading" secondItem="L9c-ir-MnC" secondAttribute="leadingMargin" constant="-16" id="dRx-HW-5mM"/>
+                            <constraint firstItem="b8e-ec-2Sf" firstAttribute="top" secondItem="2Gp-aI-oFh" secondAttribute="bottom" id="eTt-QY-fZS"/>
+                            <constraint firstAttribute="centerX" secondItem="2Gp-aI-oFh" secondAttribute="centerX" id="wBB-OW-Pc9"/>
+                            <constraint firstItem="2Gp-aI-oFh" firstAttribute="top" secondItem="L9c-ir-MnC" secondAttribute="topMargin" constant="-34" id="zuX-GW-MKg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ezc-xQ-yMB"/>
                     <connections>
@@ -838,7 +853,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aA1-C6-e5r"/>
         <segue reference="Src-wZ-HGh"/>
+        <segue reference="aA1-C6-e5r"/>
     </inferredMetricsTieBreakers>
 </document>

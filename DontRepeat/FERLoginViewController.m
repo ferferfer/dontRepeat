@@ -12,6 +12,8 @@
 #import "FERPlistManager.h"
 #import "FERUser.h"
 #import "FERFormatHelper.h"
+#import "FERResetPasswordViewController.h"
+#import	"FERChangePasswordViewController.h"
 
 #import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
@@ -140,6 +142,10 @@
 	[alert show];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	[self.view endEditing:YES];
+}
+
 - (void)saveUser{
 	self.theUser.userMail = self.email.text;
 	self.theUser.userPassword = self.password.text;
@@ -179,6 +185,14 @@
 			FERUser *loggedUser=[self.plist loadUser];
 			mcv.user=loggedUser;
 			mcv.authClient=self.authClient;
+	}
+	if ([segue.identifier isEqualToString:@"resetSegue"]) {
+		FERResetPasswordViewController *rpvc=[segue destinationViewController];
+		rpvc.emailTextField.text=self.email.text;
+	}
+	if ([segue.identifier isEqualToString:@"changeSegue"]) {
+		FERChangePasswordViewController *cpvc=[segue destinationViewController];
+		cpvc.emailTextField.text=self.email.text;
 	}
 	// Get the new view controller using [segue destinationViewController].
 	// Pass the selected object to the new view controller.

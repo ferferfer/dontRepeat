@@ -31,7 +31,7 @@
 }
 
 - (IBAction)resetPressed:(id)sender {
-
+	
 	[self.authClient sendPasswordResetForEmail:self.emailTextField.text andCompletionBlock:^(NSError *error, BOOL success) {
 		if (error != nil) {
 			[self alertResetPasswordError];
@@ -42,6 +42,10 @@
 		
 	}];
 
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	[self.view endEditing:YES];
 }
 
 -(void)alertResetPasswordError{

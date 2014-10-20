@@ -126,6 +126,10 @@
 	self.theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	[self.view endEditing:YES];
+}
+
 #pragma mark - User LogIn
 -(void)loginUser:(FERUser *)theUser{
 	[self dismissViewControllerAnimated:YES completion:nil];
