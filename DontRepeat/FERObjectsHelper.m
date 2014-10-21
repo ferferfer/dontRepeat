@@ -20,12 +20,12 @@
 									 animations:^{
 										 
 										 if (iPhone) {
-											 obj.titleButton.frame = CGRectMake(8, 72, 304, 50);
-											 obj.titleTextField.frame = CGRectMake(8, 120, 304, 30);
-											 obj.descriptionButton.frame = CGRectMake(8, 158, 304, 50);
-											 obj.dateButton.frame = CGRectMake(8, 216, 304, 50);
-											 obj.pictureButton.frame = CGRectMake(8, 274, 304, 50);
-											 obj.pictureImageView.frame = CGRectMake(8, 332, 304, 408);
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.titleTextField.frame = CGRectMake(8, 58, 304, 30);
+											 obj.descriptionButton.frame = CGRectMake(8, 96, 304, 50);
+											 obj.dateButton.frame = CGRectMake(8, 154, 304, 50);
+											 obj.pictureButton.frame = CGRectMake(8, 212, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8, 270, 304, 408);
 										 }else{
 											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 											 obj.titleTextField.frame = CGRectMake(myView.frame.size.width/2-389/2,128,389,25);
@@ -57,12 +57,12 @@
 									 animations:^{
 										 
 										 if (iPhone) {
-											 obj.titleButton.frame = CGRectMake(8, 72, 304, 50);
-											 obj.descriptionButton.frame = CGRectMake(8,120, 304, 50);
-											 obj.dateButton.frame = CGRectMake(8,178, 304, 50);
-											 obj.datePicker.frame = CGRectMake(8,216, 304, 162);
-											 obj.pictureButton.frame = CGRectMake(8,386, 304, 50);
-											 obj.pictureImageView.frame = CGRectMake(8,434, 304, 408);
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+											 obj.dateButton.frame = CGRectMake(8,116, 304, 50);
+											 obj.datePicker.frame = CGRectMake(8,144, 304, 162);
+											 obj.pictureButton.frame = CGRectMake(8,344, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8,392, 304, 408);
 										 }else{
 											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 											 obj.descriptionButton.frame = CGRectMake(myView.frame.size.width/2-270/2,128,270,40);
@@ -89,12 +89,12 @@
 									 animations:^{
 										 
 										 if (iPhone) {
-											 obj.titleButton.frame = CGRectMake(8, 72, 304, 50);
-											 obj.descriptionButton.frame = CGRectMake(8,120, 304, 50);
-											 obj.descriptionTextView.frame = CGRectMake(8, 178, 304, 121);
-											 obj.dateButton.frame = CGRectMake(8,299, 304, 50);
-											 obj.pictureButton.frame = CGRectMake(8,357, 304, 50);
-											 obj.pictureImageView.frame = CGRectMake(8,415, 304, 408);
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+											 obj.descriptionTextView.frame = CGRectMake(8, 116, 304, 121);
+											 obj.dateButton.frame = CGRectMake(8,237, 304, 50);
+											 obj.pictureButton.frame = CGRectMake(8,295, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8,353, 304, 408);
 										 }else{
 											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 											 obj.descriptionButton.frame = CGRectMake(myView.frame.size.width/2-270/2,128,270,40);
@@ -127,11 +127,11 @@
 									 animations:^{
 										 
 										 if (iPhone) {
-											 obj.titleButton.frame = CGRectMake(8, 72, 304, 50);
-											 obj.descriptionButton.frame = CGRectMake(8,120, 304, 50);
-											 obj.dateButton.frame = CGRectMake(8,178, 304, 50);
-											 obj.pictureButton.frame = CGRectMake(8,236, 304, 50);
-											 obj.pictureImageView.frame = CGRectMake(8, 294, 304, 408);
+											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+											 obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+											 obj.dateButton.frame = CGRectMake(8,116, 304, 50);
+											 obj.pictureButton.frame = CGRectMake(8,174, 304, 50);
+											 obj.pictureImageView.frame = CGRectMake(8, 232, 304, 408);
 										 }else{
 											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 											 obj.descriptionButton.frame = CGRectMake(myView.frame.size.width/2-270/2,128,270,40);
@@ -140,13 +140,7 @@
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 										 }
 										 
-										 obj.titleTextField.hidden=YES;
-										 obj.titleTextField.alpha=0;
-										 obj.datePicker.hidden=YES;
-										 obj.datePicker.alpha=0;
-										 obj.descriptionTextView.hidden=YES;
-										 obj.descriptionTextView.alpha=0;
-										 obj.pictureImageView.hidden=NO;
+										 [self hideFields:obj];
 									 } completion:^(BOOL finished) {
 									 }];
 }
@@ -154,14 +148,14 @@
 -(void)originalPosition:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView{
 	
 	if (iPhone) {
-		obj.titleButton.frame = CGRectMake(8, 72, 304, 50);
-		obj.titleTextField.frame = CGRectMake(8, 120, 304, 30);
-		obj.dateButton.frame = CGRectMake(8,178, 304, 50);
-		obj.datePicker.frame = CGRectMake(8,206, 304, 162);
-		obj.descriptionButton.frame = CGRectMake(8,120, 304, 50);
-		obj.descriptionTextView.frame = CGRectMake(8, 178, 304, 121);
-		obj.pictureButton.frame = CGRectMake(8,236, 304, 50);
-		obj.pictureImageView.frame = CGRectMake(8, 294, 304, 408);
+		obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
+		obj.titleTextField.frame = CGRectMake(8, 58, 304, 30);
+		obj.dateButton.frame = CGRectMake(8,116, 304, 50);
+		obj.datePicker.frame = CGRectMake(8,144, 304, 162);
+		obj.descriptionButton.frame = CGRectMake(8,58, 304, 50);
+		obj.descriptionTextView.frame = CGRectMake(8, 116, 304, 121);
+		obj.pictureButton.frame = CGRectMake(8,174, 304, 50);
+		obj.pictureImageView.frame = CGRectMake(8, 232, 304, 408);
 	}else{
 		obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 		obj.titleTextField.frame = CGRectMake(myView.frame.size.width/2-389/2,128,389,25);
@@ -172,14 +166,7 @@
 		obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,224,270,40);
 		obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 	}
-	
-	obj.titleTextField.hidden=YES;
-	obj.titleTextField.alpha=0;
-	obj.datePicker.hidden=YES;
-	obj.datePicker.alpha=0;
-	obj.descriptionTextView.hidden=YES;
-	obj.descriptionTextView.alpha=0;
-	obj.pictureImageView.hidden=NO;
+	[self hideFields:obj];
 	
 }
 

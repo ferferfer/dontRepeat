@@ -56,11 +56,11 @@
 	if (portrait) {
 		NSLog(@"PORTRAIT self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-		[self.objectsHelper hideFields:self.dontRepeatObjects];
+	//	[self.objectsHelper hideFields:self.dontRepeatObjects];
 	}else{
 		NSLog(@"LANDSCAPE self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-		[self.objectsHelper hideFields:self.dontRepeatObjects];
+	//	[self.objectsHelper hideFields:self.dontRepeatObjects];
 	}
 	
 }
@@ -149,7 +149,7 @@
 	self.dontRepeatObjects.deleteButton=self.deleteButton;
 	
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-	[self.objectsHelper hideFields:self.dontRepeatObjects];
+	//[self.objectsHelper hideFields:self.dontRepeatObjects];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

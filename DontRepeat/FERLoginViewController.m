@@ -111,12 +111,12 @@
 			}
 		} else {
 			[self.plist addUser:theUser];
-			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 			[self stop];
 			NSLog(@"We are now logged in");
 		}
 	}];
 }
+
 
 -(BOOL)tryToLoginWithPlist{
 	FERUser *userText=[self.plist loadUser];
@@ -146,18 +146,6 @@
 	self.theUser.userMail = self.email.text;
 	self.theUser.userPassword = self.password.text;
 	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
-}
-
--(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
-	[self.firebase observeAuthEventWithBlock:^(FAuthData *authData) {
-		
-		if (authData == nil) {
-			completion(FALSE, nil);
-		} else {
-			self.theUser.userID = authData.uid;
-			completion(TRUE, self.theUser);
-		}
-	}];
 }
 
 #pragma mark - Navigation

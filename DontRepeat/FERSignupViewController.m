@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *rePasswordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
 @property	(strong, nonatomic)FERUser *theUser;
 @property	(nonatomic,strong)Firebase *firebase;
 @property	(nonatomic,strong)FERFirebaseManager *fireManager;
@@ -135,8 +134,6 @@
 									theUser.userPassword=self.passwordTextField.text;
 									theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
 									[self.plist addUser:theUser];
-									
-									[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
 									NSLog(@"We are now logged in");
 								}
 							}];
@@ -191,17 +188,6 @@
 	
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	if ([segue.identifier isEqualToString:@"signupSegue"]) {
-		FERMainCollectionView *mcv=[segue destinationViewController];
-		FERUser *loggedUser=[self.plist loadUser];
-		mcv.user=loggedUser;
-		mcv.authClient=self.firebase;
-	}
-}
 
 
 @end

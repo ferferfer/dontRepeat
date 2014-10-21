@@ -111,8 +111,10 @@
 -(void)loginProcess{
 	[self isUserLoginWithcompletionBlock:^(BOOL isLogin, FERUser *user){
 		if (isLogin) {
-			NSLog(@"User is Login");
-			[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+			if ([self.plist numberOfUsersInPlist]==1) {
+				NSLog(@"User is Login");
+				[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+			}
 		};
 	}];
 }
