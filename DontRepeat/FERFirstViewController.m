@@ -10,10 +10,11 @@
 #import "FERPlistManager.h"
 #import "FERUser.h"
 #import "FERMainCollectionView.h"
+#import "FERLoginViewController.h"
 
 #import <Firebase/Firebase.h>
 
-@interface FERFirstViewController ()
+@interface FERFirstViewController () 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *aNewUserButton;
 @property (weak, nonatomic) IBOutlet UIButton *existingUserButton;

@@ -14,6 +14,7 @@
 #import "FERFormatHelper.h"
 #import "FERResetPasswordViewController.h"
 #import	"FERChangePasswordViewController.h"
+#import "FERFirstViewController.h"
 
 #import <Firebase/Firebase.h>
 
@@ -106,13 +107,13 @@
 		if (error != nil) {
 			if (![self tryToLoginWithPlist]) {
 				[self alertRegisterError];
-				[self stop];
 				NSLog(@"There was an error logging in to this account: %@",error);
 			}
+			[self stop];
 		} else {
 			[self.plist addUser:theUser];
 			[self stop];
-			NSLog(@"We are now logged in");
+			NSLog(@"We are now authed");
 		}
 	}];
 }
@@ -148,16 +149,29 @@
 	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
 }
 
+-(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
+	[self.firebase observeAuthEventWithBlock:^(FAuthData *authData) {
+		
+		if (authData == nil) {
+			completion(FALSE, nil);
+		} else {
+			self.theUser.userID = authData.uid;
+			completion(TRUE, self.theUser);
+		}
+	}];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	
 	if ([segue.identifier isEqualToString:@"logInSegue"]) {
 		FERMainCollectionView *mcv=[segue destinationViewController];
 		FERUser *loggedUser=[self.plist loadUser];
 		mcv.user=loggedUser;
 		mcv.authClient=self.firebase;
 	}
+	
 	if ([segue.identifier isEqualToString:@"resetSegue"]) {
 		FERResetPasswordViewController *rpvc=[segue destinationViewController];
 		rpvc.emailTextField.text=self.email.text;

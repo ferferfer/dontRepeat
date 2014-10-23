@@ -14,11 +14,8 @@
 
 @implementation FERObjectsHelper
 - (void)titlePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView{
-	[obj.titleTextField becomeFirstResponder];
-	[obj.descriptionTextView resignFirstResponder];
-	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
-									 animations:^{
-										 
+	[UIView animateWithDuration:1 animations:^{
+
 										 if (iPhone) {
 											 obj.titleButton.frame = CGRectMake(8, 10, 304, 50);
 											 obj.titleTextField.frame = CGRectMake(8, 58, 304, 30);
@@ -27,11 +24,36 @@
 											 obj.pictureButton.frame = CGRectMake(8, 212, 304, 50);
 											 obj.pictureImageView.frame = CGRectMake(8, 270, 304, 408);
 										 }else{
-											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
-											 obj.titleTextField.frame = CGRectMake(myView.frame.size.width/2-389/2,128,389,25);
-											 obj.descriptionButton.frame= CGRectMake(myView.frame.size.width/2-270/2,168,270,40);
-											 obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,216,270,40);
-											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,254,270,40);
+											 CGFloat titleButtonHeight=obj.titleButton.frame.size.height;
+											 CGFloat titleButtonWidth=obj.titleButton.frame.size.width;
+											 CGFloat titleTextFieldHeight=obj.titleTextField.frame.size.height;
+											 CGFloat titleTextFieldWidth=obj.titleTextField.frame.size.width;
+											 CGFloat descriptionButtonHeight=obj.descriptionButton.frame.size.height;
+											 CGFloat descriptionButtonWidth=obj.descriptionButton.frame.size.width;
+											 CGFloat dateButtonHeight=obj.dateButton.frame.size.height;
+											 CGFloat dateButtonWidth=obj.dateButton.frame.size.width;
+											 CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
+											 CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
+											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-titleButtonWidth/2,
+																													80,
+																													titleButtonWidth,
+																													titleButtonHeight);
+											 obj.titleTextField.frame = CGRectMake(myView.frame.size.width/2-titleTextFieldWidth/2,
+																														 128,
+																														 titleTextFieldWidth,
+																														 titleTextFieldHeight);
+											 obj.descriptionButton.frame= CGRectMake(myView.frame.size.width/2-descriptionButtonWidth/2,
+																															 149,
+																															 descriptionButtonWidth,
+																															 descriptionButtonHeight);
+											 obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-dateButtonWidth/2,
+																												 197,
+																												 dateButtonWidth,
+																												 dateButtonHeight);
+											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-pictureButtonWidth/2,
+																														254,
+																														pictureButtonWidth,
+																														pictureButtonHeight);
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 										 }
 										 
@@ -50,9 +72,6 @@
 	
 }
 - (void)datePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView {
-	[obj.datePicker becomeFirstResponder];
-	[obj.titleTextField resignFirstResponder];
-	[obj.descriptionTextView resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
 										 
@@ -67,7 +86,8 @@
 											 obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 											 obj.descriptionButton.frame = CGRectMake(myView.frame.size.width/2-270/2,128,270,40);
 											 obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,176,270,40);
-											 obj.datePicker.frame = CGRectMake(myView.frame.size.width/2-389/2,204,389,216);
+											 obj.datePicker.frame = CGRectMake(myView.frame.size.width/2-obj.datePicker.frame.size.width/2,
+																												 204,obj.datePicker.frame.size.width,obj.datePicker.frame.size.height);
 											 obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,408,270,40);
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 										 }
@@ -83,8 +103,6 @@
 									 }];
 }
 - (void)descriptionPressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView {
-	[obj.descriptionTextView becomeFirstResponder];
-	[obj.titleTextField resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
 										 
@@ -117,12 +135,8 @@
 									 } completion:^(BOOL finished) {
 									 }];
 	
-	
 }
 - (void)picturePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView {
-	[obj.pictureImageView becomeFirstResponder];
-	[obj.titleTextField resignFirstResponder];
-	[obj.descriptionTextView resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
 										 
@@ -160,7 +174,7 @@
 		obj.titleButton.frame = CGRectMake(myView.frame.size.width/2-270/2,80,270,40);
 		obj.titleTextField.frame = CGRectMake(myView.frame.size.width/2-389/2,128,389,25);
 		obj.dateButton.frame = CGRectMake(myView.frame.size.width/2-270/2,176,270,40);
-		obj.datePicker.frame = CGRectMake(myView.frame.size.width/2-389/2,204,389,216);
+		obj.datePicker.frame = CGRectMake(myView.frame.size.width/2-obj.datePicker.frame.size.width/2,204,obj.datePicker.frame.size.width,obj.datePicker.frame.size.height);
 		obj.descriptionButton.frame = CGRectMake(myView.frame.size.width/2-270/2,128,270,40);
 		obj.descriptionTextView.frame = CGRectMake(myView.frame.size.width/2-389/2,176,389,128);
 		obj.pictureButton.frame = CGRectMake(myView.frame.size.width/2-270/2,224,270,40);
@@ -171,8 +185,6 @@
 }
 
 -(void)hideFields:(FERDontRepeatObjects *)obj{
-	[obj.titleTextField resignFirstResponder];
-	[obj.descriptionTextView resignFirstResponder];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
 										 obj.titleTextField.hidden=YES;
