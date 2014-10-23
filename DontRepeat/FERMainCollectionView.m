@@ -16,6 +16,7 @@
 #import "FERImageDownloader.h"
 #import "FERMomentLayout.h"
 #import "FERDaysLayout.h"
+#import "FERFirstViewController.h"
 
 @interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate,UISearchBarDelegate,UITextFieldDelegate>
 
@@ -26,6 +27,7 @@
 @property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
 @property	 (nonatomic, strong)FERPlistManager *plistManager;
 @property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
+@property	(nonatomic,strong)FERFirstViewController *firstViewController;
 @property (nonatomic,strong)NSMutableArray *dontRepeats;
 @property (weak, nonatomic)IBOutlet UIBarButtonItem *addButton;
 @property	(nonatomic,strong)FERImageDownloader *imageDownloader;
@@ -83,6 +85,12 @@
 	return _imageDownloader;
 }
 
+-(FERFirstViewController *)firstViewController{
+	if (_firstViewController==nil) {
+		_firstViewController=[[FERFirstViewController alloc]init];
+	}
+	return _firstViewController;
+}
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
 	
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
@@ -244,7 +252,8 @@
 - (IBAction)logoutPressed:(id)sender {
 	[self.authClient unauth];
 	[self.plistManager removeUserFromUserList];
-	[self.navigationController popViewControllerAnimated:YES];
+	[self.navigationController popToRootViewControllerAnimated:YES];
+//	[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)loadFirebasesDontRepeatsFromUser:(FERUser *)user{

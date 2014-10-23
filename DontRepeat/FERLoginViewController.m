@@ -149,29 +149,11 @@
 	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
 }
 
--(void)isUserLoginWithcompletionBlock:(void(^)(BOOL isLogin, FERUser *user))completion{
-	[self.firebase observeAuthEventWithBlock:^(FAuthData *authData) {
-		
-		if (authData == nil) {
-			completion(FALSE, nil);
-		} else {
-			self.theUser.userID = authData.uid;
-			completion(TRUE, self.theUser);
-		}
-	}];
-}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	
-	if ([segue.identifier isEqualToString:@"logInSegue"]) {
-		FERMainCollectionView *mcv=[segue destinationViewController];
-		FERUser *loggedUser=[self.plist loadUser];
-		mcv.user=loggedUser;
-		mcv.authClient=self.firebase;
-	}
-	
+
 	if ([segue.identifier isEqualToString:@"resetSegue"]) {
 		FERResetPasswordViewController *rpvc=[segue destinationViewController];
 		rpvc.emailTextField.text=self.email.text;
