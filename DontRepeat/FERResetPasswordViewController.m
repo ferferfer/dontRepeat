@@ -7,6 +7,7 @@
 //
 
 #import "FERResetPasswordViewController.h"
+#import "FERAlerts.h"
 
 #import <Firebase/Firebase.h>
 
@@ -15,6 +16,7 @@
 @interface FERResetPasswordViewController ()
 
 @property (nonatomic,strong)Firebase *firebase;
+@property (nonatomic,strong)FERAlerts *alert;
 
 @end
 
@@ -32,13 +34,21 @@
 	return _firebase;
 }
 
+-(FERAlerts *)alert{
+	if (_alert==nil) {
+		_alert=[[FERAlerts alloc]init];
+	}
+	return _alert;
+}
+
+
 - (IBAction)resetPressed:(id)sender {
 	
 	[self.firebase resetPasswordForUser:self.emailTextField.text withCompletionBlock:^(NSError *error) {
 		if (error != nil) {
-			[self alertResetPasswordError];
+			[self.alert alertResetPasswordError];
 		} else {
-			[self alertResetPasswordSuccess];
+			[self.alert alertResetPasswordSuccess];
 			[self.navigationController popViewControllerAnimated:YES];
 		}
 		
@@ -48,24 +58,6 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	[self.view endEditing:YES];
-}
-
--(void)alertResetPasswordError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset Password Error"
-																									message:@"There was an error sending your password, try again later"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-}
-
--(void)alertResetPasswordSuccess{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset Password Succeeded"
-																									message:@"Check your mail inbox in order to receive the password"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
 }
 
 /*

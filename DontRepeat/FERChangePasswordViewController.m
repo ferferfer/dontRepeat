@@ -7,6 +7,7 @@
 //
 
 #import "FERChangePasswordViewController.h"
+#import "FERAlerts.h"
 
 #import <Firebase/Firebase.h>
 
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *theNewPasswordTextField;
 @property (nonatomic,strong)Firebase *firebase;
+@property (nonatomic,strong)FERAlerts *alert;
 @end
 
 @implementation FERChangePasswordViewController
@@ -32,15 +34,22 @@
 	return _firebase;
 }
 
+-(FERAlerts *)alert{
+	if (_alert==nil) {
+		_alert=[[FERAlerts alloc]init];
+	}
+	return _alert;
+}
+
 - (IBAction)changePressed:(id)sender {
 	[self.firebase changePasswordForUser:self.emailTextField.text
 															 fromOld:self.oldPasswordTextField.text
 																 toNew:self.theNewPasswordTextField.text
 									 withCompletionBlock:^(NSError *error) {
 		if (error != nil) {
-			[self alertChangePasswordError];
+			[self.alert alertChangePasswordError];
 		} else {
-			[self alertChangePasswordSuccess];
+			[self.alert alertChangePasswordSuccess];
 			[self.navigationController popViewControllerAnimated:YES];
 		}
 	}];
@@ -50,33 +59,5 @@
 	[self.view endEditing:YES];
 }		
 
--(void)alertChangePasswordError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Change Password Error"
-																									message:@"There was an error changing your password, try again later"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-}
-
--(void)alertChangePasswordSuccess{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Change Password Succeeded"
-																									message:@"Now you can log with your new password"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-}
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -65,7 +65,7 @@
 
 
 -(void)configure{
-	[UIView animateWithDuration:2 delay:2 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
+	[UIView animateWithDuration:1 delay:2 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
 										 self.imageView.alpha=0.4;
 										 self.aNewUserButton.alpha=1;
@@ -77,12 +77,14 @@
 
 -(void)iPadBackground{
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-	if ([[UIDevice currentDevice]orientation]<3) {
-		self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage
-	imageNamed:@"launch_portrait1024"]];
-	}else{
-		self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage
-				imageNamed:@"launch_landscapeRight1024"]];
+	if ([[UIDevice currentDevice]orientation]==UIInterfaceOrientationPortrait){
+			self.imageView.image=[UIImage imageNamed:@"launch_portrait1024"];
+	}else if([[UIDevice currentDevice]orientation]==UIInterfaceOrientationPortraitUpsideDown){
+		self.imageView.image=[UIImage imageNamed:@"launch_portraitUpsidedown1024"];
+	}else if([[UIDevice currentDevice]orientation]==UIInterfaceOrientationLandscapeRight){
+		self.imageView.image=[UIImage imageNamed:@"launch_landscapeLeft1024"];
+	}else if([[UIDevice currentDevice]orientation]==UIInterfaceOrientationLandscapeLeft){
+		self.imageView.image=[UIImage imageNamed:@"launch_landscapeRight1024"];
 	}
 	
 }
@@ -91,17 +93,16 @@
 			self.imageView.contentMode=UIViewContentModeScaleAspectFill;
 	switch ([[UIDevice currentDevice]orientation]) {
 		case 1:
-			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_portrait1024"]];
-
+			self.imageView.image=[UIImage imageNamed:@"launch_portrait1024"];
 			break;
 		case 2:
-			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_portraitUpsidedown1024"]];
+			self.imageView.image=[UIImage imageNamed:@"launch_portraitUpsidedown1024"];
 			break;
 		case 3:
-			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_landscapeLeft1024"]];
+			self.imageView.image=[UIImage imageNamed:@"launch_landscapeLeft1024"];
 			break;
 		case 4:
-			self.imageView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"launch_landscapeRight1024"]];
+			self.imageView.image=[UIImage imageNamed:@"launch_landscapeRight1024"];
 			break;
   default:
 			break;

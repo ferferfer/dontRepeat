@@ -196,9 +196,9 @@
 		dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
 		
 		if (newPicture) {
-			UIImage *compressedImage=[self.pictureImageView.image imageScaledToQuarter];
+			UIImage *compressedImage=[self.pictureImageView.image imageScaledToHalf];
 			
-			NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.1);
+			NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.4);
 			NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 			dontRepeat.dontRepeatPicture = dataString;
 		}else{

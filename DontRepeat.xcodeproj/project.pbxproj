@@ -49,6 +49,8 @@
 		3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */; };
 		3FB15DCF19AB59AC00F6BD26 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */; };
 		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
+		3FBB49A219FA68E2005CE3BF /* FERInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB49A119FA68E2005CE3BF /* FERInfoViewController.m */; };
+		3FBB49A819FA7123005CE3BF /* FERAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB49A719FA7123005CE3BF /* FERAlerts.m */; };
 		3FC5703B19C0A202009868FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */; };
 		3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */; };
 		3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */; };
@@ -146,6 +148,10 @@
 		3FB15DCE19AB59AC00F6BD26 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3FB15DD019AB59B500F6BD26 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3FB15E2119AC97D500F6BD26 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSimpleLogin.framework; path = Frameworks/FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		3FBB49A019FA68E2005CE3BF /* FERInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERInfoViewController.h; sourceTree = "<group>"; };
+		3FBB49A119FA68E2005CE3BF /* FERInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERInfoViewController.m; sourceTree = "<group>"; };
+		3FBB49A619FA7123005CE3BF /* FERAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERAlerts.h; sourceTree = "<group>"; };
+		3FBB49A719FA7123005CE3BF /* FERAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERAlerts.m; sourceTree = "<group>"; };
 		3FC5703719C0A15A009868FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3FDAA1BB19BF10F9000CA725 /* FERDontRepeatObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatObjects.h; sourceTree = "<group>"; };
@@ -261,6 +267,8 @@
 				3FA996B119A655B5003B00AE /* FERLoginViewController.m */,
 				3F55DA6219E7E53700913AE5 /* FERSignupViewController.h */,
 				3F55DA6319E7E53700913AE5 /* FERSignupViewController.m */,
+				3FBB49A019FA68E2005CE3BF /* FERInfoViewController.h */,
+				3FBB49A119FA68E2005CE3BF /* FERInfoViewController.m */,
 				3FAA20A019A5081A003E22AC /* FERMainCollectionView.h */,
 				3FAA20A119A5081A003E22AC /* FERMainCollectionView.m */,
 				3F5A84CF19B71C1D00797C84 /* FERDontRepeatViewController.h */,
@@ -286,6 +294,8 @@
 				3F8DAD2119DB0D96007407CC /* UIColor+FERcolors.m */,
 				3FEEF9AD19DC52C600E6DB82 /* UIButton+FERAnimations.h */,
 				3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */,
+				3FBB49A619FA7123005CE3BF /* FERAlerts.h */,
+				3FBB49A719FA7123005CE3BF /* FERAlerts.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -564,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FBB49A819FA7123005CE3BF /* FERAlerts.m in Sources */,
 				3FA996B219A655B5003B00AE /* FERLoginViewController.m in Sources */,
 				3F661F6D19DAEA2F0034B550 /* FERMomentLayout.m in Sources */,
 				3F4E198D19F518990002CEBD /* FERChangePasswordViewController.m in Sources */,
@@ -574,6 +585,7 @@
 				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
 				3FEEF9AF19DC52C600E6DB82 /* UIButton+FERAnimations.m in Sources */,
 				3F661F7019DAEA3E0034B550 /* FERDaysLayout.m in Sources */,
+				3FBB49A219FA68E2005CE3BF /* FERInfoViewController.m in Sources */,
 				3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */,
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
 				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,

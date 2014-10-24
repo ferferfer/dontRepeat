@@ -12,12 +12,14 @@
 #import "FERFormatHelper.h"
 #import "FERMainCollectionView.h"
 #import "FERPlistManager.h"
+#import "FERInfoViewController.h"
+#import "FERAlerts.h"
 
 #import <Firebase/Firebase.h>
 
 //NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
-@interface FERSignupViewController ()
+@interface FERSignupViewController ()<FERInfoViewControllerDelegate, UIPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *rePasswordTextField;
@@ -26,6 +28,11 @@
 @property	(nonatomic,strong)FERFirebaseManager *fireManager;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
 @property (nonatomic,strong)FERPlistManager *plist;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoButtonForiPhone;
+@property (nonatomic, strong) UIPopoverController *infoPopover;
+@property (nonatomic) BOOL shouldHidePopOver;
+@property (nonatomic,strong)FERAlerts *alert;
 
 @end
 
@@ -37,7 +44,9 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view.
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		[self configurePopover];
+	}
 }
 
 -(Firebase *)firebase{
@@ -75,6 +84,46 @@
 	return _plist;
 }
 
+-(FERAlerts *)alert{
+	if (_alert==nil) {
+		_alert=[[FERAlerts alloc]init];
+	}
+	return _alert;
+}
+
+-(void)configurePopover{
+	[self.infoButton addTarget:self action:@selector(showPopover) forControlEvents:UIControlEventTouchUpInside];
+	
+	self.shouldHidePopOver = YES;
+}
+
+- (void)showPopover{
+	FERInfoViewController *infoViewController = [[FERInfoViewController	alloc] init];
+	infoViewController.delegate = self;
+	self.infoPopover =
+	[[UIPopoverController alloc] initWithContentViewController:infoViewController];
+	self.infoPopover.delegate = self;
+	self.infoPopover.popoverContentSize=CGSizeMake(200, 100);
+	[self.infoPopover presentPopoverFromRect:self.infoButton.frame
+																				inView:self.view
+											permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+																			animated:YES];
+}
+
+#pragma mark - FERInfoViewController
+
+- (void)startedEditing{
+	self.shouldHidePopOver = NO;
+}
+
+- (void)finishedEditing{
+	self.shouldHidePopOver = YES;
+}
+
+- (IBAction)infoForiPhonePressed:(id)sender {
+	[self.alert alertInfo];
+}
+
 - (IBAction)signupPressed:(id)sender {
 	
 	if ([self checkPasswordMach]) {
@@ -86,12 +135,12 @@
 
 -(BOOL)checkPasswordMach{
 	if ([self.passwordTextField.text isEqualToString:@""]) {
-		[self alertPasswordCannotBeBlank];
+		[self.alert alertPasswordCannotBeBlank];
 		return NO;
 	}else if([self.passwordTextField.text isEqualToString:self.rePasswordTextField.text]){
 		return YES;
 	}
-	[self alertPasswordsNotMatch];
+	[self.alert alertPasswordsNotMatch];
 	return NO;
 }
 
@@ -99,12 +148,12 @@
 -(void)signUpUser:(FERUser *)theUser{
 	[self.firebase createUser:theUser.userMail password:theUser.userPassword withCompletionBlock:^(NSError *error) {
 											if (error != nil) {
-												[self alertRegisterErrorMailInUse];
+												[self.alert alertRegisterErrorMailInUse];
 												NSLog(@"There was an error creating the account, %@",error);
 											} else {
 												[self.plist addUser:theUser];
 												[self.fireManager saveUserInFirebase:theUser];
-												[self alertNewUserCreated];
+												[self.alert alertNewUserCreated];
 												[self loginUser:theUser];
 												NSLog(@"We created a new user account");
 											}
@@ -127,7 +176,7 @@
 	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 	
 								if (error != nil) {
-									[self alertError];
+									[self.alert alertError];
 									NSLog(@"There was an error logging in to this account: %@",error);
 								} else {
 									theUser.userMail=self.emailTextField.text;
@@ -137,55 +186,6 @@
 									NSLog(@"We are now logged in");
 								}
 							}];
-}
-
--(void)alertNewUserCreated{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Successful"
-																									message:@"You are now logged"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-}
-
--(void)alertRegisterErrorMailInUse{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"This email is allready use, try with a diferent mail."
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-	
-}
-
--(void)alertError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"There was an error logging in to this account."
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-	
-}
-
--(void)alertPasswordsNotMatch{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"Passwords do not match."
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-	
-}
-
--(void)alertPasswordCannotBeBlank{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"Passwords cannot be blank."
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-	
 }
 
 

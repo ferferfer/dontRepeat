@@ -152,15 +152,6 @@
                                     <constraint firstItem="bj8-0Z-9xu" firstAttribute="leading" secondItem="lik-d0-QPY" secondAttribute="trailing" constant="8" id="mnJ-py-EPE"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIr-Yz-xSF">
-                                <rect key="frame" x="634" y="526" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="raq-V5-qEk" kind="push" identifier="logInSegue" id="wW6-0e-7OT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -190,7 +181,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Ipn-lC-Amc" id="wGg-eB-v4y"/>
-                        <outlet property="buttonSegue" destination="pIr-Yz-xSF" id="eiH-g1-rNQ"/>
                         <outlet property="email" destination="UoD-ga-JT8" id="ja7-dk-npA"/>
                         <outlet property="loginButton" destination="7F8-mo-Gzg" id="zNn-bm-0SI"/>
                         <outlet property="password" destination="oIe-zc-0vd" id="fTE-5Z-qpG"/>
@@ -699,6 +689,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aSe-yZ-vUx">
                                 <rect key="frame" x="-2" y="-10" width="772" height="1034"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8G-90-0X4">
                                 <rect key="frame" x="192" y="388" width="384" height="247"/>
@@ -857,16 +848,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-Cc-ntj">
+                                <rect key="frame" x="207" y="198" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="Ekp-Dw-mWv"/>
+                                    <constraint firstAttribute="height" constant="22" id="Mev-3P-wZF"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Y4v-QB-6GR" firstAttribute="leading" secondItem="3Fd-Dt-25d" secondAttribute="leadingMargin" constant="-22" id="3G5-pC-N35"/>
                             <constraint firstItem="1xB-Pk-D5U" firstAttribute="top" secondItem="Slu-nP-ws0" secondAttribute="bottom" constant="8" id="3Oz-fd-oXD"/>
+                            <constraint firstItem="WNM-cW-Zbk" firstAttribute="leading" secondItem="Fqt-Cc-ntj" secondAttribute="trailing" constant="8" id="41z-ic-MUj"/>
                             <constraint firstAttribute="centerX" secondItem="Y4v-QB-6GR" secondAttribute="centerX" id="6Fs-m2-vo1"/>
                             <constraint firstAttribute="centerX" secondItem="1xB-Pk-D5U" secondAttribute="centerX" id="6it-L7-VxY"/>
                             <constraint firstItem="Slu-nP-ws0" firstAttribute="top" secondItem="iAI-Bj-TmV" secondAttribute="bottom" constant="44" id="8Xa-gl-Xwb"/>
                             <constraint firstItem="nLW-Qu-Snh" firstAttribute="top" secondItem="WQw-QR-MUa" secondAttribute="bottom" constant="44" id="Bqq-No-Pe2"/>
                             <constraint firstAttribute="centerX" secondItem="iAI-Bj-TmV" secondAttribute="centerX" id="EA0-nr-mMF"/>
+                            <constraint firstItem="Fqt-Cc-ntj" firstAttribute="top" secondItem="WNM-cW-Zbk" secondAttribute="top" id="FPa-PQ-TI7"/>
                             <constraint firstAttribute="centerX" secondItem="owW-QT-la7" secondAttribute="centerX" id="GF3-tM-w26"/>
                             <constraint firstItem="1xB-Pk-D5U" firstAttribute="top" secondItem="Slu-nP-ws0" secondAttribute="bottom" constant="8" id="Hb9-3C-bTG"/>
                             <constraint firstItem="owW-QT-la7" firstAttribute="top" secondItem="1xB-Pk-D5U" secondAttribute="bottom" constant="43" id="JtC-Nh-tKL"/>
@@ -890,6 +893,7 @@
                     <navigationItem key="navigationItem" id="8yw-Mm-pPD"/>
                     <connections>
                         <outlet property="emailTextField" destination="WQw-QR-MUa" id="ZFp-Yc-4DS"/>
+                        <outlet property="infoButton" destination="Fqt-Cc-ntj" id="GTl-7p-0m0"/>
                         <outlet property="passwordTextField" destination="iAI-Bj-TmV" id="N5U-gH-w5j"/>
                         <outlet property="rePasswordTextField" destination="1xB-Pk-D5U" id="ahn-Rn-Ban"/>
                     </connections>
@@ -926,7 +930,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vys-dl-dr5"/>
         <segue reference="LXk-NG-oCT"/>
     </inferredMetricsTieBreakers>
 </document>

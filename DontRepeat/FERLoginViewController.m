@@ -15,6 +15,7 @@
 #import "FERResetPasswordViewController.h"
 #import	"FERChangePasswordViewController.h"
 #import "FERFirstViewController.h"
+#import "FERAlerts.h"
 
 #import <Firebase/Firebase.h>
 
@@ -28,6 +29,7 @@
 @property (nonatomic,strong)FERPlistManager *plist;
 @property	(nonatomic,strong)Firebase* firebase;
 @property	(nonatomic,strong)FERFormatHelper *formatHelper;
+@property	(nonatomic,strong)FERAlerts *alert;
 
 @end
 
@@ -73,6 +75,13 @@
 }
 
 
+-(FERAlerts *)alert{
+	if (_alert==nil) {
+		_alert=[[FERAlerts alloc]init];
+	}
+	return _alert;
+}
+
 
 -(void)loadUserTextFields{
 	FERUser *userText=[self.plist loadUser];
@@ -106,7 +115,7 @@
 	[self.firebase authUser:self.email.text password:self.password.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 		if (error != nil) {
 			if (![self tryToLoginWithPlist]) {
-				[self alertRegisterError];
+				[self.alert alertRegisterError];
 				NSLog(@"There was an error logging in to this account: %@",error);
 			}
 			[self stop];
@@ -128,15 +137,6 @@
 		return YES;
 	}
 	return NO;
-}
-
--(void)alertRegisterError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"User Name or password incorect"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

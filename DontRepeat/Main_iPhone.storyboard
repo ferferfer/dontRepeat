@@ -764,13 +764,28 @@
                                     <action selector="signupPressed:" destination="iQv-Nj-F0R" eventType="touchUpInside" id="zKG-fw-PEr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcf-5l-EOr">
+                                <rect key="frame" x="30" y="83" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="RL6-Zp-CKQ"/>
+                                    <constraint firstAttribute="width" constant="22" id="zDg-kE-6Zn"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="infoForiPhonePressed:" destination="iQv-Nj-F0R" eventType="touchUpInside" id="KJL-ZM-WCu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vTO-wB-DiV" firstAttribute="leading" secondItem="tcf-5l-EOr" secondAttribute="trailing" constant="8" id="0qO-GK-7U0"/>
                             <constraint firstItem="23d-Jt-XYp" firstAttribute="top" secondItem="WHw-b9-9N0" secondAttribute="bottom" constant="8" id="29o-oz-Yfh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="kQ5-bb-eOO" secondAttribute="bottom" constant="-14" id="4S4-ru-snr"/>
                             <constraint firstItem="rGU-UX-us8" firstAttribute="leading" secondItem="P8D-pS-Cos" secondAttribute="leadingMargin" constant="44" id="51I-N9-btb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WHw-b9-9N0" secondAttribute="trailing" constant="44" id="5bx-ZD-m3b"/>
+                            <constraint firstItem="tcf-5l-EOr" firstAttribute="top" secondItem="vTO-wB-DiV" secondAttribute="top" id="6ta-5Q-ggz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MGW-6C-r3a" secondAttribute="trailing" constant="44" id="E9k-W8-O2Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="23d-Jt-XYp" secondAttribute="trailing" constant="44" id="FHG-nz-YyD"/>
                             <constraint firstItem="MGW-6C-r3a" firstAttribute="top" secondItem="rGU-UX-us8" secondAttribute="bottom" constant="8" id="FOL-TM-kmj"/>
@@ -796,6 +811,7 @@
                     <navigationItem key="navigationItem" id="suM-NL-8MH"/>
                     <connections>
                         <outlet property="emailTextField" destination="Fc7-Pq-7cV" id="Gea-2a-G1b"/>
+                        <outlet property="infoButtonForiPhone" destination="tcf-5l-EOr" id="QTa-mc-cOc"/>
                         <outlet property="passwordTextField" destination="23d-Jt-XYp" id="GPB-Qx-hIe"/>
                         <outlet property="rePasswordTextField" destination="MGW-6C-r3a" id="Aqr-Kz-lAv"/>
                     </connections>
