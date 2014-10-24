@@ -51,8 +51,6 @@
 		3FB15DD119AB59B500F6BD26 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB15DD019AB59B500F6BD26 /* Social.framework */; };
 		3FBB49A219FA68E2005CE3BF /* FERInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB49A119FA68E2005CE3BF /* FERInfoViewController.m */; };
 		3FBB49A819FA7123005CE3BF /* FERAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB49A719FA7123005CE3BF /* FERAlerts.m */; };
-		3FBB49AB19FA766B005CE3BF /* KBKeyboardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB49AA19FA766B005CE3BF /* KBKeyboardHandler.m */; };
-		3FBB49AE19FA7704005CE3BF /* KBKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB49AD19FA7704005CE3BF /* KBKeyboardHandlerDelegate.m */; };
 		3FC5703B19C0A202009868FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */; };
 		3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BC19BF10F9000CA725 /* FERDontRepeatObjects.m */; };
 		3FDAA1C019BF1502000CA725 /* FERObjectsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAA1BF19BF1502000CA725 /* FERObjectsHelper.m */; };
@@ -154,10 +152,6 @@
 		3FBB49A119FA68E2005CE3BF /* FERInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERInfoViewController.m; sourceTree = "<group>"; };
 		3FBB49A619FA7123005CE3BF /* FERAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERAlerts.h; sourceTree = "<group>"; };
 		3FBB49A719FA7123005CE3BF /* FERAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FERAlerts.m; sourceTree = "<group>"; };
-		3FBB49A919FA766B005CE3BF /* KBKeyboardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKeyboardHandler.h; sourceTree = "<group>"; };
-		3FBB49AA19FA766B005CE3BF /* KBKeyboardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKeyboardHandler.m; sourceTree = "<group>"; };
-		3FBB49AC19FA7704005CE3BF /* KBKeyboardHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKeyboardHandlerDelegate.h; sourceTree = "<group>"; };
-		3FBB49AD19FA7704005CE3BF /* KBKeyboardHandlerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKeyboardHandlerDelegate.m; sourceTree = "<group>"; };
 		3FC5703719C0A15A009868FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FC5703919C0A1B4009868FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3FDAA1BB19BF10F9000CA725 /* FERDontRepeatObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FERDontRepeatObjects.h; sourceTree = "<group>"; };
@@ -302,10 +296,6 @@
 				3FEEF9AE19DC52C600E6DB82 /* UIButton+FERAnimations.m */,
 				3FBB49A619FA7123005CE3BF /* FERAlerts.h */,
 				3FBB49A719FA7123005CE3BF /* FERAlerts.m */,
-				3FBB49A919FA766B005CE3BF /* KBKeyboardHandler.h */,
-				3FBB49AA19FA766B005CE3BF /* KBKeyboardHandler.m */,
-				3FBB49AC19FA7704005CE3BF /* KBKeyboardHandlerDelegate.h */,
-				3FBB49AD19FA7704005CE3BF /* KBKeyboardHandlerDelegate.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -592,7 +582,6 @@
 				3F4E198A19F5188A0002CEBD /* FERResetPasswordViewController.m in Sources */,
 				3F5A84D119B71C1D00797C84 /* FERDontRepeatViewController.m in Sources */,
 				3FA8D48C19B5E0A900C57137 /* FERPlistManager.m in Sources */,
-				3FBB49AB19FA766B005CE3BF /* KBKeyboardHandler.m in Sources */,
 				3F8D67DA19C98BFB008F70C4 /* UIImage+Scale.m in Sources */,
 				3FEEF9AF19DC52C600E6DB82 /* UIButton+FERAnimations.m in Sources */,
 				3F661F7019DAEA3E0034B550 /* FERDaysLayout.m in Sources */,
@@ -601,7 +590,6 @@
 				3F5A84DD19B765D100797C84 /* FERFormatHelper.m in Sources */,
 				3FDAA1BD19BF10F9000CA725 /* FERDontRepeatObjects.m in Sources */,
 				3FEC01E919A4AFDA00C85141 /* FERAppDelegate.m in Sources */,
-				3FBB49AE19FA7704005CE3BF /* KBKeyboardHandlerDelegate.m in Sources */,
 				3F55DA6119E7E52700913AE5 /* FERFirstViewController.m in Sources */,
 				3FAA209F19A5018F003E22AC /* FERDontRepeatCell.m in Sources */,
 				3FAA20A219A5081A003E22AC /* FERMainCollectionView.m in Sources */,

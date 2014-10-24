@@ -19,7 +19,7 @@
 
 //NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
 
-@interface FERSignupViewController ()<FERInfoViewControllerDelegate, UIPopoverControllerDelegate>
+@interface FERSignupViewController ()<FERInfoViewControllerDelegate, UIPopoverControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *rePasswordTextField;
@@ -44,6 +44,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	self.emailTextField.delegate=self;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		[self configurePopover];
 	}
@@ -168,6 +169,10 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	[self.view endEditing:YES];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+	self.emailTextField.text=[self.emailTextField.text lowercaseString];
 }
 
 #pragma mark - User LogIn

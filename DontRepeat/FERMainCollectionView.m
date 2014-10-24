@@ -18,7 +18,7 @@
 #import "FERDaysLayout.h"
 #import "FERFirstViewController.h"
 
-@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate,UISearchBarDelegate,UITextFieldDelegate>
+@interface FERMainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate,FERDontRepeatViewControllerDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate,UISearchBarDelegate>
 
 @property (nonatomic,strong)UICollectionView *collectionViewProperty;
 @property	(nonatomic,strong)FERMomentLayout *momentLayout;

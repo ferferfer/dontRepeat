@@ -181,9 +181,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Ipn-lC-Amc" id="wGg-eB-v4y"/>
-                        <outlet property="email" destination="UoD-ga-JT8" id="ja7-dk-npA"/>
+                        <outlet property="emailTextField" destination="UoD-ga-JT8" id="fdF-dC-cKJ"/>
                         <outlet property="loginButton" destination="7F8-mo-Gzg" id="zNn-bm-0SI"/>
-                        <outlet property="password" destination="oIe-zc-0vd" id="fTE-5Z-qpG"/>
+                        <outlet property="passwordTextField" destination="oIe-zc-0vd" id="yih-Kn-0Rx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-h7-r6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -315,14 +315,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0lR-2q-BDY">
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0lR-2q-BDY">
                                 <rect key="frame" x="237" y="361" width="294" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="294" id="TTG-xm-987"/>
                                     <constraint firstAttribute="height" constant="30" id="keb-X0-0qp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f20-5L-sCx">
                                 <rect key="frame" x="237" y="332" width="294" height="21"/>
@@ -409,6 +409,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0Tw-2w-uQe"/>
                     <connections>
+                        <outlet property="changeButton" destination="dp3-1S-y4q" id="LIj-uz-icJ"/>
                         <outlet property="emailTextField" destination="egD-6D-JTQ" id="gBv-F6-w4e"/>
                         <outlet property="oldPasswordTextField" destination="Xzp-vl-gbY" id="aoU-Ag-lTv"/>
                         <outlet property="theNewPasswordTextField" destination="0lR-2q-BDY" id="Rrh-BE-TPs"/>

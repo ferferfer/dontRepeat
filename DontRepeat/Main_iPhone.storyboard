@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wqz-mY-iyq">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -121,9 +120,9 @@
                     <navigationItem key="navigationItem" id="rie-9S-jZH"/>
                     <connections>
                         <outlet property="activityIndicator" destination="LK5-Ic-YmW" id="zB1-yA-RiR"/>
-                        <outlet property="email" destination="jC4-bh-Oa2" id="s7d-BT-eSY"/>
+                        <outlet property="emailTextField" destination="jC4-bh-Oa2" id="XCl-DF-JTr"/>
                         <outlet property="loginButton" destination="TjS-4j-JBW" id="4qs-cO-NKB"/>
-                        <outlet property="password" destination="cAw-r6-X9J" id="rJZ-DH-74C"/>
+                        <outlet property="passwordTextField" destination="cAw-r6-X9J" id="CrA-qc-p3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9PA-DW-JNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,14 +265,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-6S-ANj">
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-6S-ANj">
                                 <rect key="frame" x="45" y="280" width="230" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="72Z-0N-JD2"/>
                                     <constraint firstAttribute="height" constant="30" id="Uva-D2-dVb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Jc-Daa">
                                 <rect key="frame" x="45" y="251" width="230" height="21"/>
@@ -367,6 +366,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="310-kZ-Hja"/>
                     <connections>
+                        <outlet property="changeButton" destination="Ebb-5z-dBx" id="bLQ-o2-9tp"/>
                         <outlet property="emailTextField" destination="Wkz-I5-d6c" id="y9L-Wm-4RN"/>
                         <outlet property="oldPasswordTextField" destination="kzQ-pn-r2o" id="mlY-fA-zwn"/>
                         <outlet property="theNewPasswordTextField" destination="gEA-6S-ANj" id="YSi-pM-Fjm"/>

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KBKeyboardHandlerDelegate.h"
 
-@interface FERChangePasswordViewController : UIViewController<KBKeyboardHandlerDelegate>
+@interface FERChangePasswordViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
 @end

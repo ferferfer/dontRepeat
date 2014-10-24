@@ -8,27 +8,23 @@
 
 #import "FERChangePasswordViewController.h"
 #import "FERAlerts.h"
-#import "KBKeyboardHandler.h"
 
 #import <Firebase/Firebase.h>
 
-//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
-
-@interface FERChangePasswordViewController ()
+@interface FERChangePasswordViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *theNewPasswordTextField;
 @property (nonatomic,strong)Firebase *firebase;
 @property (nonatomic,strong)FERAlerts *alert;
+@property (weak, nonatomic) IBOutlet UIButton *changeButton;
 @end
 
-@implementation FERChangePasswordViewController{
-	KBKeyboardHandler *keyboard;
-}
+@implementation FERChangePasswordViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-	[self initKeyBoard];
-    // Do any additional setup after loading the view.
+	self.emailTextField.delegate=self;
+	self.theNewPasswordTextField.delegate=self;
 }
 
 -(Firebase *)firebase{
@@ -45,27 +41,6 @@
 	return _alert;
 }
 
--(void)initKeyBoard{
-	keyboard = [[KBKeyboardHandler alloc] init];
-	keyboard.delegate = self;
-}
-
-- (void)keyboardSizeChanged:(CGSize)delta
-{
-	// Resize / reposition your views here. All actions performed here
-	// will appear animated.
-	// delta is the difference between the previous size of the keyboard
-	// and the new one.
-	// For instance when the keyboard is shown,
-	// delta may has width=768, height=264,
-	// when the keyboard is hidden: width=-768, height=-264.
-	// Use keyboard.frame.size to get the real keyboard size.
-	
-	// Sample:
-	CGRect frame = self.view.frame;
-	frame.size.height -= delta.height;
-	self.view.frame = frame;
-}
 
 - (IBAction)changePressed:(id)sender {
 	[self.firebase changePasswordForUser:self.emailTextField.text
@@ -84,6 +59,18 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	[self.view endEditing:YES];
 }		
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+	self.emailTextField.text=[self.emailTextField.text lowercaseString];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+	if (textField.tag==3) {//newpasswordTextField
+		[self.changeButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+		return YES;
+	}
+	return NO;
+}
 
 
 @end

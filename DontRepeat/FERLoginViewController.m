@@ -20,9 +20,8 @@
 #import <Firebase/Firebase.h>
 
 @interface FERLoginViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UITextField *password;
-@property (weak, nonatomic) IBOutlet UIButton *buttonSegue;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (nonatomic,strong)FERUser *theUser;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -41,6 +40,7 @@
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
+	self.emailTextField.delegate=self;
 	[self stop];
 	[self loadUserTextFields];
 }
@@ -85,9 +85,9 @@
 
 -(void)loadUserTextFields{
 	FERUser *userText=[self.plist loadUser];
-	self.email.text=userText.userMail;
-	self.password.text=userText.userPassword;
-	self.password.secureTextEntry = YES;
+	self.emailTextField.text=userText.userMail;
+	self.passwordTextField.text=userText.userPassword;
+	self.passwordTextField.secureTextEntry = YES;
 }
 
 
@@ -112,7 +112,7 @@
 #pragma mark - User LogIn
 -(void)loginUser:(FERUser *)theUser{
 	[self dismissViewControllerAnimated:YES completion:nil];
-	[self.firebase authUser:self.email.text password:self.password.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
+	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 		if (error != nil) {
 			if (![self tryToLoginWithPlist]) {
 				[self.alert alertRegisterError];
@@ -130,9 +130,8 @@
 
 -(BOOL)tryToLoginWithPlist{
 	FERUser *userText=[self.plist loadUser];
-	if ([self.email.text isEqualToString:userText.userMail] &&
-			[self.password.text isEqualToString:userText.userPassword]) {
-		[self.buttonSegue sendActionsForControlEvents:UIControlEventTouchUpInside];
+	if ([self.emailTextField.text isEqualToString:userText.userMail] &&
+			[self.passwordTextField.text isEqualToString:userText.userPassword]) {
 		NSLog(@"We are now logged in with plist");
 		return YES;
 	}
@@ -143,10 +142,14 @@
 	[self.view endEditing:YES];
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+	self.emailTextField.text=[self.emailTextField.text lowercaseString];
+}
+
 - (void)saveUser{
-	self.theUser.userMail = self.email.text;
-	self.theUser.userPassword = self.password.text;
-	self.theUser.userNick = [self.formatHelper cleanMail:self.email.text];
+	self.theUser.userMail = self.emailTextField.text;
+	self.theUser.userPassword = self.passwordTextField.text;
+	self.theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
 }
 
 #pragma mark - Navigation
@@ -156,11 +159,11 @@
 
 	if ([segue.identifier isEqualToString:@"resetSegue"]) {
 		FERResetPasswordViewController *rpvc=[segue destinationViewController];
-		rpvc.emailTextField.text=self.email.text;
+		rpvc.emailTextField.text=self.emailTextField.text;
 	}
 	if ([segue.identifier isEqualToString:@"changeSegue"]) {
 		FERChangePasswordViewController *cpvc=[segue destinationViewController];
-		cpvc.emailTextField.text=self.email.text;
+		cpvc.emailTextField.text=self.emailTextField.text;
 	}
 	// Get the new view controller using [segue destinationViewController].
 	// Pass the selected object to the new view controller.
