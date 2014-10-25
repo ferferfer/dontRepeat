@@ -21,5 +21,7 @@
 -(void)alertResetPasswordSuccess;
 -(void)alertChangePasswordError;
 -(void)alertChangePasswordSuccess;
+-(void)alertLoginNetworkError;
+-(void)alertSigninNetworkError;
 
 @end

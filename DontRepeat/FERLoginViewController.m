@@ -114,16 +114,19 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 		if (error != nil) {
+			if ([[error.userInfo valueForKey:@"NSLocalizedDescription"] containsString:@"NETWORK_ERROR"]) {
+				[self.alert alertLoginNetworkError];
+			}
 			if (![self tryToLoginWithPlist]) {
 				[self.alert alertRegisterError];
 				NSLog(@"There was an error logging in to this account: %@",error);
 			}
-			[self stop];
+			
 		} else {
 			[self.plist addUser:theUser];
-			[self stop];
 			NSLog(@"We are now authed");
 		}
+		[self stop];
 	}];
 }
 
@@ -156,7 +159,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
+	
 	if ([segue.identifier isEqualToString:@"resetSegue"]) {
 		FERResetPasswordViewController *rpvc=[segue destinationViewController];
 		rpvc.emailTextField.text=self.emailTextField.text;

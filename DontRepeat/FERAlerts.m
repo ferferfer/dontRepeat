@@ -114,5 +114,22 @@
 	[alert show];
 }
 
+-(void)alertLoginNetworkError{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Networ Error"
+																									message:@"You need internet access to login"
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+}
+
+-(void)alertSigninNetworkError{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Networ Error"
+																									message:@"You need internet access to login"
+																								 delegate:nil
+																				cancelButtonTitle:@"OK"
+																				otherButtonTitles:nil];
+	[alert show];
+}
 
 @end

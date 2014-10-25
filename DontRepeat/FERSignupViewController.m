@@ -181,6 +181,9 @@
 	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 	
 								if (error != nil) {
+									if ([[error.userInfo valueForKey:@"NSLocalizedDescription"] containsString:@"NETWORK_ERROR"]) {
+										[self.alert alertSigninNetworkError];
+									}
 									[self.alert alertError];
 									NSLog(@"There was an error logging in to this account: %@",error);
 								} else {
