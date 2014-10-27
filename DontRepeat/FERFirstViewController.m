@@ -85,6 +85,8 @@
 		self.imageView.image=[UIImage imageNamed:@"launch_landscapeLeft1024"];
 	}else if([[UIDevice currentDevice]orientation]==UIInterfaceOrientationLandscapeLeft){
 		self.imageView.image=[UIImage imageNamed:@"launch_landscapeRight1024"];
+	}else{
+		self.imageView.image=[UIImage imageNamed:@"launch_portrait1024"];		
 	}
 	
 }

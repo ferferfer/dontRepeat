@@ -19,7 +19,7 @@
 
 #import <Firebase/Firebase.h>
 
-@interface FERLoginViewController ()<UITextFieldDelegate>
+@interface FERLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (nonatomic,strong)FERUser *theUser;
@@ -114,10 +114,10 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 		if (error != nil) {
-			if ([[error.userInfo valueForKey:@"NSLocalizedDescription"] containsString:@"NETWORK_ERROR"]) {
+			NSString *errorString=[error.userInfo valueForKey:@"NSLocalizedDescription"];
+			if ([errorString rangeOfString:@"NETWORK_ERROR"].location != NSNotFound) {
 				[self.alert alertLoginNetworkError];
-			}
-			if (![self tryToLoginWithPlist]) {
+			}else	if (![self tryToLoginWithPlist]) {
 				[self.alert alertRegisterError];
 				NSLog(@"There was an error logging in to this account: %@",error);
 			}
@@ -126,7 +126,6 @@
 			[self.plist addUser:theUser];
 			NSLog(@"We are now authed");
 		}
-		[self stop];
 	}];
 }
 
@@ -154,6 +153,9 @@
 	self.theUser.userPassword = self.passwordTextField.text;
 	self.theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
 }
+
+
+
 
 #pragma mark - Navigation
 

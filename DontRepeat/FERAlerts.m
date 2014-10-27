@@ -7,6 +7,7 @@
 //
 
 #import "FERAlerts.h"
+#import "FERLoginViewController.h"
 
 @implementation FERAlerts
 
@@ -16,7 +17,14 @@
 																								 delegate:nil
 																				cancelButtonTitle:@"OK"
 																				otherButtonTitles:nil];
+	alert.delegate=self;
 	[alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+	FERLoginViewController *loginVC=[[FERLoginViewController alloc]init];
+	[loginVC stop];
+	NSLog(@"didDismissWithButtonIndex");
 }
 
 -(void)alertNewUserCreated{

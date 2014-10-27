@@ -10,5 +10,6 @@
 
 @interface FERLoginViewController : UIViewController
 
+-(void)stop;
 
 @end
