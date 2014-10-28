@@ -14,10 +14,14 @@
 @interface FERFirebaseManager : NSObject
 
 -(void)saveUserInFirebase:(FERUser *)user;
--(void)saveDontRepeatToFirebase:(DontRepeat	*)dontRepeat forUser:(FERUser *)user;
--(void)removeDontRepeatToFirebase:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(void)saveDontRepeatToFirebase:(DontRepeat	*)dontRepeat
+												forUser:(FERUser *)user;
+-(void)removeDontRepeatToFirebase:(DontRepeat *)dontRepeat
+													forUser:(FERUser *)user;
 -(void)updateDontRepeatToFirebase:(DontRepeat *)dontRepeat
 														 with:(DontRepeat *)oldDontRepeat
 													forUser:(FERUser *)user;
 -(Firebase *)arriveToUserFolder:(FERUser *)user;
+-(void)setFirebaseDontRepeatToDeleted:(DontRepeat *)dontRepeat
+															forUser:(FERUser *)user;
 @end

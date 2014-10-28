@@ -17,7 +17,7 @@
 		self.dontRepeatID=[[NSString alloc]init];
 		self.dontRepeatDate=[[NSString alloc]init];
 		self.dontRepeatDesc=[[NSString alloc]init];
-		self.dontRepeatLocalization=[[NSString alloc]init];
+		self.dontRepeatDeleted=[[NSString alloc]init];
 		self.dontRepeatPicture=[[NSString alloc]init];
 		self.dontRepeatTitle=[[NSString alloc]init];
 	}

@@ -24,9 +24,9 @@
 @property	(nonatomic,strong)FERMomentLayout *momentLayout;
 @property	(nonatomic,strong)FERDaysLayout *daysLayout;
 @property (nonatomic,strong)NSMutableSet *selectedCells;
-@property	 (nonatomic, strong)FERFirebaseManager *firebaseManager;
-@property	 (nonatomic, strong)FERPlistManager *plistManager;
-@property	 (nonatomic, strong)FERFormatHelper	*formatHelper;
+@property	(nonatomic,strong)FERFirebaseManager *firebaseManager;
+@property	(nonatomic,strong)FERPlistManager *plistManager;
+@property	(nonatomic,strong)FERFormatHelper	*formatHelper;
 @property	(nonatomic,strong)FERFirstViewController *firstViewController;
 @property (nonatomic,strong)NSMutableArray *dontRepeats;
 @property (weak, nonatomic)IBOutlet UIBarButtonItem *addButton;
@@ -136,6 +136,7 @@
 	self.daysLayout=[[FERDaysLayout alloc]init];
 }
 
+#pragma-mark search
 -(void)configureSearch{
 	self.filteredDontRepeats = [[NSMutableArray alloc] init];
 	
@@ -168,7 +169,6 @@
 	}
 }
 
-#pragma mark UISearchDisplayController Delegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 	[self textFilter:searchText];
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
@@ -194,6 +194,7 @@
 	[searchBar resignFirstResponder];
 }
 
+#pragma mark CollectionView
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
 	return 1;
@@ -253,7 +254,7 @@
 	[self.authClient unauth];
 	[self.plistManager removeUserFromUserList];
 	[self.navigationController popToRootViewControllerAnimated:YES];
-//	[self.navigationController popViewControllerAnimated:YES];
+	//	[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)loadFirebasesDontRepeatsFromUser:(FERUser *)user{
@@ -267,13 +268,16 @@
 			for (NSString *key in allKeys) {
 				NSDictionary *dic = [snap objectForKey:key];
 				if(![key isEqualToString:@"mail"]){
+					if ([[dic objectForKey:@"Del"] isEqualToString:@"NO"]) {
 					DontRepeat *dont = [[DontRepeat alloc] init];
 					dont.dontRepeatTitle= [dic objectForKey:@"Title"];
 					dont.dontRepeatDate = [dic objectForKey:@"Date"];
 					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
 					dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
+					dont.dontRepeatDeleted = [dic objectForKey:@"Del"];
 					dont.dontRepeatID	= key;
 					[self.dontRepeats addObject:dont];
+					}
 				}
 			}
 			self.dontRepeats=[self.formatHelper sortDontRepeatsByTitle:self.dontRepeats];
@@ -314,9 +318,9 @@
 	[self.plistManager saveDontRepeatToPlist:dontRepeat forUser:self.user];
 }
 
--(void)updateDontRepeat:(DontRepeat *)dontRepeat with:(DontRepeat *)oldDontRepeat{
-	[self.firebaseManager updateDontRepeatToFirebase:dontRepeat with:(DontRepeat *)oldDontRepeat forUser:self.user];
-	[self.plistManager updateDontRepeatToPlist:dontRepeat with:(DontRepeat *)oldDontRepeat forUser:self.user];
+-(void)updateDontRepeat:(DontRepeat *)dontRepeat with:(DontRepeat *)newDontRepeat{
+	[self.firebaseManager updateDontRepeatToFirebase:dontRepeat with:(DontRepeat *)newDontRepeat forUser:self.user];
+	[self.plistManager updateDontRepeatToPlist:dontRepeat with:(DontRepeat *)newDontRepeat forUser:self.user];
 }
 
 -(void)removeDontRepeat:(DontRepeat *)dontRepeat {
@@ -340,13 +344,16 @@
 			for (NSString *key in allKeys) {
 				NSDictionary *dic = [snap objectForKey:key];
 				if(![key isEqualToString:@"mail"]){
-					DontRepeat *dont = [[DontRepeat alloc] init];
-					dont.dontRepeatTitle= [dic objectForKey:@"Title"];
-					dont.dontRepeatDate = [dic objectForKey:@"Date"];
-					dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
-					dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
-					dont.dontRepeatID	= key;
-					[self.dontRepeats addObject:dont];
+					if ([[dic objectForKey:@"Del"] isEqualToString:@"NO"]) {
+						DontRepeat *dont = [[DontRepeat alloc] init];
+						dont.dontRepeatTitle= [dic objectForKey:@"Title"];
+						dont.dontRepeatDate = [dic objectForKey:@"Date"];
+						dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
+						dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
+						dont.dontRepeatDeleted = [dic objectForKey:@"Del"];
+						dont.dontRepeatID	= key;
+						[self.dontRepeats addObject:dont];
+					}
 				}
 			}
 			[self.plistManager saveAllDontRepeatToPlistFromArray:self.dontRepeats forUser:self.user];

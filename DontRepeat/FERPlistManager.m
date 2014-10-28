@@ -93,17 +93,16 @@
 -(NSMutableArray	*)loadDontRepeatsFromUser:(FERUser *)user{
 	NSString *path=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	NSMutableDictionary *contentDictionary= [NSMutableDictionary dictionaryWithContentsOfFile:path];
-//	NSMutableArray *contentArray = [NSMutableArray arrayWithContentsOfFile:path];
 	NSMutableArray *dontRepeats=[[NSMutableArray alloc]init];
 	
 	for (NSString *key in contentDictionary) {
-	//for(int i=0;i<contentArray.count;i++){
 		NSMutableDictionary *dic=[contentDictionary objectForKey:key];
 		DontRepeat *dont = [[DontRepeat alloc] init];
 		dont.dontRepeatTitle= [dic objectForKey:@"Title"];
 		dont.dontRepeatDate = [dic objectForKey:@"Date"];
 		dont.dontRepeatDesc = [dic objectForKey:@"Desc"];
 		dont.dontRepeatPicture = [dic objectForKey:@"Pic"];
+		dont.dontRepeatDeleted = [dic objectForKey:@"Del"];
 		dont.dontRepeatID	= key;
 		[dontRepeats addObject:dont];
 	}
@@ -113,7 +112,29 @@
 -(NSInteger)numberOfDontRepeatsInPlistForUser:(FERUser *)user{
 	NSString *path=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
 	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:path];
-	return [dict count];
+	NSInteger number=0;
+	for (NSString *key in dict) {
+		NSMutableDictionary *aux=[dict objectForKey:key];
+		if ([[aux objectForKey:@"Del"]isEqualToString:@"YES"]) {
+			number++;
+		}
+	}
+	
+	return number;
+}
+
+-(NSInteger)numberOfDeletedDontRepeatsInPlistForUser:(FERUser *)user{
+	NSString *path=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
+	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+	NSInteger number=0;
+	for (NSString *key in dict) {
+		NSMutableDictionary *aux=[dict objectForKey:key];
+		if ([[aux objectForKey:@"Del"]isEqualToString:@"NO"]) {
+			number++;
+		}
+	}
+	
+	return number;
 }
 
 -(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray forUser:(FERUser *)user{
@@ -137,6 +158,7 @@
 		}else{
 			[storeDict setValue:dontRepeat.dontRepeatPicture forKey:@"Pic"];
 		}
+		[storeDict setValue:dontRepeat.dontRepeatDeleted forKey:@"Del"];
 		
 		if (dontRepeat.dontRepeatID==nil) {
 			NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
@@ -170,6 +192,7 @@
 	}else{
 		[storeDict setValue:dontRepeat.dontRepeatPicture forKey:@"Pic"];
 	}
+	[storeDict setValue:dontRepeat.dontRepeatDeleted forKey:@"Del"];
 	
 	[dict setObject:storeDict forKey:dontRepeat.dontRepeatID];
 	
@@ -178,21 +201,19 @@
 }
 
 -(void)updateDontRepeatToPlist:(DontRepeat *)dontRepeat
-													with:(DontRepeat *)oldDontRepeat
+													with:(DontRepeat *)newDontRepeat
 											 forUser:(FERUser *)user{
 	
-	[self removeDontRepeatToPlist:oldDontRepeat forUser:user];
-	[self saveDontRepeatToPlist:dontRepeat forUser:user];
+	[self removeDontRepeatToPlist:dontRepeat forUser:user];
+	[self saveDontRepeatToPlist:newDontRepeat forUser:user];
 
 }
+
 -(void)removeDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
 
 	NSString *filePath=[self pathOfPlistInDocumentsFolder:[NSString stringWithFormat:@"%@",user.userNick]];
-	
 	NSMutableDictionary *dict=[NSMutableDictionary	dictionaryWithContentsOfFile:filePath];
-	
 	[dict setValue:nil forKey:dontRepeat.dontRepeatID];
-	
 	[dict writeToFile:filePath atomically: YES];
 	
 }

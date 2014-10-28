@@ -19,10 +19,15 @@
 -(NSInteger)numberOfUsersInPlist;
 -(NSMutableArray	*)loadDontRepeatsFromUser:(FERUser *)user;
 -(NSInteger)numberOfDontRepeatsInPlistForUser:(FERUser *)user;
--(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray forUser:(FERUser *)user;
--(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(NSInteger)numberOfDeletedDontRepeatsInPlistForUser:(FERUser *)user;
+-(void)saveAllDontRepeatToPlistFromArray:(NSArray *)dontRepeatArray
+																 forUser:(FERUser *)user;
+-(void)saveDontRepeatToPlist:(DontRepeat *)dontRepeat
+										 forUser:(FERUser *)user;
 -(void)updateDontRepeatToPlist:(DontRepeat *)dontRepeat
 													with:(DontRepeat *)oldDontRepeat
 											 forUser:(FERUser *)user;
--(void)removeDontRepeatToPlist:(DontRepeat *)dontRepeat forUser:(FERUser *)user;
+-(void)removeDontRepeatToPlist:(DontRepeat *)dontRepeat
+forUser:(FERUser *)user;
+
 @end

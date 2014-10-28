@@ -41,9 +41,16 @@
 
 -(void)testNumberOfDontRepeatsInPlist{
 	FERUser *user=[[FERUser alloc]init];
-	user.userID=@"holahola";
-	
-	XCTAssertEqual(0, [self.plistManager numberOfDontRepeatsInPlistForUser:user]);
+	user.userNick=@"emailemailemail";
+	NSLog(@"testNumberOfDontRepeatsInPlist: %i",[self.plistManager numberOfDontRepeatsInPlistForUser:user]);
+	XCTAssertEqual(1, [self.plistManager numberOfDontRepeatsInPlistForUser:user]);
+}
+
+-(void)testNumberOfDeletedDontRepeatsInPlist{
+	FERUser *user=[[FERUser alloc]init];
+	user.userNick=@"emailemailemail";
+	NSLog(@"testNumberOfDeletedDontRepeatsInPlist: %i",[self.plistManager numberOfDontRepeatsInPlistForUser:user]);
+	XCTAssertEqual(1, [self.plistManager numberOfDontRepeatsInPlistForUser:user]);
 }
 
 @end

@@ -14,7 +14,7 @@
 
 -(void)addDontRepeat:(DontRepeat *)dontRepeat;
 -(void)removeDontRepeat:(DontRepeat *)dontRepeat;
--(void)updateDontRepeat:(DontRepeat *)dontRepeat with:(DontRepeat *)oldDontRepeat;
+-(void)updateDontRepeat:(DontRepeat *)dontRepeat with:(DontRepeat *)newDontRepeat;
 
 @end
 

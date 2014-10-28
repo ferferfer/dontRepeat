@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) Firebase *ref;
 @property (strong, nonatomic) FERFormatHelper	*formatHelper;
-@property	(strong, nonatomic) FERPlistManager *plistManager;
 @property (nonatomic,strong)	NSMutableArray *dontRepeats;
 
 @end
@@ -37,13 +36,6 @@
     _formatHelper=[[FERFormatHelper alloc]init];
 	}
 	return _formatHelper;
-}
-
--(FERPlistManager *)plistManager{
-	if(_plistManager==nil){
-		_plistManager=[[FERPlistManager	alloc]init];
-	}
-	return _plistManager;
 }
 
 -(Firebase *)arriveToUserFolder:(FERUser *)user{
@@ -69,7 +61,14 @@
 	[[nameRef childByAppendingPath:@"Date"] setValue:dontRepeat.dontRepeatDate];
 	[[nameRef childByAppendingPath:@"Desc"] setValue:dontRepeat.dontRepeatDesc];
 	[[nameRef childByAppendingPath:@"Pic"] setValue:dontRepeat.dontRepeatPicture];
+	[[nameRef childByAppendingPath:@"Del"] setValue:dontRepeat.dontRepeatDeleted];
 
+}
+
+-(void)setFirebaseDontRepeatToDeleted:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
+	Firebase *nameRef = [self arriveToUserFolder:user];
+	nameRef=[nameRef childByAppendingPath:dontRepeat.dontRepeatID];
+	[[nameRef childByAppendingPath:@"Del"] setValue:@"YES"];
 }
 
 -(void)removeDontRepeatToFirebase:(DontRepeat *)dontRepeat forUser:(FERUser *)user{
@@ -78,10 +77,10 @@
 }
 
 -(void)updateDontRepeatToFirebase:(DontRepeat *)dontRepeat
-														 with:(DontRepeat *)oldDontRepeat
+														 with:(DontRepeat *)newDontRepeat
 													forUser:(FERUser *)user{
-	[self removeDontRepeatToFirebase:oldDontRepeat forUser:user];
-	[self saveDontRepeatToFirebase:dontRepeat forUser:user];
+	[self removeDontRepeatToFirebase:dontRepeat forUser:user];
+	[self saveDontRepeatToFirebase:newDontRepeat forUser:user];
 }
 
 

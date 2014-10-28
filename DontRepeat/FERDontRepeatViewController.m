@@ -192,9 +192,9 @@
 		dontRepeat.dontRepeatTitle= self.titleTextField.text;
 		dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
 		dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
+		dontRepeat.dontRepeatDeleted=@"NO";
 		NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
 		dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
-		
 		if (newPicture) {
 			UIImage *compressedImage=[self.pictureImageView.image imageScaledToHalf];
 			
@@ -209,7 +209,7 @@
 			[self.delegate addDontRepeat:dontRepeat];
 			[self.navigationController popViewControllerAnimated:YES];
 		}else if ([self.saveButton.title isEqualToString:@"Update"]){
-			[self.delegate updateDontRepeat:dontRepeat with:self.dontRepeat];
+			[self.delegate updateDontRepeat:self.dontRepeat with:dontRepeat];
 			[self.navigationController popViewControllerAnimated:YES];
 		}
 	}
@@ -259,13 +259,21 @@
 																									message:@"Are you sure to want to delete?"
 																								 delegate:self
 																				cancelButtonTitle:@"No"
-																				otherButtonTitles:@"Of course",nil];
+																				otherButtonTitles:@"Yes",nil];
 	[alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
-		[self.delegate removeDontRepeat:self.dontRepeat];
+		DontRepeat *dont=[[DontRepeat alloc]init];
+		dont.dontRepeatDesc=self.dontRepeat.dontRepeatDesc;
+		dont.dontRepeatTitle=self.dontRepeat.dontRepeatTitle;
+		dont.dontRepeatDate=self.dontRepeat.dontRepeatDate;
+		dont.dontRepeatPicture=@"";
+		dont.dontRepeatID=self.dontRepeat.dontRepeatID;
+		dont.dontRepeatDeleted=@"YES";
+		[self.delegate updateDontRepeat:self.dontRepeat with:dont];
+//	[self.delegate removeDontRepeat:self.dontRepeat];
 		[self.navigationController popViewControllerAnimated:YES];
 	}
 }
