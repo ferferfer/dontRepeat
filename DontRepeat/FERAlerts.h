@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface FERAlerts : NSObject
 
--(void)alertRegisterError;
+-(UIAlertView *)alertMakerWithTitle:(NSString *)title andMessage:(NSString *)message;
 -(void)alertNewUserCreated;
 -(void)alertRegisterErrorMailInUse;
 -(void)alertError;
@@ -21,7 +22,6 @@
 -(void)alertResetPasswordSuccess;
 -(void)alertChangePasswordError;
 -(void)alertChangePasswordSuccess;
--(void)alertLoginNetworkError;
 -(void)alertSigninNetworkError;
 
 @end

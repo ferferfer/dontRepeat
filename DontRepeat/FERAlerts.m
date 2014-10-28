@@ -11,20 +11,14 @@
 
 @implementation FERAlerts
 
--(void)alertRegisterError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register Error"
-																									message:@"User Name or password incorect"
+
+-(UIAlertView *)alertMakerWithTitle:(NSString *)title andMessage:(NSString *)message{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+																									message:message
 																								 delegate:nil
 																				cancelButtonTitle:@"OK"
 																				otherButtonTitles:nil];
-	alert.delegate=self;
-	[alert show];
-}
-
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
-	FERLoginViewController *loginVC=[[FERLoginViewController alloc]init];
-	[loginVC stop];
-	NSLog(@"didDismissWithButtonIndex");
+	return alert;
 }
 
 -(void)alertNewUserCreated{
@@ -122,17 +116,8 @@
 	[alert show];
 }
 
--(void)alertLoginNetworkError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Networ Error"
-																									message:@"You need internet access to login"
-																								 delegate:nil
-																				cancelButtonTitle:@"OK"
-																				otherButtonTitles:nil];
-	[alert show];
-}
-
 -(void)alertSigninNetworkError{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Networ Error"
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
 																									message:@"You need internet access to login"
 																								 delegate:nil
 																				cancelButtonTitle:@"OK"

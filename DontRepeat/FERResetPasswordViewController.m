@@ -64,4 +64,6 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField{
 	self.emailTextField.text=[self.emailTextField.text lowercaseString];
 }
+
+
 @end

@@ -116,9 +116,9 @@
 		if (error != nil) {
 			NSString *errorString=[error.userInfo valueForKey:@"NSLocalizedDescription"];
 			if ([errorString rangeOfString:@"NETWORK_ERROR"].location != NSNotFound) {
-				[self.alert alertLoginNetworkError];
+				[self showAlertWithTitle:@"Network Error" andMessage:@"You need internet access to login"];
 			}else	if (![self tryToLoginWithPlist]) {
-				[self.alert alertRegisterError];
+				[self showAlertWithTitle:@"Register Error" andMessage:@"User Name or password incorect"];
 				NSLog(@"There was an error logging in to this account: %@",error);
 			}
 			
@@ -154,8 +154,16 @@
 	self.theUser.userNick = [self.formatHelper cleanMail:self.emailTextField.text];
 }
 
+-(void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message{
+	UIAlertView *alert=[self.alert alertMakerWithTitle:title
+																					andMessage:message];
+	alert.delegate=self;
+	[alert show];
+}
 
-
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+	[self stop];
+}
 
 #pragma mark - Navigation
 
