@@ -33,6 +33,11 @@
 	BOOL portrait;
 }
 
+-(void)viewDidAppear:(BOOL)animated	{
+		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
+}
+
+
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	self.scrollView.delegate=self;
@@ -60,7 +65,6 @@
 	}else{
 		NSLog(@"LANDSCAPE self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-	//	[self.objectsHelper hideFields:self.dontRepeatObjects];
 	}
 	
 }
@@ -134,7 +138,10 @@
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	
-	self.scrollView.frame = self.view.frame;
+	self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
+																		 self.view.frame.origin.y+self.navigationController.navigationBar.frame.size.height,
+																		 self.view.frame.size.width,
+																		 self.view.frame.size.height);
 	self.scrollView.contentSize = self.scrollView.frame.size;
 	[self.view addSubview:self.scrollView];
 	

@@ -37,12 +37,12 @@
 																					 titleButtonWidth,
 																					 titleButtonHeight);
 			}
-
 		}else{
 			obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																				 80,
 																				 titleButtonWidth,
 																				 titleButtonHeight);
+			
 		}
 		obj.titleTextField.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleTextFieldWidth],
 																					[self calculateYpositionWithPreviousView:obj.titleButton],
@@ -60,7 +60,17 @@
 																				 [self calculateYpositionWithPreviousView:obj.dateButton],
 																				 pictureButtonWidth,
 																				 pictureButtonHeight);
-		obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+		if (iPhone) {
+			CGFloat pictureImageViewWidth = obj.pictureImageView.frame.size.width;
+			CGFloat pictureImageViewHeight = obj.pictureImageView.frame.size.height;
+			obj.pictureImageView.frame =  CGRectMake([self centerFrameWithView:myView andWidth:pictureImageViewWidth],
+																							 [self calculateYpositionWithPreviousView:obj.pictureButton],
+																							 pictureImageViewWidth,
+																							 pictureImageViewHeight);
+		}else{
+			obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+		}
+		
 		
 		obj.titleTextField.layer.borderWidth = 1.0f;
 		obj.titleTextField.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -125,7 +135,16 @@
 																													[self calculateYpositionWithPreviousView:obj.datePicker],
 																													pictureButtonWidth,
 																													pictureButtonHeight);
-										 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+										 if (iPhone) {
+											 CGFloat pictureImageViewWidth = obj.pictureImageView.frame.size.width;
+											 CGFloat pictureImageViewHeight = obj.pictureImageView.frame.size.height;
+											 obj.pictureImageView.frame =  CGRectMake([self centerFrameWithView:myView andWidth:pictureImageViewWidth],
+																																[self calculateYpositionWithPreviousView:obj.pictureButton],
+																																pictureImageViewWidth,
+																																pictureImageViewHeight);
+										 }else{
+											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+										 }
 										 
 										 obj.titleTextField.hidden=YES;
 										 obj.titleTextField.alpha=0;
@@ -185,7 +204,16 @@
 																													[self calculateYpositionWithPreviousView:obj.dateButton],
 																													pictureButtonWidth,
 																													pictureButtonHeight);
-										 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+										 if (iPhone) {
+											 CGFloat pictureImageViewWidth = obj.pictureImageView.frame.size.width;
+											 CGFloat pictureImageViewHeight = obj.pictureImageView.frame.size.height;
+											 obj.pictureImageView.frame =  CGRectMake([self centerFrameWithView:myView andWidth:pictureImageViewWidth],
+																																[self calculateYpositionWithPreviousView:obj.pictureButton],
+																																pictureImageViewWidth,
+																																pictureImageViewHeight);
+										 }else{
+											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+										 }
 										 
 										 obj.descriptionTextView.layer.borderWidth = 1.0f;
 										 obj.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -252,7 +280,16 @@
 																			 [self calculateYpositionWithPreviousView:obj.dateButton],
 																			 pictureButtonWidth,
 																			 pictureButtonHeight);
-	obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+	if (iPhone) {
+		CGFloat pictureImageViewWidth = obj.pictureImageView.frame.size.width;
+		CGFloat pictureImageViewHeight = obj.pictureImageView.frame.size.height;
+		obj.pictureImageView.frame =  CGRectMake([self centerFrameWithView:myView andWidth:pictureImageViewWidth],
+																						 [self calculateYpositionWithPreviousView:obj.pictureButton],
+																						 pictureImageViewWidth,
+																						 pictureImageViewHeight);
+	}else{
+		obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
+	}
 	
 	[self hideFields:obj];
 	
