@@ -147,9 +147,8 @@
 	self.dontRepeatObjects.pictureButton=	self.pictureButton;
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
 	self.dontRepeatObjects.deleteButton=self.deleteButton;
-	
+
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-	//[self.objectsHelper hideFields:self.dontRepeatObjects];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
