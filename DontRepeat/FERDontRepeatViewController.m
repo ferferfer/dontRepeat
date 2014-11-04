@@ -32,11 +32,22 @@
 	BOOL isiPhone;
 	BOOL portrait;
 }
-
--(void)viewDidAppear:(BOOL)animated	{
-		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
+-(void)viewWillLayoutSubviews {
+	[super viewDidLayoutSubviews];
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0){
+		self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
+																			 self.view.frame.origin.y+self.navigationController.navigationBar.frame.size.height,
+																			 self.view.frame.size.width,
+																			 self.view.frame.size.height);
+	}else{
+		self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
+																			 self.view.frame.origin.y,
+																			 self.view.frame.size.width,
+																			 self.view.frame.size.height+300);
+	}
+	self.scrollView.contentSize = self.scrollView.frame.size;
+	[self.view addSubview:self.scrollView];
 }
-
 
 - (void)viewDidLoad{
 	[super viewDidLoad];
@@ -137,13 +148,6 @@
 
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
-	
-	self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
-																		 self.view.frame.origin.y+self.navigationController.navigationBar.frame.size.height,
-																		 self.view.frame.size.width,
-																		 self.view.frame.size.height);
-	self.scrollView.contentSize = self.scrollView.frame.size;
-	[self.view addSubview:self.scrollView];
 	
 	self.dontRepeatObjects.titleButton= self.titleButton;
 	self.dontRepeatObjects.titleTextField= self.titleTextField;
