@@ -47,6 +47,7 @@
 	}
 	self.scrollView.contentSize = self.scrollView.frame.size;
 	[self.view addSubview:self.scrollView];
+
 }
 
 - (void)viewDidLoad{
@@ -54,16 +55,38 @@
 	self.scrollView.delegate=self;
 	self.takeController.delegate=self;
 	newPicture=NO;
-	
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		isiPhone=NO;
 	}else{
 		isiPhone=YES;
 	}
-	
+	[self createObjs];
 	[self configure];
 	[self loadData];
+	
+}
 
+-(void)createObjs{
+	UIButton *titulo=[[UIButton alloc]initWithFrame:CGRectMake(8, 64, 100, 40)];
+	[titulo setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[titulo setTitle:@"Titulo" forState:UIControlStateNormal];
+	titulo.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:29.0];
+	[titulo addTarget:self action:@selector(titlePressed:) forControlEvents:UIControlEventTouchUpInside];
+	[self.scrollView addSubview:titulo];
+	
+	UIButton *descripcion=[[UIButton alloc]initWithFrame:CGRectMake(8, 104, 100, 40)];
+	[descripcion setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[descripcion setTitle:@"Descripcion" forState:UIControlStateNormal];
+	[descripcion addTarget:self action:@selector(descriptionPressed:) forControlEvents:UIControlEventTouchUpInside];
+	[self.scrollView addSubview:descripcion];
+	
+	UITextField *tituloTexto=[[UITextField alloc]initWithFrame:CGRectMake(8, 104, 100, 40)];
+	[tituloTexto setBorderStyle:UITextBorderStyleLine];
+	[self.scrollView addSubview:tituloTexto];
+	
+	self.dontRepeatObjects.titleButton=titulo;
+	self.dontRepeatObjects.descriptionButton=descripcion;
+	self.dontRepeatObjects.titleTextField=tituloTexto;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -72,7 +95,7 @@
 	if (portrait) {
 		NSLog(@"PORTRAIT self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-	//	[self.objectsHelper hideFields:self.dontRepeatObjects];
+		//	[self.objectsHelper hideFields:self.dontRepeatObjects];
 	}else{
 		NSLog(@"LANDSCAPE self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
@@ -149,16 +172,16 @@
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	
-	self.dontRepeatObjects.titleButton= self.titleButton;
-	self.dontRepeatObjects.titleTextField= self.titleTextField;
+//	self.dontRepeatObjects.titleButton= self.titleButton;
+//	self.dontRepeatObjects.titleTextField= self.titleTextField;
 	self.dontRepeatObjects.dateButton= self.dateButton;
 	self.dontRepeatObjects.datePicker= self.datePicker;
-	self.dontRepeatObjects.descriptionButton=	self.descriptionButton;
+//	self.dontRepeatObjects.descriptionButton=	self.descriptionButton;
 	self.dontRepeatObjects.descriptionTextView=	self.descriptionTextView;
 	self.dontRepeatObjects.pictureButton=	self.pictureButton;
 	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
 	self.dontRepeatObjects.deleteButton=self.deleteButton;
-
+	
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 }
 
@@ -228,7 +251,8 @@
 
 
 - (IBAction)titlePressed:(id)sender {
-	if (self.titleTextField.hidden) {
+	//[self.view endEditing:YES];
+	if (self.dontRepeatObjects.titleTextField.hidden) {
 		[self.objectsHelper titlePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
@@ -236,6 +260,7 @@
 }
 
 - (IBAction)datePressed:(id)sender {
+	[self.view endEditing:YES];
 	if (self.datePicker.hidden) {
 		[self.objectsHelper datePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
@@ -244,6 +269,7 @@
 }
 
 - (IBAction)descriptionPressed:(id)sender {
+	[self.view endEditing:YES];
 	if (self.descriptionTextView.hidden) {
 		[self.objectsHelper descriptionPressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
@@ -252,6 +278,7 @@
 }
 
 - (IBAction)picturePressed:(id)sender {
+	[self.view endEditing:YES];
 	[self.objectsHelper picturePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	[self.takeController takePhotoOrChooseFromLibrary];
 }
@@ -283,9 +310,10 @@
 		dont.dontRepeatID=self.dontRepeat.dontRepeatID;
 		dont.dontRepeatDeleted=@"YES";
 		[self.delegate updateDontRepeat:self.dontRepeat with:dont];
-//	[self.delegate removeDontRepeat:self.dontRepeat];
+		//	[self.delegate removeDontRepeat:self.dontRepeat];
 		[self.navigationController popViewControllerAnimated:YES];
 	}
 }
+
 
 @end

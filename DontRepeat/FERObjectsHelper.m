@@ -33,7 +33,7 @@
 																					 titleButtonHeight);
 			}else{
 				obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																					 72,
+																					 8,
 																					 titleButtonWidth,
 																					 titleButtonHeight);
 			}
@@ -107,7 +107,7 @@
 																														titleButtonHeight);
 											 }else{
 												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																														72,
+																														8,
 																														titleButtonWidth,
 																														titleButtonHeight);
 											 }
@@ -177,7 +177,7 @@
 																														titleButtonHeight);
 											 }else{
 												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																														72,
+																														8,
 																														titleButtonWidth,
 																														titleButtonHeight);
 											 }
@@ -257,7 +257,7 @@
 																				 titleButtonHeight);
 		}else{
 			obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																				 72,
+																				 8,
 																				 titleButtonWidth,
 																				 titleButtonHeight);
 		}
