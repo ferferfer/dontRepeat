@@ -17,8 +17,6 @@
         _userID = [dictionary objectForKey:@"userID"];
         _userMail = [dictionary objectForKey:@"userMail"];
         _userNick = [dictionary objectForKey:@"userNick"];
-//        NSData *userImageData = [[NSData alloc] initWithBase64EncodedString:[dictionary objectForKey:@"userImage"] options:0];
-//        _userImage = [UIImage imageWithData:userImageData];
     }
     return self;
 }

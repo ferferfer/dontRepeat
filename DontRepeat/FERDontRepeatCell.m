@@ -15,8 +15,7 @@
 
 @implementation FERDontRepeatCell
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
 			[self configurePolaroid];
@@ -31,7 +30,6 @@
 	self.cell=[[UIView alloc]initWithFrame:self.bounds];
 	self.cell.contentMode=UIViewContentModeScaleAspectFill;
 	self.cell.backgroundColor=[UIColor appPolaroidTheme];
-//	self.cell.layer.cornerRadius=15.0;
 	[self.cell setClipsToBounds:YES];
 	[self.contentView addSubview:self.cell];
 	
@@ -58,12 +56,8 @@
 	
 }
 
-
-
 -(void)layoutSubviews{
 	self.cell.frame=self.bounds;
 }
-
-
 
 @end

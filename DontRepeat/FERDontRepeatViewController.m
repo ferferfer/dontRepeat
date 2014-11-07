@@ -32,22 +32,30 @@
 	BOOL isiPhone;
 	BOOL portrait;
 }
--(void)viewWillLayoutSubviews {
-	[super viewDidLayoutSubviews];
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0){
-		self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
-																			 self.view.frame.origin.y+self.navigationController.navigationBar.frame.size.height,
-																			 self.view.frame.size.width,
-																			 self.view.frame.size.height);
-	}else{
-		self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
-																			 self.view.frame.origin.y,
-																			 self.view.frame.size.width,
-																			 self.view.frame.size.height+300);
-	}
-	self.scrollView.contentSize = self.scrollView.frame.size;
-	[self.view addSubview:self.scrollView];
 
+-(void)viewWillAppear:(BOOL)animated{
+	self.dontRepeatObjects.titleButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.titleButton.frame.origin.y);
+	self.dontRepeatObjects.descriptionButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.descriptionButton.frame.origin.y);
+	self.dontRepeatObjects.dateButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.dateButton.frame.origin.y);
+	self.dontRepeatObjects.pictureButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.pictureButton.frame.origin.y);
+	self.dontRepeatObjects.titleTextField.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.titleTextField.frame.origin.y);
+	self.dontRepeatObjects.descriptionTextView.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.descriptionTextView.frame.origin.y);
+	self.dontRepeatObjects.datePicker.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.datePicker.frame.origin.y);
+	if (!isiPhone) {
+		self.dontRepeatObjects.pictureImageView.frame=[self.objectsHelper calculateImageFrameWithView:self.view andPictureButton:self.dontRepeatObjects.pictureButton];
+	}
+}
+
+-(void)viewDidLayoutSubviews {
+	[super viewDidLayoutSubviews];
+	self.scrollView.frame = CGRectMake(self.view.frame.origin.x,
+																		 self.view.frame.origin.y,
+																		 self.view.frame.size.width,
+																		 self.view.frame.size.height);
+																		 //self.deleteButton.frame.origin.y+self.deleteButton.frame.size.width);
+	self.scrollView.contentInset = UIEdgeInsetsMake(75, 0, 300, 0);
+	self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
+	self.scrollView.contentSize = self.scrollView.frame.size;
 }
 
 - (void)viewDidLoad{
@@ -60,33 +68,36 @@
 	}else{
 		isiPhone=YES;
 	}
-	[self createObjs];
+	[self addTargets];
+	[self addSubviewsForDevice:isiPhone];
 	[self configure];
 	[self loadData];
 	
 }
 
--(void)createObjs{
-	UIButton *titulo=[[UIButton alloc]initWithFrame:CGRectMake(8, 64, 100, 40)];
-	[titulo setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-	[titulo setTitle:@"Titulo" forState:UIControlStateNormal];
-	titulo.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:29.0];
-	[titulo addTarget:self action:@selector(titlePressed:) forControlEvents:UIControlEventTouchUpInside];
-	[self.scrollView addSubview:titulo];
+-(void)addTargets{
+	[self.dontRepeatObjects.titleButton addTarget:self action:@selector(titlePressed:) forControlEvents:UIControlEventTouchUpInside];
 	
-	UIButton *descripcion=[[UIButton alloc]initWithFrame:CGRectMake(8, 104, 100, 40)];
-	[descripcion setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-	[descripcion setTitle:@"Descripcion" forState:UIControlStateNormal];
-	[descripcion addTarget:self action:@selector(descriptionPressed:) forControlEvents:UIControlEventTouchUpInside];
-	[self.scrollView addSubview:descripcion];
+	[self.dontRepeatObjects.descriptionButton addTarget:self action:@selector(descriptionPressed:) forControlEvents:UIControlEventTouchUpInside];
 	
-	UITextField *tituloTexto=[[UITextField alloc]initWithFrame:CGRectMake(8, 104, 100, 40)];
-	[tituloTexto setBorderStyle:UITextBorderStyleLine];
-	[self.scrollView addSubview:tituloTexto];
+	[self.dontRepeatObjects.dateButton addTarget:self action:@selector(datePressed:) forControlEvents:UIControlEventTouchUpInside];
 	
-	self.dontRepeatObjects.titleButton=titulo;
-	self.dontRepeatObjects.descriptionButton=descripcion;
-	self.dontRepeatObjects.titleTextField=tituloTexto;
+	[self.dontRepeatObjects.pictureButton addTarget:self action:@selector(picturePressed:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)addSubviewsForDevice:(BOOL)iPhone{
+	UIView *myView=self.view;
+	if (iPhone) {
+		myView=self.scrollView;
+	}
+	[myView addSubview:self.dontRepeatObjects.titleButton];
+	[myView addSubview:self.dontRepeatObjects.titleTextField];
+	[myView addSubview:self.dontRepeatObjects.descriptionButton];
+	[myView addSubview:self.dontRepeatObjects.descriptionTextView];
+	[myView addSubview:self.dontRepeatObjects.dateButton];
+	[myView addSubview:self.dontRepeatObjects.datePicker];
+	[myView addSubview:self.dontRepeatObjects.pictureButton];
+	[myView addSubview:self.dontRepeatObjects.pictureImageView];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -150,15 +161,15 @@
 		_dontRepeat=[[DontRepeat alloc]init];
 		self.saveButton.enabled=YES;
 	}else{
-		self.titleTextField.text=self.dontRepeat.dontRepeatTitle;
-		self.datePicker.date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
-		self.descriptionTextView.text=self.dontRepeat.dontRepeatDesc;
+		self.dontRepeatObjects.titleTextField.text=self.dontRepeat.dontRepeatTitle;
+		self.dontRepeatObjects.datePicker.date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
+		self.dontRepeatObjects.descriptionTextView.text=self.dontRepeat.dontRepeatDesc;
 		
 		NSString *dataString =self.dontRepeat.dontRepeatPicture;
 		//This is to compare in case of update for not to compress twice
 		NSData *stringData = [[NSData alloc]initWithBase64EncodedString:dataString
 																														options:NSDataBase64DecodingIgnoreUnknownCharacters];
-		self.pictureImageView.image=[UIImage imageWithData:stringData];
+		self.dontRepeatObjects.pictureImageView.image=[UIImage imageWithData:stringData];
 		
 		[self disableControls];
 	}
@@ -172,43 +183,35 @@
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	
-//	self.dontRepeatObjects.titleButton= self.titleButton;
-//	self.dontRepeatObjects.titleTextField= self.titleTextField;
-	self.dontRepeatObjects.dateButton= self.dateButton;
-	self.dontRepeatObjects.datePicker= self.datePicker;
-//	self.dontRepeatObjects.descriptionButton=	self.descriptionButton;
-	self.dontRepeatObjects.descriptionTextView=	self.descriptionTextView;
-	self.dontRepeatObjects.pictureButton=	self.pictureButton;
-	self.dontRepeatObjects.pictureImageView=	self.pictureImageView;
 	self.dontRepeatObjects.deleteButton=self.deleteButton;
 	
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-	[self.objectsHelper hideFields:self.dontRepeatObjects];
-}
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+//	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
+//}
 
 -(BOOL)checkFields{
-	if ([self.titleTextField.text isEqualToString:@""]) {
-		[self.titleButton shakeAnimate];
+	if ([self.dontRepeatObjects.titleTextField.text isEqualToString:@""]) {
+		[self.dontRepeatObjects.titleButton shakeAnimate];
 		[UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-			[self.titleButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
-			[self.titleButton setBackgroundColor:[UIColor clearColor]];
+			[self.dontRepeatObjects.titleButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
+			[self.dontRepeatObjects.titleButton setBackgroundColor:[UIColor clearColor]];
 		} completion:^(BOOL finished) {
 		}];
 		
 		return NO;
 	}
-	if ([self.descriptionTextView.text isEqualToString:@""]) {
-		if (self.pictureImageView.image==nil) {
-			[self.descriptionButton shakeAnimate];
-			[self.pictureButton shakeAnimate];
+	if ([self.dontRepeatObjects.descriptionTextView.text isEqualToString:@""]) {
+		if (self.dontRepeatObjects.pictureImageView.image==nil) {
+			[self.dontRepeatObjects.descriptionButton shakeAnimate];
+			[self.dontRepeatObjects.pictureButton shakeAnimate];
 			[UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-				[self.descriptionButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
-				[self.pictureButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
-				[self.descriptionButton setBackgroundColor:[UIColor clearColor]];
-				[self.pictureButton setBackgroundColor:[UIColor clearColor]];
+				[self.dontRepeatObjects.descriptionButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
+				[self.dontRepeatObjects.pictureButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.19]];
+				[self.dontRepeatObjects.descriptionButton setBackgroundColor:[UIColor clearColor]];
+				[self.dontRepeatObjects.pictureButton setBackgroundColor:[UIColor clearColor]];
 			} completion:^(BOOL finished) {
 			}];
 			return NO;
@@ -218,18 +221,18 @@
 }
 
 - (IBAction)savePressed:(id)sender {
-	[self.titleTextField resignFirstResponder];
-	[self.descriptionTextView resignFirstResponder];
+	[self.dontRepeatObjects.titleTextField resignFirstResponder];
+	[self.dontRepeatObjects.descriptionTextView resignFirstResponder];
 	if([self checkFields]){
 		DontRepeat *dontRepeat=[[DontRepeat alloc]init];
-		dontRepeat.dontRepeatTitle= self.titleTextField.text;
-		dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.datePicker.date];
-		dontRepeat.dontRepeatDesc = self.descriptionTextView.text;
+		dontRepeat.dontRepeatTitle= self.dontRepeatObjects.titleTextField.text;
+		dontRepeat.dontRepeatDate = [self.formatHelper returnStringFromDate:self.dontRepeatObjects.datePicker.date];
+		dontRepeat.dontRepeatDesc = self.dontRepeatObjects.descriptionTextView.text;
 		dontRepeat.dontRepeatDeleted=@"NO";
 		NSString *ID=[NSString stringWithFormat:@"%@%@",dontRepeat.dontRepeatTitle,dontRepeat.dontRepeatDate];
 		dontRepeat.dontRepeatID =[self.formatHelper removeSpacesAndSlashes:ID];
 		if (newPicture) {
-			UIImage *compressedImage=[self.pictureImageView.image imageScaledToHalf];
+			UIImage *compressedImage=[self.dontRepeatObjects.pictureImageView.image imageScaledToHalf];
 			
 			NSData *imageData = UIImageJPEGRepresentation(compressedImage,0.4);
 			NSString *dataString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
@@ -251,17 +254,17 @@
 
 
 - (IBAction)titlePressed:(id)sender {
-	//[self.view endEditing:YES];
 	if (self.dontRepeatObjects.titleTextField.hidden) {
 		[self.objectsHelper titlePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
+		[self.view endEditing:YES];
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}
 }
 
 - (IBAction)datePressed:(id)sender {
 	[self.view endEditing:YES];
-	if (self.datePicker.hidden) {
+	if (self.dontRepeatObjects.datePicker.hidden) {
 		[self.objectsHelper datePressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
@@ -269,10 +272,10 @@
 }
 
 - (IBAction)descriptionPressed:(id)sender {
-	[self.view endEditing:YES];
-	if (self.descriptionTextView.hidden) {
+	if (self.dontRepeatObjects.descriptionTextView.hidden) {
 		[self.objectsHelper descriptionPressed:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}else{
+		[self.view endEditing:YES];
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 	}
 }
@@ -286,8 +289,8 @@
 -(void)takeController:(FDTakeController *)controller
 						 gotPhoto:(UIImage *)photo
 						 withInfo:(NSDictionary *)info{
-	self.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
-	[self.pictureImageView setImage:photo];
+	self.dontRepeatObjects.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
+	[self.dontRepeatObjects.pictureImageView setImage:photo];
 	newPicture=YES;
 }
 

@@ -12,7 +12,7 @@
 
 @interface DontRepeat : NSObject
 
-@property (nonatomic, strong) NSString * dontRepeatDate;
+@property (nonatomic, copy) NSString * dontRepeatDate;
 @property (nonatomic, copy) NSString * dontRepeatTitle;
 @property (nonatomic, copy) NSString * dontRepeatDesc;
 @property (nonatomic, copy) NSString * dontRepeatPicture;

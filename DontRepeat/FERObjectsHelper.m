@@ -26,17 +26,10 @@
 		CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 		CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
 		if (iPhone) {
-			if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
 				obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																					 8,
 																					 titleButtonWidth,
 																					 titleButtonHeight);
-			}else{
-				obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																					 8,
-																					 titleButtonWidth,
-																					 titleButtonHeight);
-			}
 		}else{
 			obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																				 80,
@@ -100,17 +93,10 @@
 										 CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 										 CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
 										 if (iPhone) {
-											 if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
 												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																														8,
 																														titleButtonWidth,
 																														titleButtonHeight);
-											 }else{
-												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																														8,
-																														titleButtonWidth,
-																														titleButtonHeight);
-											 }
 										 }else{
 											 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																													80,
@@ -170,17 +156,10 @@
 										 CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 										 CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
 										 if (iPhone) {
-											 if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
 												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																														8,
 																														titleButtonWidth,
 																														titleButtonHeight);
-											 }else{
-												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																														8,
-																														titleButtonWidth,
-																														titleButtonHeight);
-											 }
 										 }else{
 											 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																													80,
@@ -232,7 +211,7 @@
 - (void)picturePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView {
 	[UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAllowAnimatedContent
 									 animations:^{
-										 [self originalPosition:obj foriPhone:NO forView:myView];
+										 [self originalPosition:obj foriPhone:iPhone forView:myView];
 										 [self hideFields:obj];
 									 } completion:^(BOOL finished) {
 									 }];
@@ -250,18 +229,10 @@
 	CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
 	
 	if (iPhone) {
-		if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
 			obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																				 8,
 																				 titleButtonWidth,
 																				 titleButtonHeight);
-		}else{
-			obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																				 8,
-																				 titleButtonWidth,
-																				 titleButtonHeight);
-		}
-		
 	}else{
 		obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
 																			 80,

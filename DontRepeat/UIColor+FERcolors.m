@@ -19,4 +19,8 @@
 	return [UIColor colorWithPatternImage:image];
 }
 
++ (UIColor *)appDefaultBlueColor{
+	return [UIColor colorWithRed:0/255.0f green:122/255.0f blue:255/255.0f alpha:1.0];
+}
+
 @end

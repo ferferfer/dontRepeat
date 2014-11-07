@@ -17,6 +17,7 @@
 - (void)picturePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)view;
 - (void)originalPosition:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView;
 - (void)hideFields:(FERDontRepeatObjects *)obj;
-
+-(CGRect)calculateImageFrameWithView:(UIView *)myView
+										andPictureButton:(UIButton *)picButton;
 
 @end

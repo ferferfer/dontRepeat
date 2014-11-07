@@ -17,10 +17,10 @@
 		CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
 		self.scrollDirection=UICollectionViewScrollDirectionHorizontal;
 		if (iOSDeviceScreenSize.height != 480){
-			self.itemSize=CGSizeMake(200	, 200);
+			self.itemSize=CGSizeMake(200, 200);
 			self.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
 		}else{
-			self.itemSize=CGSizeMake(100	, 100);
+			self.itemSize=CGSizeMake(150, 150);
 			self.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
 		}
 		self.minimumLineSpacing=20;
