@@ -11,6 +11,7 @@
 #define IMAGE_RATIO 0.9288
 #define BUTTON_HIGH_PLUS_SEPARATION 48.0
 #define SPACE_FROM_BOTTOM 63.0
+#define SPACE 8.0
 
 @implementation FERObjectsHelper
 - (void)titlePressed:(FERDontRepeatObjects *)obj foriPhone:(BOOL)iPhone forView:(UIView *)myView{
@@ -25,9 +26,11 @@
 		CGFloat dateButtonWidth=obj.dateButton.frame.size.width;
 		CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 		CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
+		CGFloat deleteButtonHeight=obj.deleteButton.frame.size.height;
+		CGFloat deleteButtonWidth=obj.deleteButton.frame.size.width;
 		if (iPhone) {
 				obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																					 8,
+																					 SPACE,
 																					 titleButtonWidth,
 																					 titleButtonHeight);
 		}else{
@@ -64,6 +67,10 @@
 			obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 		}
 		
+		obj.deleteButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:deleteButtonWidth],
+																				 [self calculateYpositionWithPreviousView:obj.pictureImageView],
+																				 deleteButtonWidth,
+																				 deleteButtonHeight);
 		
 		obj.titleTextField.layer.borderWidth = 1.0f;
 		obj.titleTextField.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -92,9 +99,11 @@
 										 CGFloat datePickerWidth=obj.datePicker.frame.size.width;
 										 CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 										 CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
+										 CGFloat deleteButtonHeight=obj.deleteButton.frame.size.height;
+										 CGFloat deleteButtonWidth=obj.deleteButton.frame.size.width;
 										 if (iPhone) {
 												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																														8,
+																														SPACE,
 																														titleButtonWidth,
 																														titleButtonHeight);
 										 }else{
@@ -132,6 +141,11 @@
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 										 }
 										 
+										 obj.deleteButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:deleteButtonWidth],
+																												 [self calculateYpositionWithPreviousView:obj.pictureImageView],
+																												 deleteButtonWidth,
+																												 deleteButtonHeight);
+										 
 										 obj.titleTextField.hidden=YES;
 										 obj.titleTextField.alpha=0;
 										 obj.datePicker.hidden=NO;
@@ -155,9 +169,11 @@
 										 CGFloat descriptionTextViewWidth=obj.descriptionTextView.frame.size.width;
 										 CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 										 CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
+										 CGFloat deleteButtonHeight=obj.deleteButton.frame.size.height;
+										 CGFloat deleteButtonWidth=obj.deleteButton.frame.size.width;
 										 if (iPhone) {
 												 obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																														8,
+																														SPACE,
 																														titleButtonWidth,
 																														titleButtonHeight);
 										 }else{
@@ -194,6 +210,11 @@
 											 obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 										 }
 										 
+										 obj.deleteButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:deleteButtonWidth],
+																												 [self calculateYpositionWithPreviousView:obj.pictureImageView],
+																												 deleteButtonWidth,
+																												 deleteButtonHeight);
+										 
 										 obj.descriptionTextView.layer.borderWidth = 1.0f;
 										 obj.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
 										 
@@ -227,10 +248,12 @@
 	CGFloat descriptionButtonWidth=obj.descriptionButton.frame.size.width;
 	CGFloat pictureButtonHeight=obj.pictureButton.frame.size.height;
 	CGFloat pictureButtonWidth=obj.pictureButton.frame.size.width;
+	CGFloat deleteButtonHeight=obj.deleteButton.frame.size.height;
+	CGFloat deleteButtonWidth=obj.deleteButton.frame.size.width;
 	
 	if (iPhone) {
 			obj.titleButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:titleButtonWidth],
-																				 8,
+																				 SPACE,
 																				 titleButtonWidth,
 																				 titleButtonHeight);
 	}else{
@@ -261,6 +284,11 @@
 	}else{
 		obj.pictureImageView.frame = [self calculateImageFrameWithView:myView andPictureButton:obj.pictureButton];
 	}
+	
+	obj.deleteButton.frame = CGRectMake([self centerFrameWithView:myView andWidth:deleteButtonWidth],
+																			[self calculateYpositionWithPreviousView:obj.pictureImageView],
+																			deleteButtonWidth,
+																			deleteButtonHeight);
 	
 	[self hideFields:obj];
 	
@@ -297,7 +325,7 @@
 
 -(CGFloat)calculateYpositionWithPreviousView:(UIView *)myView{
 	//origin in y plus height plus a margin of 8points
-	return myView.frame.origin.y+myView.frame.size.height+8;
+	return myView.frame.origin.y+myView.frame.size.height+SPACE;
 }
 
 @end

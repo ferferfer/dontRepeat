@@ -10,8 +10,7 @@
 
 @implementation FERDaysLayout
 
-- (instancetype)init
-{
+- (instancetype)init{
 	self = [super init];
 	if (self) {
 		CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;

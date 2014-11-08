@@ -451,20 +451,6 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIi-0O-S2s">
                                 <rect key="frame" x="0.0" y="-14" width="320" height="762"/>
-                                <subviews>
-                                    <button hidden="YES" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2L3-LC-i84">
-                                        <rect key="frame" x="8" y="710" width="304" height="50"/>
-                                        <color key="backgroundColor" red="0.86274051666259766" green="0.36159411072731018" blue="0.26600649952888489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="Delete">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="deletePressed:" destination="UWy-oZ-lI9" eventType="touchUpInside" id="j02-LJ-H5G"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -479,7 +465,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="800"/>
                     <connections>
-                        <outlet property="deleteButton" destination="2L3-LC-i84" id="cGW-gh-dNG"/>
                         <outlet property="saveButton" destination="4C2-Xj-NdI" id="XOy-rk-BBX"/>
                         <outlet property="scrollView" destination="ZIi-0O-S2s" id="cu3-K4-pfL"/>
                     </connections>

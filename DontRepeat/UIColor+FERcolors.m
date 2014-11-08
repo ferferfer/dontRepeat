@@ -23,4 +23,8 @@
 	return [UIColor colorWithRed:0/255.0f green:122/255.0f blue:255/255.0f alpha:1.0];
 }
 
++ (UIColor *)appRedColor{
+	return [UIColor colorWithRed:192/255.0f green:57/255.0f blue:43/255.0f alpha:1.0];
+}
+
 @end

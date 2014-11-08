@@ -44,6 +44,7 @@
 	if (!isiPhone) {
 		self.dontRepeatObjects.pictureImageView.frame=[self.objectsHelper calculateImageFrameWithView:self.view andPictureButton:self.dontRepeatObjects.pictureButton];
 	}
+	self.dontRepeatObjects.deleteButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.deleteButton.frame.origin.y);
 }
 
 -(void)viewDidLayoutSubviews {
@@ -52,7 +53,6 @@
 																		 self.view.frame.origin.y,
 																		 self.view.frame.size.width,
 																		 self.view.frame.size.height);
-																		 //self.deleteButton.frame.origin.y+self.deleteButton.frame.size.width);
 	self.scrollView.contentInset = UIEdgeInsetsMake(75, 0, 300, 0);
 	self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
 	self.scrollView.contentSize = self.scrollView.frame.size;
@@ -98,6 +98,7 @@
 	[myView addSubview:self.dontRepeatObjects.datePicker];
 	[myView addSubview:self.dontRepeatObjects.pictureButton];
 	[myView addSubview:self.dontRepeatObjects.pictureImageView];
+	[myView addSubview:self.dontRepeatObjects.deleteButton];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -160,6 +161,7 @@
 	if (_dontRepeat==nil) {
 		_dontRepeat=[[DontRepeat alloc]init];
 		self.saveButton.enabled=YES;
+		self.dontRepeatObjects.deleteButton.hidden=YES;
 	}else{
 		self.dontRepeatObjects.titleTextField.text=self.dontRepeat.dontRepeatTitle;
 		self.dontRepeatObjects.datePicker.date=[self.formatHelper returnDateFromString:self.dontRepeat.dontRepeatDate];
@@ -171,11 +173,11 @@
 																														options:NSDataBase64DecodingIgnoreUnknownCharacters];
 		self.dontRepeatObjects.pictureImageView.image=[UIImage imageWithData:stringData];
 		
-		[self disableControls];
+		[self enableControls];
 	}
 }
 
--(void)disableControls{
+-(void)enableControls{
 	self.saveButton.title=@"Update";
 	self.deleteButton.hidden=NO;
 }
@@ -183,7 +185,7 @@
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
 	
-	self.dontRepeatObjects.deleteButton=self.deleteButton;
+//	self.dontRepeatObjects.deleteButton=self.deleteButton;
 	
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 }

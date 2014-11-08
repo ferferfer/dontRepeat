@@ -13,5 +13,6 @@
 + (UIColor *)appBeigeColor;
 + (UIColor *)appPolaroidTheme;
 + (UIColor *)appDefaultBlueColor;
++ (UIColor *)appRedColor;
 
 @end

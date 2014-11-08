@@ -48,6 +48,11 @@
 		_pictureImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 304, 408)];
 		[_pictureImageView setContentMode:UIViewContentModeScaleAspectFit];
 
+		_deleteButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 304, 50)];
+		[_deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+		[_deleteButton setBackgroundColor:[UIColor appRedColor]];
+		[_deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+		_deleteButton.titleLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:29.0];
 		
 	}
 	return self;
