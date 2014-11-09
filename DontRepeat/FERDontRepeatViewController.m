@@ -44,7 +44,7 @@
 	if (!isiPhone) {
 		self.dontRepeatObjects.pictureImageView.frame=[self.objectsHelper calculateImageFrameWithView:self.view andPictureButton:self.dontRepeatObjects.pictureButton];
 	}
-	self.dontRepeatObjects.deleteButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.deleteButton.frame.origin.y);
+	self.dontRepeatObjects.deleteButton.center = CGPointMake(self.view.frame.size.width/2, self.dontRepeatObjects.deleteButton.frame.origin.y+self.dontRepeatObjects.deleteButton.frame.size.height/2);
 }
 
 -(void)viewDidLayoutSubviews {
@@ -65,6 +65,7 @@
 	newPicture=NO;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		isiPhone=NO;
+		self.dontRepeatObjects.deleteButton.hidden=YES;
 	}else{
 		isiPhone=YES;
 	}
