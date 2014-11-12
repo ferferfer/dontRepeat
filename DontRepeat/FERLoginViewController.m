@@ -112,6 +112,7 @@
 #pragma mark - User LogIn
 -(void)loginUser:(FERUser *)theUser{
 	[self dismissViewControllerAnimated:YES completion:nil];
+	[self.plist addUser:theUser];
 	[self.firebase authUser:self.emailTextField.text password:self.passwordTextField.text withCompletionBlock:^(NSError *error, FAuthData *authData) {
 		if (error != nil) {
 			NSString *errorString=[error.userInfo valueForKey:@"NSLocalizedDescription"];
@@ -123,7 +124,6 @@
 			}
 			
 		} else {
-			[self.plist addUser:theUser];
 			NSLog(@"We are now authed");
 		}
 	}];
