@@ -152,7 +152,6 @@
 	self.searchBar.delegate = self;
 	self.searchBar.backgroundColor=[UIColor clearColor];
 	self.searchBar.placeholder=@"Search";
-	//	self.searchDisplayController.searchBar.=[UIColor blueColor];
 	[self.view addSubview:self.searchBar];
 }
 
@@ -254,7 +253,6 @@
 	[self.authClient unauth];
 	[self.plistManager removeUserFromUserList];
 	[self.navigationController popToRootViewControllerAnimated:YES];
-	//	[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)loadFirebasesDontRepeatsFromUser:(FERUser *)user{

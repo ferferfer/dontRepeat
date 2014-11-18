@@ -11,8 +11,6 @@
 
 #import <Firebase/Firebase.h>
 
-//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
-
 @interface FERResetPasswordViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,strong)Firebase *firebase;
@@ -25,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.emailTextField.delegate=self;
-    // Do any additional setup after loading the view.
 }
 
 -(Firebase *)firebase{

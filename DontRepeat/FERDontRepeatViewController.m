@@ -108,7 +108,6 @@
 	if (portrait) {
 		NSLog(@"PORTRAIT self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-		//	[self.objectsHelper hideFields:self.dontRepeatObjects];
 	}else{
 		NSLog(@"LANDSCAPE self.view.frame: %@",NSStringFromCGRect(self.view.frame));
 		[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
@@ -185,15 +184,9 @@
 
 -(void)configure{
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundOrange"]];
-	
-//	self.dontRepeatObjects.deleteButton=self.deleteButton;
-	
 	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
 }
 
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-//	[self.objectsHelper originalPosition:self.dontRepeatObjects foriPhone:isiPhone forView:self.view];
-//}
 
 -(BOOL)checkFields{
 	if ([self.dontRepeatObjects.titleTextField.text isEqualToString:@""]) {
@@ -317,7 +310,6 @@
 		dont.dontRepeatID=self.dontRepeat.dontRepeatID;
 		dont.dontRepeatDeleted=@"YES";
 		[self.delegate updateDontRepeat:self.dontRepeat with:dont];
-		//	[self.delegate removeDontRepeat:self.dontRepeat];
 		[self.navigationController popViewControllerAnimated:YES];
 	}
 }

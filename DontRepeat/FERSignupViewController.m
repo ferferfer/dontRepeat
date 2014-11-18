@@ -17,8 +17,6 @@
 
 #import <Firebase/Firebase.h>
 
-//NSString *const FERFireBaseURL = @"https://dontrepeat.firebaseio.com/";
-
 @interface FERSignupViewController ()<FERInfoViewControllerDelegate, UIPopoverControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
