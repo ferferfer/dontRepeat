@@ -294,6 +294,7 @@
 						 withInfo:(NSDictionary *)info{
 	self.dontRepeatObjects.pictureImageView.backgroundColor =[[UIColor whiteColor]colorWithAlphaComponent:0.65f];
 	[self.dontRepeatObjects.pictureImageView setImage:photo];
+	[self.dontRepeatObjects.pictureArray addObject:self.dontRepeatObjects.pictureImageView];
 	newPicture=YES;
 }
 

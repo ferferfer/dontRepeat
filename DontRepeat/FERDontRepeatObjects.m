@@ -31,7 +31,7 @@
 		
 		_pictureButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 304, 40)];
 		[_pictureButton setTitleColor:[UIColor appDefaultBlueColor] forState:UIControlStateNormal];
-		[_pictureButton setTitle:@"Picture" forState:UIControlStateNormal];
+		[_pictureButton setTitle:@"Add Picture" forState:UIControlStateNormal];
 		_pictureButton.titleLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:29.0];
 		
 		_titleTextField=[[UITextField alloc]initWithFrame:CGRectMake(8, 0, 304, 20)];

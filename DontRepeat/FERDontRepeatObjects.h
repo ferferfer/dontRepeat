@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIButton *descriptionButton;
 @property (strong, nonatomic) UITextView *descriptionTextView;
 @property (strong, nonatomic) UIButton *pictureButton;
+@property (strong, nonatomic) NSMutableArray *pictureArray;
 @property (strong, nonatomic) UIImageView *pictureImageView;
 @property (strong, nonatomic) UIButton *deleteButton;
 
